@@ -9,9 +9,6 @@
 #ifndef GNBasicTypeValuePrintTest_h
 #define GNBasicTypeValuePrintTest_h
 
-#pragma mark - 
-#pragma mark Public Declarations
-
 extern
 void GNPrintBasicTypeTest(void);
 

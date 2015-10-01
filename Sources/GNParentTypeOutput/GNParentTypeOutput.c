@@ -7,13 +7,16 @@
 //
 
 #include <stdio.h>
-#include "GNOutputParentType.h"
+#include "GNParentTypeOutput.h"
 
 #pragma mark -
 #pragma mark Private Implementations
 
+const int kGNMotherDivisor = 3;
+const int kGNFatherDivisor = 5;
 
 GNParentType GNParentTypeOutput(int value) {
+   
     int result = GNParentTypeUndefined;
     
     if (0 != value) {
@@ -23,26 +26,16 @@ GNParentType GNParentTypeOutput(int value) {
         }
         
         if (0 == value % kGNFatherDivisor) {
-            result  = (GNParentTypeMother == result
-                       ? GNParentTypeMotherFather
-                       : GNParentTypeFather);
             printf("Father");
+            result = (GNParentTypeMother == result
+                  ? GNParentTypeMotherFather
+                  : GNParentTypeFather);
         }
         
-        if (GNParentTypeMother != result) {
+        if (result != GNParentTypeUndefined) {
             printf("\n");
         }
     }
     
     return result;
 }
-
-
-
-
-    
-    
-
-
-     
-    

@@ -6,11 +6,8 @@
 //  Copyright (c) 2015 IDAP College. All rights reserved.
 //
 
-#ifndef GNLearnC_GNSizeOfTypes_h
-#define GNLearnC_GNSizeOfTypes_h
-
-#pragma mark -
-#pragma mark Public Declarations
+#ifndef GNSizeOfTypes_h
+#define GNSizeOfTypes_h
 
 #define GNPrintSizeOfTypes(type) printf("The Size of Type " "(" #type "): " "%ld\n", sizeof(type))
 

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A8393A131BB4039700EB833A /* GNOutputParentType.c in Sources */ = {isa = PBXBuildFile; fileRef = A8393A111BB4039700EB833A /* GNOutputParentType.c */; };
-		A8393A171BB429C400EB833A /* GNParentTypeOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8393A151BB429C400EB833A /* GNParentTypeOutputTests.c */; };
-		A86E368C1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A86E368A1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.c */; settings = {ASSET_TAGS = (); }; };
-		A8E777C81BB346B200FCB3C9 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A8E777C71BB346B200FCB3C9 /* main.c */; };
-		A8E777D61BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8E777D41BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.c */; };
+		A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */; settings = {ASSET_TAGS = (); }; };
+		A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2F1BBD58CF0067BF9D /* main.c */; settings = {ASSET_TAGS = (); }; };
+		A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED321BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c */; settings = {ASSET_TAGS = (); }; };
+		A8D5ED3D1BBD58CF0067BF9D /* GNParentTypeOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED351BBD58CF0067BF9D /* GNParentTypeOutputTests.c */; settings = {ASSET_TAGS = (); }; };
+		A8D5ED3E1BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED381BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,18 +27,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A8393A111BB4039700EB833A /* GNOutputParentType.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNOutputParentType.c; sourceTree = "<group>"; };
-		A8393A121BB4039700EB833A /* GNOutputParentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNOutputParentType.h; sourceTree = "<group>"; };
-		A8393A151BB429C400EB833A /* GNParentTypeOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutputTests.c; sourceTree = "<group>"; };
-		A8393A161BB429C400EB833A /* GNParentTypeOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutputTests.h; sourceTree = "<group>"; };
-		A86E368A1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNBasicTypeValuePrintTest.c; sourceTree = "<group>"; };
-		A86E368B1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValuePrintTest.h; sourceTree = "<group>"; };
-		A8BB1F791BB9DEFA0079E4AB /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
+		A8D5ED291BBD58CF0067BF9D /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
+		A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutput.c; sourceTree = "<group>"; };
+		A8D5ED2C1BBD58CF0067BF9D /* GNParentTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutput.h; sourceTree = "<group>"; };
+		A8D5ED2E1BBD58CF0067BF9D /* GNSizeOfTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypes.h; sourceTree = "<group>"; };
+		A8D5ED2F1BBD58CF0067BF9D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A8D5ED321BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNBasicTypeValuePrintTest.c; sourceTree = "<group>"; };
+		A8D5ED331BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValuePrintTest.h; sourceTree = "<group>"; };
+		A8D5ED351BBD58CF0067BF9D /* GNParentTypeOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutputTests.c; sourceTree = "<group>"; };
+		A8D5ED361BBD58CF0067BF9D /* GNParentTypeOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutputTests.h; sourceTree = "<group>"; };
+		A8D5ED381BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNSizeOfTypesPrintTest.c; sourceTree = "<group>"; };
+		A8D5ED391BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypesPrintTest.h; sourceTree = "<group>"; };
 		A8E777C41BB346B200FCB3C9 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8E777C71BB346B200FCB3C9 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		A8E777D31BB3496800FCB3C9 /* GNSizeOfTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypes.h; sourceTree = "<group>"; };
-		A8E777D41BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNSizeOfTypesPrintTest.c; sourceTree = "<group>"; };
-		A8E777D51BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypesPrintTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,48 +52,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A8393A101BB402C000EB833A /* GNParentTypeOutput */ = {
+		A8D5ED271BBD58CF0067BF9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A8393A111BB4039700EB833A /* GNOutputParentType.c */,
-				A8393A121BB4039700EB833A /* GNOutputParentType.h */,
+				A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */,
+				A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */,
+				A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */,
+				A8D5ED2F1BBD58CF0067BF9D /* main.c */,
 			);
-			name = GNParentTypeOutput;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		A8393A141BB4299300EB833A /* GNParentTypeOutputTests */ = {
+		A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */ = {
 			isa = PBXGroup;
 			children = (
-				A8393A151BB429C400EB833A /* GNParentTypeOutputTests.c */,
-				A8393A161BB429C400EB833A /* GNParentTypeOutputTests.h */,
+				A8D5ED291BBD58CF0067BF9D /* GNBasicTypeValue.h */,
 			);
-			name = GNParentTypeOutputTests;
+			path = GNBasicTypeValue;
 			sourceTree = "<group>";
 		};
-		A86E36881BBABEB000CB6BD9 /* GNBasicTypeValuePrintTest */ = {
+		A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */ = {
 			isa = PBXGroup;
 			children = (
-				A86E368A1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.c */,
-				A86E368B1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.h */,
+				A8D5ED2C1BBD58CF0067BF9D /* GNParentTypeOutput.h */,
+				A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */,
 			);
-			name = GNBasicTypeValuePrintTest;
+			path = GNParentTypeOutput;
 			sourceTree = "<group>";
 		};
-		A8BB1F771BB9D76C0079E4AB /* GNBasicTypeValue */ = {
+		A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A8BB1F791BB9DEFA0079E4AB /* GNBasicTypeValue.h */,
+				A8D5ED2E1BBD58CF0067BF9D /* GNSizeOfTypes.h */,
 			);
-			name = GNBasicTypeValue;
+			path = GNSizeOfTypes;
+			sourceTree = "<group>";
+		};
+		A8D5ED301BBD58CF0067BF9D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A8D5ED371BBD58CF0067BF9D /* GNSizeOfTypesPrintTest */,
+				A8D5ED341BBD58CF0067BF9D /* GNParentTypeOutputTests */,
+				A8D5ED311BBD58CF0067BF9D /* GNBasicTypeValuePrintTest */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A8D5ED311BBD58CF0067BF9D /* GNBasicTypeValuePrintTest */ = {
+			isa = PBXGroup;
+			children = (
+				A8D5ED331BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.h */,
+				A8D5ED321BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c */,
+			);
+			path = GNBasicTypeValuePrintTest;
+			sourceTree = "<group>";
+		};
+		A8D5ED341BBD58CF0067BF9D /* GNParentTypeOutputTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8D5ED361BBD58CF0067BF9D /* GNParentTypeOutputTests.h */,
+				A8D5ED351BBD58CF0067BF9D /* GNParentTypeOutputTests.c */,
+			);
+			path = GNParentTypeOutputTests;
+			sourceTree = "<group>";
+		};
+		A8D5ED371BBD58CF0067BF9D /* GNSizeOfTypesPrintTest */ = {
+			isa = PBXGroup;
+			children = (
+				A8D5ED391BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.h */,
+				A8D5ED381BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c */,
+			);
+			path = GNSizeOfTypesPrintTest;
 			sourceTree = "<group>";
 		};
 		A8E777BB1BB346B200FCB3C9 = {
 			isa = PBXGroup;
 			children = (
-				A8E777CF1BB346C800FCB3C9 /* Tests */,
-				A8E777CE1BB346C000FCB3C9 /* Sources */,
-				A8E777C61BB346B200FCB3C9 /* GNLearnC */,
 				A8E777C51BB346B200FCB3C9 /* Products */,
+				A8D5ED271BBD58CF0067BF9D /* Sources */,
+				A8D5ED301BBD58CF0067BF9D /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,51 +140,6 @@
 				A8E777C41BB346B200FCB3C9 /* GNLearnC */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A8E777C61BB346B200FCB3C9 /* GNLearnC */ = {
-			isa = PBXGroup;
-			children = (
-				A8E777C71BB346B200FCB3C9 /* main.c */,
-			);
-			path = GNLearnC;
-			sourceTree = "<group>";
-		};
-		A8E777CE1BB346C000FCB3C9 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				A8BB1F771BB9D76C0079E4AB /* GNBasicTypeValue */,
-				A8393A101BB402C000EB833A /* GNParentTypeOutput */,
-				A8E777D01BB346E000FCB3C9 /* GNSizeOfTypes */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		A8E777CF1BB346C800FCB3C9 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A86E36881BBABEB000CB6BD9 /* GNBasicTypeValuePrintTest */,
-				A8393A141BB4299300EB833A /* GNParentTypeOutputTests */,
-				A8E777D21BB3487300FCB3C9 /* GNSizeOfTypesPrintTest */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
-		A8E777D01BB346E000FCB3C9 /* GNSizeOfTypes */ = {
-			isa = PBXGroup;
-			children = (
-				A8E777D31BB3496800FCB3C9 /* GNSizeOfTypes.h */,
-			);
-			name = GNSizeOfTypes;
-			sourceTree = "<group>";
-		};
-		A8E777D21BB3487300FCB3C9 /* GNSizeOfTypesPrintTest */ = {
-			isa = PBXGroup;
-			children = (
-				A8E777D41BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.c */,
-				A8E777D51BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.h */,
-			);
-			name = GNSizeOfTypesPrintTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,11 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8393A171BB429C400EB833A /* GNParentTypeOutputTests.c in Sources */,
-				A8E777D61BB34B5700FCB3C9 /* GNSizeOfTypesPrintTest.c in Sources */,
-				A8E777C81BB346B200FCB3C9 /* main.c in Sources */,
-				A86E368C1BBABF1C00CB6BD9 /* GNBasicTypeValuePrintTest.c in Sources */,
-				A8393A131BB4039700EB833A /* GNOutputParentType.c in Sources */,
+				A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */,
+				A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */,
+				A8D5ED3E1BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c in Sources */,
+				A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */,
+				A8D5ED3D1BBD58CF0067BF9D /* GNParentTypeOutputTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

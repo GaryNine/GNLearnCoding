@@ -6,11 +6,8 @@
 //  Copyright (c) 2015 IDAP College. All rights reserved.
 //
 
-#ifndef __GNLearnC__GNOutputParentType__
-#define __GNLearnC__GNOutputParentType__
-
-#pragma mark -
-#pragma mark Public Declarations
+#ifndef GNParentTypeOutput_h
+#define GNParentTypeOutput_h
 
 typedef enum {
     GNParentTypeMother,
@@ -19,9 +16,7 @@ typedef enum {
     GNParentTypeUndefined,
 } GNParentType;
 
-extern GNParentType GNParentTypeOutput();
-
-const int kGNMotherDivisor = 3;
-const int kGNFatherDivisor = 5;
+extern
+GNParentType GNParentTypeOutput(int value);
 
 #endif 

@@ -13,7 +13,6 @@
 #pragma mark Public Implementations
 
 void GNSizeOfTypesPrintTest(void) {
-    
     GNPrintSizeOfTypes(int);
     GNPrintSizeOfTypes(short);
     GNPrintSizeOfTypes(long);
@@ -23,6 +22,7 @@ void GNSizeOfTypesPrintTest(void) {
     GNPrintSizeOfTypes(unsigned char);
     GNPrintSizeOfTypes(float);
     GNPrintSizeOfTypes(double);
-    GNPrintSizeOfTypes(long double);    
+    GNPrintSizeOfTypes(long double);
     
+    printf("\n");
 }

@@ -6,15 +6,14 @@
 //  Copyright (c) 2015 IDAP College. All rights reserved.
 //
 
-#include <stdio.h>
 #include "GNSizeOfTypesPrintTest.h"
-#include "GNParentTypeOutputTests.h"
 #include "GNBasicTypeValuePrintTest.h"
+#include "GNParentTypeOutputTests.h"
 
 int main(int argc, const char * argv[]) {
-   
     GNSizeOfTypesPrintTest();
     GNPrintBasicTypeTest();
+    GNParentTypeOutputTests();
 
     return 0;
 }

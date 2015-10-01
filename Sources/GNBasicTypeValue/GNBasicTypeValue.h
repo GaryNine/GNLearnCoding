@@ -9,9 +9,6 @@
 #ifndef GNBasicTypeValue_h
 #define GNBasicTypeValue_h
 
-#pragma mark -
-#pragma mark Public Declarations
-
 #define GNBasicTypeValue(type, specifier) \
     void output_ ## type(type value) { \
         printf("The Value of Basic Type " #type ": " #specifier "\n", value); \

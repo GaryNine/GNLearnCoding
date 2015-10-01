@@ -10,15 +10,14 @@
 #include "GNBasicTypeValuePrintTest.h"
 #include "GNBasicTypeValue.h"
 
-#pragma mark - 
-#pragma mark Private Implementations
+#pragma mark -
+#pragma mark Public Implementations
 
 GNBasicTypeValue(int, %i)
-GNBasicTypeValue(short, %d)
+GNBasicTypeValue(short, %i)
 GNBasicTypeValue(char, %c)
 GNBasicTypeValue(float, %f)
 GNBasicTypeValue(double, %f)
-
 
 void GNPrintBasicTypeTest(void) {
     GNBasicTypeOutput(int, 5)
@@ -26,5 +25,6 @@ void GNPrintBasicTypeTest(void) {
     GNBasicTypeOutput(char, 'a')
     GNBasicTypeOutput(float, 2.35)
     GNBasicTypeOutput(double, 35.46)
-  
+    
+    printf("\n");
 }

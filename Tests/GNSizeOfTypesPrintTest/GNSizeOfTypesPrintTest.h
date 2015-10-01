@@ -6,13 +6,10 @@
 //  Copyright (c) 2015 IDAP College. All rights reserved.
 //
 
-#ifndef __GNLearnC__GNSizeOfTypesPrintTest__
-#define __GNLearnC__GNSizeOfTypesPrintTest__
+#ifndef GNSizeOfTypesPrintTest_h
+#define GNSizeOfTypesPrintTest_h
 
 #include <stdio.h>
-
-#pragma mark - 
-#pragma mark Public Declarations
 
 extern
 void GNSizeOfTypesPrintTest(void);
