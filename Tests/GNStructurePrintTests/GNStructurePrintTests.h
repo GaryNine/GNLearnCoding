@@ -12,29 +12,9 @@
 #include <stdio.h>
 #include <stddef.h>
 
-#define GNOffsetofPrint(structure, structMember) \
-    printf("Offsetof " "(" #structMember "): "  "%lu\n", offsetof(structure, structMember))
-
-#define GNOffsetofPrintStructures(structure) \
-    GNOffsetofPrint(structure, string); \
-    GNOffsetofPrint(structure, doubleValue); \
-    GNOffsetofPrint(structure, llValue); \
-    GNOffsetofPrint(structure, floatValue); \
-    GNOffsetofPrint(structure, intValue); \
-    GNOffsetofPrint(structure, shortValue1); \
-    GNOffsetofPrint(structure, shortValue2); \
-    GNOffsetofPrint(structure, shortValue3); \
-
-#define GNOffsetofPrintUnionBool(structure) \
-    GNOffsetofPrint(structure, bool1); \
-    GNOffsetofPrint(structure, bool2); \
-    GNOffsetofPrint(structure, bool3); \
-    GNOffsetofPrint(structure, bool4); \
-    GNOffsetofPrint(structure, bool5); \
-    GNOffsetofPrint(structure, bool6); \
-    printf("\n");
-
+extern
 void GNOffsetofPrintTests(void);
+extern
 void GNSizeofPrintTest(void);
 
 #endif
