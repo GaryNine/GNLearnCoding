@@ -10,10 +10,10 @@
 #define GNParentTypeOutput_h
 
 typedef enum {
-    GNParentTypeMother,
-    GNParentTypeFather,
-    GNParentTypeMotherFather,
-    GNParentTypeUndefined,
+    kGNParentTypeUndefined,
+    kGNParentTypeMother,
+    kGNParentTypeFather,
+    kGNParentTypeMotherFather,
 } GNParentType;
 
 extern

@@ -9,11 +9,14 @@
 #include "GNSizeOfTypesPrintTest.h"
 #include "GNBasicTypeValuePrintTest.h"
 #include "GNParentTypeOutputTests.h"
+#include "GNStructurePrintTests.h"
 
 int main(int argc, const char * argv[]) {
-    GNSizeOfTypesPrintTest();
-    GNPrintBasicTypeTest();
-    GNParentTypeOutputTests();
+//    GNSizeOfTypesPrintTest();
+//    GNPrintBasicTypeTest();
+//    GNParentTypeOutputTests();
+    
+    GNOffsetofPrintTests();
 
     return 0;
 }

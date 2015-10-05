@@ -38,26 +38,26 @@ void GNParentTypeOutputTests() {
 
 // Cheking of Parent Type Mother
  void GNCheckParentTypeMother(void) {
-     assert(GNParentTypeOutput(3) == GNParentTypeMother);
-     assert(GNParentTypeOutput(9) == GNParentTypeMother);
+     assert(GNParentTypeOutput(3) == kGNParentTypeMother);
+     assert(GNParentTypeOutput(9) == kGNParentTypeMother);
 }
 
 // Cheking of Parent Type Father
 void GNCheckParentTypeFather(void) {
-    assert(GNParentTypeOutput(5) == GNParentTypeFather);
-    assert(GNParentTypeOutput(10) == GNParentTypeFather);
+    assert(GNParentTypeOutput(5) == kGNParentTypeFather);
+    assert(GNParentTypeOutput(10) == kGNParentTypeFather);
 }
 
 // Cheking of Split Parent Type
 void GNCheckParentTypeMotherFather(void) {
-    assert(GNParentTypeOutput(15) == GNParentTypeMotherFather);
-    assert(GNParentTypeOutput(30) == GNParentTypeMotherFather);
+    assert(GNParentTypeOutput(15) == kGNParentTypeMotherFather);
+    assert(GNParentTypeOutput(30) == kGNParentTypeMotherFather);
 }
 
 // Cheking Parent Type Undefined
 void GNCheckParentTypeUndefined(void) {
-    assert(GNParentTypeOutput(0) == GNParentTypeUndefined);
-    assert(GNParentTypeOutput(7) == GNParentTypeUndefined);
+    assert(GNParentTypeOutput(0) == kGNParentTypeUndefined);
+    assert(GNParentTypeOutput(7) == kGNParentTypeUndefined);
 }
 
 // Cheking GNParentTypeOutput function during 1000 cycles

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8156DA71BC292440075EE68 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2F1BBD58CF0067BF9D /* main.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED321BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c */; settings = {ASSET_TAGS = (); }; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNStructurePrintTests.c; sourceTree = "<group>"; };
+		A8156DA61BC292440075EE68 /* GNStructurePrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNStructurePrintTests.h; sourceTree = "<group>"; };
 		A8D5ED291BBD58CF0067BF9D /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
 		A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutput.c; sourceTree = "<group>"; };
 		A8D5ED2C1BBD58CF0067BF9D /* GNParentTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutput.h; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		A8D5ED381BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNSizeOfTypesPrintTest.c; sourceTree = "<group>"; };
 		A8D5ED391BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypesPrintTest.h; sourceTree = "<group>"; };
 		A8E777C41BB346B200FCB3C9 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8F9AF841BC29C0E00686ED9 /* GNPerformStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GNPerformStructure.h; path = Sources/GNPerformStructure/GNPerformStructure.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +56,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8156DA41BC2901D0075EE68 /* GNStructurePrintTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8156DA61BC292440075EE68 /* GNStructurePrintTests.h */,
+				A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */,
+			);
+			path = GNStructurePrintTests;
+			sourceTree = "<group>";
+		};
+		A8BF9C281BC1402B0059571B /* GNPerformStructure */ = {
+			isa = PBXGroup;
+			children = (
+				A8F9AF841BC29C0E00686ED9 /* GNPerformStructure.h */,
+			);
+			path = GNPerformStructure;
+			sourceTree = "<group>";
+		};
 		A8D5ED271BBD58CF0067BF9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */,
 				A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */,
 				A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */,
+				A8BF9C281BC1402B0059571B /* GNPerformStructure */,
 				A8D5ED2F1BBD58CF0067BF9D /* main.c */,
 			);
 			path = Sources;
@@ -94,6 +116,7 @@
 				A8D5ED371BBD58CF0067BF9D /* GNSizeOfTypesPrintTest */,
 				A8D5ED341BBD58CF0067BF9D /* GNParentTypeOutputTests */,
 				A8D5ED311BBD58CF0067BF9D /* GNBasicTypeValuePrintTest */,
+				A8156DA41BC2901D0075EE68 /* GNStructurePrintTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -202,6 +225,7 @@
 				A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */,
 				A8D5ED3E1BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c in Sources */,
 				A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */,
+				A8156DA71BC292440075EE68 /* GNStructurePrintTests.c in Sources */,
 				A8D5ED3D1BBD58CF0067BF9D /* GNParentTypeOutputTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

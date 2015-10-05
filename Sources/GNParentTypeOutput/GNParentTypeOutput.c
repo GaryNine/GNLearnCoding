@@ -17,22 +17,22 @@ const int kGNFatherDivisor = 5;
 
 GNParentType GNParentTypeOutput(int value) {
    
-    int result = GNParentTypeUndefined;
+    int result = kGNParentTypeUndefined;
     
     if (0 != value) {
         if (0 == value % kGNMotherDivisor) {
             printf("Mother");
-            result = GNParentTypeMother;
+            result = kGNParentTypeMother;
         }
         
         if (0 == value % kGNFatherDivisor) {
             printf("Father");
-            result = (GNParentTypeMother == result
-                  ? GNParentTypeMotherFather
-                  : GNParentTypeFather);
+            result = (kGNParentTypeMother == result
+                  ? kGNParentTypeMotherFather
+                  : kGNParentTypeFather);
         }
         
-        if (result != GNParentTypeUndefined) {
+        if (result != kGNParentTypeUndefined) {
             printf("\n");
         }
     }
