@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A8156DA71BC292440075EE68 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */; settings = {ASSET_TAGS = (); }; };
+		A8324D911BC403FF001F98CC /* GNValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8324D8F1BC403FF001F98CC /* GNValueBitOutput.c */; settings = {ASSET_TAGS = (); }; };
+		A89902C61BC6AA5A002225C4 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A89902C41BC6AA5A002225C4 /* GNValueBitOutputTests.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED2F1BBD58CF0067BF9D /* main.c */; settings = {ASSET_TAGS = (); }; };
 		A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8D5ED321BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +32,10 @@
 /* Begin PBXFileReference section */
 		A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNStructurePrintTests.c; sourceTree = "<group>"; };
 		A8156DA61BC292440075EE68 /* GNStructurePrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNStructurePrintTests.h; sourceTree = "<group>"; };
+		A8324D8F1BC403FF001F98CC /* GNValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutput.c; sourceTree = "<group>"; };
+		A8324D901BC403FF001F98CC /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
+		A89902C41BC6AA5A002225C4 /* GNValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutputTests.c; sourceTree = "<group>"; };
+		A89902C51BC6AA5A002225C4 /* GNValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutputTests.h; sourceTree = "<group>"; };
 		A8D5ED291BBD58CF0067BF9D /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
 		A8D5ED2B1BBD58CF0067BF9D /* GNParentTypeOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutput.c; sourceTree = "<group>"; };
 		A8D5ED2C1BBD58CF0067BF9D /* GNParentTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutput.h; sourceTree = "<group>"; };
@@ -65,6 +71,24 @@
 			path = GNStructurePrintTests;
 			sourceTree = "<group>";
 		};
+		A8324D8E1BC403C4001F98CC /* GNValueBitOutput */ = {
+			isa = PBXGroup;
+			children = (
+				A8324D901BC403FF001F98CC /* GNValueBitOutput.h */,
+				A8324D8F1BC403FF001F98CC /* GNValueBitOutput.c */,
+			);
+			path = GNValueBitOutput;
+			sourceTree = "<group>";
+		};
+		A89902C31BC6AA22002225C4 /* GNValueBitOutputTests */ = {
+			isa = PBXGroup;
+			children = (
+				A89902C51BC6AA5A002225C4 /* GNValueBitOutputTests.h */,
+				A89902C41BC6AA5A002225C4 /* GNValueBitOutputTests.c */,
+			);
+			path = GNValueBitOutputTests;
+			sourceTree = "<group>";
+		};
 		A8BF9C281BC1402B0059571B /* GNPerformStructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +100,7 @@
 		A8D5ED271BBD58CF0067BF9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A8324D8E1BC403C4001F98CC /* GNValueBitOutput */,
 				A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */,
 				A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */,
 				A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */,
@@ -113,6 +138,7 @@
 		A8D5ED301BBD58CF0067BF9D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A89902C31BC6AA22002225C4 /* GNValueBitOutputTests */,
 				A8D5ED371BBD58CF0067BF9D /* GNSizeOfTypesPrintTest */,
 				A8D5ED341BBD58CF0067BF9D /* GNParentTypeOutputTests */,
 				A8D5ED311BBD58CF0067BF9D /* GNBasicTypeValuePrintTest */,
@@ -222,9 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */,
+				A8324D911BC403FF001F98CC /* GNValueBitOutput.c in Sources */,
 				A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */,
 				A8D5ED3E1BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c in Sources */,
 				A8D5ED3A1BBD58CF0067BF9D /* GNParentTypeOutput.c in Sources */,
+				A89902C61BC6AA5A002225C4 /* GNValueBitOutputTests.c in Sources */,
 				A8156DA71BC292440075EE68 /* GNStructurePrintTests.c in Sources */,
 				A8D5ED3D1BBD58CF0067BF9D /* GNParentTypeOutputTests.c in Sources */,
 			);
