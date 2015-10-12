@@ -16,8 +16,8 @@ int main(int argc, const char * argv[]) {
 //    GNSizeOfTypesPrintTest();
 //    GNPrintBasicTypeTest();
 //    GNParentTypeOutputTests();
-//    GNOffsetofPrintTests()
-      GNValueBitOutputTests();
+//    GNOffsetofPrintTests();
+    GNValueBitOutputTests();
    
    return 0;
 }

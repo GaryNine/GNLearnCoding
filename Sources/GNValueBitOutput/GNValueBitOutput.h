@@ -11,7 +11,13 @@
 
 #include <stddef.h>
 
+typedef enum {
+    kGNEndianTypeUnknown,
+    kGNEndianTypeLittleEndian,
+    kGNEndianTypeBigEndian
+} GNEndianType;
+
 extern
-void GNValueBitOutput(void *value, size_t sizeOfValue);
+void GNValueBitOutput(void *value, size_t sizeOfValue, GNEndianType endianType);
 
 #endif

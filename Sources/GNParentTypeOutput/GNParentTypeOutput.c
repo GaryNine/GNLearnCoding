@@ -12,12 +12,12 @@
 #pragma mark -
 #pragma mark Private Implementations
 
-const int kGNMotherDivisor = 3;
-const int kGNFatherDivisor = 5;
+static const int kGNMotherDivisor = 3;
+static const int kGNFatherDivisor = 5;
 
 GNParentType GNParentTypeOutput(int value) {
    
-    int result = kGNParentTypeUndefined;
+    GNParentType result = kGNParentTypeUndefined;
     
     if (0 != value) {
         if (0 == value % kGNMotherDivisor) {
@@ -28,8 +28,8 @@ GNParentType GNParentTypeOutput(int value) {
         if (0 == value % kGNFatherDivisor) {
             printf("Father");
             result = (kGNParentTypeMother == result
-                  ? kGNParentTypeMotherFather
-                  : kGNParentTypeFather);
+                      ? kGNParentTypeMotherFather
+                      : kGNParentTypeFather);
         }
         
         if (result != kGNParentTypeUndefined) {
