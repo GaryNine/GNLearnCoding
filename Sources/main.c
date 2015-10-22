@@ -13,10 +13,10 @@
 #include "GNValueBitOutputTests.h"
 
 int main(int argc, const char * argv[]) {
-//    GNSizeOfTypesPrintTest();
-//    GNPrintBasicTypeTest();
-//    GNParentTypeOutputTests();
-//    GNOffsetofPrintTests();
+    GNSizeOfTypesPrintTest();
+    GNPrintBasicTypeTest();
+    GNParentTypeOutputTests();
+    GNOffsetofPrintTests();
     GNValueBitOutputTests();
    
    return 0;

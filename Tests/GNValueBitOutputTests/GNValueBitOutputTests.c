@@ -41,8 +41,7 @@ void GNValueBitOutputTests(void) {
 
 GNEndianType GNCurrentEndianType (void) {
     uint16_t someValue = 1;
-    GNEndianType endianType = kGNEndianTypeUnknown;
-    endianType = (*((uint8_t *) &someValue) == 0 ) ? kGNEndianTypeBigEndian : kGNEndianTypeLittleEndian;
+    GNEndianType endianType = (*((uint8_t *) &someValue) == 0 ) ? kGNEndianTypeBigEndian : kGNEndianTypeLittleEndian;
    
     return endianType;
 }

@@ -12,7 +12,6 @@
 #include <stddef.h>
 
 typedef enum {
-    kGNEndianTypeUnknown,
     kGNEndianTypeLittleEndian,
     kGNEndianTypeBigEndian
 } GNEndianType;
