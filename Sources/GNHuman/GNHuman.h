@@ -9,36 +9,38 @@
 #ifndef GNHumanObject_h
 #define GNHumanObject_h
 
+#include "GNString.h"
+
 extern const uint8_t kGNMaxChildren;
 extern const uint8_t kGNinitialAge;
 
 typedef struct GNHuman GNHuman;
 
 typedef enum {
-    kGNmale,
-    kGNfemale
+    kGNMale,
+    kGNFemale
 } GNGenderType;
 
 //Create | Deallocate
 extern
+void __GNHumanDeallocate(void *human); // name with two space
+
+extern
 GNHuman *GNHumanCreate(GNGenderType gender);
 
 extern
-GNHuman GNHumanWithParameters(GNGenderType gender, uint8_t age, char *name);
-
-extern
-void __GNHumanDeallocate(GNHuman *human); // name with two space
+GNHuman GNHumanWithParameters(GNGenderType gender, uint8_t age, GNString *name);
 
 //Setters & Getters
 extern
-char *GNHumanName(GNHuman *human);
+GNString *GNHumanName(GNHuman *human);
 extern
-void GNHumanSetName(GNHuman *human, char *name);
+void GNHumanSetName(GNHuman *human, GNString *string);
 
 extern
 uint8_t GNHumanAge(GNHuman *human);
 extern
-void GHHumanSetAge(GNHuman *human, uint8_t *age);
+void GHHumanSetAge(GNHuman *human, uint8_t age);
 
 extern
 uint8_t GNHumanChildrenCount(GNHuman *human);
@@ -56,24 +58,32 @@ void *GNHumanMother(GNHuman *human);
 extern
 void GNHumanSetMother(GNHuman *human, GNHuman *mother);
 
+extern
+GNGenderType GNHumanGender(GNHuman *human);
+extern
+void GNHumanSetGender(GNHuman *human, GNGenderType gender);
+
 //Retain | Release
-extern
-void GNRetainObject(GNHuman *object);
-extern
-void GNReleaseObject(GNHuman *object);
+//static void GNObjectRetain(GNHuman *object);
+
+//static void GNObjectRelease(GNHuman *object);
 
 //Marry | Devorce
 extern
-void GNHumanMarry(GNHuman *human, GNHuman *partner);
+void GNHumanSetPartner(GNHuman *human, GNHuman *partner);
 extern
 void GNHumanDevorce(GNHuman *human);
+extern
+void GNHumanMarry(GNHuman *human, GNHuman *partner);
 
 //Add | Create | Remove (Children)
 extern
-void GNAddChild(GNHuman *human, GNHuman *child);
+bool GNIsHumanAddChild(GNHuman *human);
 extern
-GNHuman GNCreateChild(GNHuman *father, GNHuman *mother);
+void GNHumanAddChild(GNHuman *human, GNHuman *child);
 extern
-void GNRemoveChildren(GNHuman *human);
+GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother);
+extern
+void GNHumanRemoveChildren(GNHuman *human);
 
 #endif

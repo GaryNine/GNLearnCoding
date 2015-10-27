@@ -11,6 +11,7 @@
 #include "GNParentTypeOutputTests.h"
 #include "GNStructurePrintTests.h"
 #include "GNValueBitOutputTests.h"
+#include "GNObjectTests.h"
 
 int main(int argc, const char * argv[]) {
     GNSizeOfTypesPrintTest();
@@ -18,6 +19,9 @@ int main(int argc, const char * argv[]) {
     GNParentTypeOutputTests();
     GNOffsetofPrintTests();
     GNValueBitOutputTests();
+    
+    
+    GNPerformGNObjectTests();
    
    return 0;
 }
