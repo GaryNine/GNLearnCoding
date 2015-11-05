@@ -11,15 +11,19 @@
 
 #include <stdlib.h>
 
+#define GNObjectCreateOfType(type) __GNObjectCreate(sizeof(type), __ ##type ##Deallocate);
+
+
 typedef void (*GNObjectDeallocator)(void *object);
 
 typedef struct {
     uint64_t _retainCount;
     GNObjectDeallocator _deallocatorFunctionPointer;
+
 } GNObject;
 
 extern
-void *GNObjectCreate(size_t size, GNObjectDeallocator deallocator);
+void *__GNObjectCreate(size_t size, GNObjectDeallocator deallocator);
 
 extern
 void __GNObjectDeallocate(void *object);

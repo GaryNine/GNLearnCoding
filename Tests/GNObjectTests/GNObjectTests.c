@@ -12,7 +12,7 @@
 #include "GNObject.h"
 
 void GNPerformGNObjectTests(void) {
-    GNObject *object = GNObjectCreate(sizeof(GNObject), __GNObjectDeallocate);
+    GNObject *object = __GNObjectCreate(sizeof(GNObject), __GNObjectDeallocate);
     
     assert(NULL != object);
     assert(1 == GNObjectRetainCount(object));

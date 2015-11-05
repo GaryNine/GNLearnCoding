@@ -23,5 +23,7 @@ char *GNStringName(GNString *string);
 extern
 void GNStringSetName(GNString *string, char *name);
 
+extern
+uint8_t GNStringLength(GNString * string, char *name);
 
 #endif

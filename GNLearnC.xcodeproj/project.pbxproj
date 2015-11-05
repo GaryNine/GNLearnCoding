@@ -48,6 +48,7 @@
 		A8324D901BC403FF001F98CC /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
 		A873DC1F1BD39C0C007981B2 /* GNHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHumanTests.c; sourceTree = "<group>"; };
 		A873DC201BD39C0C007981B2 /* GNHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNHumanTests.h; sourceTree = "<group>"; };
+		A87863931BEB918300B560A3 /* GNMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNMacros.h; sourceTree = "<group>"; };
 		A87EE5181BCD4DF3000E3CC6 /* GNHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHuman.c; sourceTree = "<group>"; };
 		A87EE5191BCD4DF3000E3CC6 /* GNHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNHuman.h; sourceTree = "<group>"; };
 		A89902C41BC6AA5A002225C4 /* GNValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutputTests.c; sourceTree = "<group>"; };
@@ -134,6 +135,14 @@
 			path = GNHumanTests;
 			sourceTree = "<group>";
 		};
+		A87863921BEB914600B560A3 /* GNMacros */ = {
+			isa = PBXGroup;
+			children = (
+				A87863931BEB918300B560A3 /* GNMacros.h */,
+			);
+			path = GNMacros;
+			sourceTree = "<group>";
+		};
 		A87EE5171BCD4DBB000E3CC6 /* GNHuman */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,15 +181,16 @@
 		A8D5ED271BBD58CF0067BF9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A87863921BEB914600B560A3 /* GNMacros */,
 				A8A62C6B1BDE70DF00B39401 /* GNArray */,
 				A809521C1BDE509100172996 /* GNString */,
 				A821FE1C1BDA5E0A00589E61 /* GNObject */,
 				A87EE5171BCD4DBB000E3CC6 /* GNHuman */,
-				A8324D8E1BC403C4001F98CC /* GNValueBitOutput */,
-				A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */,
-				A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */,
-				A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */,
 				A8BF9C281BC1402B0059571B /* GNPerformStructure */,
+				A8324D8E1BC403C4001F98CC /* GNValueBitOutput */,
+				A8D5ED2A1BBD58CF0067BF9D /* GNParentTypeOutput */,
+				A8D5ED2D1BBD58CF0067BF9D /* GNSizeOfTypes */,
+				A8D5ED281BBD58CF0067BF9D /* GNBasicTypeValue */,
 				A8D5ED2F1BBD58CF0067BF9D /* main.c */,
 			);
 			path = Sources;

@@ -14,22 +14,20 @@
 #include <assert.h>
 
 #include "GNObject.h"
+#include "GNMacros.h"
 #include "GNHuman.h"
 
 #define GNHumanRetainPartner(partnerMale, partnerFemale) \
-female->_partner = partnerMale; \
-GNObjectRetain(female); \
-male->_partner = partnerFemale;
+        female->_partner = partnerMale; \
+        GNObjectRetain(female); \
+        male->_partner = partnerFemale;
 
 #define GNHumanReleasePartner(partnerValue) \
-female->_partner = partnerValue; \
-GNObjectRelease(female); \
-male->_partner = partnerValue;
+        female->_partner = partnerValue; \
+        GNObjectRelease(female); \
+        male->_partner = partnerValue;
 
-#define GNIvarGetterSyntesize(humanIvar) \
-NULL != human ? human->_ ## humanIvar : NULL;
-
-#pragma mark - 
+#pragma mark -
 #pragma mark Private Declarations
 
 const uint8_t kGNMaxChildren = 20;
@@ -37,17 +35,43 @@ const uint8_t kGNinitialAge = 1;
 
 struct GNHuman {
     GNObject _super;
-//    uint64_t _referenceCount;
     GNHuman *_partner;
     GNHuman *_father;
     GNHuman *_mother;
-    GNHuman *_children[kGNMaxChildren];
+    GNArray *_children;
     GNGenderType _gender;
     GNString *_name;
-//    char *_name;
     uint8_t _age;
-
 };
+
+extern
+void __GNHumanDeallocate(void *human);
+
+extern
+GNHuman *GNHumanCreate(GNGenderType gender);
+
+static
+void GNHumanSetGender(GNHuman *human, GNGenderType gender); //Is needed this method?
+
+static
+bool GNHumanIsAbleToAddChild(GNHuman *human);
+
+static
+void GNHumanSetFather(GNHuman *human, GNHuman *father);
+
+static
+void GNHumanSetMother(GNHuman *human, GNHuman *mother);
+
+static
+void GNHumanSetPartner(GNHuman *human, GNHuman *partner);
+
+static
+void GNHumanAddChild(GNHuman *human, GNHuman *child);
+
+static
+void GNHumanRemoveChildren(GNHuman *human);
+static
+void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex);
 
 #pragma mark -
 #pragma mmark Initializations & Deallocation
@@ -59,122 +83,126 @@ void __GNHumanDeallocate(void *human) {
     GNHumanSetFather(human, NULL);
     GNHumanSetMother(human, NULL);
     
-//    free(human);
     __GNObjectDeallocate(human);
 }
 
 GNHuman *GNHumanCreate(GNGenderType gender) {
-//    GNHuman *human = calloc(1, sizeof(GNHuman));
-    GNHuman *human = GNObjectCreate(sizeof(GNHuman), __GNHumanDeallocate);
+    GNHuman *human = GNObjectCreateOfType(GNHuman);
     assert(NULL != human);
     
-//    human->_referenceCount = 1;
+//    human->_gender = gender;
     GNHumanSetGender(human, gender);
-    GHHumanSetAge(human, kGNinitialAge);
+    GNHumanSetAge(human, kGNinitialAge);
 
     return human;
 }
 
-GNHuman GNHumanWithParameters(GNGenderType gender, uint8_t age, GNString *name) {
+GNHuman *GNHumanWithParameters(GNGenderType gender, uint8_t age, GNString *name) {
     GNHuman *human = GNHumanCreate(gender);
-    GHHumanSetAge(human, age);
+    GNHumanSetAge(human, age);
     GNHumanSetName(human, name);
     
-    return *human;
+    return human;
 }
 
 #pragma mark - 
 #pragma mark Accessors
 
 GNString *GNHumanName(GNHuman *human) {
-    return NULL != human ? human->_name : NULL;
+    return GNIvarGetterSyntesize(human, name, NULL);
 }
 
 void GNHumanSetName(GNHuman *human, GNString *string) {
-    if (NULL != human) {
-        GNObjectRelease(human->_name);
-        GNObjectRetain(string);
-       
-        human->_name = string;
-    }
+    GNObjectRetainSetter(human, name, string);
 }
 
 uint8_t GNHumanAge(GNHuman *human) {
-        return NULL != human ? human->_age : 0;
+    return GNIvarGetterSyntesize(human, age, 0);
 }
 
-void GHHumanSetAge(GNHuman *human, uint8_t age) {
-    if (NULL != human && human->_age != age) {
-        human->_age = age;
-    }
+void GNHumanSetAge(GNHuman *human, uint8_t age) {
+    GNObjectAssignSetter(human, age, age);
 }
 
-uint8_t GNHumanChildrenCount(GNHuman *human) {
-    uint8_t childrenCount = 0;
-    if (NULL != human) {
-        for (int childrenIndex = 0; childrenIndex < kGNMaxChildren; childrenIndex++) {
-            if (human->_children[childrenIndex] != NULL) {
-                childrenCount++;
-            }
-        }
-    }
-    
-    return childrenCount;
+GNHuman *GNHumanPartner(GNHuman *human){
+    return GNIvarGetterSyntesize(human, partner, NULL);
 }
 
-void *GNHumanPartner(GNHuman *human){
-    return GNIvarGetterSyntesize(partner);
-//    return NULL != human ? human->_partner : NULL;
-}
-
-void *GNHumanFather(GNHuman *human) {
-    return GNIvarGetterSyntesize(father);
-//    return NULL != human ? human->_father : NULL;
+GNHuman *GNHumanFather(GNHuman *human) {
+    return GNIvarGetterSyntesize(human, father, NULL);
 }
 
 void GNHumanSetFather(GNHuman *human, GNHuman *father) {
-    if (NULL != human && NULL != father) {
-        human->_father = father;
-    }
+    GNObjectAssignSetter(human, father, father);
 }
 
-void *GNHumanMother(GNHuman *human) {
-    return GNIvarGetterSyntesize(mother);
-//    return NULL != human ? human->_mother : NULL;   
+GNHuman *GNHumanMother(GNHuman *human) {
+    return GNIvarGetterSyntesize(human, mother, NULL);
 }
 
 void GNHumanSetMother(GNHuman *human, GNHuman *mother) {
-    if (NULL != human && NULL != mother) {
-        human->_mother = mother;
+    GNObjectAssignSetter(human, mother, mother);
+}
+
+GNArray *GNHumanChildren(GNHuman *human) {
+    return GNIvarGetterSyntesize(human, children, NULL);
+}
+
+//void GNHumanSetChildren(GNHuman *human, GNArray *children) {
+//    if (NULL != human && NULL != GNHumanChildren(human)) {
+//        GNObjectRelease(human->_children);
+//        GNObjectRetain(children);
+//        human->_children = children;
+//    }
+//}
+
+GNGenderType GNHumanGender(GNHuman *human) {
+    return GNIvarGetterSyntesize(human, gender, 0);
+}
+
+#pragma mark - 
+#pragma mark Public Implementations
+
+uint8_t GNHumanChildrenCount(GNHuman *human) {
+    return ((NULL != human) ? GNArrayObjectsCount(GNHumanChildren(human)) : 0);
+}
+
+void GNHumanDevorce(GNHuman *human) {
+    GNHuman *partner = GNHumanPartner(human);
+    if (NULL != human) {
+        
+        if (GNHumanPartner(human) != NULL) {
+            
+            GNHumanSetPartner(human, partner);
+        }
     }
 }
 
-GNGenderType GNHumanGender(GNHuman *human) {
-    return NULL != human ? human->_gender : 0;      //write a macros
+void GNHumanMarry(GNHuman *human, GNHuman *partner) {
+    if (NULL != human && NULL != partner) {
+        
+        if (GNHumanGender(human) != GNHumanGender(partner)) {
+            GNHumanDevorce(human);
+            GNHumanDevorce(partner);
+            
+            GNHumanSetPartner(human, partner);
+        }
+    }
+}
+
+GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother) {
+    if (NULL != father && NULL != mother) {
+        
+    }
+    GNHuman *child = GNHumanCreate(kGNMale);
+    GNHumanAddChild(father, child);
+    GNHumanAddChild(mother, child);
+    
+    return child;
 }
 
 #pragma mark -
-#pragma mark Public Implementations
-
-//static void GNObjectRetain(GNHuman *human) {
-//    if (NULL != human) {
-//        human->_referenceCount++;
-//    }
-//}
-//
-//static void GNObjectRelease(GNHuman *human) {
-//    if (NULL != human) {        
-////        if (0 == --(human->_referenceCount)) {
-////              __GNHumanDeallocate(human);
-////        }
-//        human->_referenceCount--;
-//    }
-//    if (0 == human->_referenceCount) {
-//        __GNHumanDeallocate(human);
-//    }
-//}
-
-// retain setter
+#pragma mark Private Implementations
 
 void GNHumanSetGender(GNHuman *human, GNGenderType gender){
     if (NULL != human) {
@@ -191,117 +219,53 @@ void GNHumanSetPartner(GNHuman *human, GNHuman *partner) {
     } else GNHumanReleasePartner(NULL);
 }
 
-void GNHumanDevorce(GNHuman *human) {
-    GNHuman *partner = GNHumanPartner(human);
+bool GNHumanIsAbleToAddChild(GNHuman *human) {
     if (NULL != human) {
-        
-        if (GNHumanPartner(human) != NULL) {
-
-            GNHumanSetPartner(human, partner);
-            
-//            GNHuman *male = human->_gender == kGNMale ? human : partner;
-//            GNHuman *female = male == human ? partner : human;
-//            
-//            female->_partner = NULL;
-//            GNReleaseObject(female);
-//            male->_partner = NULL;
+        if (kGNMaxChildren > GNHumanChildrenCount(human)) {
+            return true;
         }
-    }
-}
-
-void GNHumanMarry(GNHuman *human, GNHuman *partner) {
-    if (NULL != human && NULL != partner) {
-       
-        if (GNHumanGender(human) != GNHumanGender(partner)) {
-            GNHumanDevorce(human);
-            GNHumanDevorce(partner);
-            
-            GNHumanSetPartner(human, partner);
-
-//            GNHuman *male = human->_gender == kGNMale ? human : partner;
-//            GNHuman *female = male == human ? partner : human;
-//     
-//            female->_partner = male;
-//            GNRetainObject(female);
-//            male->_partner = female;
-        }
-    }
-}
-
-bool GNIsHumanAddChild(GNHuman *human) {
-    if (GNHumanChildrenCount(human) < kGNMaxChildren) {
-        return true;
     }
     
     return false;
 }
 
 void GNHumanAddChild(GNHuman *human, GNHuman *child) {
-    if (NULL != human && GNIsHumanAddChild(human) == true) {
-        for (int childIndex = 0; childIndex < kGNMaxChildren; childIndex++) {
-            if (human->_children[childIndex] == NULL) {
-                human->_children[childIndex] = child;
-                child->_father = human;
-                GNObjectRetain(child);
-                
-                return;
+    if (NULL != human && NULL != child) {
+        if (GNHumanIsAbleToAddChild(human) == true) {
+            GNArrayAddObject(GNHumanChildren(human), child);
+            
+            if (GNHumanGender(human) == kGNMale) {
+                GNHumanSetFather(child, human);
+            }
+            else {
+                GNHumanSetMother(child, human);
             }
         }
+        
     }
-}
-
-GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother) {
-    if (NULL != father && NULL != mother) {
-
-    }
-    GNHuman *child = GNHumanCreate(kGNMale);
-    GNHumanSetFather(child, father);
-    GNHumanSetMother(child, mother);
-    GNHumanAddChild(father, child);
-    GNHumanAddChild(mother, child);
-    
-    return child;
 }
 
 void GNHumanRemoveChildren(GNHuman *human) {
     if (NULL != human) {
-        for (int childIndex = 0; childIndex < kGNMaxChildren; childIndex++) {
-            GNHuman *child = human->_children[childIndex];
-            if (NULL != child) {
-                if (GNHumanGender(human) == kGNMale) {
-                    GNHumanSetFather(child, NULL);
-                } else  GNHumanSetMother(child, NULL);
-            }
-            // ternary operator
-//            human->_gender == kGNMale ? GNHumanSetFather(child, NULL) : GNHumanSetMother(child, NULL);
-            
-            GNObjectRelease(child);
-            human->_children[childIndex] = NULL;
+        for (uint8_t childIndex = 0; childIndex < kGNMaxChildren; childIndex++) {
+            GNHumanRemoveChildAtIndex(human, childIndex);
+        }
+    }
+}
+
+void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex) {
+    if (NULL != human) {
+        GNHuman *child = GNArrayObjectAtIndex(GNHumanChildren(human), childIndex);
+        GNArrayRemoveObjectAtIndex(GNHumanChildren(human),childIndex);
+  
+        if (GNHumanGender(human) == kGNMale) {
+            GNHumanSetFather(child, NULL);
+        }
+        else {
+            GNHumanSetMother(child, NULL);
         }
     }
 }
 
 //TODO: think about random human creating for child
-//TODO: realize object and objectString
-//TODO: realize objectArray
-//TODO: write the tests
-
 //TODO: write macros ObjectSetter
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

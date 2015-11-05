@@ -11,11 +11,15 @@
 
 #include "GNString.h"
 #include "GNObject.h"
+#include "GNMacros.h"
 
 struct GNString {
     GNObject _super;
     char *_name;
 };
+
+#pragma mark -
+#pragma mmark Initializations & Deallocation
 
 void __GNStringDeallocate(void *string) {
     GNStringSetName(string, NULL);
@@ -23,7 +27,7 @@ void __GNStringDeallocate(void *string) {
 }
 
 GNString *GNStringCreate(char *name) {
-    GNString *string = GNObjectCreate(sizeof(GNString), __GNStringDeallocate);
+    GNString *string = GNObjectCreateOfType(GNString);
     assert(NULL != string);
     
     GNStringSetName(string, name);
@@ -31,12 +35,15 @@ GNString *GNStringCreate(char *name) {
     return string;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 char *GNStringName(GNString *string) {
-    return NULL != string ? string->_name : NULL;
+    return GNIvarGetterSyntesize(string, name, NULL);
 }
 
 void GNStringSetName(GNString *string, char *name) {
-    if (NULL != string) {
+    if (NULL != string && GNStringName(string) != name) {
         if (NULL != string->_name) {
             free(string->_name);
             string->_name = NULL;
@@ -47,3 +54,14 @@ void GNStringSetName(GNString *string, char *name) {
     }
 }
 
+#pragma mark -
+#pragma mark Public Implementations
+
+uint8_t GNStringLength(GNString * string, char *name) {
+    uint8_t stringLength = 0;
+    if (NULL != string && NULL != name) {
+        stringLength = strlen(name);
+    }
+    
+    return stringLength;
+}

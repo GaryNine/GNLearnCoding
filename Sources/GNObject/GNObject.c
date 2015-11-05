@@ -13,7 +13,7 @@
 #pragma mark - 
 #pragma mark Public Implementations
 
-void *GNObjectCreate(size_t size, GNObjectDeallocator deallocator) {
+void *__GNObjectCreate(size_t size, GNObjectDeallocator deallocator) {
     assert(0 != size);
     assert(NULL != deallocator);
     
