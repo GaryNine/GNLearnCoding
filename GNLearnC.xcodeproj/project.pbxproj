@@ -12,6 +12,7 @@
 		A8156DA71BC292440075EE68 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8156DA51BC292440075EE68 /* GNStructurePrintTests.c */; };
 		A821FE1F1BDA6A3400589E61 /* GNObject.c in Sources */ = {isa = PBXBuildFile; fileRef = A821FE1D1BDA6A3400589E61 /* GNObject.c */; };
 		A8324D911BC403FF001F98CC /* GNValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8324D8F1BC403FF001F98CC /* GNValueBitOutput.c */; };
+		A86D3FD01BEBD39B0064315E /* GNDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A86D3FCE1BEBD39B0064315E /* GNDynamicArray.c */; };
 		A873DC211BD39C0C007981B2 /* GNHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A873DC1F1BD39C0C007981B2 /* GNHumanTests.c */; };
 		A87EE51A1BCD4DF3000E3CC6 /* GNHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = A87EE5181BCD4DF3000E3CC6 /* GNHuman.c */; };
 		A89902C61BC6AA5A002225C4 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A89902C41BC6AA5A002225C4 /* GNValueBitOutputTests.c */; };
@@ -46,6 +47,8 @@
 		A821FE1E1BDA6A3400589E61 /* GNObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObject.h; sourceTree = "<group>"; };
 		A8324D8F1BC403FF001F98CC /* GNValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutput.c; sourceTree = "<group>"; };
 		A8324D901BC403FF001F98CC /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
+		A86D3FCE1BEBD39B0064315E /* GNDynamicArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNDynamicArray.c; sourceTree = "<group>"; };
+		A86D3FCF1BEBD39B0064315E /* GNDynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNDynamicArray.h; sourceTree = "<group>"; };
 		A873DC1F1BD39C0C007981B2 /* GNHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHumanTests.c; sourceTree = "<group>"; };
 		A873DC201BD39C0C007981B2 /* GNHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNHumanTests.h; sourceTree = "<group>"; };
 		A87863931BEB918300B560A3 /* GNMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNMacros.h; sourceTree = "<group>"; };
@@ -126,6 +129,15 @@
 			path = GNValueBitOutput;
 			sourceTree = "<group>";
 		};
+		A86D3FCD1BEBD34F0064315E /* GNDynamicArray */ = {
+			isa = PBXGroup;
+			children = (
+				A86D3FCF1BEBD39B0064315E /* GNDynamicArray.h */,
+				A86D3FCE1BEBD39B0064315E /* GNDynamicArray.c */,
+			);
+			path = GNDynamicArray;
+			sourceTree = "<group>";
+		};
 		A873DC1E1BD39BD3007981B2 /* GNHumanTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A87863921BEB914600B560A3 /* GNMacros */,
+				A86D3FCD1BEBD34F0064315E /* GNDynamicArray */,
 				A8A62C6B1BDE70DF00B39401 /* GNArray */,
 				A809521C1BDE509100172996 /* GNString */,
 				A821FE1C1BDA5E0A00589E61 /* GNObject */,
@@ -337,6 +350,7 @@
 			files = (
 				A8D5ED3C1BBD58CF0067BF9D /* GNBasicTypeValuePrintTest.c in Sources */,
 				A8324D911BC403FF001F98CC /* GNValueBitOutput.c in Sources */,
+				A86D3FD01BEBD39B0064315E /* GNDynamicArray.c in Sources */,
 				A8D5ED3B1BBD58CF0067BF9D /* main.c in Sources */,
 				A8D5ED3E1BBD58CF0067BF9D /* GNSizeOfTypesPrintTest.c in Sources */,
 				A873DC211BD39C0C007981B2 /* GNHumanTests.c in Sources */,

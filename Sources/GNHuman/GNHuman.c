@@ -211,12 +211,17 @@ void GNHumanSetGender(GNHuman *human, GNGenderType gender){
 }
 
 void GNHumanSetPartner(GNHuman *human, GNHuman *partner) {
-    GNHuman *male = GNHumanGender(human) == kGNMale ? human : partner;
-    GNHuman *female = male == human ? partner : human;
-    
-    if (NULL == GNHumanPartner(male) && NULL == GNHumanPartner(female)) {
-        GNHumanRetainPartner(male, female);
-    } else GNHumanReleasePartner(NULL);
+//    GNHuman *male = GNHumanGender(human) == kGNMale ? human : partner;
+//    GNHuman *female = male == human ? partner : human;
+    if (kGNMale == GNHumanGender(human)) {
+        GNObjectRetainSetter(human, partner, partner);
+    } else {
+        GNObjectAssignSetter(human, partner, partner);
+    }
+//    
+//    if (NULL == GNHumanPartner(male) && NULL == GNHumanPartner(female)) {
+//        GNHumanRetainPartner(male, female);
+//    } else GNHumanReleasePartner(NULL);
 }
 
 bool GNHumanIsAbleToAddChild(GNHuman *human) {
