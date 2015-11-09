@@ -24,15 +24,27 @@ extern
 void *GNArrayObjectAtIndex(GNArray *array, uint8_t objectIndex);
 
 extern
-uint8_t GNArrayObjectsCount(GNArray *array);
+uint8_t GNArrayIndexOfObject(GNArray *array, void *object);
+
+extern
+bool GNArrayContainObject(GNArray *array, void *object);
+
+extern
+uint8_t GNArrayObjectCount(GNArray *array);
 
 extern
 void GNArrayAddObject(GNArray *array, void *object);
 
 extern
-void GNArrayRemoveObjects(GNArray *array);
+void GNArrayRemoveObject(GNArray *array, void *object);
+
+extern
+void GNArraySetObjectAtIndex(GNArray *array, void *object, uint8_t objectIndex);
 
 extern
 void GNArrayRemoveObjectAtIndex(GNArray *array, uint8_t objectIndex);
+
+extern
+void GNArrayRemoveObjects(GNArray *array);
 
 #endif

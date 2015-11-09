@@ -23,12 +23,9 @@ typedef enum {
     kGNFemale
 } GNGenderType;
 
-//Create | Deallocate
-
 extern
 GNHuman *GNHumanWithParameters(GNGenderType gender, uint8_t age, GNString *name);
 
-//Setters & Getters
 extern
 GNString *GNHumanName(GNHuman *human);
 extern
@@ -53,19 +50,14 @@ GNHuman *GNHumanMother(GNHuman *human);
 
 extern
 GNArray *GNHumanChildren(GNHuman *human);
-//extern
-//void GNHumanSetChildren(GNHuman *human, GNArray *children);
 
 extern
 GNGenderType GNHumanGender(GNHuman *human);
 
-//Marry | Devorce
 extern
 void GNHumanDevorce(GNHuman *human);
 extern
 void GNHumanMarry(GNHuman *human, GNHuman *partner);
-
-//Add | Create | Remove (Children)
 
 extern
 GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother);

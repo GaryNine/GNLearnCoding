@@ -17,21 +17,11 @@
 #include "GNMacros.h"
 #include "GNHuman.h"
 
-#define GNHumanRetainPartner(partnerMale, partnerFemale) \
-        female->_partner = partnerMale; \
-        GNObjectRetain(female); \
-        male->_partner = partnerFemale;
-
-#define GNHumanReleasePartner(partnerValue) \
-        female->_partner = partnerValue; \
-        GNObjectRelease(female); \
-        male->_partner = partnerValue;
-
 #pragma mark -
 #pragma mark Private Declarations
 
 const uint8_t kGNMaxChildren = 20;
-const uint8_t kGNinitialAge = 1;
+const uint8_t kGNinitialAge  = 1;
 
 struct GNHuman {
     GNObject _super;
@@ -39,8 +29,8 @@ struct GNHuman {
     GNHuman *_father;
     GNHuman *_mother;
     GNArray *_children;
-    GNGenderType _gender;
     GNString *_name;
+    GNGenderType _gender;
     uint8_t _age;
 };
 
@@ -90,7 +80,6 @@ GNHuman *GNHumanCreate(GNGenderType gender) {
     GNHuman *human = GNObjectCreateOfType(GNHuman);
     assert(NULL != human);
     
-//    human->_gender = gender;
     GNHumanSetGender(human, gender);
     GNHumanSetAge(human, kGNinitialAge);
 
@@ -148,14 +137,6 @@ GNArray *GNHumanChildren(GNHuman *human) {
     return GNIvarGetterSyntesize(human, children, NULL);
 }
 
-//void GNHumanSetChildren(GNHuman *human, GNArray *children) {
-//    if (NULL != human && NULL != GNHumanChildren(human)) {
-//        GNObjectRelease(human->_children);
-//        GNObjectRetain(children);
-//        human->_children = children;
-//    }
-//}
-
 GNGenderType GNHumanGender(GNHuman *human) {
     return GNIvarGetterSyntesize(human, gender, 0);
 }
@@ -164,15 +145,14 @@ GNGenderType GNHumanGender(GNHuman *human) {
 #pragma mark Public Implementations
 
 uint8_t GNHumanChildrenCount(GNHuman *human) {
-    return ((NULL != human) ? GNArrayObjectsCount(GNHumanChildren(human)) : 0);
+    return ((NULL != human) ? GNArrayObjectCount(GNHumanChildren(human)) : 0);
 }
 
 void GNHumanDevorce(GNHuman *human) {
     GNHuman *partner = GNHumanPartner(human);
+    
     if (NULL != human) {
-        
         if (GNHumanPartner(human) != NULL) {
-            
             GNHumanSetPartner(human, partner);
         }
     }
@@ -180,24 +160,25 @@ void GNHumanDevorce(GNHuman *human) {
 
 void GNHumanMarry(GNHuman *human, GNHuman *partner) {
     if (NULL != human && NULL != partner) {
-        
         if (GNHumanGender(human) != GNHumanGender(partner)) {
             GNHumanDevorce(human);
             GNHumanDevorce(partner);
-            
             GNHumanSetPartner(human, partner);
         }
     }
 }
 
 GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother) {
-    if (NULL != father && NULL != mother) {
-        
-    }
-    GNHuman *child = GNHumanCreate(kGNMale);
-    GNHumanAddChild(father, child);
-    GNHumanAddChild(mother, child);
+    GNHuman *child = NULL;
     
+    if (NULL != father && NULL != mother) {
+        //TODO: think about random human creating for child
+        child = GNHumanCreate(kGNMale);
+        
+        GNHumanAddChild(father, child);
+        GNHumanAddChild(mother, child);
+    }
+
     return child;
 }
 
@@ -211,17 +192,11 @@ void GNHumanSetGender(GNHuman *human, GNGenderType gender){
 }
 
 void GNHumanSetPartner(GNHuman *human, GNHuman *partner) {
-//    GNHuman *male = GNHumanGender(human) == kGNMale ? human : partner;
-//    GNHuman *female = male == human ? partner : human;
     if (kGNMale == GNHumanGender(human)) {
         GNObjectRetainSetter(human, partner, partner);
     } else {
         GNObjectAssignSetter(human, partner, partner);
     }
-//    
-//    if (NULL == GNHumanPartner(male) && NULL == GNHumanPartner(female)) {
-//        GNHumanRetainPartner(male, female);
-//    } else GNHumanReleasePartner(NULL);
 }
 
 bool GNHumanIsAbleToAddChild(GNHuman *human) {
@@ -241,12 +216,10 @@ void GNHumanAddChild(GNHuman *human, GNHuman *child) {
             
             if (GNHumanGender(human) == kGNMale) {
                 GNHumanSetFather(child, human);
-            }
-            else {
+            } else {
                 GNHumanSetMother(child, human);
             }
         }
-        
     }
 }
 
@@ -265,12 +238,8 @@ void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex) {
   
         if (GNHumanGender(human) == kGNMale) {
             GNHumanSetFather(child, NULL);
-        }
-        else {
+        } else {
             GNHumanSetMother(child, NULL);
         }
     }
 }
-
-//TODO: think about random human creating for child
-//TODO: write macros ObjectSetter

@@ -12,6 +12,7 @@
 #include "GNObject.h"
 
 const uint8_t kGNArrayObjectsLimit = 20;
+const uint8_t kGNObjectNotFound    = 0;
 
 struct GNArray {
     GNObject _super;
@@ -38,39 +39,103 @@ GNArray *GNArrayCreate(void) {
 
 void *GNArrayObjectAtIndex(GNArray *array, uint8_t objectIndex) {
     void *object = NULL;
+    
     if (NULL != array && kGNArrayObjectsLimit > objectIndex) {
-        array->_array[objectIndex] = object;
+        object = array->_array[objectIndex];
     }
     
      return object;
 }
 
-#pragma mark -
-#pragma mark Public Implementations
-
-uint8_t GNArrayObjectsCount(GNArray *array) {
-    uint8_t objectsCount = 0;
-    if (NULL != array) {
-        for (int objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
-            if (array->_array[objectIndex] != NULL) {
-                objectsCount++;
+uint8_t GNArrayIndexOfObject(GNArray *array, void *object) {
+    uint8_t result = kGNObjectNotFound;
+    
+    if (GNArrayContainObject(array, object)) {
+        for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
+            if (GNArrayObjectAtIndex(array, objectIndex) == object) {
+                result = objectIndex;
+                
+                break;
             }
         }
     }
     
-    return objectsCount;
+    return result;
 }
 
-void GNArrayAddObject(GNArray *array, void *object) {
+bool GNArrayContainObject(GNArray *array, void *object) {
     if (NULL != array && NULL != object) {
-        for (int objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
+        for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
+           void *arrayObject = GNArrayObjectAtIndex(array, objectIndex);
+           
+            if (arrayObject == object) {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
+uint8_t GNArrayObjectCount(GNArray *array) {
+    uint8_t objectCount = 0;
+    
+    if (NULL != array) {
+        for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
+            if (array->_array[objectIndex] != NULL) {
+                objectCount++;
+            }
+        }
+    }
+    
+    return objectCount;
+}
+
+#pragma mark -
+#pragma mark Public Implementations
+
+void GNArrayAddObject(GNArray *array, void *object) {
+    if (NULL != array && false == GNArrayContainObject(array, object)) {
+        for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
             if (GNArrayObjectAtIndex(array, objectIndex) == NULL) {
-                array->_array[objectIndex] = object;
                 GNObjectRetain(object);
+                array->_array[objectIndex] = object;
                 
                 return;
             }
         }
+    }
+}
+
+void GNArrayRemoveObject(GNArray *array, void *object) {
+    if (NULL != array && NULL != object) {
+        for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
+            if (GNArrayObjectAtIndex(array, objectIndex) == object) {
+                GNObjectRelease(object);
+                array->_array[objectIndex] = NULL;
+                
+                return;
+            }
+        }
+    }
+}
+
+void GNArraySetObjectAtIndex(GNArray *array, void *object, uint8_t objectIndex) {
+    if (NULL != array && NULL != object) {
+        GNObjectRelease(GNArrayObjectAtIndex(array, objectIndex));
+        GNObjectRetain(object);
+        array->_array[objectIndex] = object;
+    }
+}
+
+void GNArrayRemoveObjectAtIndex(GNArray *array, uint8_t objectIndex) {
+    assert(GNArrayObjectCount(array) > objectIndex);
+    
+    void *object = GNArrayObjectAtIndex(array, objectIndex);
+    
+    if (NULL != object) {
+        GNObjectRelease(object);
+        array->_array[objectIndex] = NULL;
     }
 }
 
@@ -79,16 +144,5 @@ void GNArrayRemoveObjects(GNArray *array) {
         for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
             GNArrayRemoveObjectAtIndex(array, objectIndex);
         }
-    }
-}
-
-void GNArrayRemoveObjectAtIndex(GNArray *array, uint8_t objectIndex) {
-    assert(GNArrayObjectsCount(array) > objectIndex);
-    
-    void *object = GNArrayObjectAtIndex(array, objectIndex);
-    
-    if (NULL != object) {
-        GNObjectRelease(object);
-        array->_array[objectIndex] = NULL;
     }
 }
