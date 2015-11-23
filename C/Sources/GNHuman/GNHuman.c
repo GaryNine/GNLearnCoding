@@ -37,11 +37,8 @@ struct GNHuman {
 extern
 void __GNHumanDeallocate(void *human);
 
-extern
-GNHuman *GNHumanCreate(GNGenderType gender);
-
 static
-void GNHumanSetGender(GNHuman *human, GNGenderType gender); //Is needed this method?
+void GNHumanSetGender(GNHuman *human, GNGenderType gender);
 
 static
 bool GNHumanIsAbleToAddChild(GNHuman *human);
@@ -59,7 +56,7 @@ static
 void GNHumanAddChild(GNHuman *human, GNHuman *child);
 
 static
-void GNHumanRemoveChildren(GNHuman *human);
+void GNHumanRemoveAllChildren(GNHuman *human);
 static
 void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex);
 
@@ -68,8 +65,8 @@ void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex);
 
 void __GNHumanDeallocate(void *human) {
     GNHumanSetName(human, NULL);
-    GNHumanDevorce(human);
-    GNHumanRemoveChildren(human);
+    GNHumanDivorce(human);
+    GNHumanRemoveAllChildren(human);
     GNHumanSetFather(human, NULL);
     GNHumanSetMother(human, NULL);
     
@@ -148,21 +145,20 @@ uint8_t GNHumanChildrenCount(GNHuman *human) {
     return ((NULL != human) ? GNArrayObjectCount(GNHumanChildren(human)) : 0);
 }
 
-void GNHumanDevorce(GNHuman *human) {
-    GNHuman *partner = GNHumanPartner(human);
+void GNHumanDivorce(GNHuman *human) {
     
     if (NULL != human) {
         if (GNHumanPartner(human) != NULL) {
-            GNHumanSetPartner(human, partner);
+            GNHumanSetPartner(human, NULL);
         }
     }
 }
-
+// проверить не женат ли хьюман на партнере
 void GNHumanMarry(GNHuman *human, GNHuman *partner) {
     if (NULL != human && NULL != partner) {
         if (GNHumanGender(human) != GNHumanGender(partner)) {
-            GNHumanDevorce(human);
-            GNHumanDevorce(partner);
+            GNHumanDivorce(human);
+            GNHumanDivorce(partner);
             GNHumanSetPartner(human, partner);
         }
     }
@@ -199,6 +195,7 @@ void GNHumanSetPartner(GNHuman *human, GNHuman *partner) {
     }
 }
 
+//добавить метод полон ли массив
 bool GNHumanIsAbleToAddChild(GNHuman *human) {
     if (NULL != human) {
         if (kGNMaxChildren > GNHumanChildrenCount(human)) {
@@ -223,7 +220,7 @@ void GNHumanAddChild(GNHuman *human, GNHuman *child) {
     }
 }
 
-void GNHumanRemoveChildren(GNHuman *human) {
+void GNHumanRemoveAllChildren(GNHuman *human) {
     if (NULL != human) {
         for (uint8_t childIndex = 0; childIndex < kGNMaxChildren; childIndex++) {
             GNHumanRemoveChildAtIndex(human, childIndex);
@@ -243,3 +240,5 @@ void GNHumanRemoveChildAtIndex(GNHuman *human, uint8_t childIndex) {
         }
     }
 }
+
+//переместить создающие методы

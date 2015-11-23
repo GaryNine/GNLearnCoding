@@ -15,15 +15,15 @@ extern
 void __GNStringDeallocate(void *string);
 
 extern
-GNString *GNStringCreate(char *name);
+GNString *GNStringCreate(char *data);
 
 extern
 char *GNStringName(GNString *string);
 
 extern
-void GNStringSetName(GNString *string, char *name);
+void GNStringSetName(GNString *string, char *data);
 
 extern
-uint8_t GNStringLength(GNString * string, char *name);
+uint8_t GNStringLength(GNString * string);
 
 #endif

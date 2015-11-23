@@ -24,7 +24,13 @@ typedef enum {
 } GNGenderType;
 
 extern
+GNHuman *GNHumanCreate(GNGenderType gender);
+
+extern
 GNHuman *GNHumanWithParameters(GNGenderType gender, uint8_t age, GNString *name);
+
+extern
+GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother);
 
 extern
 GNString *GNHumanName(GNHuman *human);
@@ -55,11 +61,8 @@ extern
 GNGenderType GNHumanGender(GNHuman *human);
 
 extern
-void GNHumanDevorce(GNHuman *human);
+void GNHumanDivorce(GNHuman *human);
 extern
 void GNHumanMarry(GNHuman *human, GNHuman *partner);
-
-extern
-GNHuman *GNHumanCreateChild(GNHuman *father, GNHuman *mother);
 
 #endif

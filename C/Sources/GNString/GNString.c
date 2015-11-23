@@ -15,7 +15,7 @@
 
 struct GNString {
     GNObject _super;
-    char *_name;
+    char *_data;
 };
 
 #pragma mark -
@@ -26,11 +26,11 @@ void __GNStringDeallocate(void *string) {
     __GNObjectDeallocate(string);
 }
 
-GNString *GNStringCreate(char *name) {
+GNString *GNStringCreate(char *data) {
     GNString *string = GNObjectCreateOfType(GNString);
     assert(NULL != string);
     
-    GNStringSetName(string, name);
+    GNStringSetName(string, data);
     
     return string;
 }
@@ -39,17 +39,17 @@ GNString *GNStringCreate(char *name) {
 #pragma mark Accessors
 
 char *GNStringName(GNString *string) {
-    return GNIvarGetterSyntesize(string, name, NULL);
+    return GNIvarGetterSyntesize(string, data, NULL);
 }
 
-void GNStringSetName(GNString *string, char *name) {
-    if (NULL != string && GNStringName(string) != name) {
-        if (NULL != string->_name) {
-            free(string->_name);
-            string->_name = NULL;
+void GNStringSetName(GNString *string, char *data) {
+    if (NULL != string && GNStringName(string) != data) {
+        if (NULL != string->_data) {
+            free(string->_data);
+            string->_data = NULL;
         }
-        if (name) {
-            string->_name = strdup(name); //strings always must copy
+        if (data) {
+            assert(string->_data = strdup(data)); //strings always must copy
         }
     }
 }
@@ -57,11 +57,9 @@ void GNStringSetName(GNString *string, char *name) {
 #pragma mark -
 #pragma mark Public Implementations
 
-uint8_t GNStringLength(GNString * string, char *name) {
-    uint8_t stringLength = 0;
-    if (NULL != string && NULL != name) {
-        stringLength = strlen(name);
-    }
+uint8_t GNStringLength(GNString * string) {
+    char *data = GNStringName(string);
     
-    return stringLength;
+    return data ? strlen(data) : 0;
+    
 }

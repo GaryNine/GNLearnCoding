@@ -133,7 +133,7 @@ void GNHumanMarryTests(void) {
     assert(1 == GNObjectRetainCount(human));
     
     //After human devorce:
-    GNHumanDevorce(human);
+    GNHumanDivorce(human);
     
         //object must not have a partner
     assert(NULL == GNHumanPartner(human));

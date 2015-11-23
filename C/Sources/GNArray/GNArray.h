@@ -45,6 +45,6 @@ extern
 void GNArrayRemoveObjectAtIndex(GNArray *array, uint8_t objectIndex);
 
 extern
-void GNArrayRemoveObjects(GNArray *array);
+void GNArrayRemoveAllObjects(GNArray *array);
 
 #endif

@@ -23,13 +23,12 @@ struct GNArray {
 #pragma mmark Initializations & Deallocation
 
 void __GNArrayDeallocate(void *array) {
-    GNArrayRemoveObjects(array);
+    GNArrayRemoveAllObjects(array);
     __GNObjectDeallocate(array);
 }
 
 GNArray *GNArrayCreate(void) {
     GNArray *array = GNObjectCreateOfType(GNArray);
-    assert(NULL != array);
     
     return array;
 }
@@ -38,9 +37,11 @@ GNArray *GNArrayCreate(void) {
 #pragma mark Accessors
 
 void *GNArrayObjectAtIndex(GNArray *array, uint8_t objectIndex) {
+    assert(kGNArrayObjectsLimit > objectIndex);
+    
     void *object = NULL;
     
-    if (NULL != array && kGNArrayObjectsLimit > objectIndex) {
+    if (NULL != array && GNArrayObjectCount(array) < objectIndex) {
         object = array->_array[objectIndex];
     }
     
@@ -48,7 +49,7 @@ void *GNArrayObjectAtIndex(GNArray *array, uint8_t objectIndex) {
 }
 
 uint8_t GNArrayIndexOfObject(GNArray *array, void *object) {
-    uint8_t result = kGNObjectNotFound;
+    uint8_t result = kGNObjectNotFound; // сделать макс значение
     
     if (GNArrayContainObject(array, object)) {
         for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
@@ -107,6 +108,8 @@ void GNArrayAddObject(GNArray *array, void *object) {
     }
 }
 
+
+//do displacement
 void GNArrayRemoveObject(GNArray *array, void *object) {
     if (NULL != array && NULL != object) {
         for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
@@ -139,10 +142,12 @@ void GNArrayRemoveObjectAtIndex(GNArray *array, uint8_t objectIndex) {
     }
 }
 
-void GNArrayRemoveObjects(GNArray *array) {
+//iteration from end to begin
+void GNArrayRemoveAllObjects(GNArray *array) {
     if (NULL != array) {
         for (uint8_t objectIndex = 0; objectIndex < kGNArrayObjectsLimit; objectIndex++) {
             GNArrayRemoveObjectAtIndex(array, objectIndex);
         }
     }
 }
+

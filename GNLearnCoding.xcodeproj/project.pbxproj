@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8159B741C03169B00542191 /* GNArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B411C03169B00542191 /* GNArray.c */; };
+		A8159B751C03169B00542191 /* GNDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B461C03169B00542191 /* GNDynamicArray.c */; };
+		A8159B761C03169B00542191 /* GNHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B491C03169B00542191 /* GNHuman.c */; };
+		A8159B771C03169B00542191 /* GNObject.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B4E1C03169B00542191 /* GNObject.c */; };
+		A8159B781C03169B00542191 /* GNParentTypeOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B511C03169B00542191 /* GNParentTypeOutput.c */; };
+		A8159B791C03169B00542191 /* GNString.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B581C03169B00542191 /* GNString.c */; };
+		A8159B7A1C03169B00542191 /* GNValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B5B1C03169B00542191 /* GNValueBitOutput.c */; };
+		A8159B7B1C03169B00542191 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B5D1C03169B00542191 /* main.c */; };
+		A8159B7C1C03169B00542191 /* GNBasicTypeValuePrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B601C03169B00542191 /* GNBasicTypeValuePrintTest.c */; };
+		A8159B7D1C03169B00542191 /* GNHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B631C03169B00542191 /* GNHumanTests.c */; };
+		A8159B7E1C03169B00542191 /* GNObjectTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B661C03169B00542191 /* GNObjectTests.c */; };
+		A8159B7F1C03169B00542191 /* GNParentTypeOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B691C03169B00542191 /* GNParentTypeOutputTests.c */; };
+		A8159B801C03169B00542191 /* GNSizeOfTypesPrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6C1C03169B00542191 /* GNSizeOfTypesPrintTest.c */; };
+		A8159B811C03169B00542191 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */; };
+		A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B721C03169B00542191 /* GNValueBitOutputTests.c */; };
+		A8159B931C0316D700542191 /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B901C0316D700542191 /* GNBeing.m */; };
+		A8159B941C0316D700542191 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B911C0316D700542191 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A89422311C03138B006C1164 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A8E777C21BB346B200FCB3C9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A8159B411C03169B00542191 /* GNArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNArray.c; sourceTree = "<group>"; };
+		A8159B421C03169B00542191 /* GNArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArray.h; sourceTree = "<group>"; };
+		A8159B441C03169B00542191 /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
+		A8159B461C03169B00542191 /* GNDynamicArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNDynamicArray.c; sourceTree = "<group>"; };
+		A8159B471C03169B00542191 /* GNDynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNDynamicArray.h; sourceTree = "<group>"; };
+		A8159B491C03169B00542191 /* GNHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHuman.c; sourceTree = "<group>"; };
+		A8159B4A1C03169B00542191 /* GNHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNHuman.h; sourceTree = "<group>"; };
+		A8159B4C1C03169B00542191 /* GNMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNMacros.h; sourceTree = "<group>"; };
+		A8159B4E1C03169B00542191 /* GNObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNObject.c; sourceTree = "<group>"; };
+		A8159B4F1C03169B00542191 /* GNObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObject.h; sourceTree = "<group>"; };
+		A8159B511C03169B00542191 /* GNParentTypeOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutput.c; sourceTree = "<group>"; };
+		A8159B521C03169B00542191 /* GNParentTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutput.h; sourceTree = "<group>"; };
+		A8159B541C03169B00542191 /* GNPerformStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNPerformStructure.h; sourceTree = "<group>"; };
+		A8159B561C03169B00542191 /* GNSizeOfTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypes.h; sourceTree = "<group>"; };
+		A8159B581C03169B00542191 /* GNString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNString.c; sourceTree = "<group>"; };
+		A8159B591C03169B00542191 /* GNString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNString.h; sourceTree = "<group>"; };
+		A8159B5B1C03169B00542191 /* GNValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutput.c; sourceTree = "<group>"; };
+		A8159B5C1C03169B00542191 /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
+		A8159B5D1C03169B00542191 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A8159B601C03169B00542191 /* GNBasicTypeValuePrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNBasicTypeValuePrintTest.c; sourceTree = "<group>"; };
+		A8159B611C03169B00542191 /* GNBasicTypeValuePrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValuePrintTest.h; sourceTree = "<group>"; };
+		A8159B631C03169B00542191 /* GNHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHumanTests.c; sourceTree = "<group>"; };
+		A8159B641C03169B00542191 /* GNHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNHumanTests.h; sourceTree = "<group>"; };
+		A8159B661C03169B00542191 /* GNObjectTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNObjectTests.c; sourceTree = "<group>"; };
+		A8159B671C03169B00542191 /* GNObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObjectTests.h; sourceTree = "<group>"; };
+		A8159B691C03169B00542191 /* GNParentTypeOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNParentTypeOutputTests.c; sourceTree = "<group>"; };
+		A8159B6A1C03169B00542191 /* GNParentTypeOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNParentTypeOutputTests.h; sourceTree = "<group>"; };
+		A8159B6C1C03169B00542191 /* GNSizeOfTypesPrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNSizeOfTypesPrintTest.c; sourceTree = "<group>"; };
+		A8159B6D1C03169B00542191 /* GNSizeOfTypesPrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSizeOfTypesPrintTest.h; sourceTree = "<group>"; };
+		A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNStructurePrintTests.c; sourceTree = "<group>"; };
+		A8159B701C03169B00542191 /* GNStructurePrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNStructurePrintTests.h; sourceTree = "<group>"; };
+		A8159B721C03169B00542191 /* GNValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutputTests.c; sourceTree = "<group>"; };
+		A8159B731C03169B00542191 /* GNValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutputTests.h; sourceTree = "<group>"; };
+		A8159B8F1C0316D700542191 /* GNBeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeing.h; sourceTree = "<group>"; };
+		A8159B901C0316D700542191 /* GNBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeing.m; sourceTree = "<group>"; };
+		A8159B911C0316D700542191 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A89422331C03138B006C1164 /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = GNLearnObjC; path = "/Users/ihordevyatko/Documents/IDAP College/GNLearnCoding/build/Debug/GNLearnObjC"; sourceTree = "<absolute>"; };
+		A8E777C41BB346B200FCB3C9 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = GNLearnC; path = "/Users/ihordevyatko/Documents/IDAP College/GNLearnCoding/build/Debug/GNLearnC"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A89422301C03138B006C1164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8E777C11BB346B200FCB3C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8159B3E1C03169B00542191 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B3F1C03169B00542191 /* Sources */,
+				A8159B5E1C03169B00542191 /* Tests */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		A8159B3F1C03169B00542191 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B401C03169B00542191 /* GNArray */,
+				A8159B431C03169B00542191 /* GNBasicTypeValue */,
+				A8159B451C03169B00542191 /* GNDynamicArray */,
+				A8159B481C03169B00542191 /* GNHuman */,
+				A8159B4B1C03169B00542191 /* GNMacros */,
+				A8159B4D1C03169B00542191 /* GNObject */,
+				A8159B501C03169B00542191 /* GNParentTypeOutput */,
+				A8159B531C03169B00542191 /* GNPerformStructure */,
+				A8159B551C03169B00542191 /* GNSizeOfTypes */,
+				A8159B571C03169B00542191 /* GNString */,
+				A8159B5A1C03169B00542191 /* GNValueBitOutput */,
+				A8159B5D1C03169B00542191 /* main.c */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A8159B401C03169B00542191 /* GNArray */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B411C03169B00542191 /* GNArray.c */,
+				A8159B421C03169B00542191 /* GNArray.h */,
+			);
+			path = GNArray;
+			sourceTree = "<group>";
+		};
+		A8159B431C03169B00542191 /* GNBasicTypeValue */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B441C03169B00542191 /* GNBasicTypeValue.h */,
+			);
+			path = GNBasicTypeValue;
+			sourceTree = "<group>";
+		};
+		A8159B451C03169B00542191 /* GNDynamicArray */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B461C03169B00542191 /* GNDynamicArray.c */,
+				A8159B471C03169B00542191 /* GNDynamicArray.h */,
+			);
+			path = GNDynamicArray;
+			sourceTree = "<group>";
+		};
+		A8159B481C03169B00542191 /* GNHuman */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B491C03169B00542191 /* GNHuman.c */,
+				A8159B4A1C03169B00542191 /* GNHuman.h */,
+			);
+			path = GNHuman;
+			sourceTree = "<group>";
+		};
+		A8159B4B1C03169B00542191 /* GNMacros */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B4C1C03169B00542191 /* GNMacros.h */,
+			);
+			path = GNMacros;
+			sourceTree = "<group>";
+		};
+		A8159B4D1C03169B00542191 /* GNObject */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B4E1C03169B00542191 /* GNObject.c */,
+				A8159B4F1C03169B00542191 /* GNObject.h */,
+			);
+			path = GNObject;
+			sourceTree = "<group>";
+		};
+		A8159B501C03169B00542191 /* GNParentTypeOutput */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B511C03169B00542191 /* GNParentTypeOutput.c */,
+				A8159B521C03169B00542191 /* GNParentTypeOutput.h */,
+			);
+			path = GNParentTypeOutput;
+			sourceTree = "<group>";
+		};
+		A8159B531C03169B00542191 /* GNPerformStructure */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B541C03169B00542191 /* GNPerformStructure.h */,
+			);
+			path = GNPerformStructure;
+			sourceTree = "<group>";
+		};
+		A8159B551C03169B00542191 /* GNSizeOfTypes */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B561C03169B00542191 /* GNSizeOfTypes.h */,
+			);
+			path = GNSizeOfTypes;
+			sourceTree = "<group>";
+		};
+		A8159B571C03169B00542191 /* GNString */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B581C03169B00542191 /* GNString.c */,
+				A8159B591C03169B00542191 /* GNString.h */,
+			);
+			path = GNString;
+			sourceTree = "<group>";
+		};
+		A8159B5A1C03169B00542191 /* GNValueBitOutput */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B5B1C03169B00542191 /* GNValueBitOutput.c */,
+				A8159B5C1C03169B00542191 /* GNValueBitOutput.h */,
+			);
+			path = GNValueBitOutput;
+			sourceTree = "<group>";
+		};
+		A8159B5E1C03169B00542191 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B5F1C03169B00542191 /* GNBasicTypeValuePrintTest */,
+				A8159B621C03169B00542191 /* GNHumanTests */,
+				A8159B651C03169B00542191 /* GNObjectTests */,
+				A8159B681C03169B00542191 /* GNParentTypeOutputTests */,
+				A8159B6B1C03169B00542191 /* GNSizeOfTypesPrintTest */,
+				A8159B6E1C03169B00542191 /* GNStructurePrintTests */,
+				A8159B711C03169B00542191 /* GNValueBitOutputTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A8159B5F1C03169B00542191 /* GNBasicTypeValuePrintTest */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B601C03169B00542191 /* GNBasicTypeValuePrintTest.c */,
+				A8159B611C03169B00542191 /* GNBasicTypeValuePrintTest.h */,
+			);
+			path = GNBasicTypeValuePrintTest;
+			sourceTree = "<group>";
+		};
+		A8159B621C03169B00542191 /* GNHumanTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B631C03169B00542191 /* GNHumanTests.c */,
+				A8159B641C03169B00542191 /* GNHumanTests.h */,
+			);
+			path = GNHumanTests;
+			sourceTree = "<group>";
+		};
+		A8159B651C03169B00542191 /* GNObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B661C03169B00542191 /* GNObjectTests.c */,
+				A8159B671C03169B00542191 /* GNObjectTests.h */,
+			);
+			path = GNObjectTests;
+			sourceTree = "<group>";
+		};
+		A8159B681C03169B00542191 /* GNParentTypeOutputTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B691C03169B00542191 /* GNParentTypeOutputTests.c */,
+				A8159B6A1C03169B00542191 /* GNParentTypeOutputTests.h */,
+			);
+			path = GNParentTypeOutputTests;
+			sourceTree = "<group>";
+		};
+		A8159B6B1C03169B00542191 /* GNSizeOfTypesPrintTest */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B6C1C03169B00542191 /* GNSizeOfTypesPrintTest.c */,
+				A8159B6D1C03169B00542191 /* GNSizeOfTypesPrintTest.h */,
+			);
+			path = GNSizeOfTypesPrintTest;
+			sourceTree = "<group>";
+		};
+		A8159B6E1C03169B00542191 /* GNStructurePrintTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */,
+				A8159B701C03169B00542191 /* GNStructurePrintTests.h */,
+			);
+			path = GNStructurePrintTests;
+			sourceTree = "<group>";
+		};
+		A8159B711C03169B00542191 /* GNValueBitOutputTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B721C03169B00542191 /* GNValueBitOutputTests.c */,
+				A8159B731C03169B00542191 /* GNValueBitOutputTests.h */,
+			);
+			path = GNValueBitOutputTests;
+			sourceTree = "<group>";
+		};
+		A8159B8C1C0316D700542191 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B8D1C0316D700542191 /* Sources */,
+				A8159B921C0316D700542191 /* Tests */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		A8159B8D1C0316D700542191 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B8E1C0316D700542191 /* GNBeing */,
+				A8159B911C0316D700542191 /* main.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A8159B8E1C0316D700542191 /* GNBeing */ = {
+			isa = PBXGroup;
+			children = (
+				A8159B8F1C0316D700542191 /* GNBeing.h */,
+				A8159B901C0316D700542191 /* GNBeing.m */,
+			);
+			path = GNBeing;
+			sourceTree = "<group>";
+		};
+		A8159B921C0316D700542191 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A8E777BB1BB346B200FCB3C9 = {
+			isa = PBXGroup;
+			children = (
+				A8159B3E1C03169B00542191 /* C */,
+				A8159B8C1C0316D700542191 /* ObjC */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A89422321C03138B006C1164 /* GNLearnObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A89422371C03138B006C1164 /* Build configuration list for PBXNativeTarget "GNLearnObjC" */;
+			buildPhases = (
+				A894222F1C03138B006C1164 /* Sources */,
+				A89422301C03138B006C1164 /* Frameworks */,
+				A89422311C03138B006C1164 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GNLearnObjC;
+			productName = GNLearnObjC;
+			productReference = A89422331C03138B006C1164 /* GNLearnObjC */;
+			productType = "com.apple.product-type.tool";
+		};
+		A8E777C31BB346B200FCB3C9 /* GNLearnC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8E777CB1BB346B200FCB3C9 /* Build configuration list for PBXNativeTarget "GNLearnC" */;
+			buildPhases = (
+				A8E777C01BB346B200FCB3C9 /* Sources */,
+				A8E777C11BB346B200FCB3C9 /* Frameworks */,
+				A8E777C21BB346B200FCB3C9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GNLearnC;
+			productName = GNLearnC;
+			productReference = A8E777C41BB346B200FCB3C9 /* GNLearnC */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8E777BC1BB346B200FCB3C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "IDAP College";
+				TargetAttributes = {
+					A89422321C03138B006C1164 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					A8E777C31BB346B200FCB3C9 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = A8E777BF1BB346B200FCB3C9 /* Build configuration list for PBXProject "GNLearnCoding" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A8E777BB1BB346B200FCB3C9;
+			productRefGroup = A8E777BB1BB346B200FCB3C9;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8E777C31BB346B200FCB3C9 /* GNLearnC */,
+				A89422321C03138B006C1164 /* GNLearnObjC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A894222F1C03138B006C1164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8159B941C0316D700542191 /* main.m in Sources */,
+				A8159B931C0316D700542191 /* GNBeing.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8E777C01BB346B200FCB3C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8159B7E1C03169B00542191 /* GNObjectTests.c in Sources */,
+				A8159B751C03169B00542191 /* GNDynamicArray.c in Sources */,
+				A8159B7A1C03169B00542191 /* GNValueBitOutput.c in Sources */,
+				A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */,
+				A8159B791C03169B00542191 /* GNString.c in Sources */,
+				A8159B7C1C03169B00542191 /* GNBasicTypeValuePrintTest.c in Sources */,
+				A8159B7D1C03169B00542191 /* GNHumanTests.c in Sources */,
+				A8159B811C03169B00542191 /* GNStructurePrintTests.c in Sources */,
+				A8159B741C03169B00542191 /* GNArray.c in Sources */,
+				A8159B7F1C03169B00542191 /* GNParentTypeOutputTests.c in Sources */,
+				A8159B7B1C03169B00542191 /* main.c in Sources */,
+				A8159B801C03169B00542191 /* GNSizeOfTypesPrintTest.c in Sources */,
+				A8159B761C03169B00542191 /* GNHuman.c in Sources */,
+				A8159B771C03169B00542191 /* GNObject.c in Sources */,
+				A8159B781C03169B00542191 /* GNParentTypeOutput.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A89422381C03138B006C1164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A89422391C03138B006C1164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A8E777C91BB346B200FCB3C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A8E777CA1BB346B200FCB3C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A8E777CC1BB346B200FCB3C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A8E777CD1BB346B200FCB3C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A89422371C03138B006C1164 /* Build configuration list for PBXNativeTarget "GNLearnObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A89422381C03138B006C1164 /* Debug */,
+				A89422391C03138B006C1164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8E777BF1BB346B200FCB3C9 /* Build configuration list for PBXProject "GNLearnCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8E777C91BB346B200FCB3C9 /* Debug */,
+				A8E777CA1BB346B200FCB3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8E777CB1BB346B200FCB3C9 /* Build configuration list for PBXNativeTarget "GNLearnC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8E777CC1BB346B200FCB3C9 /* Debug */,
+				A8E777CD1BB346B200FCB3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8E777BC1BB346B200FCB3C9 /* Project object */;
+}
