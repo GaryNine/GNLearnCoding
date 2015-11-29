@@ -84,8 +84,8 @@
 		A8159B8F1C0316D700542191 /* GNBeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeing.h; sourceTree = "<group>"; };
 		A8159B901C0316D700542191 /* GNBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeing.m; sourceTree = "<group>"; };
 		A8159B911C0316D700542191 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A89422331C03138B006C1164 /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = GNLearnObjC; path = "/Users/ihordevyatko/Documents/IDAP College/GNLearnCoding/build/Debug/GNLearnObjC"; sourceTree = "<absolute>"; };
-		A8E777C41BB346B200FCB3C9 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = GNLearnC; path = "/Users/ihordevyatko/Documents/IDAP College/GNLearnCoding/build/Debug/GNLearnC"; sourceTree = "<absolute>"; };
+		A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +345,8 @@
 			children = (
 				A8159B3E1C03169B00542191 /* C */,
 				A8159B8C1C0316D700542191 /* ObjC */,
+				A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */,
+				A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */,
 			);
 			sourceTree = "<group>";
 		};
@@ -365,7 +367,7 @@
 			);
 			name = GNLearnObjC;
 			productName = GNLearnObjC;
-			productReference = A89422331C03138B006C1164 /* GNLearnObjC */;
+			productReference = A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */;
 			productType = "com.apple.product-type.tool";
 		};
 		A8E777C31BB346B200FCB3C9 /* GNLearnC */ = {
@@ -382,7 +384,7 @@
 			);
 			name = GNLearnC;
 			productName = GNLearnC;
-			productReference = A8E777C41BB346B200FCB3C9 /* GNLearnC */;
+			productReference = A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -458,6 +460,7 @@
 		A89422381C03138B006C1164 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -469,6 +472,7 @@
 		A89422391C03138B006C1164 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
 				GCC_NO_COMMON_BLOCKS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
