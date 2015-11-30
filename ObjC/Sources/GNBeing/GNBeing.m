@@ -17,6 +17,10 @@
 
 @implementation GNBeing
 
+@synthesize name = _name;
+@synthesize weight = _weight;
+@synthesize age = _age;
+
 @dynamic children;
 
 #pragma mark -
@@ -57,19 +61,12 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)fight {
-    NSLog(@"Went To Fight! %@", self);
-}
-
-- (instancetype)reproduce {
-    return [[self class]beingWithGender:kGNFemale];
-}
-
-- (void)addChild:(GNBeing *)child {
+- (void)addChild:(id<GNBeingProtocol>)child {
+    
     [self.mutableChildren addObject:child];
 }
 
-- (void)removeChild:(GNBeing *)child {
+- (void)removeChild:(id)child {
     [self.mutableChildren removeObject:child];
 }
 
@@ -79,6 +76,11 @@
     for (GNBeing *child in self.children) {
         [child sayHello];
     }
+}
+
+- (id)performGenderSpecificOperation {
+    
+    return nil;
 }
 
 @end

@@ -24,6 +24,9 @@
 		A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B721C03169B00542191 /* GNValueBitOutputTests.c */; };
 		A8159B931C0316D700542191 /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B901C0316D700542191 /* GNBeing.m */; };
 		A8159B941C0316D700542191 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B911C0316D700542191 /* main.m */; };
+		A8375D511C0BDB0E003274B5 /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8375D501C0BDB0E003274B5 /* GNBeingTests.m */; };
+		A8BB9B491C0B37C100A5F16B /* GNMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB9B481C0B37C100A5F16B /* GNMale.m */; };
+		A8BB9B4D1C0B37E100A5F16B /* GNFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +87,14 @@
 		A8159B8F1C0316D700542191 /* GNBeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeing.h; sourceTree = "<group>"; };
 		A8159B901C0316D700542191 /* GNBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeing.m; sourceTree = "<group>"; };
 		A8159B911C0316D700542191 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8375D4D1C0B9F2B003274B5 /* GNBeingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingProtocol.h; sourceTree = "<group>"; };
+		A8375D4F1C0BDB0E003274B5 /* GNBeingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNBeingTests.h; path = GNBeingTests/GNBeingTests.h; sourceTree = "<group>"; };
+		A8375D501C0BDB0E003274B5 /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNBeingTests.m; path = GNBeingTests/GNBeingTests.m; sourceTree = "<group>"; };
+		A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "IDAP Study Plan.rtf"; sourceTree = "<group>"; };
+		A8BB9B471C0B37C100A5F16B /* GNMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNMale.h; path = GNMale/GNMale.h; sourceTree = "<group>"; };
+		A8BB9B481C0B37C100A5F16B /* GNMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNMale.m; path = GNMale/GNMale.m; sourceTree = "<group>"; };
+		A8BB9B4B1C0B37E100A5F16B /* GNFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNFemale.h; path = GNFemale/GNFemale.h; sourceTree = "<group>"; };
+		A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNFemale.m; path = GNFemale/GNFemale.m; sourceTree = "<group>"; };
 		A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -327,6 +338,9 @@
 		A8159B8E1C0316D700542191 /* GNBeing */ = {
 			isa = PBXGroup;
 			children = (
+				A8375D4C1C0B9ECE003274B5 /* Protocol */,
+				A8BB9B461C0B37A500A5F16B /* GNMale */,
+				A8BB9B4A1C0B37C600A5F16B /* GNFemale */,
 				A8159B8F1C0316D700542191 /* GNBeing.h */,
 				A8159B901C0316D700542191 /* GNBeing.m */,
 			);
@@ -336,8 +350,44 @@
 		A8159B921C0316D700542191 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A8375D4E1C0BDA61003274B5 /* GNBeingTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		A8375D4C1C0B9ECE003274B5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A8375D4D1C0B9F2B003274B5 /* GNBeingProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A8375D4E1C0BDA61003274B5 /* GNBeingTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8375D4F1C0BDB0E003274B5 /* GNBeingTests.h */,
+				A8375D501C0BDB0E003274B5 /* GNBeingTests.m */,
+			);
+			name = GNBeingTests;
+			sourceTree = "<group>";
+		};
+		A8BB9B461C0B37A500A5F16B /* GNMale */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB9B471C0B37C100A5F16B /* GNMale.h */,
+				A8BB9B481C0B37C100A5F16B /* GNMale.m */,
+			);
+			name = GNMale;
+			sourceTree = "<group>";
+		};
+		A8BB9B4A1C0B37C600A5F16B /* GNFemale */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB9B4B1C0B37E100A5F16B /* GNFemale.h */,
+				A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */,
+			);
+			name = GNFemale;
 			sourceTree = "<group>";
 		};
 		A8E777BB1BB346B200FCB3C9 = {
@@ -347,6 +397,7 @@
 				A8159B8C1C0316D700542191 /* ObjC */,
 				A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */,
 				A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */,
+				A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -427,8 +478,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BB9B4D1C0B37E100A5F16B /* GNFemale.m in Sources */,
+				A8BB9B491C0B37C100A5F16B /* GNMale.m in Sources */,
 				A8159B941C0316D700542191 /* main.m in Sources */,
 				A8159B931C0316D700542191 /* GNBeing.m in Sources */,
+				A8375D511C0BDB0E003274B5 /* GNBeingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
