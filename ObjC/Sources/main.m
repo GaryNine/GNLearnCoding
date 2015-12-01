@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GNBeingTests.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        [GNBeingTests performBeingTests];
     }
     return 0;
 }

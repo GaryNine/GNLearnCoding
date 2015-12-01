@@ -20,6 +20,6 @@
 
 @interface GNBeingTests : NSObject
 
-- (void)performBeingTests;
++ (void)performBeingTests;
 
 @end

@@ -10,10 +10,10 @@
 
 @interface GNBeingTests()
 
-- (void)beingTest;
-- (void)childrenArrayTest;
-- (void)genderSpecificOperationTest;
-- (void)sayHelloTest;
++ (void)beingTest;
++ (void)childrenArrayTest;
++ (void)genderSpecificOperationTest;
++ (void)sayHelloTest;
 
 @end
 
@@ -22,7 +22,7 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)performBeingTests {
++ (void)performBeingTests {
     [self beingTest];
     [self childrenArrayTest];
     [self genderSpecificOperationTest];
@@ -32,7 +32,7 @@
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)beingTest {
++ (void)beingTest {
     
     // after being instance created with gender male:
     GNMale *male = [GNMale beingWithGender:kGNMale];
@@ -78,7 +78,7 @@
     NSAssert([male age] == 0, @"Age init is incorrect");
 }
 
-- (void)childrenArrayTest {
++ (void)childrenArrayTest {
     
     // after instances created:
     GNMale *man = [GNMale beingWithGender:kGNMale];
@@ -87,7 +87,7 @@
     GNMale *someChild = [GNMale beingWithGender:kGNMale];
     GNMale *anotherChild = [GNMale beingWithGender:kGNFemale];
     
-        // after man puted someChild into his array
+        // after man puted someChild into the array
     [man addChild:(id<GNBeingProtocol>)someChild];
     
             // children count must be 1
@@ -96,7 +96,7 @@
             // array must contains someChild
     NSAssert([[man children] containsObject:someChild], @"Array doesn't contains someChild");
     
-        // after man puted anotherChild into his array
+        // after man puted anotherChild into the array
     [man addChild:(id<GNBeingProtocol>)anotherChild];
     
             // children count must be 2
@@ -105,8 +105,25 @@
             // array must contains anotherChild
     NSAssert([[man children] containsObject:anotherChild], @"Array doesn't contains anotherChild");
     
+        // after man removed someChild from the array
+    [man removeChild:someChild];
     
-        // after woman puted someChild into his array
+            // children count must be 1
+    NSAssert([[man children] count] == 1, @"Array didn't remove someChild");
+    
+            // array must not contains someChild
+    NSAssert(false == [[man children] containsObject:someChild], @"Array still contains someChild");
+    
+        // after man removed anotherChild from the array
+    [man removeChild:anotherChild];
+    
+            // children count must be 0
+    NSAssert([[man children] count] == 0, @"Array didn't remove anotherChild");
+    
+            // array must not contains anotherChild
+    NSAssert(false == [[man children] containsObject:anotherChild], @"Array still contains anotherChild");
+    
+        // after woman puted someChild into the array
     [woman addChild:(id<GNBeingProtocol>)someChild];
     
             // children count must be 1
@@ -115,7 +132,7 @@
             // array must contains someChild
     NSAssert([[woman children] containsObject:someChild], @"Array doesn't contains someChild");
     
-        // after woman puted anotherChild into his array
+        // after woman puted anotherChild into the array
     [woman addChild:(id<GNBeingProtocol>)anotherChild];
     
             // children count must be 2
@@ -125,7 +142,7 @@
     NSAssert([[woman children] containsObject:anotherChild], @"Array doesn't contains anotherChild");
 }
 
-- (void)genderSpecificOperationTest {
++ (void)genderSpecificOperationTest {
     NSMutableArray *array = [[NSMutableArray new] autorelease];
     
     for (NSUInteger count = 0; count < 25; count++) {
@@ -137,15 +154,23 @@
     }
     
     for (GNBeing *being in array) {
-        [being performGenderSpecificOperation];
+        id result = [being performGenderSpecificOperation];
+        
+        if (!result) {
+            [being addChild:result];
+        }
     }
 }
 
-- (void)sayHelloTest {
++ (void)sayHelloTest {
     GNFemale *female = [GNFemale beingWithGender:kGNFemale];
+    
     for (NSUInteger count = 0; count < 10; count++) {
-        GNFemale *child = [GNFemale beingWithGender:kGNMale];
+        GNMale *child = [GNMale beingWithGender:kGNMale];
+        [female addChild:child];
     }
+    
+    [female sayHello];
 }
 
 @end
