@@ -14,7 +14,6 @@
 #pragma mark Public Implementation
 
 - (GNGenderType)gender {
-    
     return kGNFemale;
 }
 
@@ -23,7 +22,7 @@
 
 - (id)performGenderSpecificOperation {
     
-     return [[self class]beingWithGender:arc4random_uniform(kGNUndefined)];
+    return [[self class]beingWithGender:arc4random_uniform(kGNUndefined)];
 }
 
 @end

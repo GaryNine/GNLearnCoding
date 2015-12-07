@@ -10,10 +10,9 @@
 
 @interface GNBeingTests()
 
-+ (void)beingTest;
-+ (void)childrenArrayTest;
-+ (void)genderSpecificOperationTest;
-+ (void)sayHelloTest;
+- (void)beingTest;
+- (void)childrenArrayTest;
+- (void)genderSpecificOperationTest;
 
 @end
 
@@ -22,63 +21,67 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-+ (void)performBeingTests {
+- (void)performTests {
     [self beingTest];
     [self childrenArrayTest];
     [self genderSpecificOperationTest];
-    [self sayHelloTest];
 }
 
 #pragma mark -
 #pragma mark Private Implementations
 
-+ (void)beingTest {
+- (void)beingTest {
     
     // after being instance created with gender male:
     GNMale *male = [GNMale beingWithGender:kGNMale];
     
         // instance must not be nil
-    NSAssert(male != nil, @"Object not created");
+    NSAssert(nil != male, @"Object not created");
     
         // instance gender must be male
-    NSAssert([male gender] == kGNMale, @"Gender init is incorrect");
+    NSAssert(kGNMale == [male gender], @"Gender init is incorrect");
     
         // instance name must be nil
-    NSAssert([male name] == nil, @"Name init is incorrect");
+    NSAssert(nil == [male name], @"Name init is incorrect");
     
-        // instance children must be nil
-    NSAssert([male children] == nil, @"Children init is incorrect");
+        // instance children must not be nil
+    NSAssert(nil != [male children], @"Children init is incorrect");
+    
+        // instance children count must be null
+    NSAssert(0 == [[male children]count], @"Children count is not equal to 0");
     
         // instance weight must be null
-    NSAssert([male weight] == 0, @"Weight init is incorrect");
+    NSAssert(0 == [male weight], @"Weight init is incorrect");
     
         // instance age must be null
-    NSAssert([male age] == 0, @"Age init is incorrect");
+    NSAssert(0 == [male age], @"Age init is incorrect");
     
     // after being instance created with gender female:
     GNFemale *female = [GNFemale beingWithGender:kGNFemale];
     
         // instance must not be nil
-    NSAssert(female != nil, @"Object not created");
+    NSAssert(nil != female, @"Object not created");
     
         // instance gender must be male
-    NSAssert([female gender] == kGNFemale, @"Gender init is incorrect");
+    NSAssert(kGNFemale == [female gender], @"Gender init is incorrect");
     
         // instance name must be nil
-    NSAssert([female name] == nil, @"Name init is incorrect");
+    NSAssert(nil == [female name], @"Name init is incorrect");
     
-        // instance children must be nil
-    NSAssert([female children] == nil, @"Children init is incorrect");
+        // instance children must not be nil
+    NSAssert(nil != [female children], @"Children init is incorrect");
     
+        // instance children count must be null
+    NSAssert(0 == [[male children]count], @"Children count is not equal to 0");
     
         // instance weight must be null
-    NSAssert([female weight] == 0, @"Weight init is incorrect");
+    NSAssert(0 == [female weight], @"Weight init is incorrect");
     
         // instance age must be null
-    NSAssert([male age] == 0, @"Age init is incorrect");
+    NSAssert(0 == [male age], @"Age init is incorrect");
 }
 
-+ (void)childrenArrayTest {
+- (void)childrenArrayTest {
     
     // after instances created:
     GNMale *man = [GNMale beingWithGender:kGNMale];
@@ -88,19 +91,19 @@
     GNMale *anotherChild = [GNMale beingWithGender:kGNFemale];
     
         // after man puted someChild into the array
-    [man addChild:(id<GNBeingProtocol>)someChild];
+    [man addChild:someChild];
     
             // children count must be 1
-    NSAssert([[man children] count] == 1, @"Man doesn't have children");
+    NSAssert(1 == [[man children] count], @"Man doesn't have children");
     
             // array must contains someChild
     NSAssert([[man children] containsObject:someChild], @"Array doesn't contains someChild");
     
         // after man puted anotherChild into the array
-    [man addChild:(id<GNBeingProtocol>)anotherChild];
+    [man addChild:anotherChild];
     
             // children count must be 2
-    NSAssert([[man children] count] == 2, @"Man doesn't have children");
+    NSAssert(2 == [[man children] count], @"Man doesn't have children");
     
             // array must contains anotherChild
     NSAssert([[man children] containsObject:anotherChild], @"Array doesn't contains anotherChild");
@@ -109,50 +112,55 @@
     [man removeChild:someChild];
     
             // children count must be 1
-    NSAssert([[man children] count] == 1, @"Array didn't remove someChild");
+    NSAssert(1 == [[man children] count], @"Array didn't remove someChild");
     
             // array must not contains someChild
-    NSAssert(false == [[man children] containsObject:someChild], @"Array still contains someChild");
+    NSAssert(NO == [[man children] containsObject:someChild], @"Array still contains someChild");
     
         // after man removed anotherChild from the array
     [man removeChild:anotherChild];
     
             // children count must be 0
-    NSAssert([[man children] count] == 0, @"Array didn't remove anotherChild");
+    NSAssert(0 == [[man children] count], @"Array didn't remove anotherChild");
     
             // array must not contains anotherChild
-    NSAssert(false == [[man children] containsObject:anotherChild], @"Array still contains anotherChild");
+    NSAssert(NO == [[man children] containsObject:anotherChild], @"Array still contains anotherChild");
     
         // after woman puted someChild into the array
-    [woman addChild:(id<GNBeingProtocol>)someChild];
+    [woman addChild:someChild];
     
             // children count must be 1
-    NSAssert([[woman children] count] == 1, @"Woman doesn't have children");
+    NSAssert(1 == [[woman children] count], @"Woman doesn't have children");
     
             // array must contains someChild
     NSAssert([[woman children] containsObject:someChild], @"Array doesn't contains someChild");
     
         // after woman puted anotherChild into the array
-    [woman addChild:(id<GNBeingProtocol>)anotherChild];
+    [woman addChild:anotherChild];
     
             // children count must be 2
-    NSAssert([[woman children] count] == 2, @"Woman doesn't have children");
+    NSAssert(2 == [[woman children] count], @"Woman doesn't have children");
     
             // array must contains anotherChild
     NSAssert([[woman children] containsObject:anotherChild], @"Array doesn't contains anotherChild");
 }
 
-+ (void)genderSpecificOperationTest {
+- (void)genderSpecificOperationTest {
+    
+    // after test array created:
     NSMutableArray *array = [[NSMutableArray new] autorelease];
     
+        // after test instances created:
     for (NSUInteger count = 0; count < 25; count++) {
         GNMale *male  = [GNMale beingWithGender:kGNMale];
         GNFemale *female = [GNFemale beingWithGender:kGNFemale];
-        
+       
+            // add test instances into the array
         [array addObject:male];
         [array addObject:female];
     }
     
+            // send message performGenderSpecificOperation to all instances into the array
     for (GNBeing *being in array) {
         id result = [being performGenderSpecificOperation];
         
@@ -160,17 +168,9 @@
             [being addChild:result];
         }
     }
-}
-
-+ (void)sayHelloTest {
-    GNFemale *female = [GNFemale beingWithGender:kGNFemale];
     
-    for (NSUInteger count = 0; count < 10; count++) {
-        GNMale *child = [GNMale beingWithGender:kGNMale];
-        [female addChild:child];
-    }
-    
-    [female sayHello];
+            // send message sayHello to everyone into the array
+    [array makeObjectsPerformSelector:@selector(sayHello)];
 }
 
 @end

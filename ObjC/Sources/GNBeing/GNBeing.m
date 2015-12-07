@@ -34,8 +34,18 @@
 #pragma mark - 
 #pragma mark Initializations & Deallocation
 
-- (instancetype)initWithGender:(GNGenderType)gender {
+- (instancetype)init {
     self = [super init];
+    
+    if (self) {
+        self.mutableChildren = [NSMutableSet set];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithGender:(GNGenderType)gender {
+    [self init];
     
     if (self) {
         self.gender = gender;
@@ -62,11 +72,12 @@
 #pragma mark Public Implementations
 
 - (void)addChild:(id<GNBeingProtocol>)child {
-    
-    [self.mutableChildren addObject:child];
+    if ([child conformsToProtocol:@protocol(GNBeingProtocol)]) {
+        [self.mutableChildren addObject:child];
+    }
 }
 
-- (void)removeChild:(id)child {
+- (void)removeChild:(id<GNBeingProtocol>)child {
     [self.mutableChildren removeObject:child];
 }
 

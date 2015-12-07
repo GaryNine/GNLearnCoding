@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "GNBeingTests.h"
+#import "NSObject+GNExtensions.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [GNBeingTests performBeingTests];
+        [[GNBeingTests object] performTests];
     }
     return 0;
 }

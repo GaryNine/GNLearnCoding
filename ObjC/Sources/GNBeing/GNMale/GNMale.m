@@ -14,8 +14,7 @@
 #pragma mark Public Implementation
 
 - (GNGenderType)gender {
-   
-    return kGNMale;
+   return kGNMale;
 }
 
 #pragma mark -

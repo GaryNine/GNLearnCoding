@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8348CC4EE2B318311486C28D /* libPods-ObjCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE65FF3E208421091152E8E5 /* libPods-ObjCTests.a */; };
 		A8159B741C03169B00542191 /* GNArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B411C03169B00542191 /* GNArray.c */; };
 		A8159B751C03169B00542191 /* GNDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B461C03169B00542191 /* GNDynamicArray.c */; };
 		A8159B761C03169B00542191 /* GNHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B491C03169B00542191 /* GNHuman.c */; };
@@ -22,11 +23,32 @@
 		A8159B801C03169B00542191 /* GNSizeOfTypesPrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6C1C03169B00542191 /* GNSizeOfTypesPrintTest.c */; };
 		A8159B811C03169B00542191 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */; };
 		A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B721C03169B00542191 /* GNValueBitOutputTests.c */; };
-		A8159B931C0316D700542191 /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B901C0316D700542191 /* GNBeing.m */; };
-		A8159B941C0316D700542191 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8159B911C0316D700542191 /* main.m */; };
-		A8375D511C0BDB0E003274B5 /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8375D501C0BDB0E003274B5 /* GNBeingTests.m */; };
-		A8BB9B491C0B37C100A5F16B /* GNMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB9B481C0B37C100A5F16B /* GNMale.m */; };
-		A8BB9B4D1C0B37E100A5F16B /* GNFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */; };
+		A87C85921C15C045009547A4 /* GNBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85911C15C045009547A4 /* GNBuilding.m */; };
+		A87C85961C15C0C5009547A4 /* GNCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85951C15C0C5009547A4 /* GNCarWash.m */; };
+		A87C859A1C15C104009547A4 /* GNOfficeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85991C15C104009547A4 /* GNOfficeBlock.m */; };
+		A87C859E1C15C731009547A4 /* GNRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C859D1C15C731009547A4 /* GNRoom.m */; };
+		A87C85A21C15C834009547A4 /* GNAdminRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A11C15C834009547A4 /* GNAdminRoom.m */; };
+		A87C85A61C15C93C009547A4 /* GNWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A51C15C93C009547A4 /* GNWashBox.m */; };
+		A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A91C15CB45009547A4 /* GNCar.m */; };
+		A87C85AE1C15CBEF009547A4 /* GNEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85AD1C15CBEF009547A4 /* GNEmployee.m */; };
+		A87C85B21C15CCB9009547A4 /* GNAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85B11C15CCB9009547A4 /* GNAccountant.m */; };
+		A87C85B61C15CCF1009547A4 /* GNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85B51C15CCF1009547A4 /* GNManager.m */; };
+		A87C85BB1C15CD4B009547A4 /* GNWasherman.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85BA1C15CD4B009547A4 /* GNWasherman.m */; };
+		A8A6A13E1C14E171008B7A63 /* GNBeingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */; };
+		A8A6A1401C150929008B7A63 /* NSString+GNExtensionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */; };
+		A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
+		A8DC22D71C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
+		A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C51C14C415002BA42C /* GNBeing.m */; };
+		A8DC22D91C14C415002BA42C /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C51C14C415002BA42C /* GNBeing.m */; };
+		A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C81C14C415002BA42C /* GNFemale.m */; };
+		A8DC22DB1C14C415002BA42C /* GNFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C81C14C415002BA42C /* GNFemale.m */; };
+		A8DC22DC1C14C415002BA42C /* GNMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22CB1C14C415002BA42C /* GNMale.m */; };
+		A8DC22DD1C14C415002BA42C /* GNMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22CB1C14C415002BA42C /* GNMale.m */; };
+		A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22CE1C14C415002BA42C /* NSObject+GNExtensions.m */; };
+		A8DC22DF1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22CE1C14C415002BA42C /* NSObject+GNExtensions.m */; };
+		A8DC22E01C14C415002BA42C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D11C14C415002BA42C /* main.m */; };
+		A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
+		A8DC22E31C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		860AD5AF3FDA3D786B2AF992 /* Pods-ObjCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8159B411C03169B00542191 /* GNArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNArray.c; sourceTree = "<group>"; };
 		A8159B421C03169B00542191 /* GNArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArray.h; sourceTree = "<group>"; };
 		A8159B441C03169B00542191 /* GNBasicTypeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValue.h; sourceTree = "<group>"; };
@@ -69,7 +92,7 @@
 		A8159B591C03169B00542191 /* GNString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNString.h; sourceTree = "<group>"; };
 		A8159B5B1C03169B00542191 /* GNValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutput.c; sourceTree = "<group>"; };
 		A8159B5C1C03169B00542191 /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
-		A8159B5D1C03169B00542191 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A8159B5D1C03169B00542191 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = C/Sources/main.c; sourceTree = "<group>"; };
 		A8159B601C03169B00542191 /* GNBasicTypeValuePrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNBasicTypeValuePrintTest.c; sourceTree = "<group>"; };
 		A8159B611C03169B00542191 /* GNBasicTypeValuePrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValuePrintTest.h; sourceTree = "<group>"; };
 		A8159B631C03169B00542191 /* GNHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHumanTests.c; sourceTree = "<group>"; };
@@ -84,19 +107,52 @@
 		A8159B701C03169B00542191 /* GNStructurePrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNStructurePrintTests.h; sourceTree = "<group>"; };
 		A8159B721C03169B00542191 /* GNValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutputTests.c; sourceTree = "<group>"; };
 		A8159B731C03169B00542191 /* GNValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutputTests.h; sourceTree = "<group>"; };
-		A8159B8F1C0316D700542191 /* GNBeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeing.h; sourceTree = "<group>"; };
-		A8159B901C0316D700542191 /* GNBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeing.m; sourceTree = "<group>"; };
-		A8159B911C0316D700542191 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A8375D4D1C0B9F2B003274B5 /* GNBeingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingProtocol.h; sourceTree = "<group>"; };
-		A8375D4F1C0BDB0E003274B5 /* GNBeingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNBeingTests.h; path = GNBeingTests/GNBeingTests.h; sourceTree = "<group>"; };
-		A8375D501C0BDB0E003274B5 /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNBeingTests.m; path = GNBeingTests/GNBeingTests.m; sourceTree = "<group>"; };
 		A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "IDAP Study Plan.rtf"; sourceTree = "<group>"; };
-		A8BB9B471C0B37C100A5F16B /* GNMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNMale.h; path = GNMale/GNMale.h; sourceTree = "<group>"; };
-		A8BB9B481C0B37C100A5F16B /* GNMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNMale.m; path = GNMale/GNMale.m; sourceTree = "<group>"; };
-		A8BB9B4B1C0B37E100A5F16B /* GNFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNFemale.h; path = GNFemale/GNFemale.h; sourceTree = "<group>"; };
-		A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNFemale.m; path = GNFemale/GNFemale.m; sourceTree = "<group>"; };
-		A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83B0A701C14CB3E00F9909C /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83B0A711C14CB3E00F9909C /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
+		A87C85901C15C045009547A4 /* GNBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBuilding.h; sourceTree = "<group>"; };
+		A87C85911C15C045009547A4 /* GNBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBuilding.m; sourceTree = "<group>"; };
+		A87C85941C15C0C5009547A4 /* GNCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCarWash.h; sourceTree = "<group>"; };
+		A87C85951C15C0C5009547A4 /* GNCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCarWash.m; sourceTree = "<group>"; };
+		A87C85981C15C104009547A4 /* GNOfficeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNOfficeBlock.h; sourceTree = "<group>"; };
+		A87C85991C15C104009547A4 /* GNOfficeBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNOfficeBlock.m; sourceTree = "<group>"; };
+		A87C859C1C15C731009547A4 /* GNRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNRoom.h; sourceTree = "<group>"; };
+		A87C859D1C15C731009547A4 /* GNRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNRoom.m; sourceTree = "<group>"; };
+		A87C85A01C15C834009547A4 /* GNAdminRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAdminRoom.h; sourceTree = "<group>"; };
+		A87C85A11C15C834009547A4 /* GNAdminRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAdminRoom.m; sourceTree = "<group>"; };
+		A87C85A41C15C93C009547A4 /* GNWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWashBox.h; sourceTree = "<group>"; };
+		A87C85A51C15C93C009547A4 /* GNWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWashBox.m; sourceTree = "<group>"; };
+		A87C85A81C15CB45009547A4 /* GNCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCar.h; sourceTree = "<group>"; };
+		A87C85A91C15CB45009547A4 /* GNCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCar.m; sourceTree = "<group>"; };
+		A87C85AC1C15CBEF009547A4 /* GNEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNEmployee.h; sourceTree = "<group>"; };
+		A87C85AD1C15CBEF009547A4 /* GNEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNEmployee.m; sourceTree = "<group>"; };
+		A87C85B01C15CCB9009547A4 /* GNAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAccountant.h; sourceTree = "<group>"; };
+		A87C85B11C15CCB9009547A4 /* GNAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAccountant.m; sourceTree = "<group>"; };
+		A87C85B41C15CCF1009547A4 /* GNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNManager.h; sourceTree = "<group>"; };
+		A87C85B51C15CCF1009547A4 /* GNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNManager.m; sourceTree = "<group>"; };
+		A87C85B91C15CD4B009547A4 /* GNWasherman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWasherman.h; sourceTree = "<group>"; };
+		A87C85BA1C15CD4B009547A4 /* GNWasherman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWasherman.m; sourceTree = "<group>"; };
+		A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingSpec.m; sourceTree = "<group>"; };
+		A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensionsSpec.m"; sourceTree = "<group>"; };
+		A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8DC22B81C14C04B002BA42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8DC22BF1C14C415002BA42C /* NSString+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNExtensions.h"; sourceTree = "<group>"; };
+		A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensions.m"; sourceTree = "<group>"; };
+		A8DC22C31C14C415002BA42C /* GNTypeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTypeDefs.h; sourceTree = "<group>"; };
+		A8DC22C41C14C415002BA42C /* GNBeing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeing.h; sourceTree = "<group>"; };
+		A8DC22C51C14C415002BA42C /* GNBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeing.m; sourceTree = "<group>"; };
+		A8DC22C71C14C415002BA42C /* GNFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFemale.h; sourceTree = "<group>"; };
+		A8DC22C81C14C415002BA42C /* GNFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFemale.m; sourceTree = "<group>"; };
+		A8DC22CA1C14C415002BA42C /* GNMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNMale.h; sourceTree = "<group>"; };
+		A8DC22CB1C14C415002BA42C /* GNMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNMale.m; sourceTree = "<group>"; };
+		A8DC22CD1C14C415002BA42C /* NSObject+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GNExtensions.h"; sourceTree = "<group>"; };
+		A8DC22CE1C14C415002BA42C /* NSObject+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GNExtensions.m"; sourceTree = "<group>"; };
+		A8DC22D01C14C415002BA42C /* GNBeingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingProtocol.h; sourceTree = "<group>"; };
+		A8DC22D11C14C415002BA42C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/Sources/main.m; sourceTree = "<group>"; };
+		A8DC22D41C14C415002BA42C /* GNBeingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingTests.h; sourceTree = "<group>"; };
+		A8DC22D51C14C415002BA42C /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingTests.m; sourceTree = "<group>"; };
+		D0EEF18A9C4038D9426B29B7 /* Pods-ObjCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests.release.xcconfig"; sourceTree = "<group>"; };
+		EE65FF3E208421091152E8E5 /* libPods-ObjCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +160,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8DC22B11C14C04B002BA42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8348CC4EE2B318311486C28D /* libPods-ObjCTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +181,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92D2A7DDC47C7C226DA0D44D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				860AD5AF3FDA3D786B2AF992 /* Pods-ObjCTests.debug.xcconfig */,
+				D0EEF18A9C4038D9426B29B7 /* Pods-ObjCTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		99644E72E7DB86CDB9343370 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE65FF3E208421091152E8E5 /* libPods-ObjCTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A80EA1ED1C157C4200A14755 /* NSString+GNExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22BF1C14C415002BA42C /* NSString+GNExtensions.h */,
+				A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */,
+			);
+			path = "NSString+GNExtensions";
+			sourceTree = "<group>";
+		};
 		A8159B3E1C03169B00542191 /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +230,6 @@
 				A8159B551C03169B00542191 /* GNSizeOfTypes */,
 				A8159B571C03169B00542191 /* GNString */,
 				A8159B5A1C03169B00542191 /* GNValueBitOutput */,
-				A8159B5D1C03169B00542191 /* main.c */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -317,87 +406,248 @@
 			path = GNValueBitOutputTests;
 			sourceTree = "<group>";
 		};
-		A8159B8C1C0316D700542191 /* ObjC */ = {
+		A87C858F1C15BFAD009547A4 /* GNBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				A8159B8D1C0316D700542191 /* Sources */,
-				A8159B921C0316D700542191 /* Tests */,
+				A87C85901C15C045009547A4 /* GNBuilding.h */,
+				A87C85911C15C045009547A4 /* GNBuilding.m */,
+			);
+			path = GNBuilding;
+			sourceTree = "<group>";
+		};
+		A87C85931C15C079009547A4 /* GNCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85B81C15CD25009547A4 /* GNWasherman */,
+				A87C85B31C15CCBE009547A4 /* GNManager */,
+				A87C85AF1C15CC76009547A4 /* GNAccountant */,
+				A87C85AB1C15CB4A009547A4 /* GNEmployee */,
+				A87C85A71C15CB10009547A4 /* GNCar */,
+				A87C85A31C15C84E009547A4 /* GNWashBox */,
+				A87C859F1C15C782009547A4 /* GNAdminRoom */,
+				A87C859B1C15C6EF009547A4 /* GNRoom */,
+				A87C85971C15C0DA009547A4 /* GNOfficeBlock */,
+				A87C858F1C15BFAD009547A4 /* GNBuilding */,
+				A87C85941C15C0C5009547A4 /* GNCarWash.h */,
+				A87C85951C15C0C5009547A4 /* GNCarWash.m */,
+			);
+			path = GNCarWash;
+			sourceTree = "<group>";
+		};
+		A87C85971C15C0DA009547A4 /* GNOfficeBlock */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85981C15C104009547A4 /* GNOfficeBlock.h */,
+				A87C85991C15C104009547A4 /* GNOfficeBlock.m */,
+			);
+			path = GNOfficeBlock;
+			sourceTree = "<group>";
+		};
+		A87C859B1C15C6EF009547A4 /* GNRoom */ = {
+			isa = PBXGroup;
+			children = (
+				A87C859C1C15C731009547A4 /* GNRoom.h */,
+				A87C859D1C15C731009547A4 /* GNRoom.m */,
+			);
+			path = GNRoom;
+			sourceTree = "<group>";
+		};
+		A87C859F1C15C782009547A4 /* GNAdminRoom */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85A01C15C834009547A4 /* GNAdminRoom.h */,
+				A87C85A11C15C834009547A4 /* GNAdminRoom.m */,
+			);
+			path = GNAdminRoom;
+			sourceTree = "<group>";
+		};
+		A87C85A31C15C84E009547A4 /* GNWashBox */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85A41C15C93C009547A4 /* GNWashBox.h */,
+				A87C85A51C15C93C009547A4 /* GNWashBox.m */,
+			);
+			path = GNWashBox;
+			sourceTree = "<group>";
+		};
+		A87C85A71C15CB10009547A4 /* GNCar */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85A81C15CB45009547A4 /* GNCar.h */,
+				A87C85A91C15CB45009547A4 /* GNCar.m */,
+			);
+			path = GNCar;
+			sourceTree = "<group>";
+		};
+		A87C85AB1C15CB4A009547A4 /* GNEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85AC1C15CBEF009547A4 /* GNEmployee.h */,
+				A87C85AD1C15CBEF009547A4 /* GNEmployee.m */,
+			);
+			path = GNEmployee;
+			sourceTree = "<group>";
+		};
+		A87C85AF1C15CC76009547A4 /* GNAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85B01C15CCB9009547A4 /* GNAccountant.h */,
+				A87C85B11C15CCB9009547A4 /* GNAccountant.m */,
+			);
+			path = GNAccountant;
+			sourceTree = "<group>";
+		};
+		A87C85B31C15CCBE009547A4 /* GNManager */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85B41C15CCF1009547A4 /* GNManager.h */,
+				A87C85B51C15CCF1009547A4 /* GNManager.m */,
+			);
+			path = GNManager;
+			sourceTree = "<group>";
+		};
+		A87C85B81C15CD25009547A4 /* GNWasherman */ = {
+			isa = PBXGroup;
+			children = (
+				A87C85B91C15CD4B009547A4 /* GNWasherman.h */,
+				A87C85BA1C15CD4B009547A4 /* GNWasherman.m */,
+			);
+			path = GNWasherman;
+			sourceTree = "<group>";
+		};
+		A8A6A13A1C14D825008B7A63 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */,
+				A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		A8DC22B51C14C04B002BA42C /* ObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8A6A13A1C14D825008B7A63 /* Specs */,
+				A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */,
+				A8DC22B81C14C04B002BA42C /* Info.plist */,
+			);
+			path = ObjCTests;
+			sourceTree = "<group>";
+		};
+		A8DC22BC1C14C415002BA42C /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22BD1C14C415002BA42C /* Sources */,
+				A8DC22D21C14C415002BA42C /* Tests */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
 		};
-		A8159B8D1C0316D700542191 /* Sources */ = {
+		A8DC22BD1C14C415002BA42C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A8159B8E1C0316D700542191 /* GNBeing */,
-				A8159B911C0316D700542191 /* main.m */,
+				A87C85931C15C079009547A4 /* GNCarWash */,
+				A8DC22CF1C14C415002BA42C /* Protocol */,
+				A8DC22C21C14C415002BA42C /* Declarations */,
+				A8DC22BE1C14C415002BA42C /* Categories */,
+				A8DC22C11C14C415002BA42C /* GNBeing */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		A8159B8E1C0316D700542191 /* GNBeing */ = {
+		A8DC22BE1C14C415002BA42C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				A8375D4C1C0B9ECE003274B5 /* Protocol */,
-				A8BB9B461C0B37A500A5F16B /* GNMale */,
-				A8BB9B4A1C0B37C600A5F16B /* GNFemale */,
-				A8159B8F1C0316D700542191 /* GNBeing.h */,
-				A8159B901C0316D700542191 /* GNBeing.m */,
+				A80EA1ED1C157C4200A14755 /* NSString+GNExtensions */,
+				A8DC22CC1C14C415002BA42C /* NSObject+GNExtensions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A8DC22C11C14C415002BA42C /* GNBeing */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22C41C14C415002BA42C /* GNBeing.h */,
+				A8DC22C51C14C415002BA42C /* GNBeing.m */,
+				A8DC22C91C14C415002BA42C /* GNMale */,
+				A8DC22C61C14C415002BA42C /* GNFemale */,
 			);
 			path = GNBeing;
 			sourceTree = "<group>";
 		};
-		A8159B921C0316D700542191 /* Tests */ = {
+		A8DC22C21C14C415002BA42C /* Declarations */ = {
 			isa = PBXGroup;
 			children = (
-				A8375D4E1C0BDA61003274B5 /* GNBeingTests */,
+				A8DC22C31C14C415002BA42C /* GNTypeDefs.h */,
 			);
-			path = Tests;
+			path = Declarations;
 			sourceTree = "<group>";
 		};
-		A8375D4C1C0B9ECE003274B5 /* Protocol */ = {
+		A8DC22C61C14C415002BA42C /* GNFemale */ = {
 			isa = PBXGroup;
 			children = (
-				A8375D4D1C0B9F2B003274B5 /* GNBeingProtocol.h */,
+				A8DC22C71C14C415002BA42C /* GNFemale.h */,
+				A8DC22C81C14C415002BA42C /* GNFemale.m */,
+			);
+			path = GNFemale;
+			sourceTree = "<group>";
+		};
+		A8DC22C91C14C415002BA42C /* GNMale */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22CA1C14C415002BA42C /* GNMale.h */,
+				A8DC22CB1C14C415002BA42C /* GNMale.m */,
+			);
+			path = GNMale;
+			sourceTree = "<group>";
+		};
+		A8DC22CC1C14C415002BA42C /* NSObject+GNExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22CD1C14C415002BA42C /* NSObject+GNExtensions.h */,
+				A8DC22CE1C14C415002BA42C /* NSObject+GNExtensions.m */,
+			);
+			path = "NSObject+GNExtensions";
+			sourceTree = "<group>";
+		};
+		A8DC22CF1C14C415002BA42C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC22D01C14C415002BA42C /* GNBeingProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		A8375D4E1C0BDA61003274B5 /* GNBeingTests */ = {
+		A8DC22D21C14C415002BA42C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A8375D4F1C0BDB0E003274B5 /* GNBeingTests.h */,
-				A8375D501C0BDB0E003274B5 /* GNBeingTests.m */,
+				A8DC22D31C14C415002BA42C /* GNBeingTests */,
 			);
-			name = GNBeingTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		A8BB9B461C0B37A500A5F16B /* GNMale */ = {
+		A8DC22D31C14C415002BA42C /* GNBeingTests */ = {
 			isa = PBXGroup;
 			children = (
-				A8BB9B471C0B37C100A5F16B /* GNMale.h */,
-				A8BB9B481C0B37C100A5F16B /* GNMale.m */,
+				A8DC22D41C14C415002BA42C /* GNBeingTests.h */,
+				A8DC22D51C14C415002BA42C /* GNBeingTests.m */,
 			);
-			name = GNMale;
-			sourceTree = "<group>";
-		};
-		A8BB9B4A1C0B37C600A5F16B /* GNFemale */ = {
-			isa = PBXGroup;
-			children = (
-				A8BB9B4B1C0B37E100A5F16B /* GNFemale.h */,
-				A8BB9B4C1C0B37E100A5F16B /* GNFemale.m */,
-			);
-			name = GNFemale;
+			path = GNBeingTests;
 			sourceTree = "<group>";
 		};
 		A8E777BB1BB346B200FCB3C9 = {
 			isa = PBXGroup;
 			children = (
+				A8DC22BC1C14C415002BA42C /* ObjC */,
+				A8DC22D11C14C415002BA42C /* main.m */,
 				A8159B3E1C03169B00542191 /* C */,
-				A8159B8C1C0316D700542191 /* ObjC */,
-				A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */,
-				A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */,
+				A8159B5D1C03169B00542191 /* main.c */,
 				A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */,
+				A8DC22B51C14C04B002BA42C /* ObjCTests */,
+				92D2A7DDC47C7C226DA0D44D /* Pods */,
+				99644E72E7DB86CDB9343370 /* Frameworks */,
+				A83B0A701C14CB3E00F9909C /* GNLearnC */,
+				A83B0A711C14CB3E00F9909C /* GNLearnObjC */,
 			);
 			sourceTree = "<group>";
 		};
@@ -418,8 +668,28 @@
 			);
 			name = GNLearnObjC;
 			productName = GNLearnObjC;
-			productReference = A8ED8EC41C03CC3800A4D1C1 /* GNLearnObjC */;
+			productReference = A83B0A711C14CB3E00F9909C /* GNLearnObjC */;
 			productType = "com.apple.product-type.tool";
+		};
+		A8DC22B31C14C04B002BA42C /* ObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8DC22B91C14C04B002BA42C /* Build configuration list for PBXNativeTarget "ObjCTests" */;
+			buildPhases = (
+				7607DC719D85C4986AF6011B /* Check Pods Manifest.lock */,
+				A8DC22B01C14C04B002BA42C /* Sources */,
+				A8DC22B11C14C04B002BA42C /* Frameworks */,
+				A8DC22B21C14C04B002BA42C /* Resources */,
+				CA672A0B6F18C7DD22834CA4 /* Embed Pods Frameworks */,
+				49BD0E2ECDA161B72872269B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCTests;
+			productName = ObjCTests;
+			productReference = A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A8E777C31BB346B200FCB3C9 /* GNLearnC */ = {
 			isa = PBXNativeTarget;
@@ -435,7 +705,7 @@
 			);
 			name = GNLearnC;
 			productName = GNLearnC;
-			productReference = A8ED8EC31C03CC3800A4D1C1 /* GNLearnC */;
+			productReference = A83B0A701C14CB3E00F9909C /* GNLearnC */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -448,6 +718,9 @@
 				ORGANIZATIONNAME = "IDAP College";
 				TargetAttributes = {
 					A89422321C03138B006C1164 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					A8DC22B31C14C04B002BA42C = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 					A8E777C31BB346B200FCB3C9 = {
@@ -469,20 +742,107 @@
 			targets = (
 				A8E777C31BB346B200FCB3C9 /* GNLearnC */,
 				A89422321C03138B006C1164 /* GNLearnObjC */,
+				A8DC22B31C14C04B002BA42C /* ObjCTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8DC22B21C14C04B002BA42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49BD0E2ECDA161B72872269B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7607DC719D85C4986AF6011B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA672A0B6F18C7DD22834CA4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A894222F1C03138B006C1164 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8BB9B4D1C0B37E100A5F16B /* GNFemale.m in Sources */,
-				A8BB9B491C0B37C100A5F16B /* GNMale.m in Sources */,
-				A8159B941C0316D700542191 /* main.m in Sources */,
-				A8159B931C0316D700542191 /* GNBeing.m in Sources */,
-				A8375D511C0BDB0E003274B5 /* GNBeingTests.m in Sources */,
+				A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */,
+				A87C85B61C15CCF1009547A4 /* GNManager.m in Sources */,
+				A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
+				A87C85A61C15C93C009547A4 /* GNWashBox.m in Sources */,
+				A87C85921C15C045009547A4 /* GNBuilding.m in Sources */,
+				A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */,
+				A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */,
+				A8DC22E01C14C415002BA42C /* main.m in Sources */,
+				A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */,
+				A8DC22DC1C14C415002BA42C /* GNMale.m in Sources */,
+				A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */,
+				A87C859A1C15C104009547A4 /* GNOfficeBlock.m in Sources */,
+				A87C859E1C15C731009547A4 /* GNRoom.m in Sources */,
+				A87C85961C15C0C5009547A4 /* GNCarWash.m in Sources */,
+				A87C85AE1C15CBEF009547A4 /* GNEmployee.m in Sources */,
+				A87C85BB1C15CD4B009547A4 /* GNWasherman.m in Sources */,
+				A87C85B21C15CCB9009547A4 /* GNAccountant.m in Sources */,
+				A87C85A21C15C834009547A4 /* GNAdminRoom.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8DC22B01C14C04B002BA42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8DC22DB1C14C415002BA42C /* GNFemale.m in Sources */,
+				A8DC22DF1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
+				A8DC22D91C14C415002BA42C /* GNBeing.m in Sources */,
+				A8DC22D71C14C415002BA42C /* NSString+GNExtensions.m in Sources */,
+				A8DC22E31C14C415002BA42C /* GNBeingTests.m in Sources */,
+				A8A6A13E1C14E171008B7A63 /* GNBeingSpec.m in Sources */,
+				A8A6A1401C150929008B7A63 /* NSString+GNExtensionsSpec.m in Sources */,
+				A8DC22DD1C14C415002BA42C /* GNMale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +890,37 @@
 				CODE_SIGN_IDENTITY = "-";
 				GCC_NO_COMMON_BLOCKS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A8DC22BA1C14C04B002BA42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860AD5AF3FDA3D786B2AF992 /* Pods-ObjCTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garynine.ObjCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A8DC22BB1C14C04B002BA42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0EEF18A9C4038D9426B29B7 /* Pods-ObjCTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garynine.ObjCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -631,6 +1022,15 @@
 			buildConfigurations = (
 				A89422381C03138B006C1164 /* Debug */,
 				A89422391C03138B006C1164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8DC22B91C14C04B002BA42C /* Build configuration list for PBXNativeTarget "ObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8DC22BA1C14C04B002BA42C /* Debug */,
+				A8DC22BB1C14C04B002BA42C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
