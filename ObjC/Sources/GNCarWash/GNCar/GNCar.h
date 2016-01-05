@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GNCar : NSObject
+#import "GNCashProtocol.h"
 
-@property (nonatomic, readonly)     NSUInteger    cash;
-@property (nonatomic, readonly)     BOOL          isClean;
+@interface GNCar : NSObject <GNCashProtocol>
+
+@property (nonatomic, readwrite, getter=isClean)    BOOL   clean;
+
++ (instancetype)car;
++ (instancetype)carWithCash:(NSUInteger)cash;
+
+- (instancetype)initWithCash:(NSUInteger)cash;
 
 @end

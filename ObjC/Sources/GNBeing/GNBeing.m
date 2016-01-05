@@ -27,8 +27,7 @@
 #pragma mark Class Methods
 
 + (instancetype)beingWithGender:(GNGenderType)gender {
-    return [[[self alloc] initWithGender:gender] autorelease];
-    
+    return [[[self alloc] initWithGender:gender] autorelease];    
 }
 
 #pragma mark - 

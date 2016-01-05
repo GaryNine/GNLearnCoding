@@ -23,19 +23,10 @@
 		A8159B801C03169B00542191 /* GNSizeOfTypesPrintTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6C1C03169B00542191 /* GNSizeOfTypesPrintTest.c */; };
 		A8159B811C03169B00542191 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */; };
 		A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B721C03169B00542191 /* GNValueBitOutputTests.c */; };
-		A87C85921C15C045009547A4 /* GNBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85911C15C045009547A4 /* GNBuilding.m */; };
-		A87C85961C15C0C5009547A4 /* GNCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85951C15C0C5009547A4 /* GNCarWash.m */; };
-		A87C859A1C15C104009547A4 /* GNOfficeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85991C15C104009547A4 /* GNOfficeBlock.m */; };
-		A87C859E1C15C731009547A4 /* GNRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C859D1C15C731009547A4 /* GNRoom.m */; };
-		A87C85A21C15C834009547A4 /* GNAdminRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A11C15C834009547A4 /* GNAdminRoom.m */; };
-		A87C85A61C15C93C009547A4 /* GNWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A51C15C93C009547A4 /* GNWashBox.m */; };
 		A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A91C15CB45009547A4 /* GNCar.m */; };
-		A87C85AE1C15CBEF009547A4 /* GNEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85AD1C15CBEF009547A4 /* GNEmployee.m */; };
-		A87C85B21C15CCB9009547A4 /* GNAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85B11C15CCB9009547A4 /* GNAccountant.m */; };
-		A87C85B61C15CCF1009547A4 /* GNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85B51C15CCF1009547A4 /* GNManager.m */; };
-		A87C85BB1C15CD4B009547A4 /* GNWasherman.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85BA1C15CD4B009547A4 /* GNWasherman.m */; };
 		A8A6A13E1C14E171008B7A63 /* GNBeingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */; };
 		A8A6A1401C150929008B7A63 /* NSString+GNExtensionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */; };
+		A8BBD9BD1C29520400184407 /* GNContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BBD9BC1C29520400184407 /* GNContainer.m */; };
 		A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D71C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C51C14C415002BA42C /* GNBeing.m */; };
@@ -49,6 +40,15 @@
 		A8DC22E01C14C415002BA42C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D11C14C415002BA42C /* main.m */; };
 		A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
 		A8DC22E31C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
+		A8F78A0F1C16EB190021AC10 /* GNEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */; };
+		A8F78A131C16F23E0021AC10 /* GNBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A121C16F23E0021AC10 /* GNBuilding.m */; };
+		A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A161C16F2790021AC10 /* GNEmployee.m */; };
+		A8F78A1B1C16F2A50021AC10 /* GNRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A1A1C16F2A50021AC10 /* GNRoom.m */; };
+		A8F78A1F1C16F8A50021AC10 /* GNCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */; };
+		A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A261C16FF7F0021AC10 /* GNManager.m */; };
+		A8F78A2B1C16FFB00021AC10 /* GNAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A2A1C16FFB00021AC10 /* GNAccountant.m */; };
+		A8F78A2F1C16FFD40021AC10 /* GNWasherman.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */; };
+		A8F78A371C17005E0021AC10 /* GNWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A361C17005E0021AC10 /* GNWashBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,30 +110,14 @@
 		A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "IDAP Study Plan.rtf"; sourceTree = "<group>"; };
 		A83B0A701C14CB3E00F9909C /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83B0A711C14CB3E00F9909C /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
-		A87C85901C15C045009547A4 /* GNBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBuilding.h; sourceTree = "<group>"; };
-		A87C85911C15C045009547A4 /* GNBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBuilding.m; sourceTree = "<group>"; };
-		A87C85941C15C0C5009547A4 /* GNCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCarWash.h; sourceTree = "<group>"; };
-		A87C85951C15C0C5009547A4 /* GNCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCarWash.m; sourceTree = "<group>"; };
-		A87C85981C15C104009547A4 /* GNOfficeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNOfficeBlock.h; sourceTree = "<group>"; };
-		A87C85991C15C104009547A4 /* GNOfficeBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNOfficeBlock.m; sourceTree = "<group>"; };
-		A87C859C1C15C731009547A4 /* GNRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNRoom.h; sourceTree = "<group>"; };
-		A87C859D1C15C731009547A4 /* GNRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNRoom.m; sourceTree = "<group>"; };
-		A87C85A01C15C834009547A4 /* GNAdminRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAdminRoom.h; sourceTree = "<group>"; };
-		A87C85A11C15C834009547A4 /* GNAdminRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAdminRoom.m; sourceTree = "<group>"; };
-		A87C85A41C15C93C009547A4 /* GNWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWashBox.h; sourceTree = "<group>"; };
-		A87C85A51C15C93C009547A4 /* GNWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWashBox.m; sourceTree = "<group>"; };
+		A86F31771C3BF9CE00D29C6F /* GNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNConstants.h; sourceTree = "<group>"; };
 		A87C85A81C15CB45009547A4 /* GNCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCar.h; sourceTree = "<group>"; };
 		A87C85A91C15CB45009547A4 /* GNCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCar.m; sourceTree = "<group>"; };
-		A87C85AC1C15CBEF009547A4 /* GNEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNEmployee.h; sourceTree = "<group>"; };
-		A87C85AD1C15CBEF009547A4 /* GNEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNEmployee.m; sourceTree = "<group>"; };
-		A87C85B01C15CCB9009547A4 /* GNAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAccountant.h; sourceTree = "<group>"; };
-		A87C85B11C15CCB9009547A4 /* GNAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAccountant.m; sourceTree = "<group>"; };
-		A87C85B41C15CCF1009547A4 /* GNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNManager.h; sourceTree = "<group>"; };
-		A87C85B51C15CCF1009547A4 /* GNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNManager.m; sourceTree = "<group>"; };
-		A87C85B91C15CD4B009547A4 /* GNWasherman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWasherman.h; sourceTree = "<group>"; };
-		A87C85BA1C15CD4B009547A4 /* GNWasherman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWasherman.m; sourceTree = "<group>"; };
+		A88FA4061C19C45500118AF1 /* GNCashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCashProtocol.h; sourceTree = "<group>"; };
 		A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingSpec.m; sourceTree = "<group>"; };
 		A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensionsSpec.m"; sourceTree = "<group>"; };
+		A8BBD9BB1C29520400184407 /* GNContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNContainer.h; sourceTree = "<group>"; };
+		A8BBD9BC1C29520400184407 /* GNContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNContainer.m; sourceTree = "<group>"; };
 		A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC22B81C14C04B002BA42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC22BF1C14C415002BA42C /* NSString+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNExtensions.h"; sourceTree = "<group>"; };
@@ -151,6 +135,24 @@
 		A8DC22D11C14C415002BA42C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/Sources/main.m; sourceTree = "<group>"; };
 		A8DC22D41C14C415002BA42C /* GNBeingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingTests.h; sourceTree = "<group>"; };
 		A8DC22D51C14C415002BA42C /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingTests.m; sourceTree = "<group>"; };
+		A8F78A0D1C16EB190021AC10 /* GNEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNEnterprise.h; path = GNCarWash/GNEnterprise.h; sourceTree = "<group>"; };
+		A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNEnterprise.m; path = GNCarWash/GNEnterprise.m; sourceTree = "<group>"; };
+		A8F78A111C16F23E0021AC10 /* GNBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBuilding.h; sourceTree = "<group>"; };
+		A8F78A121C16F23E0021AC10 /* GNBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBuilding.m; sourceTree = "<group>"; };
+		A8F78A151C16F2790021AC10 /* GNEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNEmployee.h; sourceTree = "<group>"; };
+		A8F78A161C16F2790021AC10 /* GNEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNEmployee.m; sourceTree = "<group>"; };
+		A8F78A191C16F2A50021AC10 /* GNRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNRoom.h; sourceTree = "<group>"; };
+		A8F78A1A1C16F2A50021AC10 /* GNRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNRoom.m; sourceTree = "<group>"; };
+		A8F78A1D1C16F8A50021AC10 /* GNCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCarWash.h; sourceTree = "<group>"; };
+		A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCarWash.m; sourceTree = "<group>"; };
+		A8F78A251C16FF7F0021AC10 /* GNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNManager.h; sourceTree = "<group>"; };
+		A8F78A261C16FF7F0021AC10 /* GNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNManager.m; sourceTree = "<group>"; };
+		A8F78A291C16FFB00021AC10 /* GNAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAccountant.h; sourceTree = "<group>"; };
+		A8F78A2A1C16FFB00021AC10 /* GNAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAccountant.m; sourceTree = "<group>"; };
+		A8F78A2D1C16FFD40021AC10 /* GNWasherman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWasherman.h; sourceTree = "<group>"; };
+		A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWasherman.m; sourceTree = "<group>"; };
+		A8F78A351C17005E0021AC10 /* GNWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWashBox.h; sourceTree = "<group>"; };
+		A8F78A361C17005E0021AC10 /* GNWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWashBox.m; sourceTree = "<group>"; };
 		D0EEF18A9C4038D9426B29B7 /* Pods-ObjCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests.release.xcconfig"; sourceTree = "<group>"; };
 		EE65FF3E208421091152E8E5 /* libPods-ObjCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -406,68 +408,26 @@
 			path = GNValueBitOutputTests;
 			sourceTree = "<group>";
 		};
-		A87C858F1C15BFAD009547A4 /* GNBuilding */ = {
+		A86F31761C3BF97A00D29C6F /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				A87C85901C15C045009547A4 /* GNBuilding.h */,
-				A87C85911C15C045009547A4 /* GNBuilding.m */,
+				A86F31771C3BF9CE00D29C6F /* GNConstants.h */,
 			);
-			path = GNBuilding;
+			path = Global;
 			sourceTree = "<group>";
 		};
 		A87C85931C15C079009547A4 /* GNCarWash */ = {
 			isa = PBXGroup;
 			children = (
-				A87C85B81C15CD25009547A4 /* GNWasherman */,
-				A87C85B31C15CCBE009547A4 /* GNManager */,
-				A87C85AF1C15CC76009547A4 /* GNAccountant */,
-				A87C85AB1C15CB4A009547A4 /* GNEmployee */,
+				A88FA4051C19C40B00118AF1 /* Protocol */,
+				A86F31761C3BF97A00D29C6F /* Global */,
+				A8BBD9B81C29514B00184407 /* GNContainer */,
+				A8F78A181C16F2860021AC10 /* GNRoom */,
+				A8F78A101C16F20B0021AC10 /* GNBuilding */,
+				A8F78A141C16F24A0021AC10 /* GNEmployee */,
 				A87C85A71C15CB10009547A4 /* GNCar */,
-				A87C85A31C15C84E009547A4 /* GNWashBox */,
-				A87C859F1C15C782009547A4 /* GNAdminRoom */,
-				A87C859B1C15C6EF009547A4 /* GNRoom */,
-				A87C85971C15C0DA009547A4 /* GNOfficeBlock */,
-				A87C858F1C15BFAD009547A4 /* GNBuilding */,
-				A87C85941C15C0C5009547A4 /* GNCarWash.h */,
-				A87C85951C15C0C5009547A4 /* GNCarWash.m */,
 			);
 			path = GNCarWash;
-			sourceTree = "<group>";
-		};
-		A87C85971C15C0DA009547A4 /* GNOfficeBlock */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85981C15C104009547A4 /* GNOfficeBlock.h */,
-				A87C85991C15C104009547A4 /* GNOfficeBlock.m */,
-			);
-			path = GNOfficeBlock;
-			sourceTree = "<group>";
-		};
-		A87C859B1C15C6EF009547A4 /* GNRoom */ = {
-			isa = PBXGroup;
-			children = (
-				A87C859C1C15C731009547A4 /* GNRoom.h */,
-				A87C859D1C15C731009547A4 /* GNRoom.m */,
-			);
-			path = GNRoom;
-			sourceTree = "<group>";
-		};
-		A87C859F1C15C782009547A4 /* GNAdminRoom */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85A01C15C834009547A4 /* GNAdminRoom.h */,
-				A87C85A11C15C834009547A4 /* GNAdminRoom.m */,
-			);
-			path = GNAdminRoom;
-			sourceTree = "<group>";
-		};
-		A87C85A31C15C84E009547A4 /* GNWashBox */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85A41C15C93C009547A4 /* GNWashBox.h */,
-				A87C85A51C15C93C009547A4 /* GNWashBox.m */,
-			);
-			path = GNWashBox;
 			sourceTree = "<group>";
 		};
 		A87C85A71C15CB10009547A4 /* GNCar */ = {
@@ -479,40 +439,12 @@
 			path = GNCar;
 			sourceTree = "<group>";
 		};
-		A87C85AB1C15CB4A009547A4 /* GNEmployee */ = {
+		A88FA4051C19C40B00118AF1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				A87C85AC1C15CBEF009547A4 /* GNEmployee.h */,
-				A87C85AD1C15CBEF009547A4 /* GNEmployee.m */,
+				A88FA4061C19C45500118AF1 /* GNCashProtocol.h */,
 			);
-			path = GNEmployee;
-			sourceTree = "<group>";
-		};
-		A87C85AF1C15CC76009547A4 /* GNAccountant */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85B01C15CCB9009547A4 /* GNAccountant.h */,
-				A87C85B11C15CCB9009547A4 /* GNAccountant.m */,
-			);
-			path = GNAccountant;
-			sourceTree = "<group>";
-		};
-		A87C85B31C15CCBE009547A4 /* GNManager */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85B41C15CCF1009547A4 /* GNManager.h */,
-				A87C85B51C15CCF1009547A4 /* GNManager.m */,
-			);
-			path = GNManager;
-			sourceTree = "<group>";
-		};
-		A87C85B81C15CD25009547A4 /* GNWasherman */ = {
-			isa = PBXGroup;
-			children = (
-				A87C85B91C15CD4B009547A4 /* GNWasherman.h */,
-				A87C85BA1C15CD4B009547A4 /* GNWasherman.m */,
-			);
-			path = GNWasherman;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		A8A6A13A1C14D825008B7A63 /* Specs */ = {
@@ -522,6 +454,15 @@
 				A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */,
 			);
 			path = Specs;
+			sourceTree = "<group>";
+		};
+		A8BBD9B81C29514B00184407 /* GNContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A8BBD9BB1C29520400184407 /* GNContainer.h */,
+				A8BBD9BC1C29520400184407 /* GNContainer.m */,
+			);
+			path = GNContainer;
 			sourceTree = "<group>";
 		};
 		A8DC22B51C14C04B002BA42C /* ObjCTests */ = {
@@ -547,8 +488,8 @@
 			isa = PBXGroup;
 			children = (
 				A87C85931C15C079009547A4 /* GNCarWash */,
-				A8DC22CF1C14C415002BA42C /* Protocol */,
-				A8DC22C21C14C415002BA42C /* Declarations */,
+				A8F78A0D1C16EB190021AC10 /* GNEnterprise.h */,
+				A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */,
 				A8DC22BE1C14C415002BA42C /* Categories */,
 				A8DC22C11C14C415002BA42C /* GNBeing */,
 			);
@@ -567,6 +508,8 @@
 		A8DC22C11C14C415002BA42C /* GNBeing */ = {
 			isa = PBXGroup;
 			children = (
+				A8DC22C21C14C415002BA42C /* Declarations */,
+				A8DC22CF1C14C415002BA42C /* Protocol */,
 				A8DC22C41C14C415002BA42C /* GNBeing.h */,
 				A8DC22C51C14C415002BA42C /* GNBeing.m */,
 				A8DC22C91C14C415002BA42C /* GNMale */,
@@ -649,6 +592,83 @@
 				A83B0A701C14CB3E00F9909C /* GNLearnC */,
 				A83B0A711C14CB3E00F9909C /* GNLearnObjC */,
 			);
+			sourceTree = "<group>";
+		};
+		A8F78A101C16F20B0021AC10 /* GNBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A1C1C16F86B0021AC10 /* GNCarWash */,
+				A8F78A111C16F23E0021AC10 /* GNBuilding.h */,
+				A8F78A121C16F23E0021AC10 /* GNBuilding.m */,
+			);
+			path = GNBuilding;
+			sourceTree = "<group>";
+		};
+		A8F78A141C16F24A0021AC10 /* GNEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A2C1C16FFB60021AC10 /* GNWasherman */,
+				A8F78A281C16FF8D0021AC10 /* GNAccountant */,
+				A8F78A241C16FF340021AC10 /* GNManager */,
+				A8F78A151C16F2790021AC10 /* GNEmployee.h */,
+				A8F78A161C16F2790021AC10 /* GNEmployee.m */,
+			);
+			path = GNEmployee;
+			sourceTree = "<group>";
+		};
+		A8F78A181C16F2860021AC10 /* GNRoom */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A341C1700450021AC10 /* GNWashBox */,
+				A8F78A191C16F2A50021AC10 /* GNRoom.h */,
+				A8F78A1A1C16F2A50021AC10 /* GNRoom.m */,
+			);
+			path = GNRoom;
+			sourceTree = "<group>";
+		};
+		A8F78A1C1C16F86B0021AC10 /* GNCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A1D1C16F8A50021AC10 /* GNCarWash.h */,
+				A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */,
+			);
+			path = GNCarWash;
+			sourceTree = "<group>";
+		};
+		A8F78A241C16FF340021AC10 /* GNManager */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A251C16FF7F0021AC10 /* GNManager.h */,
+				A8F78A261C16FF7F0021AC10 /* GNManager.m */,
+			);
+			path = GNManager;
+			sourceTree = "<group>";
+		};
+		A8F78A281C16FF8D0021AC10 /* GNAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A291C16FFB00021AC10 /* GNAccountant.h */,
+				A8F78A2A1C16FFB00021AC10 /* GNAccountant.m */,
+			);
+			path = GNAccountant;
+			sourceTree = "<group>";
+		};
+		A8F78A2C1C16FFB60021AC10 /* GNWasherman */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A2D1C16FFD40021AC10 /* GNWasherman.h */,
+				A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */,
+			);
+			path = GNWasherman;
+			sourceTree = "<group>";
+		};
+		A8F78A341C1700450021AC10 /* GNWashBox */ = {
+			isa = PBXGroup;
+			children = (
+				A8F78A351C17005E0021AC10 /* GNWashBox.h */,
+				A8F78A361C17005E0021AC10 /* GNWashBox.m */,
+			);
+			path = GNWashBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -810,24 +830,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BBD9BD1C29520400184407 /* GNContainer.m in Sources */,
 				A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */,
-				A87C85B61C15CCF1009547A4 /* GNManager.m in Sources */,
+				A8F78A131C16F23E0021AC10 /* GNBuilding.m in Sources */,
 				A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
-				A87C85A61C15C93C009547A4 /* GNWashBox.m in Sources */,
-				A87C85921C15C045009547A4 /* GNBuilding.m in Sources */,
+				A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */,
+				A8F78A1F1C16F8A50021AC10 /* GNCarWash.m in Sources */,
+				A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */,
+				A8F78A0F1C16EB190021AC10 /* GNEnterprise.m in Sources */,
+				A8F78A1B1C16F2A50021AC10 /* GNRoom.m in Sources */,
+				A8F78A2B1C16FFB00021AC10 /* GNAccountant.m in Sources */,
 				A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */,
 				A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */,
 				A8DC22E01C14C415002BA42C /* main.m in Sources */,
 				A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */,
 				A8DC22DC1C14C415002BA42C /* GNMale.m in Sources */,
 				A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */,
-				A87C859A1C15C104009547A4 /* GNOfficeBlock.m in Sources */,
-				A87C859E1C15C731009547A4 /* GNRoom.m in Sources */,
-				A87C85961C15C0C5009547A4 /* GNCarWash.m in Sources */,
-				A87C85AE1C15CBEF009547A4 /* GNEmployee.m in Sources */,
-				A87C85BB1C15CD4B009547A4 /* GNWasherman.m in Sources */,
-				A87C85B21C15CCB9009547A4 /* GNAccountant.m in Sources */,
-				A87C85A21C15C834009547A4 /* GNAdminRoom.m in Sources */,
+				A8F78A371C17005E0021AC10 /* GNWashBox.m in Sources */,
+				A8F78A2F1C16FFD40021AC10 /* GNWasherman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

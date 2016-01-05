@@ -2,7 +2,7 @@
 //  GNAccountant.h
 //  GNLearnCoding
 //
-//  Created by Igor Devyatko on 12/7/15.
+//  Created by Igor Devyatko on 12/8/15.
 //  Copyright © 2015 IDAP College. All rights reserved.
 //
 
@@ -10,6 +10,8 @@
 
 @interface GNAccountant : GNEmployee
 
-- (void)performResponcibility;
+- (void)performWorkWithObject:(id<GNCashProtocol>)object;
+
+- (void)countMoney;
 
 @end

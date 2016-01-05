@@ -8,6 +8,56 @@
 
 #import "GNCar.h"
 
+static const NSUInteger kGNInitialCash = 1000;
+
+@interface GNCar()
+@property (nonatomic, readwrite, assign)    NSUInteger  cash;
+
+@end
+
 @implementation GNCar
+@synthesize cash = _cash;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)car {
+    return [[[self alloc] initWithCash:kGNInitialCash] autorelease];
+}
+
++ (instancetype)carWithCash:(NSUInteger)cash {
+    return [[self alloc] initWithCash:cash];
+}
+
+#pragma mark -
+#pragma mark Initialization & Deallocation
+
+- (instancetype)initWithCash:(NSUInteger)cash {
+    self = [self init];
+    
+    if (self) {
+        self.cash = cash;
+    }
+    
+    return self;
+}
+
+#pragma mark - 
+#pragma mark GNCarWashProtocol
+
+- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
+    if ([self isAbleToPayCash:cash]) {
+        [receiver takeMoney:cash];
+        self.cash -= cash;
+    }
+}
+
+- (void)takeMoney:(NSUInteger)cash {
+    self.cash += cash;
+}
+
+- (BOOL)isAbleToPayCash:(NSUInteger)cash {
+    return self.cash > cash;
+}
 
 @end

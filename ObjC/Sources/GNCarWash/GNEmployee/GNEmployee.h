@@ -2,17 +2,24 @@
 //  GNEmployee.h
 //  GNLearnCoding
 //
-//  Created by Igor Devyatko on 12/7/15.
+//  Created by Igor Devyatko on 12/8/15.
 //  Copyright © 2015 IDAP College. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GNEnterprise.h"
 
-@interface GNEmployee : NSObject
+#import "GNCashProtocol.h"
 
-@property (nonatomic, readonly)     NSUInteger      salary;
-@property (nonatomic, readonly)     NSUInteger      experience;
+@interface GNEmployee : NSObject <GNCashProtocol>
 
-- (void)performResponcibility;
+@property (nonatomic, readonly) NSUInteger  salary;
+@property (nonatomic, readonly) NSUInteger  experience;
+
++ (instancetype)employee;
++ (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
+
+- (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
+
+- (void)performWorkWithObject:(id<GNCashProtocol>)object;
 
 @end
