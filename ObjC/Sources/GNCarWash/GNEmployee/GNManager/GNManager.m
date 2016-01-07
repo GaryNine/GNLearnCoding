@@ -14,12 +14,16 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)performWorkWithObject:(GNAccountant *)object {
-    [object giveAllMoneyToReceiver:self];
+- (void)toProfit {
+    NSLog(@"Profit is: %lu", self.cash);
 }
 
-- (void)takeTheProfit {
-    NSLog(@"Money don't smell  %@",self);
+#pragma mark -
+#pragma mark Private Implementations
+
+- (void)performWorkWithObject:(id<GNCashProtocol>)object {
+    [object giveAllMoneyToReceiver:self];
+    [self toProfit];
 }
 
 @end

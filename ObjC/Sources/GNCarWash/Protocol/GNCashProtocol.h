@@ -18,8 +18,8 @@
 - (void)takeMoney:(NSUInteger)cash;
 
 @optional
-- (BOOL)isAbleToPayCash:(NSUInteger)cash;
 - (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver;
+- (BOOL)isAbleToPayCash:(NSUInteger)cash;
 
 @end
 

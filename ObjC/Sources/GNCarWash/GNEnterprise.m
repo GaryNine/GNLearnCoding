@@ -13,14 +13,17 @@
 #import "GNManager.h"
 
 #import "GNContainer.h"
+#import "GNConstants.h"
 
 #import "NSObject+GNExtensions.h"
 
 @interface GNEnterprise ()
 @property (nonatomic, readwrite, retain)    GNContainer *employees;
 
-- (void)hireEmployee:(GNEmployee *)employee;
-- (void)resignEmployee:(GNEmployee *)employee;
+- (void)hireEmployees;
+- (void)resignEmployees;
+
+- (id)freeEmployeeOfClass:(Class)Class;
 
 @end
 
@@ -30,6 +33,7 @@
 #pragma mark Initializations & Deallocation
 
 - (void)dealloc {
+    [self resignEmployees];
     self.employees = nil;
     
     [super dealloc];
@@ -40,6 +44,7 @@
     
     if(self) {
         self.employees = [GNContainer object];
+        [self hireEmployees];
     }
 
     return self;
@@ -56,37 +61,51 @@
 #pragma mark Public Implementations
 
 - (void)washCar:(GNCar *)car {
+    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
+    GNAccountant *accountant = [self freeEmployeeOfClass:[GNAccountant class]];
+    GNManager *manager = [self freeEmployeeOfClass:[GNManager class]];
 
-    GNWasherman *washerman = nil;
-    GNManager *manager = nil;
-    GNAccountant *accountant = nil;
-    
-    if ([car isAbleToPayCash:kGNWashPrice]) {
-        if (washerman) {
+        if (washerman && accountant && manager) {
+            [washerman performWorkWithObject:car];
             
-            [car giveMoney:kGNWashPrice toReceiver:washerman];
+            [accountant performWorkWithObject:washerman];
             
-            [washerman washCar:car];
-            [washerman giveAllMoneyToReceiver:accountant];
-            
-            [accountant countMoney];
-            [accountant giveAllMoneyToReceiver:manager];
-            
-            [manager takeTheProfit];
-            
+            [manager performWorkWithObject:accountant];
         }
-    }
 }
 
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)hireEmployee:(GNEmployee *)employee {
-    [self.employees addObject:employee];
+- (void)hireEmployees {
+    GNWasherman *washerman = [GNWasherman object];
+    GNAccountant *accountant = [GNAccountant object];
+    GNManager *manager = [GNManager object];
+    
+    if (washerman && accountant && manager) {
+        [self.employees addItem:washerman];
+        [self.employees addItem:accountant];
+        [self.employees addItem:manager];
+        
+    }
 }
 
-- (void)resignEmployee:(GNEmployee *)employee {
-    [self.employees removeObject:employee];
+- (void)resignEmployees {
+    for (id employee in [[self employees] items]) {
+        [self.employees removeItem:employee];
+    }
+}
+
+- (id)freeEmployeeOfClass:(Class)Class {
+    id result = nil;
+    
+    for (id employee in [[self employees] items]) {
+        if ([employee isMemberOfClass:Class]) {
+            employee = result;
+        }
+    }
+    
+    return result;
 }
 
 @end

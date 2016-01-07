@@ -8,26 +8,22 @@
 
 #import "GNAccountant.h"
 #import "GNWasherman.h"
-#import "GNCashProtocol.h"
-
-@interface GNAccountant ()
-@property (nonatomic, readwrite, assign)    NSUInteger  cash;
-
-@end
 
 @implementation GNAccountant
-
-@synthesize cash = _cash;
 
 #pragma mark -
 #pragma mark Public Implementations
 
 - (void)countMoney {
-    
+    NSLog(@"Money count is: %lu", self.cash);
 }
 
-- (void)performWorkWithObject:(GNWasherman *)object {
+#pragma mark -
+#pragma mark Private Implementations
+
+- (void)performWorkWithObject:(id<GNCashProtocol>)object {
     [object giveAllMoneyToReceiver:self];
+    [self countMoney];
 }
 
 @end

@@ -8,44 +8,12 @@
 
 #import "GNEmployee.h"
 
-static const NSUInteger kGNInitialSalary = 5000;
-static const NSUInteger kGNInitialExperience = 1;
-
 @interface GNEmployee ()
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
-@property (nonatomic, readwrite, assign)    NSUInteger  salary;
-@property (nonatomic, readwrite, assign)    NSUInteger  experience;
 
 @end
 
 @implementation GNEmployee
-
-@synthesize cash = _cash;
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)employee {
-    return [[[self alloc] initWithSalary:kGNInitialSalary experience:kGNInitialExperience] autorelease];
-}
-
-+ (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience {
-    return [[self alloc] initWithSalary:salary experience:experience];
-}
-
-#pragma mark -
-#pragma mark Initialization & Deallocation
-
-- (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience {
-    self = [self init];
-    
-    if (self) {
-        self.salary = salary;
-        self.experience = experience;
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Public Implementations
@@ -72,6 +40,10 @@ static const NSUInteger kGNInitialExperience = 1;
 
 - (void)takeMoney:(NSUInteger)cash {
     self.cash += cash;
+}
+
+- (BOOL)isAbleToPayCash:(NSUInteger)cash {
+    return self.cash > cash;
 }
 
 @end

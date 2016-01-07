@@ -10,8 +10,6 @@
 
 @interface GNAccountant : GNEmployee
 
-- (void)performWorkWithObject:(id<GNCashProtocol>)object;
-
 - (void)countMoney;
 
 @end

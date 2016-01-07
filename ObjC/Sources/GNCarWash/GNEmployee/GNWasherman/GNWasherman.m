@@ -10,25 +10,21 @@
 #import "GNCar.h"
 #import "GNConstants.h"
 
-@interface GNWasherman ()
-@property (nonatomic, readwrite, assign)    NSUInteger  cash;
-
-@end
-
 @implementation GNWasherman
-
-@synthesize cash = _cash;
 
 #pragma mark -
 #pragma mark Public Implementations
 
 - (void)washCar:(GNCar *)car {
-    
+    [car setClean:YES];
 }
 
-- (void)performWorkWithObject:(GNCar *)object {
-        [object giveMoney:kGNWashPrice toReceiver:self];
-        [object setClean:YES];
+#pragma mark -
+#pragma mark Private Implementations
+
+- (void)performWorkWithObject:(id<GNCashProtocol>)object {
+    [object giveMoney:kGNWashPrice toReceiver:self];
+    [self washCar:object];
 }
 
 @end

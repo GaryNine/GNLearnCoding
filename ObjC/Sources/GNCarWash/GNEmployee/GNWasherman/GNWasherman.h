@@ -10,10 +10,6 @@
 
 @interface GNWasherman : GNEmployee
 
-- (void)performWorkWithObject:(id<GNCashProtocol>)object;
-
-- (void)washCar:(GNCar*)car;
-
-
+- (void)washCar:(GNCar *)car;
 
 @end

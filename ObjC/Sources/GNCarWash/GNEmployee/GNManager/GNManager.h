@@ -10,8 +10,6 @@
 
 @interface GNManager : GNEmployee
 
-- (void)performWorkWithObject:(id<GNCashProtocol>)object;
-
-- (void)takeTheProfit;
+- (void)toProfit;
 
 @end
