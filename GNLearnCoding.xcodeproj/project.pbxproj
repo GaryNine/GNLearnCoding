@@ -41,14 +41,10 @@
 		A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
 		A8DC22E31C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
 		A8F78A0F1C16EB190021AC10 /* GNEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */; };
-		A8F78A131C16F23E0021AC10 /* GNBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A121C16F23E0021AC10 /* GNBuilding.m */; };
 		A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A161C16F2790021AC10 /* GNEmployee.m */; };
-		A8F78A1B1C16F2A50021AC10 /* GNRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A1A1C16F2A50021AC10 /* GNRoom.m */; };
-		A8F78A1F1C16F8A50021AC10 /* GNCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */; };
 		A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A261C16FF7F0021AC10 /* GNManager.m */; };
 		A8F78A2B1C16FFB00021AC10 /* GNAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A2A1C16FFB00021AC10 /* GNAccountant.m */; };
 		A8F78A2F1C16FFD40021AC10 /* GNWasherman.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */; };
-		A8F78A371C17005E0021AC10 /* GNWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A361C17005E0021AC10 /* GNWashBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -137,22 +133,14 @@
 		A8DC22D51C14C415002BA42C /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingTests.m; sourceTree = "<group>"; };
 		A8F78A0D1C16EB190021AC10 /* GNEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNEnterprise.h; path = GNCarWash/GNEnterprise.h; sourceTree = "<group>"; };
 		A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNEnterprise.m; path = GNCarWash/GNEnterprise.m; sourceTree = "<group>"; };
-		A8F78A111C16F23E0021AC10 /* GNBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBuilding.h; sourceTree = "<group>"; };
-		A8F78A121C16F23E0021AC10 /* GNBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBuilding.m; sourceTree = "<group>"; };
 		A8F78A151C16F2790021AC10 /* GNEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNEmployee.h; sourceTree = "<group>"; };
 		A8F78A161C16F2790021AC10 /* GNEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNEmployee.m; sourceTree = "<group>"; };
-		A8F78A191C16F2A50021AC10 /* GNRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNRoom.h; sourceTree = "<group>"; };
-		A8F78A1A1C16F2A50021AC10 /* GNRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNRoom.m; sourceTree = "<group>"; };
-		A8F78A1D1C16F8A50021AC10 /* GNCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCarWash.h; sourceTree = "<group>"; };
-		A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCarWash.m; sourceTree = "<group>"; };
 		A8F78A251C16FF7F0021AC10 /* GNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNManager.h; sourceTree = "<group>"; };
 		A8F78A261C16FF7F0021AC10 /* GNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNManager.m; sourceTree = "<group>"; };
 		A8F78A291C16FFB00021AC10 /* GNAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNAccountant.h; sourceTree = "<group>"; };
 		A8F78A2A1C16FFB00021AC10 /* GNAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNAccountant.m; sourceTree = "<group>"; };
 		A8F78A2D1C16FFD40021AC10 /* GNWasherman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWasherman.h; sourceTree = "<group>"; };
 		A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWasherman.m; sourceTree = "<group>"; };
-		A8F78A351C17005E0021AC10 /* GNWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWashBox.h; sourceTree = "<group>"; };
-		A8F78A361C17005E0021AC10 /* GNWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWashBox.m; sourceTree = "<group>"; };
 		D0EEF18A9C4038D9426B29B7 /* Pods-ObjCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests.release.xcconfig"; sourceTree = "<group>"; };
 		EE65FF3E208421091152E8E5 /* libPods-ObjCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -422,8 +410,6 @@
 				A88FA4051C19C40B00118AF1 /* Protocol */,
 				A86F31761C3BF97A00D29C6F /* Global */,
 				A8BBD9B81C29514B00184407 /* GNContainer */,
-				A8F78A181C16F2860021AC10 /* GNRoom */,
-				A8F78A101C16F20B0021AC10 /* GNBuilding */,
 				A8F78A141C16F24A0021AC10 /* GNEmployee */,
 				A87C85A71C15CB10009547A4 /* GNCar */,
 			);
@@ -594,16 +580,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		A8F78A101C16F20B0021AC10 /* GNBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				A8F78A1C1C16F86B0021AC10 /* GNCarWash */,
-				A8F78A111C16F23E0021AC10 /* GNBuilding.h */,
-				A8F78A121C16F23E0021AC10 /* GNBuilding.m */,
-			);
-			path = GNBuilding;
-			sourceTree = "<group>";
-		};
 		A8F78A141C16F24A0021AC10 /* GNEmployee */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,25 +590,6 @@
 				A8F78A161C16F2790021AC10 /* GNEmployee.m */,
 			);
 			path = GNEmployee;
-			sourceTree = "<group>";
-		};
-		A8F78A181C16F2860021AC10 /* GNRoom */ = {
-			isa = PBXGroup;
-			children = (
-				A8F78A341C1700450021AC10 /* GNWashBox */,
-				A8F78A191C16F2A50021AC10 /* GNRoom.h */,
-				A8F78A1A1C16F2A50021AC10 /* GNRoom.m */,
-			);
-			path = GNRoom;
-			sourceTree = "<group>";
-		};
-		A8F78A1C1C16F86B0021AC10 /* GNCarWash */ = {
-			isa = PBXGroup;
-			children = (
-				A8F78A1D1C16F8A50021AC10 /* GNCarWash.h */,
-				A8F78A1E1C16F8A50021AC10 /* GNCarWash.m */,
-			);
-			path = GNCarWash;
 			sourceTree = "<group>";
 		};
 		A8F78A241C16FF340021AC10 /* GNManager */ = {
@@ -660,15 +617,6 @@
 				A8F78A2E1C16FFD40021AC10 /* GNWasherman.m */,
 			);
 			path = GNWasherman;
-			sourceTree = "<group>";
-		};
-		A8F78A341C1700450021AC10 /* GNWashBox */ = {
-			isa = PBXGroup;
-			children = (
-				A8F78A351C17005E0021AC10 /* GNWashBox.h */,
-				A8F78A361C17005E0021AC10 /* GNWashBox.m */,
-			);
-			path = GNWashBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -832,13 +780,10 @@
 			files = (
 				A8BBD9BD1C29520400184407 /* GNContainer.m in Sources */,
 				A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */,
-				A8F78A131C16F23E0021AC10 /* GNBuilding.m in Sources */,
 				A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
 				A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */,
-				A8F78A1F1C16F8A50021AC10 /* GNCarWash.m in Sources */,
 				A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */,
 				A8F78A0F1C16EB190021AC10 /* GNEnterprise.m in Sources */,
-				A8F78A1B1C16F2A50021AC10 /* GNRoom.m in Sources */,
 				A8F78A2B1C16FFB00021AC10 /* GNAccountant.m in Sources */,
 				A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */,
 				A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */,
@@ -846,7 +791,6 @@
 				A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */,
 				A8DC22DC1C14C415002BA42C /* GNMale.m in Sources */,
 				A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */,
-				A8F78A371C17005E0021AC10 /* GNWashBox.m in Sources */,
 				A8F78A2F1C16FFD40021AC10 /* GNWasherman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

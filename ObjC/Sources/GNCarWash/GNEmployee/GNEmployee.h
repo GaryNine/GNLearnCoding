@@ -18,8 +18,6 @@
 + (instancetype)employee;
 + (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
 
-- (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
-
 - (void)performWorkWithObject:(id<GNCashProtocol>)object;
 
 @end

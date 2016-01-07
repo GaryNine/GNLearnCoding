@@ -19,6 +19,7 @@ static const NSUInteger kGNInitialExperience = 1;
 @end
 
 @implementation GNEmployee
+
 @synthesize cash = _cash;
 
 #pragma mark -
@@ -61,6 +62,12 @@ static const NSUInteger kGNInitialExperience = 1;
         [receiver takeMoney:cash];
         self.cash -= cash;
     }
+}
+
+- (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {
+    NSUInteger money = self.cash;
+    [receiver takeMoney:money];
+    self.cash -= money;
 }
 
 - (void)takeMoney:(NSUInteger)cash {

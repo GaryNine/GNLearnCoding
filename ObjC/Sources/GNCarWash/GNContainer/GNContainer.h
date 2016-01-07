@@ -9,16 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface GNContainer : NSObject
-@property (nonatomic, readonly)                 NSUInteger  capacity;
-@property (nonatomic, readonly)                 NSSet       *items;
-//@property (nonatomic, readonly, getter=isFull)  BOOL full;
-
-+ (instancetype)containerWithCapacity:(NSUInteger)capacity;
-- (instancetype)initWithCapacity:(NSUInteger)capacity;
+@property (nonatomic, readonly) NSSet   *items;
 
 - (void)addItem:(id)item;
 - (void)removeItem:(id)item;
-
-- (BOOL)isFullOfItems;
 
 @end

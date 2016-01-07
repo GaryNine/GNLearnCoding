@@ -17,6 +17,4 @@
 + (instancetype)car;
 + (instancetype)carWithCash:(NSUInteger)cash;
 
-- (instancetype)initWithCash:(NSUInteger)cash;
-
 @end

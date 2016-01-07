@@ -16,6 +16,7 @@
 @end
 
 @implementation GNWasherman
+
 @synthesize cash = _cash;
 
 #pragma mark -
@@ -28,25 +29,6 @@
 - (void)performWorkWithObject:(GNCar *)object {
         [object giveMoney:kGNWashPrice toReceiver:self];
         [object setClean:YES];
-}
-
-#pragma mark -
-#pragma mark GNCashProtocol
-
-- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
-        [receiver takeMoney:cash];
-        self.cash -= cash;
-}
-
-- (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {
-    NSUInteger money = self.cash;
-    [receiver takeMoney:money];
-    self.cash -= money;
-    
-}
-
-- (void)takeMoney:(NSUInteger)cash {
-    self.cash += cash;
 }
 
 @end

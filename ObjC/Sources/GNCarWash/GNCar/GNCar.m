@@ -16,6 +16,7 @@ static const NSUInteger kGNInitialCash = 1000;
 @end
 
 @implementation GNCar
+
 @synthesize cash = _cash;
 
 #pragma mark -

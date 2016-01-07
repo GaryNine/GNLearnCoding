@@ -9,21 +9,13 @@
 #import "GNContainer.h"
 
 @interface GNContainer ()
-@property (nonatomic, readwrite, assign)    NSUInteger      capacity;
 @property (nonatomic, readwrite, retain)    NSMutableSet    *mutableItems;
-
 
 @end
 
 @implementation GNContainer
+
 @dynamic items;
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)containerWithCapacity:(NSUInteger)capacity {
-    return [[[self alloc] initWithCapacity:capacity]autorelease];
-}
 
 #pragma mark -
 #pragma mark Initialization & Deallocation
@@ -44,16 +36,6 @@
     return self;
 }
 
-- (instancetype)initWithCapacity:(NSUInteger)capacity {
-    self = [self init];
-    
-    if (self) {
-        self.capacity = capacity;
-    }
-    
-    return self;
-}
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -65,17 +47,11 @@
 #pragma mark Public Implementations
 
 - (void)addItem:(id)item {
-    if (![self isFullOfItems]) {
-        [self.mutableItems addObject:item];
-    }
+    [self.mutableItems addObject:item];
 }
 
 - (void)removeItem:(id)item {
     [self.mutableItems removeObject:item];
-}
-
-- (BOOL)isFullOfItems {
-    return [self.mutableItems count] >= self.capacity;
 }
 
 @end
