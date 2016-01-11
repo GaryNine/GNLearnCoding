@@ -6,21 +6,18 @@
 //  Copyright © 2015 IDAP College. All rights reserved.
 //
 
-#ifndef GNCashProtocol_h
-#define GNCashProtocol_h
+#import <Foundation/Foundation.h>
 
 @protocol GNCashProtocol <NSObject>
 
 @required
 @property (nonatomic, readonly)     NSUInteger  cash;
 
-- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver;
+- (void)giveMoney:(NSUInteger)cash;
 - (void)takeMoney:(NSUInteger)cash;
 
 @optional
 - (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver;
-- (BOOL)isAbleToPayCash:(NSUInteger)cash;
+- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver;
 
 @end
-
-#endif

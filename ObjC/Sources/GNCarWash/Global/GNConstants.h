@@ -6,4 +6,4 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-extern const NSUInteger kGNWashPrice = 150;
+static const NSUInteger kGNWashPrice = 150;

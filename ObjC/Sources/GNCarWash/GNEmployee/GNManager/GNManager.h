@@ -10,6 +10,6 @@
 
 @interface GNManager : GNEmployee
 
-- (void)toProfit;
+- (void)takeProfit;
 
 @end

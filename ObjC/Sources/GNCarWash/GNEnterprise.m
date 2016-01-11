@@ -12,16 +12,14 @@
 #import "GNAccountant.h"
 #import "GNManager.h"
 
-#import "GNContainer.h"
-#import "GNConstants.h"
+#import "GNQueue.h"
 
-#import "NSObject+GNExtensions.h"
+#import "GNObserverProtocol.h"
 
-@interface GNEnterprise ()
-@property (nonatomic, readwrite, retain)    GNContainer *employees;
+@interface GNEnterprise () <GNObserverProtocol>
+@property (nonatomic, retain)   GNContainer *employees;
 
 - (void)hireEmployees;
-- (void)resignEmployees;
 
 - (id)freeEmployeeOfClass:(Class)Class;
 
@@ -33,7 +31,6 @@
 #pragma mark Initializations & Deallocation
 
 - (void)dealloc {
-    [self resignEmployees];
     self.employees = nil;
     
     [super dealloc];
@@ -50,27 +47,15 @@
     return self;
 }
 
-#pragma mark - 
-#pragma mark Accessors
-
-- (NSSet *)employees {
-    return [[self.employees copy] autorelease];
-}
-
 #pragma mark -
 #pragma mark Public Implementations
 
 - (void)washCar:(GNCar *)car {
     GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
-    GNAccountant *accountant = [self freeEmployeeOfClass:[GNAccountant class]];
-    GNManager *manager = [self freeEmployeeOfClass:[GNManager class]];
 
-        if (washerman && accountant && manager) {
-            [washerman performWorkWithObject:car];
-            
-            [accountant performWorkWithObject:washerman];
-            
-            [manager performWorkWithObject:accountant];
+        if (washerman) {
+            [washerman setState:kGNEmployeeIsWorking];
+            [washerman performWorkWithObject:(id<GNCashProtocol>)car];
         }
 }
 
@@ -79,33 +64,43 @@
 
 - (void)hireEmployees {
     GNWasherman *washerman = [GNWasherman object];
+    GNWasherman *washerman2 = [GNWasherman object];
     GNAccountant *accountant = [GNAccountant object];
     GNManager *manager = [GNManager object];
     
-    if (washerman && accountant && manager) {
-        [self.employees addItem:washerman];
-        [self.employees addItem:accountant];
-        [self.employees addItem:manager];
-        
-    }
-}
+    [washerman addObserver:self];
+    [washerman2 addObserver:self];
+    [accountant addObserver:self];
+    [washerman addObserver:accountant];
+    [washerman2 addObserver:accountant];
+    [accountant addObserver:manager];
 
-- (void)resignEmployees {
-    for (id employee in [[self employees] items]) {
-        [self.employees removeItem:employee];
-    }
+    id employees = self.employees;
+    [employees addItem:washerman];
+    [employees addItem:washerman2];
+    [employees addItem:accountant];
+    [employees addItem:manager];
 }
 
 - (id)freeEmployeeOfClass:(Class)Class {
-    id result = nil;
-    
     for (id employee in [[self employees] items]) {
-        if ([employee isMemberOfClass:Class]) {
-            employee = result;
+        if ([employee isMemberOfClass:Class] && [employee state] == kGNEmployeeIsFree) {
+            return employee;
         }
     }
     
-    return result;
+    return nil;
+}
+
+#pragma mark -
+#pragma mark GNObserverProtocol
+
+- (void)employeeDidBecomeFree:(id)employee {
+    if ([employee class] == [GNWasherman class]) {
+        NSLog(@"Washerman did finish with car");
+    } else if ([employee class] == [GNAccountant class]) {
+        NSLog(@"Accountant did count washerman");
+    }
 }
 
 @end

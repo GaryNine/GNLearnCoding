@@ -8,6 +8,10 @@
 
 #import "GNEmployee.h"
 
+#import "GNWasherman.h"
+#import "GNAccountant.h"
+#import "GNManager.h"
+
 @interface GNEmployee ()
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
 
@@ -16,34 +20,47 @@
 @implementation GNEmployee
 
 #pragma mark -
+#pragma mark Initializations & Deallocation
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.state = kGNEmployeeIsFree;
+    }
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark Public Implementations
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
-    
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 #pragma mark - 
-#pragma mark GNCarWashProtocol
+#pragma mark GNCashProtocol
 
-- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
-    if ([self isAbleToPayCash:cash]) {
-        [receiver takeMoney:cash];
-        self.cash -= cash;
-    }
-}
-
-- (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {
-    NSUInteger money = self.cash;
-    [receiver takeMoney:money];
-    self.cash -= money;
+- (void)giveMoney:(NSUInteger)cash {
+    self.cash -= cash;
 }
 
 - (void)takeMoney:(NSUInteger)cash {
     self.cash += cash;
 }
 
-- (BOOL)isAbleToPayCash:(NSUInteger)cash {
-    return self.cash > cash;
+- (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {
+    NSUInteger allCash = self.cash;
+    [self giveMoney:allCash];
+    [receiver takeMoney:allCash];
+}
+
+#pragma mark -
+#pragma mark GNObserverProtocol
+
+- (void)employeeDidBecomeProcessing:(id)employee {
+    [self performWorkWithObject:employee];
 }
 
 @end

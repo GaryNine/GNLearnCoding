@@ -83,8 +83,8 @@ Carthage/Build
 *.elf
 
 # Precompiled Headers
-*.gch
-*.pch
+# *.gch
+# *.pch
 
 # Libraries
 *.lib

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GNContainer : NSObject
-@property (nonatomic, readonly) NSSet   *items;
+@property (nonatomic, readonly) NSArray *items;
 
 - (void)addItem:(id)item;
 - (void)removeItem:(id)item;

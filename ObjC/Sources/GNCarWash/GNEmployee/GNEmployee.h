@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GNObservable.h"
 #import "GNCashProtocol.h"
 
-@interface GNEmployee : NSObject <GNCashProtocol>
+@interface GNEmployee : GNObservable <GNCashProtocol>
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object;
 

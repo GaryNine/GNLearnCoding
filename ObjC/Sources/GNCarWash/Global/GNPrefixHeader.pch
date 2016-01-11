@@ -1,0 +1,10 @@
+//
+//  GNPrefixHeader.pch
+//  GNLearnCoding
+//
+//  Created by Igor Devyatko on 1/11/16.
+//  Copyright © 2016 IDAP College. All rights reserved.
+//
+
+#import "NSObject+GNExtensions.h"
+#import "GNConstants.h"

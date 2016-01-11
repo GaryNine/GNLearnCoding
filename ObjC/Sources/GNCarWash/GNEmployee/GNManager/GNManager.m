@@ -14,16 +14,19 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)toProfit {
+- (void)takeProfit {
     NSLog(@"Profit is: %lu", self.cash);
 }
 
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)performWorkWithObject:(id<GNCashProtocol>)object {
+- (void)performWorkWithObject:(GNAccountant *)object {
     [object giveAllMoneyToReceiver:self];
-    [self toProfit];
+    object.state = kGNEmployeeIsFree;
+    [self takeProfit];
+    
+    NSLog(@"Good Job!");
 }
 
 @end

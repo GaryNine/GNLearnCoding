@@ -17,8 +17,6 @@ static const NSUInteger kGNInitialCash = 1000;
 
 @implementation GNCar
 
-@synthesize cash = _cash;
-
 #pragma mark -
 #pragma mark Class Methods
 
@@ -46,19 +44,17 @@ static const NSUInteger kGNInitialCash = 1000;
 #pragma mark - 
 #pragma mark GNCarWashProtocol
 
-- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
-    if ([self isAbleToPayCash:cash]) {
-        [receiver takeMoney:cash];
-        self.cash -= cash;
-    }
+- (void)giveMoney:(NSUInteger)cash {
+    self.cash -= cash;
 }
 
 - (void)takeMoney:(NSUInteger)cash {
     self.cash += cash;
 }
 
-- (BOOL)isAbleToPayCash:(NSUInteger)cash {
-    return self.cash > cash;
+- (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
+    [self giveMoney:cash];
+    [receiver takeMoney:cash];
 }
 
 @end

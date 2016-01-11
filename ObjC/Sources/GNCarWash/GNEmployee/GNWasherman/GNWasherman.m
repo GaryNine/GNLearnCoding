@@ -16,7 +16,7 @@
 #pragma mark Public Implementations
 
 - (void)washCar:(GNCar *)car {
-    [car setClean:YES];
+    car.clean = YES;
 }
 
 #pragma mark -
@@ -25,6 +25,7 @@
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
     [object giveMoney:kGNWashPrice toReceiver:self];
     [self washCar:object];
+    self.state = kGNEmployeeInProcessing;
 }
 
 @end

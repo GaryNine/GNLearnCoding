@@ -9,7 +9,7 @@
 #import "GNContainer.h"
 
 @interface GNContainer ()
-@property (nonatomic, readwrite, retain)    NSMutableSet    *mutableItems;
+@property (nonatomic, retain)    NSMutableSet    *mutableItems;
 
 @end
 
@@ -39,7 +39,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSSet *)items {
+- (NSArray *)items {
     return [[self.mutableItems copy] autorelease];
 }
 

@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 
 #import "GNBeingTests.h"
-#import "NSObject+GNExtensions.h"
+#import "GNEnterprise.h"
+#import "GNCar.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[GNBeingTests object] performTests];
+        GNEnterprise *enterprise = [GNEnterprise object];
+        GNCar *car = [GNCar car];
+        [enterprise washCar:car];
     }
+    
     return 0;
 }

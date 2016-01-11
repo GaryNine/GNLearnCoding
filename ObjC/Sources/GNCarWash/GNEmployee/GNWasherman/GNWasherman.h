@@ -8,6 +8,8 @@
 
 #import "GNEmployee.h"
 
+@class GNCar;
+
 @interface GNWasherman : GNEmployee
 
 - (void)washCar:(GNCar *)car;
