@@ -10,11 +10,11 @@
 
 @implementation GNQueue
 
-- (void)addObjectToQueue:(id)object {
+- (void)enQueueObject:(id)object {
     [self addItem:object];
 }
 
-- (id)nextObjectFromQueue {
+- (id)deQueueObject {
     id object = nil;
     object = [[self items] firstObject];
     

@@ -13,7 +13,7 @@
 
 @interface GNQueue : GNContainer
 
-- (void)addObjectToQueue:(id)object;
-- (id)nextObjectFromQueue;
+- (void)enQueueObject:(id)object;
+- (id)deQueueObject;
 
 @end
