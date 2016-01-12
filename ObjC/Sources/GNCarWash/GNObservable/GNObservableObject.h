@@ -6,6 +6,8 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
+// изменить название на observableObject
+
 #import <Foundation/Foundation.h>
 
 #import "GNObserverProtocol.h"
@@ -18,7 +20,8 @@ typedef NS_ENUM (NSUInteger, GNEmployeeState) {
 
 @interface GNObservable : NSObject <GNObserverProtocol>
 @property (nonatomic, readonly) NSArray         *observers;
-@property (nonatomic, assign)   GNEmployeeState state;
+// а стейт переопределить у наследников
+@property (nonatomic, assign)   NSUInteger  state;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;

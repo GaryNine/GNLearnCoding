@@ -11,8 +11,8 @@
 @interface GNObservable ()
 @property (nonatomic, readwrite)    NSHashTable *observersHashTable;
 
-- (void)setState:(GNEmployeeState)state;
-- (SEL)selectorForState:(GNEmployeeState)state;
+- (void)setState:(NSUInteger)state;
+- (SEL)selectorForState:(NSUInteger)state;
 
 @end
 
@@ -83,7 +83,7 @@
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)setState:(GNEmployeeState)state {
+- (void)setState:(NSUInteger)state {
     if (state != _state) {
         _state = state;
         
@@ -91,20 +91,10 @@
     }
 }
 
-- (SEL)selectorForState:(GNEmployeeState)state {
-    switch (state) {
-        case kGNEmployeeIsFree:
-            return @selector(employeeDidBecomeFree:);
-            
-        case kGNEmployeeIsWorking:
-            return @selector(employeeDidBecomeWork:);
-            
-        case kGNEmployeeInProcessing:
-            return @selector(employeeDidBecomeProcessing:);
-            
-        default:
-            return NULL;
-    }
+- (SEL)selectorForState:(NSUInteger)state {
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return NULL;
 }
 
 @end

@@ -21,7 +21,7 @@
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)performWorkWithObject:(GNAccountant *)object {
+- (void)processObject:(GNAccountant *)object {
     [object giveAllMoneyToReceiver:self];
     object.state = kGNEmployeeIsFree;
     [self takeProfit];

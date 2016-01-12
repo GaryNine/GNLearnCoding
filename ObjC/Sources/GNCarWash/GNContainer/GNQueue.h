@@ -8,6 +8,9 @@
 
 #import "GNContainer.h"
 
+// enqueueObject
+// dequeueObject
+
 @interface GNQueue : GNContainer
 
 - (void)addObjectToQueue:(id)object;

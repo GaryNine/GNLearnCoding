@@ -27,7 +27,7 @@
 		A8A6A13E1C14E171008B7A63 /* GNBeingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */; };
 		A8A6A1401C150929008B7A63 /* NSString+GNExtensionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */; };
 		A8BBD9BD1C29520400184407 /* GNContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BBD9BC1C29520400184407 /* GNContainer.m */; };
-		A8C1C8031C3F40FF0088E276 /* GNObservable.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C1C8011C3F38620088E276 /* GNObservable.m */; };
+		A8C1C8031C3F40FF0088E276 /* GNObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C1C8011C3F38620088E276 /* GNObservableObject.m */; };
 		A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D71C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C51C14C415002BA42C /* GNBeing.m */; };
@@ -117,8 +117,8 @@
 		A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensionsSpec.m"; sourceTree = "<group>"; };
 		A8BBD9BB1C29520400184407 /* GNContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNContainer.h; sourceTree = "<group>"; };
 		A8BBD9BC1C29520400184407 /* GNContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNContainer.m; sourceTree = "<group>"; };
-		A8C1C8001C3F38620088E276 /* GNObservable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObservable.h; sourceTree = "<group>"; };
-		A8C1C8011C3F38620088E276 /* GNObservable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservable.m; sourceTree = "<group>"; };
+		A8C1C8001C3F38620088E276 /* GNObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObservableObject.h; sourceTree = "<group>"; };
+		A8C1C8011C3F38620088E276 /* GNObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservableObject.m; sourceTree = "<group>"; };
 		A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC22B81C14C04B002BA42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC22BF1C14C415002BA42C /* NSString+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNExtensions.h"; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 		A87C85931C15C079009547A4 /* GNCarWash */ = {
 			isa = PBXGroup;
 			children = (
-				A8C1C7FF1C3F37AF0088E276 /* GNObservable */,
+				A8C1C7FF1C3F37AF0088E276 /* GNObservableObject */,
 				A88FA4051C19C40B00118AF1 /* Protocol */,
 				A86F31761C3BF97A00D29C6F /* Global */,
 				A8BBD9B81C29514B00184407 /* GNContainer */,
@@ -464,13 +464,13 @@
 			path = GNContainer;
 			sourceTree = "<group>";
 		};
-		A8C1C7FF1C3F37AF0088E276 /* GNObservable */ = {
+		A8C1C7FF1C3F37AF0088E276 /* GNObservableObject */ = {
 			isa = PBXGroup;
 			children = (
-				A8C1C8001C3F38620088E276 /* GNObservable.h */,
-				A8C1C8011C3F38620088E276 /* GNObservable.m */,
+				A8C1C8001C3F38620088E276 /* GNObservableObject.h */,
+				A8C1C8011C3F38620088E276 /* GNObservableObject.m */,
 			);
-			path = GNObservable;
+			path = GNObservableObject;
 			sourceTree = "<group>";
 		};
 		A8DC22B51C14C04B002BA42C /* ObjCTests */ = {
@@ -802,7 +802,7 @@
 			files = (
 				A8BBD9BD1C29520400184407 /* GNContainer.m in Sources */,
 				A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */,
-				A8C1C8031C3F40FF0088E276 /* GNObservable.m in Sources */,
+				A8C1C8031C3F40FF0088E276 /* GNObservableObject.m in Sources */,
 				A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
 				A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */,
 				A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */,

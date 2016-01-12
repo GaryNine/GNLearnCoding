@@ -52,11 +52,9 @@
 
 - (void)washCar:(GNCar *)car {
     GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
-
-        if (washerman) {
-            [washerman setState:kGNEmployeeIsWorking];
-            [washerman performWorkWithObject:(id<GNCashProtocol>)car];
-        }
+    if (washerman) {
+        [washerman performWorkWithObject:(id<GNCashProtocol>)car];
+    }
 }
 
 #pragma mark -

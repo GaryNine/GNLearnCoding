@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GNObservable.h"
+#import "GNObservableObject.h"
 #import "GNCashProtocol.h"
 
-@interface GNEmployee : GNObservable <GNCashProtocol>
+typedef NS_ENUM (NSUInteger, GNEmployeeState) {
+    kGNEmployeeIsFree,
+    kGNEmployeeIsWorking,
+    kGNEmployeeInProcessing
+};
+
+@interface GNEmployee : GNObservableObject <GNCashProtocol>
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object;
 

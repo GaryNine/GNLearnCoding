@@ -15,6 +15,8 @@
 @interface GNEmployee ()
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
 
+- (void)processObject:(id)object;
+
 @end
 
 @implementation GNEmployee
@@ -36,7 +38,32 @@
 #pragma mark Public Implementations
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
+    self.state = kGNEmployeeIsWorking;
+    
+    [self processObject:object];
+}
+
+#pragma mark -
+#pragma mark Private Implementations
+
+- (void)processObject:(id)object {
     [self doesNotRecognizeSelector:_cmd];
+}
+
+- (SEL)selectorForState:(GNEmployeeState)state {
+    switch (state) {
+        case kGNEmployeeIsFree:
+            return @selector(employeeDidBecomeFree:);
+            
+        case kGNEmployeeIsWorking:
+            return @selector(employeeDidBecomeWork:);
+            
+        case kGNEmployeeInProcessing:
+            return @selector(employeeDidBecomeProcessing:);
+            
+        default:
+            return NULL;
+    }
 }
 
 #pragma mark - 

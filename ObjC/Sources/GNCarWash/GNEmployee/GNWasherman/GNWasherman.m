@@ -22,7 +22,7 @@
 #pragma mark -
 #pragma mark Private Implementations
 
-- (void)performWorkWithObject:(id<GNCashProtocol>)object {
+- (void)processObject:(id<GNCashProtocol>)object {
     [object giveMoney:kGNWashPrice toReceiver:self];
     [self washCar:object];
     self.state = kGNEmployeeInProcessing;
