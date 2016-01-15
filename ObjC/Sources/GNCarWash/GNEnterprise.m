@@ -17,7 +17,7 @@
 #import "GNObserverProtocol.h"
 
 @interface GNEnterprise () <GNObserverProtocol>
-@property (nonatomic, retain)   GNContainer *employees;
+@property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
 
 - (void)hireEmployees;
 
@@ -31,7 +31,7 @@
 #pragma mark Initializations & Deallocation
 
 - (void)dealloc {
-    self.employees = nil;
+    self.mutableEmployees = nil;
     
     [super dealloc];
 }
@@ -40,7 +40,7 @@
     self = [super init];
     
     if(self) {
-        self.employees = [GNContainer object];
+        self.mutableEmployees = [NSMutableArray array];
         [self hireEmployees];
     }
 
@@ -48,7 +48,7 @@
 }
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)washCar:(GNCar *)car {
     GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
@@ -58,7 +58,7 @@
 }
 
 #pragma mark -
-#pragma mark Private Implementations
+#pragma mark Private
 
 - (void)hireEmployees {
     GNWasherman *washerman = [GNWasherman object];
@@ -73,15 +73,15 @@
     [washerman2 addObserver:accountant];
     [accountant addObserver:manager];
 
-    id employees = self.employees;
-    [employees addItem:washerman];
-    [employees addItem:washerman2];
-    [employees addItem:accountant];
-    [employees addItem:manager];
+    id employees = self.mutableEmployees;
+    [employees addObject:washerman];
+    [employees addObject:washerman2];
+    [employees addObject:accountant];
+    [employees addObject:manager];
 }
 
 - (id)freeEmployeeOfClass:(Class)Class {
-    for (id employee in [[self employees] items]) {
+    for (id employee in self.mutableEmployees) {
         if ([employee isMemberOfClass:Class] && [employee state] == kGNEmployeeIsFree) {
             return employee;
         }

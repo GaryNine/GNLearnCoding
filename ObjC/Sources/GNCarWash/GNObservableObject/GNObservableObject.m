@@ -45,8 +45,20 @@
     return [[self.observersHashTable copy] autorelease];
 }
 
+- (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
+    if (state != _state) {
+        _state = state;
+        
+        [self notifyWithSelector:[self selectorForState:state] withObject:object];
+    }
+}
+
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)addObserver:(id)observer {
     if (![self containObserver:observer]) {
@@ -54,7 +66,7 @@
     }
 }
 
-- (void)removeObserver:(NSObject *)observer {
+- (void)removeObserver:(id)observer {
     [self.observersHashTable removeObject:observer];
 }
 
@@ -67,33 +79,19 @@
 }
 
 - (void)notifyWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyWithSelector:selector withObject:object withObject:nil];
-}
-
-- (void)notifyWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
     NSArray *observers = self.observers;
     
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object withObject:object2];
+            [observer performSelector:selector withObject:self withObject:object];
         }
     }
 }
 
 #pragma mark -
-#pragma mark Private Implementations
-
-- (void)setState:(NSUInteger)state {
-    if (state != _state) {
-        _state = state;
-        
-        [self notifyWithSelector:[self selectorForState:state] withObject:self];
-    }
-}
+#pragma mark Private
 
 - (SEL)selectorForState:(NSUInteger)state {
-    [self doesNotRecognizeSelector:_cmd];
-    
     return NULL;
 }
 

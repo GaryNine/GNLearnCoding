@@ -12,14 +12,14 @@
 @implementation GNAccountant
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)countMoney {
     NSLog(@"Money count is: %lu", self.cash);
 }
 
 #pragma mark -
-#pragma mark Private Implementations
+#pragma mark Private 
 
 - (void)processObject:(GNWasherman *)object {
     [object giveAllMoneyToReceiver:self];

@@ -6,12 +6,10 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNContainer.h"
+#import <Foundation/Foundation.h>
 
-// enqueueObject
-// dequeueObject
-
-@interface GNQueue : GNContainer
+@interface GNQueue : NSObject
+@property (nonatomic, readonly) NSArray *objects;
 
 - (void)enQueueObject:(id)object;
 - (id)deQueueObject;

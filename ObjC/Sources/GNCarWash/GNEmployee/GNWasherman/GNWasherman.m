@@ -13,14 +13,14 @@
 @implementation GNWasherman
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)washCar:(GNCar *)car {
     car.clean = YES;
 }
 
 #pragma mark -
-#pragma mark Private Implementations
+#pragma mark Private
 
 - (void)processObject:(id<GNCashProtocol>)object {
     [object giveMoney:kGNWashPrice toReceiver:self];

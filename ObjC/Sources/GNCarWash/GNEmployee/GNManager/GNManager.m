@@ -12,14 +12,14 @@
 @implementation GNManager
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)takeProfit {
     NSLog(@"Profit is: %lu", self.cash);
 }
 
 #pragma mark -
-#pragma mark Private Implementations
+#pragma mark Private 
 
 - (void)processObject:(GNAccountant *)object {
     [object giveAllMoneyToReceiver:self];

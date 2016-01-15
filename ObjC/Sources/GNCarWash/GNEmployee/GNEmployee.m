@@ -35,7 +35,7 @@
 }
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Public
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
     self.state = kGNEmployeeIsWorking;
@@ -44,7 +44,7 @@
 }
 
 #pragma mark -
-#pragma mark Private Implementations
+#pragma mark Private 
 
 - (void)processObject:(id)object {
     [self doesNotRecognizeSelector:_cmd];
