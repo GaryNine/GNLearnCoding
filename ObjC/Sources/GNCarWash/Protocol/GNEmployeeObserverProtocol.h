@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol GNObserverProtocol <NSObject>
+@protocol GNEmployeeObserverProtocol <NSObject>
 
 @optional
 - (void)employeeDidBecomeFree:(id)employee;

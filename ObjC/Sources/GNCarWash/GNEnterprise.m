@@ -14,9 +14,9 @@
 
 #import "GNQueue.h"
 
-#import "GNObserverProtocol.h"
+#import "GNEmployeeObserverProtocol.h"
 
-@interface GNEnterprise () <GNObserverProtocol>
+@interface GNEnterprise () <GNEmployeeObserverProtocol>
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
 
 - (void)hireEmployees;

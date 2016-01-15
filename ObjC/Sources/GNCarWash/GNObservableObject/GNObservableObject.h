@@ -6,13 +6,11 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-// изменить название на observableObject
-
 #import <Foundation/Foundation.h>
 
-#import "GNObserverProtocol.h"
+#import "GNEmployeeObserverProtocol.h"
 
-@interface GNObservableObject : NSObject <GNObserverProtocol>
+@interface GNObservableObject : NSObject <GNEmployeeObserverProtocol>
 @property (nonatomic, readonly) NSArray     *observers;
 @property (nonatomic, assign)   NSUInteger  state;
 
