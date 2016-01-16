@@ -25,7 +25,6 @@
     [object giveAllMoneyToReceiver:self];
     object.state = kGNEmployeeIsFree;
     [self countMoney];
-    self.state = kGNEmployeeInProcessing;
 }
 
 @end

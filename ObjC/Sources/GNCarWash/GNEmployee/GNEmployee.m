@@ -16,6 +16,7 @@
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
 
 - (void)processObject:(id)object;
+- (void)cleanup;
 
 @end
 
@@ -41,6 +42,7 @@
     self.state = kGNEmployeeIsWorking;
     
     [self processObject:object];
+    [self cleanup];
 }
 
 #pragma mark -
@@ -50,7 +52,11 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (SEL)selectorForState:(GNEmployeeState)state {
+- (void)cleanup {
+    self.state = kGNEmployeeNeedProcessing;
+}
+
+- (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kGNEmployeeIsFree:
             return @selector(employeeDidBecomeFree:);
@@ -58,8 +64,8 @@
         case kGNEmployeeIsWorking:
             return @selector(employeeDidBecomeWork:);
             
-        case kGNEmployeeInProcessing:
-            return @selector(employeeDidBecomeProcessing:);
+        case kGNEmployeeNeedProcessing:
+            return @selector(employeeDidBecomeFinish:);
             
         default:
             return NULL;
@@ -86,7 +92,7 @@
 #pragma mark -
 #pragma mark GNObserverProtocol
 
-- (void)employeeDidBecomeProcessing:(id)employee {
+- (void)employeeDidBecomeFinish:(id)employee {
     [self performWorkWithObject:employee];
 }
 

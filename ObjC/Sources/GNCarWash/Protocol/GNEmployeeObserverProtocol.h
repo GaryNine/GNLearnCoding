@@ -13,6 +13,6 @@
 @optional
 - (void)employeeDidBecomeFree:(id)employee;
 - (void)employeeDidBecomeWork:(id)employee;
-- (void)employeeDidBecomeProcessing:(id)employee;
+- (void)employeeDidBecomeFinish:(id)employee;
 
 @end

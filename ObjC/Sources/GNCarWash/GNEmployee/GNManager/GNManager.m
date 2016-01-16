@@ -9,6 +9,12 @@
 #import "GNManager.h"
 #import "GNAccountant.h"
 
+@interface GNManager ()
+
+- (void)cleanup;
+
+@end
+
 @implementation GNManager
 
 #pragma mark -
@@ -25,8 +31,13 @@
     [object giveAllMoneyToReceiver:self];
     object.state = kGNEmployeeIsFree;
     [self takeProfit];
+    [self cleanup];
     
     NSLog(@"Good Job!");
+}
+
+- (void)cleanup {
+    self.state = kGNEmployeeIsFree;
 }
 
 @end

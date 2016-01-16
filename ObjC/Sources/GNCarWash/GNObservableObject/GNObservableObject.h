@@ -10,9 +10,12 @@
 
 #import "GNEmployeeObserverProtocol.h"
 
-@interface GNObservableObject : NSObject <GNEmployeeObserverProtocol>
+@interface GNObservableObject : NSObject
 @property (nonatomic, readonly) NSArray     *observers;
 @property (nonatomic, assign)   NSUInteger  state;
+
+- (void)setState:(NSUInteger)state withObject:(id)object;
+- (SEL)selectorForState:(NSUInteger)state;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;

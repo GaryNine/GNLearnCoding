@@ -20,8 +20,12 @@
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
 
 - (void)hireEmployees;
+//- (void)dismissEmployees;
 
 - (id)freeEmployeeOfClass:(Class)Class;
+
+- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers;
+- (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers;
 
 @end
 
@@ -31,6 +35,7 @@
 #pragma mark Initializations & Deallocation
 
 - (void)dealloc {
+//    [self dismissEmployees];
     self.mutableEmployees = nil;
     
     [super dealloc];
@@ -61,28 +66,43 @@
 #pragma mark Private
 
 - (void)hireEmployees {
-    GNWasherman *washerman = [GNWasherman object];
-    GNWasherman *washerman2 = [GNWasherman object];
     GNAccountant *accountant = [GNAccountant object];
     GNManager *manager = [GNManager object];
     
-    [washerman addObserver:self];
-    [washerman2 addObserver:self];
-    [accountant addObserver:self];
-    [washerman addObserver:accountant];
-    [washerman2 addObserver:accountant];
-    [accountant addObserver:manager];
-
-    id employees = self.mutableEmployees;
-    [employees addObject:washerman];
-    [employees addObject:washerman2];
-    [employees addObject:accountant];
-    [employees addObject:manager];
+    [self addEmployees:@[[GNWasherman object], [GNWasherman object]] withObservers:@[accountant, self]];
+    
+    [self addEmployee:accountant withObservers:@[self, manager]];
+    [self addEmployee:manager withObservers:nil];
 }
 
+- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers {
+    for (GNEmployee *employee in employees) {
+        [self addEmployee:employee withObservers:observers];
+    }
+}
+
+- (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers {
+    for (id observer in observers) {
+        [employee addObserver:observer];
+    }
+    
+    [self.mutableEmployees addObject:employee];
+}
+
+//- (void)dismissEmployees {
+//    id employees = self.mutableEmployees;
+//    for (GNEmployee *employee in employees) {
+//        for (id observer in employee.observers) {
+//            [employee removeObserver:observer];
+//        }
+//        
+//        [employees removeObject:employee];
+//    }
+//}
+
 - (id)freeEmployeeOfClass:(Class)Class {
-    for (id employee in self.mutableEmployees) {
-        if ([employee isMemberOfClass:Class] && [employee state] == kGNEmployeeIsFree) {
+    for (GNEmployee *employee in self.mutableEmployees) {
+        if ([employee isMemberOfClass:Class] && employee.state == kGNEmployeeIsFree) {
             return employee;
         }
     }

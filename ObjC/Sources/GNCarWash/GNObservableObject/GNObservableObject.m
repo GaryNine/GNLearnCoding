@@ -9,10 +9,7 @@
 #import "GNObservableObject.h"
 
 @interface GNObservableObject ()
-@property (nonatomic, readwrite)    NSHashTable *observersHashTable;
-
-- (void)setState:(NSUInteger)state;
-- (SEL)selectorForState:(NSUInteger)state;
+@property (nonatomic, retain)    NSHashTable *observersHashTable;
 
 @end
 
@@ -60,6 +57,10 @@
 #pragma mark -
 #pragma mark Public
 
+- (SEL)selectorForState:(NSUInteger)state {
+    return NULL;
+}
+
 - (void)addObserver:(id)observer {
     if (![self containObserver:observer]) {
         [self.observersHashTable addObject:observer];
@@ -86,13 +87,6 @@
             [observer performSelector:selector withObject:self withObject:object];
         }
     }
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (SEL)selectorForState:(NSUInteger)state {
-    return NULL;
 }
 
 @end

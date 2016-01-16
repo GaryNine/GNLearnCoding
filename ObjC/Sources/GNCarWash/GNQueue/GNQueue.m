@@ -9,13 +9,11 @@
 #import "GNQueue.h"
 
 @interface GNQueue ()
-@property (nonatomic, readwrite)    NSMutableSet    *mutableObjects;
+@property (nonatomic, retain)   NSMutableArray  *mutableObjects;
 
 @end
 
 @implementation GNQueue
-
-@dynamic objects;
 
 #pragma mark -
 #pragma mark Initializations & Deallocation
@@ -30,27 +28,20 @@
     [self = [super init];
      
      if (self) {
-         self.mutableObjects = [NSMutableSet set];
+         self.mutableObjects = [NSMutableArray array];
      }
      
      return self;
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)objects {
-    return [[self.mutableObjects copy] autorelease];
-}
-
-#pragma mark -
 #pragma mark Public
 
-- (void)enQueueObject:(id)object {
+- (void)enqueueObject:(id)object {
     [self.mutableObjects addObject:object];
 }
 
-- (id)deQueueObject {
+- (id)dequeueObject {
     id object = nil;
     object = [self.mutableObjects firstObject];
     

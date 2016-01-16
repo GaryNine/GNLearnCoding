@@ -6,4 +6,5 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
+// make this constant static into the m. file
 static const NSUInteger kGNWashPrice = 150;

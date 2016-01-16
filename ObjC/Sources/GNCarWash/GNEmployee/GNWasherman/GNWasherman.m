@@ -8,7 +8,6 @@
 
 #import "GNWasherman.h"
 #import "GNCar.h"
-#import "GNConstants.h"
 
 @implementation GNWasherman
 
@@ -25,7 +24,6 @@
 - (void)processObject:(id<GNCashProtocol>)object {
     [object giveMoney:kGNWashPrice toReceiver:self];
     [self washCar:object];
-    self.state = kGNEmployeeInProcessing;
 }
 
 @end

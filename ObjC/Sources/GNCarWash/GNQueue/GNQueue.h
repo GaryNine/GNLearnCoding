@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GNQueue : NSObject
-@property (nonatomic, readonly) NSArray *objects;
 
-- (void)enQueueObject:(id)object;
-- (id)deQueueObject;
+- (void)enqueueObject:(id)object;
+- (id)dequeueObject;
 
 @end
