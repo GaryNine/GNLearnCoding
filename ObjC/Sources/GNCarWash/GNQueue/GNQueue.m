@@ -38,16 +38,20 @@
 #pragma mark Public
 
 - (void)enqueueObject:(id)object {
-    [self.mutableObjects addObject:object];
+    @synchronized(self) {
+        [self.mutableObjects addObject:object];
+    }
 }
 
 - (id)dequeueObject {
-    id object = nil;
-    object = [self.mutableObjects firstObject];
-    
-    if (object) {
-        [[object retain] autorelease];
-        [self.mutableObjects removeObject:object];
+    @synchronized(self) {
+        id object = nil;
+        object = [self.mutableObjects firstObject];
+        
+        if (object) {
+            [[object retain] autorelease];
+            [self.mutableObjects removeObject:object];
+        }
     }
     
     return object;

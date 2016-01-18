@@ -56,6 +56,9 @@
     self.state = kGNEmployeeNeedProcessing;
 }
 
+#pragma mark -
+#pragma mark GNObsevableObject
+
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kGNEmployeeIsFree:

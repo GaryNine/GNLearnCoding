@@ -22,18 +22,18 @@
 
 - (void)takeProfit {
     NSLog(@"Profit is: %lu", self.cash);
+    sleep(5);
 }
 
 #pragma mark -
 #pragma mark Private 
 
 - (void)processObject:(GNAccountant *)object {
-    [object giveAllMoneyToReceiver:self];
-    object.state = kGNEmployeeIsFree;
-    [self takeProfit];
-    [self cleanup];
-    
-    NSLog(@"Good Job!");
+    @synchronized(object) {
+        [self takeProfit];
+        [self cleanup];
+        NSLog(@"Good Job!");
+    }
 }
 
 - (void)cleanup {

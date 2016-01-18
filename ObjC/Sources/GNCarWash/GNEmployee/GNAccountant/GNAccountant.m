@@ -16,15 +16,18 @@
 
 - (void)countMoney {
     NSLog(@"Money count is: %lu", self.cash);
+    sleep(5);
 }
 
 #pragma mark -
 #pragma mark Private 
 
 - (void)processObject:(GNWasherman *)object {
-    [object giveAllMoneyToReceiver:self];
-    object.state = kGNEmployeeIsFree;
-    [self countMoney];
+    @synchronized(object) {
+        [object giveAllMoneyToReceiver:self];
+        object.state = kGNEmployeeIsFree;
+        [self countMoney];
+    }
 }
 
 @end

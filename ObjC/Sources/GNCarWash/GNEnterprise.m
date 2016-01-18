@@ -17,15 +17,18 @@
 #import "GNEmployeeObserverProtocol.h"
 
 @interface GNEnterprise () <GNEmployeeObserverProtocol>
-@property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
+@property (nonatomic, retain)       NSMutableArray  *mutableEmployees;
+@property (nonatomic, readwrite)    GNQueue         *carsQueue;
 
 - (void)hireEmployees;
-//- (void)dismissEmployees;
+- (void)dismissEmployees;
 
 - (id)freeEmployeeOfClass:(Class)Class;
 
 - (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers;
 - (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers;
+
+- (void)performBackgroundWorkWithObject:(id)object;
 
 @end
 
@@ -35,7 +38,7 @@
 #pragma mark Initializations & Deallocation
 
 - (void)dealloc {
-//    [self dismissEmployees];
+    [self dismissEmployees];
     self.mutableEmployees = nil;
     
     [super dealloc];
@@ -56,20 +59,25 @@
 #pragma mark Public
 
 - (void)washCar:(GNCar *)car {
-    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
-    if (washerman) {
-        [washerman performWorkWithObject:(id<GNCashProtocol>)car];
-    }
+    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:car];
 }
 
 #pragma mark -
 #pragma mark Private
 
+- (void)performBackgroundWorkWithObject:(id)object {
+    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
+    if (washerman) {
+        [washerman performWorkWithObject:(id<GNCashProtocol>)object];
+    } else [self.carsQueue enqueueObject:object] ;
+}
+
 - (void)hireEmployees {
     GNAccountant *accountant = [GNAccountant object];
     GNManager *manager = [GNManager object];
     
-    [self addEmployees:@[[GNWasherman object], [GNWasherman object]] withObservers:@[accountant, self]];
+    id washermen = [GNWasherman objectsWithCount:3];
+    [self addEmployees:washermen withObservers:@[self, accountant]];
     
     [self addEmployee:accountant withObservers:@[self, manager]];
     [self addEmployee:manager withObservers:nil];
@@ -89,16 +97,16 @@
     [self.mutableEmployees addObject:employee];
 }
 
-//- (void)dismissEmployees {
-//    id employees = self.mutableEmployees;
-//    for (GNEmployee *employee in employees) {
-//        for (id observer in employee.observers) {
-//            [employee removeObserver:observer];
-//        }
-//        
-//        [employees removeObject:employee];
-//    }
-//}
+- (void)dismissEmployees {
+    id employees = self.mutableEmployees;
+    for (GNEmployee *employee in employees) {
+        for (id observer in employee.observers) {
+            [employee removeObserver:observer];
+        }
+        
+        [employees removeObject:employee];
+    }
+}
 
 - (id)freeEmployeeOfClass:(Class)Class {
     for (GNEmployee *employee in self.mutableEmployees) {
