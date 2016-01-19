@@ -21,7 +21,7 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)processObject:(id<GNCashProtocol>)object {
+- (void)processObject:(GNCar *)object {
     [object giveMoney:kGNWashPrice toReceiver:self];
     [self washCar:object];
 }

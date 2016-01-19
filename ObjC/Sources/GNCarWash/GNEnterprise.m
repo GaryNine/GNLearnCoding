@@ -17,8 +17,8 @@
 #import "GNEmployeeObserverProtocol.h"
 
 @interface GNEnterprise () <GNEmployeeObserverProtocol>
-@property (nonatomic, retain)       NSMutableArray  *mutableEmployees;
-@property (nonatomic, readwrite)    GNQueue         *carsQueue;
+@property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
+@property (nonatomic, retain)   GNQueue         *carsQueue;
 
 - (void)hireEmployees;
 - (void)dismissEmployees;
@@ -68,8 +68,10 @@
 - (void)performBackgroundWorkWithObject:(id)object {
     GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
     if (washerman) {
-        [washerman performWorkWithObject:(id<GNCashProtocol>)object];
-    } else [self.carsQueue enqueueObject:object] ;
+        [washerman performWorkWithObject:(id)object];
+    } else {
+        [self.carsQueue enqueueObject:object];
+    }
 }
 
 - (void)hireEmployees {
@@ -99,10 +101,10 @@
 
 - (void)dismissEmployees {
     id employees = self.mutableEmployees;
-    for (GNEmployee *employee in employees) {
-        for (id observer in employee.observers) {
-            [employee removeObserver:observer];
-        }
+    while ([employees count] > 0) {
+        GNEmployee *employee = [employees lastObject];
+        NSArray *employeeObservers = employee.observers;
+        [employee removeObserversFromArray:employeeObservers];
         
         [employees removeObject:employee];
     }

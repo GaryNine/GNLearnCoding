@@ -45,8 +45,7 @@
 
 - (id)dequeueObject {
     @synchronized(self) {
-        id object = nil;
-        object = [self.mutableObjects firstObject];
+        id object = [self.mutableObjects firstObject];
         
         if (object) {
             [[object retain] autorelease];

@@ -6,9 +6,6 @@
 //  Copyright © 2015 IDAP College. All rights reserved.
 //
 
-// toDo:
-// to fix method dismissEmployees
-
 #import <Foundation/Foundation.h>
 
 @class GNCar;

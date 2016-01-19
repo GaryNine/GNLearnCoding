@@ -7,13 +7,15 @@
 //
 
 #import "GNEmployee.h"
-
 #import "GNWasherman.h"
 #import "GNAccountant.h"
 #import "GNManager.h"
 
+#import "GNQueue.h"
+
 @interface GNEmployee ()
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
+@property (nonatomic, retain)               GNQueue     *objdectsQueue;
 
 - (void)processObject:(id)object;
 - (void)cleanup;

@@ -71,6 +71,18 @@
     [self.observersHashTable removeObject:observer];
 }
 
+- (void)addObserversFromArray:(NSArray *)array {
+    for (id observer in array) {
+        [self addObserver:observer];
+    }
+}
+
+- (void)removeObserversFromArray:(NSArray *)array {
+    for (id observer in array) {
+        [self removeObserver:observer];
+    }
+}
+
 - (BOOL)containObserver:(id)observer {
     return [self.observersHashTable containsObject:observer];
 }

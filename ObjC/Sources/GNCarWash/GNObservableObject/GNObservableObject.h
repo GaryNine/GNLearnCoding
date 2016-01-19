@@ -19,6 +19,10 @@
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
+
+- (void)addObserversFromArray:(NSArray *)array;
+- (void)removeObserversFromArray:(NSArray *)array;
+
 - (BOOL)containObserver:(id)observer;
 
 - (void)notifyWithSelector:(SEL)selector;
