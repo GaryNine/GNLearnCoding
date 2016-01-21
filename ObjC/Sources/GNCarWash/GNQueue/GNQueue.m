@@ -25,7 +25,7 @@
 }
 
 - (instancetype)init {
-    [self = [super init];
+    self = [super init];
      
      if (self) {
          self.mutableObjects = [NSMutableArray array];

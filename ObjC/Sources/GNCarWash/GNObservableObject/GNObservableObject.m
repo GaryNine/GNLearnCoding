@@ -39,7 +39,9 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [[self.observersHashTable copy] autorelease];
+    @synchronized(self) {
+        return [[self.observersHashTable copy] autorelease];
+    }
 }
 
 - (void)setState:(NSUInteger)state {
@@ -62,13 +64,17 @@
 }
 
 - (void)addObserver:(id)observer {
-    if (![self containObserver:observer]) {
-        [self.observersHashTable addObject:observer];
+    @synchronized(self) {
+        if (![self containsObserver:observer]) {
+            [self.observersHashTable addObject:observer];
+        }
     }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.observersHashTable removeObject:observer];
+    @synchronized(self) {
+        [self.observersHashTable removeObject:observer];
+    }
 }
 
 - (void)addObserversFromArray:(NSArray *)array {
@@ -83,7 +89,7 @@
     }
 }
 
-- (BOOL)containObserver:(id)observer {
+- (BOOL)containsObserver:(id)observer {
     return [self.observersHashTable containsObject:observer];
 }
 

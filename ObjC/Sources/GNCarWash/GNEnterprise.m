@@ -16,6 +16,8 @@
 
 #import "GNEmployeeObserverProtocol.h"
 
+static const NSUInteger kGNWashermenCount = 3;
+
 @interface GNEnterprise () <GNEmployeeObserverProtocol>
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
 @property (nonatomic, retain)   GNQueue         *carsQueue;
@@ -28,8 +30,6 @@
 - (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers;
 - (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers;
 
-- (void)performBackgroundWorkWithObject:(id)object;
-
 @end
 
 @implementation GNEnterprise
@@ -39,7 +39,7 @@
 
 - (void)dealloc {
     [self dismissEmployees];
-    self.mutableEmployees = nil;
+    self.carsQueue = nil;
     
     [super dealloc];
 }
@@ -50,6 +50,7 @@
     if(self) {
         self.mutableEmployees = [NSMutableArray array];
         [self hireEmployees];
+        self.carsQueue = [GNQueue object];
     }
 
     return self;
@@ -59,26 +60,22 @@
 #pragma mark Public
 
 - (void)washCar:(GNCar *)car {
-    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:car];
+    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
+    if (washerman) {
+        [washerman performWorkWithObject:car];
+    } else {
+        [self.carsQueue enqueueObject:car];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundWorkWithObject:(id)object {
-    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
-    if (washerman) {
-        [washerman performWorkWithObject:(id)object];
-    } else {
-        [self.carsQueue enqueueObject:object];
-    }
-}
-
 - (void)hireEmployees {
     GNAccountant *accountant = [GNAccountant object];
     GNManager *manager = [GNManager object];
     
-    id washermen = [GNWasherman objectsWithCount:3];
+    id washermen = [GNWasherman objectsWithCount:kGNWashermenCount];
     [self addEmployees:washermen withObservers:@[self, accountant]];
     
     [self addEmployee:accountant withObservers:@[self, manager]];
@@ -101,13 +98,13 @@
 
 - (void)dismissEmployees {
     id employees = self.mutableEmployees;
-    while ([employees count] > 0) {
-        GNEmployee *employee = [employees lastObject];
-        NSArray *employeeObservers = employee.observers;
+    NSArray *employeeObservers = @[self, employees];
+    for (id employee in employees) {
         [employee removeObserversFromArray:employeeObservers];
-        
-        [employees removeObject:employee];
     }
+    
+    self.mutableEmployees = nil;
+    
 }
 
 - (id)freeEmployeeOfClass:(Class)Class {

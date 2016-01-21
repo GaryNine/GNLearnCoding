@@ -20,7 +20,6 @@ typedef NS_ENUM (NSUInteger, GNEmployeeState) {
 };
 
 @interface GNEmployee : GNObservableObject <GNCashProtocol, GNEmployeeObserverProtocol>
-@property (nonatomic, readonly) GNQueue *queue;
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object;
 

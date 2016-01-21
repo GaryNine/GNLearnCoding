@@ -15,10 +15,12 @@
 
 @interface GNEmployee ()
 @property (nonatomic, readwrite, assign)    NSUInteger  cash;
-@property (nonatomic, retain)               GNQueue     *objdectsQueue;
+@property (nonatomic, retain)               GNQueue     *processingQueue;
 
 - (void)processObject:(id)object;
-- (void)cleanup;
+- (void)cleanupAfterProcessing;
+
+- (void)performBackgroundWorkWithObject:(id)object;
 
 @end
 
@@ -42,19 +44,22 @@
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
     self.state = kGNEmployeeIsWorking;
-    
-    [self processObject:object];
-    [self cleanup];
+    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
 }
 
 #pragma mark -
 #pragma mark Private 
 
+- (void)performBackgroundWorkWithObject:(id)object {
+    [self processObject:object];
+    [self cleanupAfterProcessing];
+}
+
 - (void)processObject:(id)object {
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (void)cleanup {
+- (void)cleanupAfterProcessing {
     self.state = kGNEmployeeNeedProcessing;
 }
 
@@ -81,11 +86,15 @@
 #pragma mark GNCashProtocol
 
 - (void)giveMoney:(NSUInteger)cash {
-    self.cash -= cash;
+    @synchronized(self) {
+        self.cash -= cash;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)cash {
-    self.cash += cash;
+    @synchronized(self) {
+        self.cash += cash;
+    }
 }
 
 - (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {

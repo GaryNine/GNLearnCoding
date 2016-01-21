@@ -7,4 +7,3 @@
 //
 
 #import "NSObject+GNExtensions.h"
-#import "GNConstants.h"

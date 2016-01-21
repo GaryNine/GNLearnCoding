@@ -23,7 +23,7 @@
 - (void)addObserversFromArray:(NSArray *)array;
 - (void)removeObserversFromArray:(NSArray *)array;
 
-- (BOOL)containObserver:(id)observer;
+- (BOOL)containsObserver:(id)observer;
 
 - (void)notifyWithSelector:(SEL)selector;
 - (void)notifyWithSelector:(SEL)selector withObject:(id)object;

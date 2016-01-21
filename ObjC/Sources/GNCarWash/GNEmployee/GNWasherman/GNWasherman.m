@@ -9,6 +9,8 @@
 #import "GNWasherman.h"
 #import "GNCar.h"
 
+static const NSUInteger kGNWashPrice = 150;
+
 @implementation GNWasherman
 
 #pragma mark -
@@ -22,8 +24,10 @@
 #pragma mark Private
 
 - (void)processObject:(GNCar *)object {
-    [object giveMoney:kGNWashPrice toReceiver:self];
-    [self washCar:object];
+    @synchronized(object) {
+        [object giveMoney:kGNWashPrice toReceiver:self];
+        [self washCar:object];
+    }
 }
 
 @end

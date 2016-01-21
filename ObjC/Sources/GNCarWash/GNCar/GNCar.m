@@ -45,11 +45,15 @@ static const NSUInteger kGNInitialCash = 1000;
 #pragma mark GNCarWashProtocol
 
 - (void)giveMoney:(NSUInteger)cash {
-    self.cash -= cash;
+    @synchronized(self) {
+        self.cash -= cash;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)cash {
-    self.cash += cash;
+    @synchronized(self) {
+        self.cash += cash;
+    }
 }
 
 - (void)giveMoney:(NSUInteger)cash toReceiver:(id<GNCashProtocol>)receiver {
