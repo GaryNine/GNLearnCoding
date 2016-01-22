@@ -24,9 +24,11 @@
 		A8159B811C03169B00542191 /* GNStructurePrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B6F1C03169B00542191 /* GNStructurePrintTests.c */; };
 		A8159B821C03169B00542191 /* GNValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = A8159B721C03169B00542191 /* GNValueBitOutputTests.c */; };
 		A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A87C85A91C15CB45009547A4 /* GNCar.m */; };
+		A87D815A1C517C8D00D833B9 /* GNQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E094B71C43C6A30022A23E /* GNQueue.m */; };
 		A8A6A13E1C14E171008B7A63 /* GNBeingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13D1C14E171008B7A63 /* GNBeingSpec.m */; };
 		A8A6A1401C150929008B7A63 /* NSString+GNExtensionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */; };
 		A8C1C8031C3F40FF0088E276 /* GNObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C1C8011C3F38620088E276 /* GNObservableObject.m */; };
+		A8D767881C5243B400E61E0E /* GNController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D767861C5239F600E61E0E /* GNController.m */; };
 		A8DC22D61C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D71C14C415002BA42C /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C01C14C415002BA42C /* NSString+GNExtensions.m */; };
 		A8DC22D81C14C415002BA42C /* GNBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22C51C14C415002BA42C /* GNBeing.m */; };
@@ -40,7 +42,6 @@
 		A8DC22E01C14C415002BA42C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D11C14C415002BA42C /* main.m */; };
 		A8DC22E21C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
 		A8DC22E31C14C415002BA42C /* GNBeingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC22D51C14C415002BA42C /* GNBeingTests.m */; };
-		A8E094B81C43C6A30022A23E /* GNQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E094B71C43C6A30022A23E /* GNQueue.m */; };
 		A8F78A0F1C16EB190021AC10 /* GNEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A0E1C16EB190021AC10 /* GNEnterprise.m */; };
 		A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A161C16F2790021AC10 /* GNEmployee.m */; };
 		A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F78A261C16FF7F0021AC10 /* GNManager.m */; };
@@ -89,7 +90,7 @@
 		A8159B591C03169B00542191 /* GNString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNString.h; sourceTree = "<group>"; };
 		A8159B5B1C03169B00542191 /* GNValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutput.c; sourceTree = "<group>"; };
 		A8159B5C1C03169B00542191 /* GNValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutput.h; sourceTree = "<group>"; };
-		A8159B5D1C03169B00542191 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = C/Sources/main.c; sourceTree = "<group>"; };
+		A8159B5D1C03169B00542191 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = Sources/main.c; sourceTree = "<group>"; };
 		A8159B601C03169B00542191 /* GNBasicTypeValuePrintTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNBasicTypeValuePrintTest.c; sourceTree = "<group>"; };
 		A8159B611C03169B00542191 /* GNBasicTypeValuePrintTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBasicTypeValuePrintTest.h; sourceTree = "<group>"; };
 		A8159B631C03169B00542191 /* GNHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNHumanTests.c; sourceTree = "<group>"; };
@@ -115,6 +116,8 @@
 		A8A6A13F1C150929008B7A63 /* NSString+GNExtensionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensionsSpec.m"; sourceTree = "<group>"; };
 		A8C1C8001C3F38620088E276 /* GNObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObservableObject.h; sourceTree = "<group>"; };
 		A8C1C8011C3F38620088E276 /* GNObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservableObject.m; sourceTree = "<group>"; };
+		A8D767851C5239F600E61E0E /* GNController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNController.h; sourceTree = "<group>"; };
+		A8D767861C5239F600E61E0E /* GNController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNController.m; sourceTree = "<group>"; };
 		A8DC22B41C14C04B002BA42C /* ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC22B81C14C04B002BA42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC22BF1C14C415002BA42C /* NSString+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNExtensions.h"; sourceTree = "<group>"; };
@@ -129,10 +132,10 @@
 		A8DC22CD1C14C415002BA42C /* NSObject+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GNExtensions.h"; sourceTree = "<group>"; };
 		A8DC22CE1C14C415002BA42C /* NSObject+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GNExtensions.m"; sourceTree = "<group>"; };
 		A8DC22D01C14C415002BA42C /* GNBeingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingProtocol.h; sourceTree = "<group>"; };
-		A8DC22D11C14C415002BA42C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/main.m; sourceTree = "<group>"; };
+		A8DC22D11C14C415002BA42C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8DC22D41C14C415002BA42C /* GNBeingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNBeingTests.h; sourceTree = "<group>"; };
 		A8DC22D51C14C415002BA42C /* GNBeingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNBeingTests.m; sourceTree = "<group>"; };
-		A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNPrefixHeader.pch; path = ObjC/GNPrefixHeader.pch; sourceTree = "<group>"; };
+		A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNPrefixHeader.pch; sourceTree = "<group>"; };
 		A8E094B61C43C6A30022A23E /* GNQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNQueue.h; sourceTree = "<group>"; };
 		A8E094B71C43C6A30022A23E /* GNQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNQueue.m; sourceTree = "<group>"; };
 		A8F78A0D1C16EB190021AC10 /* GNEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNEnterprise.h; path = GNCarWash/GNEnterprise.h; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 			children = (
 				A8159B3F1C03169B00542191 /* Sources */,
 				A8159B5E1C03169B00542191 /* Tests */,
+				A8159B5D1C03169B00542191 /* main.c */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -403,6 +407,7 @@
 		A87C85931C15C079009547A4 /* GNCarWash */ = {
 			isa = PBXGroup;
 			children = (
+				A8D767841C5239B300E61E0E /* GNController */,
 				A8C1C7FF1C3F37AF0088E276 /* GNObservableObject */,
 				A88FA4051C19C40B00118AF1 /* Protocol */,
 				A8BBD9B81C29514B00184407 /* GNQueue */,
@@ -457,6 +462,15 @@
 			path = GNObservableObject;
 			sourceTree = "<group>";
 		};
+		A8D767841C5239B300E61E0E /* GNController */ = {
+			isa = PBXGroup;
+			children = (
+				A8D767851C5239F600E61E0E /* GNController.h */,
+				A8D767861C5239F600E61E0E /* GNController.m */,
+			);
+			path = GNController;
+			sourceTree = "<group>";
+		};
 		A8DC22B51C14C04B002BA42C /* ObjCTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +486,8 @@
 			children = (
 				A8DC22BD1C14C415002BA42C /* Sources */,
 				A8DC22D21C14C415002BA42C /* Tests */,
+				A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */,
+				A8DC22D11C14C415002BA42C /* main.m */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -574,10 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				A8DC22BC1C14C415002BA42C /* ObjC */,
-				A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */,
-				A8DC22D11C14C415002BA42C /* main.m */,
 				A8159B3E1C03169B00542191 /* C */,
-				A8159B5D1C03169B00542191 /* main.c */,
 				A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */,
 				A8DC22B51C14C04B002BA42C /* ObjCTests */,
 				92D2A7DDC47C7C226DA0D44D /* Pods */,
@@ -787,6 +800,7 @@
 			files = (
 				A8DC22DA1C14C415002BA42C /* GNFemale.m in Sources */,
 				A8C1C8031C3F40FF0088E276 /* GNObservableObject.m in Sources */,
+				A8D767881C5243B400E61E0E /* GNController.m in Sources */,
 				A8DC22DE1C14C415002BA42C /* NSObject+GNExtensions.m in Sources */,
 				A8F78A271C16FF7F0021AC10 /* GNManager.m in Sources */,
 				A8F78A171C16F2790021AC10 /* GNEmployee.m in Sources */,
@@ -799,6 +813,7 @@
 				A8DC22DC1C14C415002BA42C /* GNMale.m in Sources */,
 				A87C85AA1C15CB45009547A4 /* GNCar.m in Sources */,
 				A8F78A2F1C16FFD40021AC10 /* GNWasherman.m in Sources */,
+				A87D815A1C517C8D00D833B9 /* GNQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,7 +850,6 @@
 				A8159B801C03169B00542191 /* GNSizeOfTypesPrintTest.c in Sources */,
 				A8159B761C03169B00542191 /* GNHuman.c in Sources */,
 				A8159B771C03169B00542191 /* GNObject.c in Sources */,
-				A8E094B81C43C6A30022A23E /* GNQueue.m in Sources */,
 				A8159B781C03169B00542191 /* GNParentTypeOutput.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,7 +950,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -970,7 +983,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};

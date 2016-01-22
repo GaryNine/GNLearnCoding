@@ -11,6 +11,7 @@
 #import "GNWasherman.h"
 #import "GNAccountant.h"
 #import "GNManager.h"
+#import "GNCar.h"
 
 #import "GNQueue.h"
 
@@ -48,7 +49,6 @@ static const NSUInteger kGNWashermenCount = 3;
     self = [super init];
     
     if(self) {
-        self.mutableEmployees = [NSMutableArray array];
         [self hireEmployees];
         self.carsQueue = [GNQueue object];
     }
@@ -68,17 +68,25 @@ static const NSUInteger kGNWashermenCount = 3;
     }
 }
 
+- (void)washCars:(NSArray *)cars {
+    for (GNCar *car in cars) {
+        [self washCar:car];
+    }
+}
+
 #pragma mark -
 #pragma mark Private
 
 - (void)hireEmployees {
+    self.mutableEmployees = [NSMutableArray array];
+    
     GNAccountant *accountant = [GNAccountant object];
     GNManager *manager = [GNManager object];
     
-    id washermen = [GNWasherman objectsWithCount:kGNWashermenCount];
+    NSArray *washermen = [GNWasherman objectsWithCount:kGNWashermenCount];
     [self addEmployees:washermen withObservers:@[self, accountant]];
     
-    [self addEmployee:accountant withObservers:@[self, manager]];
+    [self addEmployee:accountant withObservers:@[manager]];
     [self addEmployee:manager withObservers:nil];
 }
 
@@ -122,9 +130,11 @@ static const NSUInteger kGNWashermenCount = 3;
 
 - (void)employeeDidBecomeFree:(id)employee {
     if ([employee class] == [GNWasherman class]) {
-        NSLog(@"Washerman did finish with car");
-    } else if ([employee class] == [GNAccountant class]) {
-        NSLog(@"Accountant did count washerman");
+        NSLog(@"something");
+        id nextCar = [self.carsQueue dequeueObject];
+        if (nextCar) {
+            [employee performWorkWithObject:[self.carsQueue dequeueObject]];
+        }
     }
 }
 

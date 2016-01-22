@@ -18,16 +18,19 @@ static const NSUInteger kGNWashPrice = 150;
 
 - (void)washCar:(GNCar *)car {
     car.clean = YES;
+    sleep(1);
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)processObject:(GNCar *)object {
-    @synchronized(object) {
-        [object giveMoney:kGNWashPrice toReceiver:self];
-        [self washCar:object];
-    }
+    [object giveMoney:kGNWashPrice toReceiver:self];
+    [self washCar:object];
+}
+
+- (void)finishWithObject:(GNEmployee *)object {
+    
 }
 
 @end

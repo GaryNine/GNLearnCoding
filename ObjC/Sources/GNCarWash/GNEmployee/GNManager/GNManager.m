@@ -9,12 +9,6 @@
 #import "GNManager.h"
 #import "GNAccountant.h"
 
-@interface GNManager ()
-
-- (void)cleanup;
-
-@end
-
 @implementation GNManager
 
 #pragma mark -
@@ -22,21 +16,19 @@
 
 - (void)takeProfit {
     NSLog(@"Profit is: %lu", self.cash);
-    sleep(5);
+    sleep(2);
 }
 
 #pragma mark -
 #pragma mark Private 
 
 - (void)processObject:(GNAccountant *)object {
-    @synchronized(object) {
-        [self takeProfit];
-        [self cleanup];
-        NSLog(@"Good Job!");
-    }
+    [object giveAllMoneyToReceiver:self];
+    [self takeProfit];
+    NSLog(@"Good Job!");
 }
 
-- (void)cleanup {
+- (void)cleanupAfterProcessing {
     self.state = kGNEmployeeIsFree;
 }
 

@@ -13,5 +13,6 @@
 @interface GNEnterprise : NSObject
 
 - (void)washCar:(GNCar *)car;
+- (void)washCars:(NSArray *)cars;
 
 @end

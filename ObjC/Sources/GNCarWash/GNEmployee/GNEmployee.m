@@ -19,6 +19,7 @@
 
 - (void)processObject:(id)object;
 - (void)cleanupAfterProcessing;
+- (void)finishWithObject:(id)object;
 
 - (void)performBackgroundWorkWithObject:(id)object;
 
@@ -29,11 +30,17 @@
 #pragma mark -
 #pragma mark Initializations & Deallocation
 
+- (void)dealloc {
+    self.processingQueue = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
-    
     if (self) {
         self.state = kGNEmployeeIsFree;
+        self.processingQueue = [GNQueue object];
     }
     
     return self;
@@ -43,24 +50,44 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
-    self.state = kGNEmployeeIsWorking;
-    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
+    @synchronized(self) {
+        if (self.state == kGNEmployeeIsFree) {
+            self.state = kGNEmployeeIsWorking;
+            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
+        } else {
+            [self.processingQueue enqueueObject:object];
+        }
+    }
 }
 
 #pragma mark -
-#pragma mark Private 
+#pragma mark Private
 
 - (void)performBackgroundWorkWithObject:(id)object {
     [self processObject:object];
-    [self cleanupAfterProcessing];
+    [self performSelectorOnMainThread:@selector(performWorkOnMainThreadWithObject:) withObject:object waitUntilDone:NO];
 }
 
 - (void)processObject:(id)object {
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)performWorkOnMainThreadWithObject:(id)object {
+    id nextCar = [self.processingQueue dequeueObject];
+    if (nextCar) {
+        [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:nextCar];
+    } else {
+        [self cleanupAfterProcessing];
+        [self finishWithObject:object];
+    }
+}
+
 - (void)cleanupAfterProcessing {
     self.state = kGNEmployeeNeedProcessing;
+}
+
+- (void)finishWithObject:(GNEmployee *)object {
+    object.state = kGNEmployeeIsFree;
 }
 
 #pragma mark -

@@ -51,9 +51,9 @@
             [[object retain] autorelease];
             [self.mutableObjects removeObject:object];
         }
+        
+        return object;
     }
-    
-    return object;
 }
 
 @end

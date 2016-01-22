@@ -11,12 +11,13 @@
 #import "GNBeingTests.h"
 #import "GNEnterprise.h"
 #import "GNCar.h"
+#import "GNController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        GNEnterprise *enterprise = [GNEnterprise object];
-        GNCar *car = [GNCar car];
-        [enterprise washCar:car];
+        [[GNController controllerWithEnterprise:[GNEnterprise object]] startWork];
+        
+        [[NSRunLoop mainRunLoop] run];
     }
     
     return 0;
