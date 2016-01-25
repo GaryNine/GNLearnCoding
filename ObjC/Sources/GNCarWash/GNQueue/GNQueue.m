@@ -39,7 +39,9 @@
 
 - (void)enqueueObject:(id)object {
     @synchronized(self) {
-        [self.mutableObjects addObject:object];
+        if (object) {
+            [self.mutableObjects addObject:object];
+        }
     }
 }
 

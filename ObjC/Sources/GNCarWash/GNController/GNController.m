@@ -11,7 +11,7 @@
 
 #import "GNCar.h"
 
-static const NSUInteger kGNDefaultCarsCount = 10;
+static const NSUInteger kGNDefaultCarsCount = 20;
 
 @interface GNController ()
 @property (nonatomic, retain)   GNEnterprise    *enterprise;

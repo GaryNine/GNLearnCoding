@@ -15,6 +15,8 @@
 @property (nonatomic, assign)   NSUInteger  state;
 
 - (void)setState:(NSUInteger)state withObject:(id)object;
+
+// This method is intended for subclassing.Never call it directly.
 - (SEL)selectorForState:(NSUInteger)state;
 
 - (void)addObserver:(id)observer;

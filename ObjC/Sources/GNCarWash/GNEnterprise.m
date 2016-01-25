@@ -13,23 +13,24 @@
 #import "GNManager.h"
 #import "GNCar.h"
 
-#import "GNQueue.h"
+#import "GNDispatcher.h"
 
 #import "GNEmployeeObserverProtocol.h"
 
-static const NSUInteger kGNWashermenCount = 3;
+static const NSUInteger kGNWashermenCount = 1;
+static const NSUInteger kGNAccountantCount = 1;
+static const NSUInteger kGNManagerCount = 1;
 
-@interface GNEnterprise () <GNEmployeeObserverProtocol>
+@interface GNEnterprise ()
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
-@property (nonatomic, retain)   GNQueue         *carsQueue;
+@property (nonatomic, retain)   GNDispatcher    *washermenDispatcher;
+@property (nonatomic, retain)   GNDispatcher    *accountantsDispatcher;
+@property (nonatomic, retain)   GNDispatcher    *managersDispatcher;
 
 - (void)hireEmployees;
 - (void)dismissEmployees;
 
-- (id)freeEmployeeOfClass:(Class)Class;
-
-- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers;
-- (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers;
+- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher withObservers:(NSArray *)observers;
 
 @end
 
@@ -40,7 +41,10 @@ static const NSUInteger kGNWashermenCount = 3;
 
 - (void)dealloc {
     [self dismissEmployees];
-    self.carsQueue = nil;
+
+    self.washermenDispatcher = nil;
+    self.accountantsDispatcher = nil;
+    self.managersDispatcher = nil;
     
     [super dealloc];
 }
@@ -48,9 +52,12 @@ static const NSUInteger kGNWashermenCount = 3;
 - (instancetype)init {
     self = [super init];
     
-    if(self) {
+    if (self) {
+        self.washermenDispatcher = [GNDispatcher object];
+        self.accountantsDispatcher = [GNDispatcher object];
+        self.managersDispatcher = [GNDispatcher object];
+        
         [self hireEmployees];
-        self.carsQueue = [GNQueue object];
     }
 
     return self;
@@ -60,12 +67,7 @@ static const NSUInteger kGNWashermenCount = 3;
 #pragma mark Public
 
 - (void)washCar:(GNCar *)car {
-    GNWasherman *washerman = [self freeEmployeeOfClass:[GNWasherman class]];
-    if (washerman) {
-        [washerman performWorkWithObject:car];
-    } else {
-        [self.carsQueue enqueueObject:car];
-    }
+    [self.washermenDispatcher performWorkWithObject:car];
 }
 
 - (void)washCars:(NSArray *)cars {
@@ -80,62 +82,32 @@ static const NSUInteger kGNWashermenCount = 3;
 - (void)hireEmployees {
     self.mutableEmployees = [NSMutableArray array];
     
-    GNAccountant *accountant = [GNAccountant object];
-    GNManager *manager = [GNManager object];
-    
     NSArray *washermen = [GNWasherman objectsWithCount:kGNWashermenCount];
-    [self addEmployees:washermen withObservers:@[self, accountant]];
+    NSArray *accountants = [GNAccountant objectsWithCount:kGNAccountantCount];
+    NSArray *managers = [GNManager objectsWithCount:kGNManagerCount];
     
-    [self addEmployee:accountant withObservers:@[manager]];
-    [self addEmployee:manager withObservers:nil];
+    [self addEmployees:washermen withDispatcher:self.washermenDispatcher withObservers:accountants];
+    [self addEmployees:accountants withDispatcher:self.accountantsDispatcher withObservers:managers];
+    [self addEmployees:managers withDispatcher:self.managersDispatcher withObservers:nil];
 }
 
-- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers {
-    for (GNEmployee *employee in employees) {
-        [self addEmployee:employee withObservers:observers];
+- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher withObservers:(NSArray *)observers {
+    NSMutableArray *mutableEmployees = self.mutableEmployees;
+    for (id employee in employees) {
+        [dispatcher addHandler:employee];
+        [mutableEmployees addObject:employee];
+        [employee addObserversFromArray:observers];
     }
-}
-
-- (void)addEmployee:(GNEmployee *)employee withObservers:(NSArray *)observers {
-    for (id observer in observers) {
-        [employee addObserver:observer];
-    }
-    
-    [self.mutableEmployees addObject:employee];
 }
 
 - (void)dismissEmployees {
-    id employees = self.mutableEmployees;
-    NSArray *employeeObservers = @[self, employees];
-    for (id employee in employees) {
-        [employee removeObserversFromArray:employeeObservers];
+    NSMutableArray *employees = self.mutableEmployees;
+    NSArray *observers = @[self.washermenDispatcher, self.accountantsDispatcher, self.managersDispatcher, employees];
+    for (GNEmployee *employee in employees) {
+        [employee removeObserversFromArray:observers];
     }
     
     self.mutableEmployees = nil;
-    
-}
-
-- (id)freeEmployeeOfClass:(Class)Class {
-    for (GNEmployee *employee in self.mutableEmployees) {
-        if ([employee isMemberOfClass:Class] && employee.state == kGNEmployeeIsFree) {
-            return employee;
-        }
-    }
-    
-    return nil;
-}
-
-#pragma mark -
-#pragma mark GNObserverProtocol
-
-- (void)employeeDidBecomeFree:(id)employee {
-    if ([employee class] == [GNWasherman class]) {
-        NSLog(@"something");
-        id nextCar = [self.carsQueue dequeueObject];
-        if (nextCar) {
-            [employee performWorkWithObject:[self.carsQueue dequeueObject]];
-        }
-    }
 }
 
 @end

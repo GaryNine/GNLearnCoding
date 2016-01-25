@@ -12,7 +12,7 @@
 
 @interface GNCar : NSObject <GNCashProtocol>
 
-@property (nonatomic, readwrite, getter=isClean)    BOOL   clean;
+@property (nonatomic, assign, getter=isClean)    BOOL   clean;
 
 + (instancetype)car;
 + (instancetype)carWithCash:(NSUInteger)cash;

@@ -11,7 +11,7 @@
 static const NSUInteger kGNInitialCash = 1000;
 
 @interface GNCar()
-@property (nonatomic, readwrite, assign)    NSUInteger  cash;
+@property (nonatomic, assign)    NSUInteger  cash;
 
 @end
 
@@ -21,19 +21,27 @@ static const NSUInteger kGNInitialCash = 1000;
 #pragma mark Class Methods
 
 + (instancetype)car {
-    return [[[self alloc] initWithCash:kGNInitialCash] autorelease];
+    return [self object];
 }
 
 + (instancetype)carWithCash:(NSUInteger)cash {
-    return [[self alloc] initWithCash:cash];
+    return [[[self alloc] initWithCash:cash] autorelease];
 }
 
 #pragma mark -
 #pragma mark Initialization & Deallocation
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.cash = kGNInitialCash;
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithCash:(NSUInteger)cash {
     self = [self init];
-    
     if (self) {
         self.cash = cash;
     }

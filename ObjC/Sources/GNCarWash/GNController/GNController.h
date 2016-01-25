@@ -11,6 +11,7 @@
 @class GNEnterprise;
 
 @interface GNController : NSObject
+@property (nonatomic, assign, getter=isBusy)    BOOL    busy;
 
 + (instancetype)controllerWithEnterprise:(GNEnterprise *)enterprise;
 

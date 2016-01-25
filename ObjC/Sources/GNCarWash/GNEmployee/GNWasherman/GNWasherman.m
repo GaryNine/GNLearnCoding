@@ -27,6 +27,8 @@ static const NSUInteger kGNWashPrice = 150;
 - (void)processObject:(GNCar *)object {
     [object giveMoney:kGNWashPrice toReceiver:self];
     [self washCar:object];
+    
+    NSLog(@"washerman did wash car, %@", self);
 }
 
 - (void)finishWithObject:(GNEmployee *)object {

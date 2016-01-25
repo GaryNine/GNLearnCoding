@@ -14,8 +14,8 @@
 #import "GNQueue.h"
 
 @interface GNEmployee ()
-@property (nonatomic, readwrite, assign)    NSUInteger  cash;
-@property (nonatomic, retain)               GNQueue     *processingQueue;
+@property (nonatomic, readwrite)    NSUInteger  cash;
+@property (nonatomic, retain)       GNQueue     *processingQueue;
 
 - (void)processObject:(id)object;
 - (void)cleanupAfterProcessing;
@@ -73,21 +73,28 @@
 }
 
 - (void)performWorkOnMainThreadWithObject:(id)object {
-    id nextCar = [self.processingQueue dequeueObject];
-    if (nextCar) {
-        [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:nextCar];
-    } else {
-        [self cleanupAfterProcessing];
-        [self finishWithObject:object];
+    [self finishWithObject:object];
+    
+    @synchronized(self) {
+        id nextObject = [self.processingQueue dequeueObject];
+        if (nextObject) {
+            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:nextObject];
+        } else {
+            [self cleanupAfterProcessing];
+        }
     }
 }
 
 - (void)cleanupAfterProcessing {
-    self.state = kGNEmployeeNeedProcessing;
+    @synchronized(self) {
+        self.state = kGNEmployeeNeedProcessing;
+    }
 }
 
 - (void)finishWithObject:(GNEmployee *)object {
-    object.state = kGNEmployeeIsFree;
+    @synchronized(object) {
+        object.state = kGNEmployeeIsFree;
+    }
 }
 
 #pragma mark -
@@ -125,9 +132,11 @@
 }
 
 - (void)giveAllMoneyToReceiver:(id<GNCashProtocol>)receiver {
-    NSUInteger allCash = self.cash;
-    [self giveMoney:allCash];
-    [receiver takeMoney:allCash];
+    @synchronized(self) {
+        NSUInteger allCash = self.cash;
+        [self giveMoney:allCash];
+        [receiver takeMoney:allCash];
+    }
 }
 
 #pragma mark -

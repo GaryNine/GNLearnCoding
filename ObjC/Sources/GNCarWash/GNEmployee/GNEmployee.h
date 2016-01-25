@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "GNObservableObject.h"
-#import "GNQueue.h"
 #import "GNCashProtocol.h"
 #import "GNEmployeeObserverProtocol.h"
 
