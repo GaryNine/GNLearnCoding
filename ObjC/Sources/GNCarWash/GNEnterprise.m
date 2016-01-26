@@ -17,9 +17,9 @@
 
 #import "GNEmployeeObserverProtocol.h"
 
-static const NSUInteger kGNWashermenCount = 1;
-static const NSUInteger kGNAccountantCount = 1;
-static const NSUInteger kGNManagerCount = 1;
+static const NSUInteger kGNWashermenCount = 5;
+static const NSUInteger kGNAccountantsCount = 3;
+static const NSUInteger kGNManagersCount = 2;
 
 @interface GNEnterprise ()
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;
@@ -30,7 +30,7 @@ static const NSUInteger kGNManagerCount = 1;
 - (void)hireEmployees;
 - (void)dismissEmployees;
 
-- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher withObservers:(NSArray *)observers;
+- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher;
 
 @end
 
@@ -83,31 +83,42 @@ static const NSUInteger kGNManagerCount = 1;
     self.mutableEmployees = [NSMutableArray array];
     
     NSArray *washermen = [GNWasherman objectsWithCount:kGNWashermenCount];
-    NSArray *accountants = [GNAccountant objectsWithCount:kGNAccountantCount];
-    NSArray *managers = [GNManager objectsWithCount:kGNManagerCount];
+    NSArray *accountants = [GNAccountant objectsWithCount:kGNAccountantsCount];
+    NSArray *managers = [GNManager objectsWithCount:kGNManagersCount];
     
-    [self addEmployees:washermen withDispatcher:self.washermenDispatcher withObservers:accountants];
-    [self addEmployees:accountants withDispatcher:self.accountantsDispatcher withObservers:managers];
-    [self addEmployees:managers withDispatcher:self.managersDispatcher withObservers:nil];
+    [self addEmployees:washermen withDispatcher:self.washermenDispatcher];
+    [self addEmployees:accountants withDispatcher:self.accountantsDispatcher];
+    [self addEmployees:managers withDispatcher:self.managersDispatcher];
 }
 
-- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher withObservers:(NSArray *)observers {
+- (void)addEmployees:(NSArray *)employees withDispatcher:(GNDispatcher *)dispatcher {
     NSMutableArray *mutableEmployees = self.mutableEmployees;
-    for (id employee in employees) {
+    for (GNEmployee *employee in employees) {
         [dispatcher addHandler:employee];
         [mutableEmployees addObject:employee];
-        [employee addObserversFromArray:observers];
+        [employee addObserver:self];
     }
 }
 
 - (void)dismissEmployees {
     NSMutableArray *employees = self.mutableEmployees;
-    NSArray *observers = @[self.washermenDispatcher, self.accountantsDispatcher, self.managersDispatcher, employees];
+    NSArray *observers = @[self.washermenDispatcher, self.accountantsDispatcher, self.managersDispatcher, self];
     for (GNEmployee *employee in employees) {
         [employee removeObserversFromArray:observers];
     }
     
     self.mutableEmployees = nil;
+}
+
+#pragma mark -
+#pragma mark GNObserverProtocol
+
+- (void)employeeDidBecomeFinish:(id)employee {
+    if ([self.washermenDispatcher containsHandler:employee]) {
+        [self.accountantsDispatcher performWorkWithObject:employee];
+    } else if ([self.accountantsDispatcher containsHandler:employee]) {
+        [self.managersDispatcher performWorkWithObject:employee];
+    }
 }
 
 @end

@@ -11,11 +11,8 @@
 #import "GNAccountant.h"
 #import "GNManager.h"
 
-#import "GNQueue.h"
-
 @interface GNEmployee ()
 @property (nonatomic, readwrite)    NSUInteger  cash;
-@property (nonatomic, retain)       GNQueue     *processingQueue;
 
 - (void)processObject:(id)object;
 - (void)cleanupAfterProcessing;
@@ -30,17 +27,10 @@
 #pragma mark -
 #pragma mark Initializations & Deallocation
 
-- (void)dealloc {
-    self.processingQueue = nil;
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kGNEmployeeIsFree;
-        self.processingQueue = [GNQueue object];
     }
     
     return self;
@@ -50,14 +40,7 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
-    @synchronized(self) {
-        if (self.state == kGNEmployeeIsFree) {
-            self.state = kGNEmployeeIsWorking;
-            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
-        } else {
-            [self.processingQueue enqueueObject:object];
-        }
-    }
+    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
 }
 
 #pragma mark -
@@ -74,15 +57,7 @@
 
 - (void)performWorkOnMainThreadWithObject:(id)object {
     [self finishWithObject:object];
-    
-    @synchronized(self) {
-        id nextObject = [self.processingQueue dequeueObject];
-        if (nextObject) {
-            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:nextObject];
-        } else {
-            [self cleanupAfterProcessing];
-        }
-    }
+    [self cleanupAfterProcessing];
 }
 
 - (void)cleanupAfterProcessing {
@@ -137,13 +112,6 @@
         [self giveMoney:allCash];
         [receiver takeMoney:allCash];
     }
-}
-
-#pragma mark -
-#pragma mark GNObserverProtocol
-
-- (void)employeeDidBecomeFinish:(id)employee {
-    [self performWorkWithObject:employee];
 }
 
 @end

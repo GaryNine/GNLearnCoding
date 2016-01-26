@@ -15,7 +15,7 @@
 #pragma mark Public
 
 - (void)countMoney {
-    NSLog(@"Money count is: %lu", self.cash);
+    NSLog(@"Accountant money count is: %lu", self.cash);
     sleep(1);
 }
 

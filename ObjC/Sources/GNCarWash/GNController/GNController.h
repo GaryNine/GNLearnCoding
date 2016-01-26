@@ -11,12 +11,10 @@
 @class GNEnterprise;
 
 @interface GNController : NSObject
-@property (nonatomic, assign, getter=isBusy)    BOOL    busy;
+@property (nonatomic, assign, getter=isWorking)    BOOL    working;
 
 + (instancetype)controllerWithEnterprise:(GNEnterprise *)enterprise;
 
 - (instancetype)initWithEnterprise:(GNEnterprise *)enterprise;
-
-- (void)startWork;
 
 @end

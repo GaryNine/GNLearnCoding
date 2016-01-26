@@ -15,7 +15,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[GNController controllerWithEnterprise:[GNEnterprise object]] startWork];
+        [[GNController controllerWithEnterprise:[GNEnterprise object]] setWorking:YES];
         
         [[NSRunLoop mainRunLoop] run];
     }

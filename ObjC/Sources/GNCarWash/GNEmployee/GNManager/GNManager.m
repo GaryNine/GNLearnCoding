@@ -15,7 +15,7 @@
 #pragma mark Public
 
 - (void)takeProfit {
-    NSLog(@"Profit is: %lu", self.cash);
+    NSLog(@"Manager profit is: %lu", self.cash);
     sleep(2);
 }
 
