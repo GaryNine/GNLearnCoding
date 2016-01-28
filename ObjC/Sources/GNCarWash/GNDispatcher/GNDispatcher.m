@@ -57,8 +57,8 @@
 - (void)removeHandler:(id)handler {
     NSMutableArray *handlers = self.mutableHandlers;
     @synchronized(handlers) {
-        [handlers removeObject:handler];
         [handler removeObserver:self];
+        [handlers removeObject:handler];
     }
 }
 
@@ -66,9 +66,9 @@
     NSMutableArray *handlers = self.mutableHandlers;
     for (id handler in handlers) {
         [handler removeObserver:self];
-        
-        self.mutableHandlers = nil;
     }
+    
+    self.mutableHandlers = nil;
 }
 
 - (BOOL)containsHandler:(id)handler {
@@ -104,6 +104,7 @@
         @synchronized(handler) {
             if (kGNEmployeeIsFree == handler.state) {
                 handler.state = kGNEmployeeIsWorking;
+                
                 return handler;
             }
         }

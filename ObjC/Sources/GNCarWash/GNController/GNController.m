@@ -11,7 +11,7 @@
 
 #import "GNCar.h"
 
-static const NSUInteger kGNDefaultCarsCount = 20;
+static const NSUInteger kGNDefaultCarsCount    = 20;
 static const NSUInteger kGNDefaultTimeInterval = 1.0;
 
 @interface GNController ()
@@ -23,6 +23,7 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
 @end
 
 @implementation GNController
+@dynamic working;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -72,10 +73,9 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
 
 - (void)setTimer:(NSTimer *)timer {
     if (_timer != timer) {
-        [_timer release];
         [_timer invalidate];
-        _timer = timer;
-        [_timer retain];
+        [_timer release];
+        _timer = [timer retain];
     }
 }
 
@@ -83,7 +83,9 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
 #pragma mark Public
 
 - (void)startWork {
-    [self performSelectorInBackground:@selector(startBackgroundWork) withObject:nil];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        [self startBackgroundWork];
+    });
 }
 
 #pragma mark -

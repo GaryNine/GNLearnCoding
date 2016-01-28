@@ -17,9 +17,9 @@
 
 #import "GNEmployeeObserverProtocol.h"
 
-static const NSUInteger kGNWashermenCount = 5;
+static const NSUInteger kGNWashermenCount   = 5;
 static const NSUInteger kGNAccountantsCount = 3;
-static const NSUInteger kGNManagersCount = 2;
+static const NSUInteger kGNManagersCount    = 2;
 
 @interface GNEnterprise ()
 @property (nonatomic, retain)   NSMutableArray  *mutableEmployees;

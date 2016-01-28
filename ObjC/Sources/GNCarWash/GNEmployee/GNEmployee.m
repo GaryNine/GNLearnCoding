@@ -18,8 +18,6 @@
 - (void)cleanupAfterProcessing;
 - (void)finishWithObject:(id)object;
 
-- (void)performBackgroundWorkWithObject:(id)object;
-
 @end
 
 @implementation GNEmployee
@@ -40,24 +38,21 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
-    [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^ {
+       [self processObject:object];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^ {
+            [self finishWithObject:object];
+            [self cleanupAfterProcessing];
+        });
+    });
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundWorkWithObject:(id)object {
-    [self processObject:object];
-    [self performSelectorOnMainThread:@selector(performWorkOnMainThreadWithObject:) withObject:object waitUntilDone:NO];
-}
-
 - (void)processObject:(id)object {
     [self doesNotRecognizeSelector:_cmd];
-}
-
-- (void)performWorkOnMainThreadWithObject:(id)object {
-    [self finishWithObject:object];
-    [self cleanupAfterProcessing];
 }
 
 - (void)cleanupAfterProcessing {
@@ -87,7 +82,7 @@
             return @selector(employeeDidBecomeFinish:);
             
         default:
-            return NULL;
+            return [super selectorForState:state];
     }
 }
 
