@@ -107,7 +107,6 @@
 		A8159B721C03169B00542191 /* GNValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GNValueBitOutputTests.c; sourceTree = "<group>"; };
 		A8159B731C03169B00542191 /* GNValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNValueBitOutputTests.h; sourceTree = "<group>"; };
 		A825A2DD1C42C61000D7EE43 /* GNEmployeeObserverProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNEmployeeObserverProtocol.h; sourceTree = "<group>"; };
-		A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "IDAP Study Plan.rtf"; sourceTree = "<group>"; };
 		A83B0A701C14CB3E00F9909C /* GNLearnC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83B0A711C14CB3E00F9909C /* GNLearnObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GNLearnObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87C85A81C15CB45009547A4 /* GNCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCar.h; sourceTree = "<group>"; };
@@ -604,7 +603,6 @@
 			children = (
 				A8DC22BC1C14C415002BA42C /* ObjC */,
 				A8159B3E1C03169B00542191 /* C */,
-				A8375D521C0BE4B6003274B5 /* IDAP Study Plan.rtf */,
 				A8DC22B51C14C04B002BA42C /* ObjCTests */,
 				92D2A7DDC47C7C226DA0D44D /* Pods */,
 				99644E72E7DB86CDB9343370 /* Frameworks */,
