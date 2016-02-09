@@ -16,6 +16,7 @@
 		A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB031C67D2D4003CE7D7 /* GNSquareView.m */; };
 		A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */; };
 		A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */; };
+		A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNSquareView.xib; sourceTree = "<group>"; };
 		A80CBB081C68E1FB003CE7D7 /* CGGeometry+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+GNExtensions.h"; sourceTree = "<group>"; };
 		A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+GNExtensions.m"; sourceTree = "<group>"; };
+		A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "UI study plan.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				A80CBAF81C67D015003CE7D7 /* Resources */,
 				A80CBAD81C6773BD003CE7D7 /* Source */,
 				A80CBAB11C67735C003CE7D7 /* Products */,
+				A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,7 +94,6 @@
 			children = (
 				A80CBAF51C67C86E003CE7D7 /* Macro */,
 				A80CBAEA1C67B67E003CE7D7 /* Categories */,
-				A80CBB011C67D2D4003CE7D7 /* GNSquareView */,
 				A80CBAE91C67AE44003CE7D7 /* GNSquareViewController */,
 			);
 			path = UI;
@@ -100,6 +102,9 @@
 		A80CBAE91C67AE44003CE7D7 /* GNSquareViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A80CBB021C67D2D4003CE7D7 /* GNSquareView.h */,
+				A80CBB031C67D2D4003CE7D7 /* GNSquareView.m */,
+				A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */,
 				A80CBADB1C6773BD003CE7D7 /* GNSquareViewController.h */,
 				A80CBADC1C6773BD003CE7D7 /* GNSquareViewController.m */,
 			);
@@ -139,16 +144,6 @@
 				A80CBAFA1C67D015003CE7D7 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		A80CBB011C67D2D4003CE7D7 /* GNSquareView */ = {
-			isa = PBXGroup;
-			children = (
-				A80CBB021C67D2D4003CE7D7 /* GNSquareView.h */,
-				A80CBB031C67D2D4003CE7D7 /* GNSquareView.m */,
-				A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */,
-			);
-			path = GNSquareView;
 			sourceTree = "<group>";
 		};
 		A80CBB071C68DC70003CE7D7 /* CGGeometry */ = {
@@ -219,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80CBAFF1C67D015003CE7D7 /* LaunchScreen.storyboard in Resources */,
+				A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */,
 				A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */,
 				A80CBAFE1C67D015003CE7D7 /* Assets.xcassets in Resources */,
 			);

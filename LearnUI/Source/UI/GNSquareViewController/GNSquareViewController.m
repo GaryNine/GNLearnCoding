@@ -35,4 +35,20 @@ GNViewGetterSynthesize(GNSquareView, squareView);
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark -
+#pragma mark Public
+
+- (IBAction)onAnimate:(id)sender {
+    NSLog(@"Hello");
+}
+
+- (IBAction)onNext:(id)sender {
+//    NSLog(@"Fuck");
+    [self.squareView moveSquareToNextPosition];
+}
+
+- (IBAction)onStop:(id)sender {
+    NSLog(@"FuckOff");
+}
+
 @end

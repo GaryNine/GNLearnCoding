@@ -37,6 +37,11 @@
 }
 
 - (void)moveSquareToNextPosition {
+    CGRect frame = self.squareView.frame;
+
+    frame.origin.y = self.frame.origin.y - frame.origin.y + 200;
+    self.squareView.frame = frame;
+    
     
 }
 
