@@ -11,6 +11,9 @@
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
 
+- (GNSquarePosition)nextPositionWithSquarePosition:(GNSquarePosition)position;
+- (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position;
+
 @end
 
 @implementation GNSquareView
@@ -31,18 +34,48 @@
 
 - (void)setSquarePosition:(GNSquarePosition)squarePosition
                  animated:(BOOL)animated
-        completionHandler:(GNVoidBlock)handler
-{
+        completionHandler:(GNVoidBlock)handler {
     
+    if (_squarePosition != squarePosition) {
+        self.squareView.frame = [self squareFrameWithSquarePosition:squarePosition];
+        
+        _squarePosition = squarePosition;
+    }
 }
 
 - (void)moveSquareToNextPosition {
-    CGRect frame = self.squareView.frame;
+    [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]];
+}
 
-    frame.origin.y = self.frame.origin.y - frame.origin.y + 200;
-    self.squareView.frame = frame;
+#pragma mark -
+#pragma mark Private
+
+- (GNSquarePosition)nextPositionWithSquarePosition:(GNSquarePosition)position {
+    return (position + 1) % GNSquarePositionCount;
+}
+
+- (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position {
+    CGRect frame = self.squareView.frame;
+    CGSize selfSize = self.frame.size;
+
+    switch (position) {
+        case GNSquarePositionBottomLeft:
+            frame.origin.y = selfSize.height - frame.size.height;
+            break;
+        case GNSquarePositionBottomRight:
+            frame.origin.x = selfSize.width - frame.size.width;
+            break;
+            
+        case GNSquarePositionTopRight:
+            frame.origin.y = 0;
+            break;
+            
+        default:
+            frame.origin = CGPointMake(0, 0);
+            break;
+    }
     
-    
+    return frame;
 }
 
 @end

@@ -19,7 +19,9 @@
 
 @implementation GNAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)            application:(UIApplication *)application
+  didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     UIWindow *window = [UIWindow window];
     self.window = window;
     window.rootViewController = [GNSquareViewController new];

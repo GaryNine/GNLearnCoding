@@ -29,7 +29,7 @@
 		A80CBADC1C6773BD003CE7D7 /* GNSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNSquareViewController.m; sourceTree = "<group>"; };
 		A80CBAF21C67BA68003CE7D7 /* UIWindow+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+GNExtensions.h"; sourceTree = "<group>"; };
 		A80CBAF31C67BA68003CE7D7 /* UIWindow+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+GNExtensions.m"; sourceTree = "<group>"; };
-		A80CBAF61C67C8BF003CE7D7 /* GNMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNMacro.h; sourceTree = "<group>"; };
+		A80CBAF61C67C8BF003CE7D7 /* GNViewControllerMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNViewControllerMacro.h; sourceTree = "<group>"; };
 		A80CBAF91C67D015003CE7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80CBAFB1C67D015003CE7D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A80CBB021C67D2D4003CE7D7 /* GNSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSquareView.h; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		A80CBB081C68E1FB003CE7D7 /* CGGeometry+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+GNExtensions.h"; sourceTree = "<group>"; };
 		A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+GNExtensions.m"; sourceTree = "<group>"; };
 		A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "UI study plan.rtf"; sourceTree = "<group>"; };
+		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
+		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		A80CBAD81C6773BD003CE7D7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A84CAD551C6AA11400E8BC92 /* Library */,
 				A80CBAE81C67AE3C003CE7D7 /* UI */,
 			);
 			path = Source;
@@ -92,8 +95,6 @@
 		A80CBAE81C67AE3C003CE7D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A80CBAF51C67C86E003CE7D7 /* Macro */,
-				A80CBAEA1C67B67E003CE7D7 /* Categories */,
 				A80CBAE91C67AE44003CE7D7 /* GNSquareViewController */,
 			);
 			path = UI;
@@ -132,7 +133,9 @@
 		A80CBAF51C67C86E003CE7D7 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				A80CBAF61C67C8BF003CE7D7 /* GNMacro.h */,
+				A8DA330B1C6C05B100309017 /* GNClangMacro.h */,
+				A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */,
+				A80CBAF61C67C8BF003CE7D7 /* GNViewControllerMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -153,6 +156,15 @@
 				A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */,
 			);
 			path = CGGeometry;
+			sourceTree = "<group>";
+		};
+		A84CAD551C6AA11400E8BC92 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A80CBAEA1C67B67E003CE7D7 /* Categories */,
+				A80CBAF51C67C86E003CE7D7 /* Macro */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

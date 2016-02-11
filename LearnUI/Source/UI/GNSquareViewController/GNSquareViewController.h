@@ -10,8 +10,7 @@
 
 @interface GNSquareViewController : UIViewController
 
-- (IBAction)onAnimate:(id)sender;
 - (IBAction)onNext:(id)sender;
-- (IBAction)onStop:(id)sender;
+- (IBAction)onAnimate:(id)sender;
 
 @end
