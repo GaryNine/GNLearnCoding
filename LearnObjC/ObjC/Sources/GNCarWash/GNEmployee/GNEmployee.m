@@ -11,6 +11,8 @@
 #import "GNAccountant.h"
 #import "GNManager.h"
 
+#import "GNDispatch.h"
+
 @interface GNEmployee ()
 @property (nonatomic, readwrite)    NSUInteger  cash;
 

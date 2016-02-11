@@ -18,6 +18,7 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
 @property (nonatomic, retain)   GNEnterprise    *enterprise;
 @property (nonatomic, retain)   NSTimer         *timer;
 
+- (void)startWork:(NSTimer *)timer;
 - (void)startBackgroundWork;
 
 @end
@@ -62,7 +63,7 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
     if (working) {
         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:kGNDefaultTimeInterval
                                                           target:self
-                                                        selector:@selector(startWork)
+                                                        selector:@selector(startWork:)
                                                         userInfo:nil
                                                          repeats:YES];
         self.timer = timer;
@@ -79,17 +80,14 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
     }
 }
 
-#pragma mark - 
-#pragma mark Public
+#pragma mark -
+#pragma mark Private
 
-- (void)startWork {
+- (void)startWork:(NSTimer *)timer {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         [self startBackgroundWork];
     });
 }
-
-#pragma mark -
-#pragma mark Private
 
 - (void)startBackgroundWork {
     [self.enterprise washCars:[GNCar objectsWithCount:kGNDefaultCarsCount]];
