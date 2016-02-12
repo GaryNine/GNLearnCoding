@@ -10,6 +10,8 @@
 
 #import "CGGeometry+GNExtensions.h"
 
+static const NSTimeInterval kGNAnimationDuration = 0.4;
+
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
 
@@ -39,14 +41,21 @@
         completionHandler:(GNVoidBlock)handler {
     
     if (_squarePosition != squarePosition) {
-        self.squareView.frame = [self squareFrameWithSquarePosition:squarePosition];
-        
-        _squarePosition = squarePosition;
+        [UIView animateWithDuration:kGNAnimationDuration
+                         animations:^{
+                             self.squareView.frame = [self squareFrameWithSquarePosition:squarePosition];
+                         }
+                         completion:^(BOOL finished) {
+                             self.animating = NO;
+                             _squarePosition = squarePosition;
+                         }];
     }
 }
 
 - (void)moveSquareToNextPosition {
-    [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]];
+    if (!self.animating) {
+        [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]];
+    }
 }
 
 #pragma mark -

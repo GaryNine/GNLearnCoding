@@ -30,4 +30,3 @@
     GNBaseViewGetterSynthesize(viewClass, propertyName) \
     \
     @end
-

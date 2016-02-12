@@ -60,7 +60,7 @@
                 <outlet property="squareView" destination="4e6-nG-h1m" id="n1D-yu-wXe"/>
                 <outlet property="startButton" destination="ylH-66-iJk" id="0D8-vB-xUf"/>
             </connections>
-            <point key="canvasLocation" x="81" y="-69"/>
+            <point key="canvasLocation" x="-87" y="-191"/>
         </view>
     </objects>
 </document>
