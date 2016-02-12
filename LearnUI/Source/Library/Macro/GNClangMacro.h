@@ -6,9 +6,6 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#define GNClangDiagnosticPushOptionPerformSelectorLeakWarning \
-    GNClangDiagnosticPushOption("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
-
 #define GNClangDiagnosticPush _Pragma("clang diagnostic push")
 #define GNClangDiagnosticPop _Pragma("clang diagnostic pop")
 
@@ -17,3 +14,6 @@
     _Pragma(option)
 
 #define GNClangDiagnosticPopOption GNClangDiagnosticPop
+
+#define GNClangDiagnosticPushOptionPerformSelectorLeakWarning \
+GNClangDiagnosticPushOption("clang diagnostic ignored \"-Warc-performSelector-leaks\"")

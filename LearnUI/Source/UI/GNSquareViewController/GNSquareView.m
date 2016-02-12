@@ -55,27 +55,33 @@
 }
 
 - (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position {
-    CGRect frame = self.squareView.frame;
-    CGSize selfSize = self.frame.size;
+    CGRect squareFrame = self.squareView.frame;
+    CGRect bounds = self.bounds;
+
+    CGPoint origin = CGPointZero;
+    CGPoint bottomRiightPoint = CGPointMake(CGRectGetMaxX(bounds) - CGRectGetWidth(squareFrame),
+                                            CGRectGetMaxY(bounds) - CGRectGetHeight(squareFrame));
 
     switch (position) {
         case GNSquarePositionBottomLeft:
-            frame.origin.y = selfSize.height - frame.size.height;
+            origin.y = bottomRiightPoint.y;
             break;
+            
         case GNSquarePositionBottomRight:
-            frame.origin.x = selfSize.width - frame.size.width;
+            origin = bottomRiightPoint;
             break;
             
         case GNSquarePositionTopRight:
-            frame.origin.y = 0;
+            origin.x = bottomRiightPoint.x;
             break;
             
         default:
-            frame.origin = CGPointMake(0, 0);
             break;
     }
     
-    return frame;
+    squareFrame.origin = origin;
+    
+    return squareFrame;
 }
 
 @end

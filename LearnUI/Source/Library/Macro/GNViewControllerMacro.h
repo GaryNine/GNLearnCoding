@@ -14,17 +14,17 @@
         if ([self isViewLoaded] && [self.view isKindOfClass:[viewClass class]]) { \
             return (viewClass *)self.view; \
         } \
-    \
+        \
         return nil; \
 }
 
 #define GNViewControllerBaseViewProperty(viewControllerClass, viewClass, propertyName) \
-    @interface viewControllerClass () \
-    GNBaseViewProperty(propertyName, viewClass) \
+    @interface viewControllerClass (__##viewControllerClass##BaseViewProperty_##viewClass##_##propertyName) \
+    GNBaseViewProperty(viewClass, propertyName) \
     \
     @end \
     \
-    @implementation viewControllerClass \
+    @implementation viewControllerClass (__##viewControllerClass##BaseViewProperty_##viewClass##_##propertyName) \
     @dynamic propertyName; \
     \
     GNBaseViewGetterSynthesize(viewClass, propertyName) \
