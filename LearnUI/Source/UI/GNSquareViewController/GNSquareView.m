@@ -8,6 +8,8 @@
 
 #import "GNSquareView.h"
 
+#import "CGGeometry+GNExtensions.h"
+
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
 
@@ -59,20 +61,19 @@
     CGRect bounds = self.bounds;
 
     CGPoint origin = CGPointZero;
-    CGPoint bottomRiightPoint = CGPointMake(CGRectGetMaxX(bounds) - CGRectGetWidth(squareFrame),
-                                            CGRectGetMaxY(bounds) - CGRectGetHeight(squareFrame));
-
+    CGPoint bottomRightPoint = GNBottomRightCornerCommon(bounds, squareFrame);
+    
     switch (position) {
         case GNSquarePositionBottomLeft:
-            origin.y = bottomRiightPoint.y;
+            origin.y = bottomRightPoint.y;
             break;
             
         case GNSquarePositionBottomRight:
-            origin = bottomRiightPoint;
+            origin = bottomRightPoint;
             break;
             
         case GNSquarePositionTopRight:
-            origin.x = bottomRiightPoint.x;
+            origin.x = bottomRightPoint.x;
             break;
             
         default:
