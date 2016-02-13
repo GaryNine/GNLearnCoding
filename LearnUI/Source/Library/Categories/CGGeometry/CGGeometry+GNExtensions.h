@@ -21,7 +21,7 @@
 #define CGWidth(frame) CGRectGetWidth(frame)
 
 static inline
-CGPoint GNBottomRightCornerCommon(CGRect bounds, CGRect frame) {
+CGPoint GNBottomRightCornerOriginPoint(CGRect bounds, CGRect frame) {
     return CGPointMake(CGMaxX(bounds) - CGWidth(frame),
                        CGMaxY(bounds) - CGHeight(frame));
 }

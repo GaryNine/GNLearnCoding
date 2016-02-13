@@ -6,6 +6,8 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
+// добавить updateStartStopButton
+
 #import "GNSquareView.h"
 
 #import "CGGeometry+GNExtensions.h"
@@ -14,6 +16,7 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
 
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
+@property (nonatomic, assign, getter=isCycleStoped) BOOL    cycleStoped;
 
 - (GNSquarePosition)nextPositionWithSquarePosition:(GNSquarePosition)position;
 - (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position;
@@ -41,21 +44,28 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
         completionHandler:(GNVoidBlock)handler {
     
     if (_squarePosition != squarePosition) {
+        self.animating = YES;
         [UIView animateWithDuration:kGNAnimationDuration
                          animations:^{
                              self.squareView.frame = [self squareFrameWithSquarePosition:squarePosition];
                          }
                          completion:^(BOOL finished) {
-                             self.animating = NO;
-                             _squarePosition = squarePosition;
+                             if (finished) {
+                                 self.animating = NO;
+                                 _squarePosition = squarePosition;
+                                 
+                                 [self moveSquareToNextPosition];
+                             }
                          }];
     }
 }
 
 - (void)moveSquareToNextPosition {
-    if (!self.animating) {
-        [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]];
-    }
+        [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]
+                       animated:YES
+              completionHandler:^ {
+                  
+              }];
 }
 
 #pragma mark -
@@ -70,7 +80,7 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
     CGRect bounds = self.bounds;
 
     CGPoint origin = CGPointZero;
-    CGPoint bottomRightPoint = GNBottomRightCornerCommon(bounds, squareFrame);
+    CGPoint bottomRightPoint = GNBottomRightCornerOriginPoint(bounds, squareFrame);
     
     switch (position) {
         case GNSquarePositionBottomLeft:
