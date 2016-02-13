@@ -490,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				A8DA33111C6C31EC00309017 /* GNDispatch */,
-				A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -520,6 +519,7 @@
 				A8DA330D1C6C2E4800309017 /* Common */,
 				A8DC22BD1C14C415002BA42C /* Sources */,
 				A8DC22D21C14C415002BA42C /* Tests */,
+				A8E094B51C43A7AF0022A23E /* GNPrefixHeader.pch */,
 				A8DC22D11C14C415002BA42C /* main.m */,
 			);
 			path = ObjC;
@@ -631,6 +631,7 @@
 				A83B0A711C14CB3E00F9909C /* GNLearnObjC */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 1;
 		};
 		A8F78A141C16F24A0021AC10 /* GNEmployee */ = {
 			isa = PBXGroup;
@@ -1023,6 +1024,7 @@
 		A8E777CC1BB346B200FCB3C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = LearnObjC/ObjC/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1030,6 +1032,7 @@
 		A8E777CD1BB346B200FCB3C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = LearnObjC/ObjC/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
