@@ -11,6 +11,8 @@
 
 #import "GNCar.h"
 
+#import "GNDispatch.h"
+
 static const NSUInteger kGNDefaultCarsCount    = 20;
 static const NSUInteger kGNDefaultTimeInterval = 1.0;
 
@@ -84,7 +86,7 @@ static const NSUInteger kGNDefaultTimeInterval = 1.0;
 #pragma mark Private
 
 - (void)startWork:(NSTimer *)timer {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+    GNDispatchAsyncOnBackgroundQueue(^ {
         [self startBackgroundWork];
     });
 }

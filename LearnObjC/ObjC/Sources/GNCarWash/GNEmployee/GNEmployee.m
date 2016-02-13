@@ -40,10 +40,10 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<GNCashProtocol>)object {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^ {
-       [self processObject:object];
+    GNDispatchAsyncOnBackgroundQueue(^ {
+        [self processObject:object];
         
-        dispatch_sync(dispatch_get_main_queue(), ^ {
+        GNDispatchSyncOnMainQueue(^ {
             [self finishWithObject:object];
             [self cleanupAfterProcessing];
         });

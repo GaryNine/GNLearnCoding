@@ -18,6 +18,9 @@ typedef NS_ENUM(NSUInteger, GNDispatchQueueType) {
 };
 
 extern
+dispatch_queue_t GNGetDispatchQeue(GNDispatchQueueType queueType);
+
+extern
 void GNDispatchSyncOnMainQueue(dispatch_block_t block);
 
 extern
@@ -28,3 +31,9 @@ void GNDispatchSyncOnBackgroundQueue(dispatch_block_t block);
 
 extern
 void GNDispatchAsyncOnBackgroundQueue(dispatch_block_t block);
+
+extern
+void GNDispatchSyncOnQueue(GNDispatchQueueType queueType, dispatch_block_t);
+
+extern
+void GNDispatchAsyncOnQueue(GNDispatchQueueType queueType, dispatch_block_t);
