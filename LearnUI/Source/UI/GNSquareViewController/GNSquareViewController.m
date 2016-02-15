@@ -31,11 +31,7 @@ GNViewControllerBaseViewProperty(GNSquareViewController, GNSquareView, squareVie
 
 - (IBAction)onAnimate:(id)sender {
     GNSquareView *squareView = self.squareView;
-    if (squareView.cycleStarted != YES) {
-        squareView.cycleStarted = YES;
-    } else {
-        squareView.cycleStarted = NO;
-    }
+    squareView.cycleStarted = !squareView.cycleStarted;
 }
 
 - (IBAction)onNext:(id)sender {

@@ -17,6 +17,7 @@
 		A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */; };
 		A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */; };
 		A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */; };
+		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "UI study plan.rtf"; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
+		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
+		A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GNExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A8FB843E1C728A3700116424 /* UIColor */,
 				A80CBB071C68DC70003CE7D7 /* CGGeometry */,
 				A80CBAEB1C67B6B5003CE7D7 /* UIWindow */,
 			);
@@ -165,6 +169,15 @@
 				A80CBAF51C67C86E003CE7D7 /* Macro */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		A8FB843E1C728A3700116424 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */,
+				A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +255,7 @@
 				A80CBADE1C6773BD003CE7D7 /* GNSquareViewController.m in Sources */,
 				A80CBAF41C67BA68003CE7D7 /* UIWindow+GNExtensions.m in Sources */,
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
+				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
 				A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */,

@@ -11,12 +11,16 @@
 #import "GNSquareView.h"
 
 #import "CGGeometry+GNExtensions.h"
+#import "UIColor+GNExtensions.h"
 #import "GNOwnershipMacro.h"
 
 static const NSTimeInterval kGNAnimationDuration = 0.4;
 
-static NSString *kGNButtonStart = @"START";
-static NSString *kGNButtonStop  = @"STOP";
+static NSString * const kGNButtonStart = @"START";
+static NSString * const kGNButtonStop  = @"STOP";
+
+const GNColor kGNRedColor = {210, 42, 70, 1.0};
+const GNColor kGNGreenColor = {87, 194, 70, 1.0};
 
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
@@ -70,7 +74,7 @@ static NSString *kGNButtonStop  = @"STOP";
         self.animating = YES;
         [UIView animateWithDuration:kGNAnimationDuration
                          animations:^{
-                             self.squareView.frame = [self squareFrameWithSquarePosition:squarePosition];
+                             self.squareLabel.frame = [self squareFrameWithSquarePosition:squarePosition];
                          }
                          completion:^(BOOL finished) {
                              if (finished) {
@@ -105,9 +109,8 @@ static NSString *kGNButtonStop  = @"STOP";
 }
 
 - (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position {
-    
-    CGRect squareFrame = self.squareView.frame;
-    CGRect bounds = self.bounds;
+    CGRect squareFrame = self.squareLabel.frame;
+    CGRect bounds = self.squareAreaView.bounds;
 
     CGPoint origin = CGPointZero;
     CGPoint bottomRightPoint = GNBottomRightCornerOriginPoint(bounds, squareFrame);
@@ -135,9 +138,9 @@ static NSString *kGNButtonStop  = @"STOP";
 }
 
 - (void)updateAnimateButton {
-    UIColor *backgroundColor = [UIColor colorWithRed:0 green:171 blue:70 alpha:1];
-    UIColor *buttonColor = (self.cycleStarted) ? [UIColor redColor] : backgroundColor;
-    NSString *buttonTitle = (self.cycleStarted) ? kGNButtonStop : kGNButtonStart;
+    BOOL cycleStarted = self.cycleStarted;
+    UIColor *buttonColor = (cycleStarted) ? UIColorWithGNColor(kGNRedColor) : UIColorWithGNColor(kGNGreenColor);
+    NSString *buttonTitle = (cycleStarted) ? kGNButtonStop : kGNButtonStart;
     
     [self setAnimateButtonWithColor:buttonColor title:buttonTitle];
     
