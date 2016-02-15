@@ -12,12 +12,12 @@
 __weak __typeof(obj) __weak_##obj = obj
 
 #define GNStrongify(obj) \
-    GNClangDiagnosticPushExpression("clang diagnostic ignored \"-Wshadow\"") \
+    GNClangDiagnosticPushOption("clang diagnostic ignored \"-Wshadow\"") \
     __strong __typeof(obj) obj = __weak_##obj \
     GNClangDiagnosticPopOption
 
 #define GNStrongifyAndReturnValueIfNil(obj, value) \
-    GNStrongify(obj) \
+    GNStrongify(obj); \
     if(!obj) { \
         return value; \
     }

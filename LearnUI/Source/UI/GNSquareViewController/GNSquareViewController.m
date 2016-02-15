@@ -30,7 +30,12 @@ GNViewControllerBaseViewProperty(GNSquareViewController, GNSquareView, squareVie
 #pragma mark Public
 
 - (IBAction)onAnimate:(id)sender {
-    NSLog(@"Hello");
+    GNSquareView *squareView = self.squareView;
+    if (squareView.cycleStarted != YES) {
+        squareView.cycleStarted = YES;
+    } else {
+        squareView.cycleStarted = NO;
+    }
 }
 
 - (IBAction)onNext:(id)sender {

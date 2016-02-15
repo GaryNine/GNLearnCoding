@@ -20,9 +20,12 @@ typedef NS_ENUM(NSUInteger, GNSquarePosition) {
 
 @interface GNSquareView : UIView
 @property (nonatomic, strong)   IBOutlet UIButton   *nextButton;
-@property (nonatomic, strong)   IBOutlet UIButton   *startButton;
-
+@property (nonatomic, strong)   IBOutlet UIButton   *animateButton;
 @property (nonatomic, strong)   IBOutlet UILabel    *squareView;
+@property (nonatomic, strong)   IBOutlet UILabel    *squareScreen;
+
+@property (nonatomic, assign, getter=isCycleStoped) BOOL    cycleStarted;
+
 @property (nonatomic, assign)   GNSquarePosition    squarePosition;
 
 - (void)setSquarePosition:(GNSquarePosition)squarePosition animated:(BOOL)animated;

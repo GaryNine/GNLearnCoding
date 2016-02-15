@@ -11,15 +11,21 @@
 #import "GNSquareView.h"
 
 #import "CGGeometry+GNExtensions.h"
+#import "GNOwnershipMacro.h"
 
 static const NSTimeInterval kGNAnimationDuration = 0.4;
 
+static NSString *kGNButtonStart = @"START";
+static NSString *kGNButtonStop  = @"STOP";
+
 @interface GNSquareView ()
 @property (nonatomic, assign, getter=isAnimating)   BOOL    animating;
-@property (nonatomic, assign, getter=isCycleStoped) BOOL    cycleStoped;
 
 - (GNSquarePosition)nextPositionWithSquarePosition:(GNSquarePosition)position;
 - (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position;
+
+- (void)setAnimateButtonWithColor:(UIColor *)color title:(NSString *)title;
+- (void)updateAnimateButton;
 
 @end
 
@@ -30,6 +36,23 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
 
 - (void)setSquarePosition:(GNSquarePosition)squarePosition {
     [self setSquarePosition:squarePosition animated:NO];
+}
+
+- (void)setCycleStarted:(BOOL)cycleStarted {
+    if (_cycleStarted != cycleStarted) {
+        _cycleStarted = cycleStarted;
+    }
+    
+    [self updateAnimateButton];
+    if (_cycleStarted == YES) {
+        [self moveSquareToNextPosition];
+    }
+}
+
+- (void)setAnimateButtonWithColor:(UIColor *)color title:(NSString *)title {
+    UIButton *animateButton = self.animateButton;
+    animateButton.backgroundColor = color;
+    [animateButton setTitle:title forState:UIControlStateNormal];
 }
 
 #pragma mark -
@@ -43,7 +66,7 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
                  animated:(BOOL)animated
         completionHandler:(GNVoidBlock)handler {
     
-    if (_squarePosition != squarePosition) {
+    if (_squarePosition != squarePosition && self.animating != animated) {
         self.animating = YES;
         [UIView animateWithDuration:kGNAnimationDuration
                          animations:^{
@@ -54,17 +77,23 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
                                  self.animating = NO;
                                  _squarePosition = squarePosition;
                                  
-                                 [self moveSquareToNextPosition];
+                                 if (handler) {
+                                     handler();
+                                 }
                              }
                          }];
     }
 }
 
 - (void)moveSquareToNextPosition {
+    GNWeakify(self);
         [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]
                        animated:YES
               completionHandler:^ {
-                  
+                  GNStrongifyAndReturnIfNil(self)
+                  if (self.cycleStarted) {
+                      [self moveSquareToNextPosition];
+                  }
               }];
 }
 
@@ -76,6 +105,7 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
 }
 
 - (CGRect)squareFrameWithSquarePosition:(GNSquarePosition)position {
+    
     CGRect squareFrame = self.squareView.frame;
     CGRect bounds = self.bounds;
 
@@ -102,6 +132,15 @@ static const NSTimeInterval kGNAnimationDuration = 0.4;
     squareFrame.origin = origin;
     
     return squareFrame;
+}
+
+- (void)updateAnimateButton {
+    UIColor *backgroundColor = [UIColor colorWithRed:0 green:171 blue:70 alpha:1];
+    UIColor *buttonColor = (self.cycleStarted) ? [UIColor redColor] : backgroundColor;
+    NSString *buttonTitle = (self.cycleStarted) ? kGNButtonStop : kGNButtonStart;
+    
+    [self setAnimateButtonWithColor:buttonColor title:buttonTitle];
+    
 }
 
 @end
