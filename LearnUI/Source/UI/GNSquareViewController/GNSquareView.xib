@@ -11,7 +11,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GNSquareView">
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="GNSquareView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
@@ -60,7 +60,7 @@
                 <outlet property="squareAreaView" destination="ZNf-Cp-wyk" id="3e2-da-CFu"/>
                 <outlet property="squareLabel" destination="4e6-nG-h1m" id="njv-ZU-jtC"/>
             </connections>
-            <point key="canvasLocation" x="-1079" y="-253"/>
+            <point key="canvasLocation" x="-1181" y="-260"/>
         </view>
     </objects>
 </document>
