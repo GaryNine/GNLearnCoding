@@ -8,10 +8,13 @@
 
 #import "GNAppDelegate.h"
 
+#import "UIWindow+GNExtensions.h"
+
 #import "GNSquareView.h"
 #import "GNSquareViewController.h"
 
-#import "UIWindow+GNExtensions.h"
+#import "GNUser.h"
+#import "GNUsersViewController.h"
 
 @interface GNAppDelegate ()
 
@@ -24,8 +27,12 @@
 {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    window.rootViewController = [GNSquareViewController new];
     
+//    GNSquareViewController *controller = [GNSquareViewController new];
+    GNUsersViewController *controller = [GNUsersViewController new];
+    controller.user = [GNUser new];
+    
+    window.rootViewController = controller;
     [window makeKeyAndVisible];
     
     return YES;

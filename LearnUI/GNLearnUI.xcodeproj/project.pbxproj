@@ -18,6 +18,12 @@
 		A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */; };
 		A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
+		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
+		A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84491C73634100116424 /* NSString+GNExtensions.m */; };
+		A8FB844E1C73741100116424 /* NSString+GNRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB844D1C73741100116424 /* NSString+GNRandomName.m */; };
+		A8FB847F1C74A01000116424 /* GNUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB847D1C74A01000116424 /* GNUsersViewController.m */; };
+		A8FB84801C74A01000116424 /* GNUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FB847E1C74A01000116424 /* GNUsersViewController.xib */; };
+		A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84821C74A0B500116424 /* GNUsersView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,17 @@
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
 		A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GNExtensions.m"; sourceTree = "<group>"; };
+		A8FB84431C73625600116424 /* GNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUser.h; sourceTree = "<group>"; };
+		A8FB84441C73625600116424 /* GNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUser.m; sourceTree = "<group>"; };
+		A8FB84481C73634100116424 /* NSString+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNExtensions.h"; sourceTree = "<group>"; };
+		A8FB84491C73634100116424 /* NSString+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNExtensions.m"; sourceTree = "<group>"; };
+		A8FB844C1C73741100116424 /* NSString+GNRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GNRandomName.h"; sourceTree = "<group>"; };
+		A8FB844D1C73741100116424 /* NSString+GNRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GNRandomName.m"; sourceTree = "<group>"; };
+		A8FB847C1C74A01000116424 /* GNUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUsersViewController.h; sourceTree = "<group>"; };
+		A8FB847D1C74A01000116424 /* GNUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUsersViewController.m; sourceTree = "<group>"; };
+		A8FB847E1C74A01000116424 /* GNUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNUsersViewController.xib; sourceTree = "<group>"; };
+		A8FB84811C74A0B500116424 /* GNUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUsersView.h; sourceTree = "<group>"; };
+		A8FB84821C74A0B500116424 /* GNUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUsersView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				A84CAD551C6AA11400E8BC92 /* Library */,
+				A8FB84511C73EDC200116424 /* Models */,
 				A80CBAE81C67AE3C003CE7D7 /* UI */,
 			);
 			path = Source;
@@ -98,6 +116,7 @@
 		A80CBAE81C67AE3C003CE7D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A8FB847B1C749FB700116424 /* GNUsersViewController */,
 				A80CBAE91C67AE44003CE7D7 /* GNSquareViewController */,
 			);
 			path = UI;
@@ -118,6 +137,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A8FB84471C73634100116424 /* NSString */,
 				A8FB843E1C728A3700116424 /* UIColor */,
 				A80CBB071C68DC70003CE7D7 /* CGGeometry */,
 				A80CBAEB1C67B6B5003CE7D7 /* UIWindow */,
@@ -165,6 +185,7 @@
 		A84CAD551C6AA11400E8BC92 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A8FB84841C74BFB500116424 /* Classes */,
 				A80CBAEA1C67B67E003CE7D7 /* Categories */,
 				A80CBAF51C67C86E003CE7D7 /* Macro */,
 			);
@@ -178,6 +199,53 @@
 				A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		A8FB84421C73620800116424 /* GNUser */ = {
+			isa = PBXGroup;
+			children = (
+				A8FB84431C73625600116424 /* GNUser.h */,
+				A8FB84441C73625600116424 /* GNUser.m */,
+			);
+			path = GNUser;
+			sourceTree = "<group>";
+		};
+		A8FB84471C73634100116424 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				A8FB844C1C73741100116424 /* NSString+GNRandomName.h */,
+				A8FB844D1C73741100116424 /* NSString+GNRandomName.m */,
+				A8FB84481C73634100116424 /* NSString+GNExtensions.h */,
+				A8FB84491C73634100116424 /* NSString+GNExtensions.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		A8FB84511C73EDC200116424 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8FB84421C73620800116424 /* GNUser */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A8FB847B1C749FB700116424 /* GNUsersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8FB847C1C74A01000116424 /* GNUsersViewController.h */,
+				A8FB847D1C74A01000116424 /* GNUsersViewController.m */,
+				A8FB847E1C74A01000116424 /* GNUsersViewController.xib */,
+				A8FB84811C74A0B500116424 /* GNUsersView.h */,
+				A8FB84821C74A0B500116424 /* GNUsersView.m */,
+			);
+			path = GNUsersViewController;
+			sourceTree = "<group>";
+		};
+		A8FB84841C74BFB500116424 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +309,7 @@
 				A80CBAFF1C67D015003CE7D7 /* LaunchScreen.storyboard in Resources */,
 				A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */,
 				A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */,
+				A8FB84801C74A01000116424 /* GNUsersViewController.xib in Resources */,
 				A80CBAFE1C67D015003CE7D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,11 +323,16 @@
 			files = (
 				A80CBADE1C6773BD003CE7D7 /* GNSquareViewController.m in Sources */,
 				A80CBAF41C67BA68003CE7D7 /* UIWindow+GNExtensions.m in Sources */,
+				A8FB844E1C73741100116424 /* NSString+GNRandomName.m in Sources */,
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
+				A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */,
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
+				A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */,
+				A8FB847F1C74A01000116424 /* GNUsersViewController.m in Sources */,
 				A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */,
+				A8FB84451C73625600116424 /* GNUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
