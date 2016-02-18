@@ -56,6 +56,8 @@
 		A85DB39C1C760F0000AE0743 /* GNUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUserCell.h; sourceTree = "<group>"; };
 		A85DB39D1C760F0000AE0743 /* GNUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUserCell.m; sourceTree = "<group>"; };
 		A85DB39F1C760F2C00AE0743 /* GNTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNTableViewCell.xib; sourceTree = "<group>"; };
+		A85DB3A11C7673EB00AE0743 /* GNBlockCallMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNBlockCallMacro.h; sourceTree = "<group>"; };
+		A85DB3A21C76762000AE0743 /* GNStatementMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNStatementMacro.h; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 				A8DA330B1C6C05B100309017 /* GNClangMacro.h */,
 				A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */,
 				A80CBAF61C67C8BF003CE7D7 /* GNViewControllerMacro.h */,
+				A85DB3A11C7673EB00AE0743 /* GNBlockCallMacro.h */,
+				A85DB3A21C76762000AE0743 /* GNStatementMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";

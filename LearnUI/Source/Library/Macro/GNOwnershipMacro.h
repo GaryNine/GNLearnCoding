@@ -16,16 +16,14 @@ __weak __typeof(obj) __weak_##obj = obj
     __strong __typeof(obj) obj = __weak_##obj \
     GNClangDiagnosticPopOption
 
+#define GNEmpty
+
 #define GNStrongifyAndReturnValueIfNil(obj, value) \
     GNStrongify(obj); \
     if(!obj) { \
         return value; \
     }
 
-#define GNEmpty
+#define GNStrongifyAndReturnIfNil(obj) GNStrongifyAndReturnValueIfNil(obj, GNEmpty)
 
-#define GNStrongifyAndReturnIfNil(obj) \
-    GNStrongifyAndReturnValueIfNil(obj, GNEmpty)
-
-#define GNStrongifyAndReturnNilIfNil(obj) \
-    GNStrongifyAndReturnValueIfNil(obj, nil)
+#define GNStrongifyAndReturnNilIfNil(obj) GNStrongifyAndReturnValueIfNil(obj, nil)
