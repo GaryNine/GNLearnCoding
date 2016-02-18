@@ -6,13 +6,13 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
+#import "GNViewControllerMacro.h"
+
 #import "GNUsersViewController.h"
 
-#import "GNUsersView.h"
-
 #import "GNUser.h"
-
-#import "GNViewControllerMacro.h"
+#import "GNUsersView.h"
+#import "GNUserCell.h"
 
 GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
@@ -40,12 +40,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString  * const kGNCellName = @"kGNCellName";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kGNCellName];
+     NSString * reuseIdentifier = NSStringFromClass([GNUserCell class]);
+    
+    GNUserCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kGNCellName];
-        
+        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
     }
     cell.textLabel.text = self.user.fullName;
     

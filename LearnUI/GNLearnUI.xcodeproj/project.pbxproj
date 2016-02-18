@@ -17,6 +17,10 @@
 		A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */; };
 		A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */; };
 		A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */; };
+		A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3921C7603BA00AE0743 /* GNUsers.m */; };
+		A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3961C760B7F00AE0743 /* GNTableViewCell.m */; };
+		A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB39D1C760F0000AE0743 /* GNUserCell.m */; };
+		A85DB3A01C760F2C00AE0743 /* GNTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85DB39F1C760F2C00AE0743 /* GNTableViewCell.xib */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
 		A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84491C73634100116424 /* NSString+GNExtensions.m */; };
@@ -45,6 +49,13 @@
 		A80CBB081C68E1FB003CE7D7 /* CGGeometry+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+GNExtensions.h"; sourceTree = "<group>"; };
 		A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+GNExtensions.m"; sourceTree = "<group>"; };
 		A84CAD531C6A125F00E8BC92 /* UI study plan.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "UI study plan.rtf"; sourceTree = "<group>"; };
+		A85DB3911C7603BA00AE0743 /* GNUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUsers.h; sourceTree = "<group>"; };
+		A85DB3921C7603BA00AE0743 /* GNUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUsers.m; sourceTree = "<group>"; };
+		A85DB3951C760B7F00AE0743 /* GNTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTableViewCell.h; sourceTree = "<group>"; };
+		A85DB3961C760B7F00AE0743 /* GNTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTableViewCell.m; sourceTree = "<group>"; };
+		A85DB39C1C760F0000AE0743 /* GNUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUserCell.h; sourceTree = "<group>"; };
+		A85DB39D1C760F0000AE0743 /* GNUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUserCell.m; sourceTree = "<group>"; };
+		A85DB39F1C760F2C00AE0743 /* GNTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNTableViewCell.xib; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
@@ -192,6 +203,34 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		A85DB3901C76038600AE0743 /* GNUsers */ = {
+			isa = PBXGroup;
+			children = (
+				A85DB3911C7603BA00AE0743 /* GNUsers.h */,
+				A85DB3921C7603BA00AE0743 /* GNUsers.m */,
+			);
+			path = GNUsers;
+			sourceTree = "<group>";
+		};
+		A85DB3941C760A4400AE0743 /* GNTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A85DB3951C760B7F00AE0743 /* GNTableViewCell.h */,
+				A85DB3961C760B7F00AE0743 /* GNTableViewCell.m */,
+			);
+			path = GNTableViewCell;
+			sourceTree = "<group>";
+		};
+		A85DB3981C760E0C00AE0743 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A85DB39C1C760F0000AE0743 /* GNUserCell.h */,
+				A85DB39D1C760F0000AE0743 /* GNUserCell.m */,
+				A85DB39F1C760F2C00AE0743 /* GNTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A8FB843E1C728A3700116424 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				A8FB84421C73620800116424 /* GNUser */,
+				A85DB3901C76038600AE0743 /* GNUsers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +272,7 @@
 		A8FB847B1C749FB700116424 /* GNUsersViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A85DB3981C760E0C00AE0743 /* Views */,
 				A8FB847C1C74A01000116424 /* GNUsersViewController.h */,
 				A8FB847D1C74A01000116424 /* GNUsersViewController.m */,
 				A8FB847E1C74A01000116424 /* GNUsersViewController.xib */,
@@ -244,6 +285,7 @@
 		A8FB84841C74BFB500116424 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A85DB3941C760A4400AE0743 /* GNTableViewCell */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -308,6 +350,7 @@
 			files = (
 				A80CBAFF1C67D015003CE7D7 /* LaunchScreen.storyboard in Resources */,
 				A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */,
+				A85DB3A01C760F2C00AE0743 /* GNTableViewCell.xib in Resources */,
 				A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */,
 				A8FB84801C74A01000116424 /* GNUsersViewController.xib in Resources */,
 				A80CBAFE1C67D015003CE7D7 /* Assets.xcassets in Resources */,
@@ -327,9 +370,12 @@
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
 				A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */,
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
+				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
+				A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */,
 				A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */,
+				A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */,
 				A8FB847F1C74A01000116424 /* GNUsersViewController.m in Sources */,
 				A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */,
 				A8FB84451C73625600116424 /* GNUser.m in Sources */,
