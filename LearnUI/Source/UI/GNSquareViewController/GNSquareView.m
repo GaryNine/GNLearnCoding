@@ -13,6 +13,7 @@
 #import "CGGeometry+GNExtensions.h"
 #import "UIColor+GNExtensions.h"
 #import "GNOwnershipMacro.h"
+#import "GNBlockCallMacro.h"
 
 static const NSTimeInterval kGNAnimationDuration = 0.4;
 
@@ -81,9 +82,7 @@ const GNColor kGNGreenColor = {87, 194, 70, 1.0};
                                  self.animating = NO;
                                  _squarePosition = squarePosition;
                                  
-                                 if (handler) {
-                                     handler();
-                                 }
+                                 GNBlockCall(handler);
                              }
                          }];
     }
