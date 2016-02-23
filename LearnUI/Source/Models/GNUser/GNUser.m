@@ -12,6 +12,9 @@
 
 @implementation GNUser
 
+@dynamic fullName;
+@dynamic image;
+
 #pragma mark - 
 #pragma mark Initializations
 
@@ -31,6 +34,11 @@
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+}
+
+- (UIImage *)image {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"metal" ofType:@"jpg"];
+    return [UIImage imageWithContentsOfFile:path];
 }
 
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface GNUser : NSObject
-@property (nonatomic, copy) NSString    *name;
-@property (nonatomic, copy) NSString    *surname;
-@property (nonatomic, copy) NSString    *fullName;
+#import "GNObservableObject.h"
+
+@interface GNUser : GNObservableObject
+@property (nonatomic, copy)     NSString    *name;
+@property (nonatomic, copy)     NSString    *surname;
+@property (nonatomic, readonly) NSString    *fullName;
+@property (nonatomic, readonly) UIImage     *image;
 
 @end
