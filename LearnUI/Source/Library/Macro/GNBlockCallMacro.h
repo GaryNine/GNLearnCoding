@@ -16,4 +16,4 @@ do { \
     } \
 } while(0)
 
-#define GNBlockCall(...) __GNBlockCall(__VA_ARGS__, GNEmpty)
+#define GNBlockCall(...) __GNBlockCall(__VA_ARGS__)
