@@ -9,11 +9,9 @@
 #define GNEmpty
 
 #define GNReturnValueIfNil(statement, value) \
-{ \
     if(!(statement)) { \
         return value; \
-    } \
-}
+    }
 
 #define GNReturnIfNil(statement) GNReturnValueIfNil((statement), GNEmpty)
 

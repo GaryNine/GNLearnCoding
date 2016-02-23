@@ -8,6 +8,8 @@
 
 #import "GNClangMacro.h"
 
+#import "GNStatementMacro.h"
+
 #define GNWeakify(obj) \
 __weak __typeof(obj) __weak_##obj = obj
 
@@ -20,9 +22,7 @@ __weak __typeof(obj) __weak_##obj = obj
 
 #define GNStrongifyAndReturnValueIfNil(obj, value) \
     GNStrongify(obj); \
-    if(!obj) { \
-        return value; \
-    }
+    GNReturnValueIfNil(obj, value)\
 
 #define GNStrongifyAndReturnIfNil(obj) GNStrongifyAndReturnValueIfNil(obj, GNEmpty)
 
