@@ -22,14 +22,30 @@
 }
 
 + (id)objectWithClass:(Class)cls {
-    return [[self nibWithClass:cls bundle:nil] objectWithClass:cls];
+    return [self objectWithClass:cls owner:nil];
+}
+
++ (id)objectWithClass:(Class)cls owner:(id)owner {
+    return [self objectWithClass:cls owner:owner options:nil];
+}
+
++ (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
+    return [[self nibWithClass:cls bundle:nil] objectWithClass:cls owner:owner options:options];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (id)objectWithClass:(Class)cls {
-    NSArray *objects = [self instantiateWithOwner:nil options:nil];
+    return [self objectWithClass:cls owner:nil];
+}
+
+- (id)objectWithClass:(Class)cls owner:(id)owner {
+    return [self objectWithClass:cls owner:owner options:nil];
+}
+
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
+    NSArray *objects = [self instantiateWithOwner:owner options:options];
     for (id object in objects) {
         if ([object isMemberOfClass:cls]) {
             return object;
