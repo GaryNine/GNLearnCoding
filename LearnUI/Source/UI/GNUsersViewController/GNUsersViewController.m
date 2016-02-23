@@ -23,6 +23,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // indent from the status bar
+    UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
+    self.usersView.tableView.contentInset = inset;
+    self.usersView.tableView.scrollIndicatorInsets = inset;
 
     [self.usersView.tableView reloadData];
 }
@@ -40,13 +45,16 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     NSString * reuseIdentifier = NSStringFromClass([GNUserCell class]);
+    NSString *cellClass = NSStringFromClass([GNUserCell class]);
     
-    GNUserCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    GNUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
     if (!cell) {
         UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
+        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
+        cell = [cells firstObject];
     }
-    cell.textLabel.text = self.user.fullName;
+    
+    cell.user = self.user;
     
     return cell;
 }

@@ -18,16 +18,17 @@
 - (void)setUser:(GNUser *)user {
     if (_user != user) {
         _user = user;
+        
+        [self fillWithModel:user];
     }
-    
-    [self fillWithModel:user];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)fillWithModel:(GNUser *)user {
-    self.fullNameLabel.text = self.user.fullName;
+    self.fullNameLabel.text = user.fullName;
+    self.userImageView.image = user.image;
 }
 
 @end

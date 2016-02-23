@@ -6,8 +6,6 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-// добавить updateStartStopButton
-
 #import "GNSquareView.h"
 
 #import "CGGeometry+GNExtensions.h"

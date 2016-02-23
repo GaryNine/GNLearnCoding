@@ -23,7 +23,7 @@
                         <color key="titleColor" red="0.77647058823529413" green="1" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onNext:" destination="-1" eventType="touchUpInside" id="71h-m3-Myo"/>
+                        <action selector="onNext:" destination="-1" eventType="touchUpInside" id="UM4-5i-V1w"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MdG-ra-Wic">
@@ -46,7 +46,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" red="0.8901960784313725" green="0.90196078431372551" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>

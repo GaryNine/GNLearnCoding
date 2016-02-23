@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// You should never epxpect the cell to have the reuseIdentifier you passed during initialization
+// You should never expect the cell to have the reuseIdentifier you passed during initialization
 @interface GNTableViewCell : UITableViewCell
 
 @end
