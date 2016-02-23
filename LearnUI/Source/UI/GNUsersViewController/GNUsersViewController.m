@@ -14,6 +14,8 @@
 #import "GNUsersView.h"
 #import "GNUserCell.h"
 
+#import "UITableView+GNExtensions.h"
+
 GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
 @implementation GNUsersViewController
@@ -45,15 +47,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellClass = NSStringFromClass([GNUserCell class]);
-    
-    GNUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        cell = [cells firstObject];
-    }
-    
+    GNUserCell *cell = [tableView cellWithClass:[GNUserCell class]];    
     cell.user = self.user;
     
     return cell;
