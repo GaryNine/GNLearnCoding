@@ -25,15 +25,28 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C5X-V9-ld4">
-                    <rect key="frame" x="228" y="36" width="46" height="30"/>
+                    <rect key="frame" x="228" y="35" width="60" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Edit"/>
+                    <connections>
+                        <action selector="onEdit:" destination="-1" eventType="touchUpInside" id="epC-Cr-jpc"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LnT-dn-FRm">
-                    <rect key="frame" x="35" y="36" width="81" height="30"/>
+                    <rect key="frame" x="35" y="35" width="60" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Add User"/>
+                    <state key="normal" title="New"/>
+                    <connections>
+                        <action selector="onAddUser:" destination="-1" eventType="touchUpInside" id="veF-kp-1Md"/>
+                    </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I4X-t7-6wd">
+                    <rect key="frame" x="8" y="523" width="304" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
@@ -41,7 +54,7 @@
                 <outlet property="editButton" destination="C5X-V9-ld4" id="Hxc-SD-4Br"/>
                 <outlet property="tableView" destination="svI-gG-Imk" id="RgA-Yl-Phn"/>
             </connections>
-            <point key="canvasLocation" x="12" y="322"/>
+            <point key="canvasLocation" x="44" y="279"/>
         </view>
     </objects>
 </document>
