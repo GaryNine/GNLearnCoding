@@ -10,6 +10,9 @@
 
 #import "NSString+GNRandomName.h"
 
+static NSString * const kGNImageName = @"metal";
+static NSString * const kGNImageType = @"jpg";
+
 @implementation GNUser
 
 @dynamic fullName;
@@ -37,8 +40,13 @@
 }
 
 - (UIImage *)image {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"metal" ofType:@"jpg"];
-    return [UIImage imageWithContentsOfFile:path];
+    static UIImage * _image = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:kGNImageName ofType:kGNImageType];
+        _image = [UIImage imageWithContentsOfFile:path];
+    });
+    return _image;
 }
 
 @end
