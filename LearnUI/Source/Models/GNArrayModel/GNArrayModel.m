@@ -58,6 +58,10 @@
     }
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    return [self objectAtIndex:idx];
+}
+
 - (void)addObject:(id)object {
     if (object) {
         NSMutableArray *mutableObjects = self.mutableObjects;
