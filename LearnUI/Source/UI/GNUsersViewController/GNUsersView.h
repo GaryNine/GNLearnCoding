@@ -13,4 +13,6 @@
 @property (nonatomic, strong)   IBOutlet UIButton       *editButton;
 @property (nonatomic, strong)   IBOutlet UIButton       *addUserButton;
 
+- (void)editTableView;
+
 @end

@@ -11,11 +11,10 @@
 @class GNUser;
 
 @interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 @property (nonatomic, strong)   GNUser  *user;
 
 - (IBAction)onEdit:(id)sender;
 - (IBAction)onAddUser:(id)sender;
-
-
 
 @end

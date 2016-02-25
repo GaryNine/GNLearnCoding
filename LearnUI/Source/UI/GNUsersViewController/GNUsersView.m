@@ -10,4 +10,13 @@
 
 @implementation GNUsersView
 
+- (void)editTableView {
+    UIButton *editButton = self.editButton;
+    UITableView *tableView = self.tableView;
+    BOOL editing = tableView.editing;
+    
+    [editButton setTitle:editing ? @"Edit" : @"Done" forState:UIControlStateNormal];
+    [tableView setEditing:(editing = !editing) animated:YES];
+}
+
 @end

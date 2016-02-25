@@ -24,6 +24,8 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [self.usersView.tableView reloadData];
 }
 
@@ -36,13 +38,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 #pragma mark Public
 
 - (IBAction)onEdit:(id)sender {
-    if ([self.usersView.tableView isEditing]) {
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self.usersView.tableView setEditing:NO animated:YES];
-    } else {
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self.usersView.tableView setEditing:YES animated:YES];
-    }
+    [self.usersView editTableView];
 }
 
 - (IBAction)onAddUser:(id)sender {
@@ -66,7 +62,9 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
 - (void) tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-       toIndexPath:(NSIndexPath *)destinationIndexPath {
+       toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    
 }
 
 @end
