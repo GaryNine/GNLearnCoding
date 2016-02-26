@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GNUsers : NSObject
+#import "GNArrayModel.h"
+
+@class GNUser;
+
+@interface GNUsers : GNArrayModel
 
 @end

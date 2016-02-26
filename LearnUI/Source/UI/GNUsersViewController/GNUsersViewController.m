@@ -11,6 +11,7 @@
 #import "GNUsersViewController.h"
 
 #import "GNUser.h"
+#import "GNUsers.h"
 #import "GNUsersView.h"
 #import "GNUserCell.h"
 
@@ -50,12 +51,12 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 #pragma mark UITabelViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 300;
+    return self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GNUserCell *cell = [tableView cellWithClass:[GNUserCell class]];
-    cell.user = self.user;
+    cell.user = [self.users objectAtIndex:indexPath.row];
     
     return cell;
 }

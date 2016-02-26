@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class GNUser;
+@class GNUsers;
 
 @interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong)   GNUser  *user;
+@property (nonatomic, strong)   GNUsers  *users;
 
 - (IBAction)onEdit:(id)sender;
 - (IBAction)onAddUser:(id)sender;

@@ -13,7 +13,7 @@
 #import "GNSquareView.h"
 #import "GNSquareViewController.h"
 
-#import "GNUser.h"
+#import "GNUsers.h"
 #import "GNUsersViewController.h"
 
 @interface GNAppDelegate ()
@@ -30,7 +30,7 @@
     
 //    GNSquareViewController *controller = [GNSquareViewController new];
     GNUsersViewController *controller = [GNUsersViewController new];
-    controller.user = [GNUser new];
+    controller.users = [GNUsers new];
     
     window.rootViewController = controller;
     [window makeKeyAndVisible];
