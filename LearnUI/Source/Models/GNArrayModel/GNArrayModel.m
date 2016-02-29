@@ -104,6 +104,9 @@
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)firstIndex toIndex:(NSUInteger)secondIndex {
+    if (firstIndex == secondIndex) {
+        return;
+    }
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         id object = [mutableObjects objectAtIndex:firstIndex];

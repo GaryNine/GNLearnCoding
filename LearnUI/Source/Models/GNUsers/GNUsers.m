@@ -9,7 +9,7 @@
 #import "GNUsers.h"
 #import "GNUser.h"
 
-static const NSUInteger kGNInitialUsersCount = 300;
+static const NSUInteger kGNInitialUsersCount = 7;
 
 @interface GNUsers ()
 

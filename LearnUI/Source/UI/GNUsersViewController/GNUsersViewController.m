@@ -43,8 +43,12 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 - (IBAction)onAddUser:(id)sender {
-    [self.usersView.tableView beginUpdates];
-  
+    [self.users addObject:[GNUser new]];
+    NSArray *objects = self.users.objects;
+    NSUInteger lastRow = [objects indexOfObject:[objects lastObject]];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [self.usersView.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                    withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark -
@@ -62,10 +66,21 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 - (void) tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+ forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.users removeObjectAtIndex:[indexPath row]];
+    }
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                     withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (void) tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    
+    [self.users moveObjectAtIndex:[sourceIndexPath row] toIndex:[destinationIndexPath row]];
 }
 
 @end

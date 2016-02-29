@@ -10,6 +10,9 @@
 
 @implementation GNUsersView
 
+#pragma mark -
+#pragma mark Public
+
 - (void)editTableView {
     UIButton *editButton = self.editButton;
     UITableView *tableView = self.tableView;
