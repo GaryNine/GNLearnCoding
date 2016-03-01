@@ -28,7 +28,7 @@ static const NSUInteger kGNInitialUsersCount = 7;
     self = [super init];
     
     if (self) {
-        [self fillWithUsers:[NSObject objectsWithCount:kGNInitialUsersCount]];
+        [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
     }
     
     return self;
