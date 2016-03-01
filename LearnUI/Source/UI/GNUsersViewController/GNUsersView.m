@@ -11,15 +11,17 @@
 @implementation GNUsersView
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Accessors
 
-- (void)editTableView {
-    UIButton *editButton = self.editButton;
-    UITableView *tableView = self.tableView;
-    BOOL editing = tableView.editing;
-    
-    [editButton setTitle:editing ? @"Edit" : @"Done" forState:UIControlStateNormal];
-    [tableView setEditing:(editing = !editing) animated:YES];
+- (void)setEditing:(BOOL)editing {
+    if (_editing != editing) {
+        _editing = editing;
+        
+        UIButton *editButton = self.editButton;
+        UITableView *tableView = self.tableView;
+        [editButton setTitle:!editing ? @"Edit" : @"Done" forState:UIControlStateNormal];
+        [tableView setEditing:editing animated:YES];
+    }
 }
 
 @end
