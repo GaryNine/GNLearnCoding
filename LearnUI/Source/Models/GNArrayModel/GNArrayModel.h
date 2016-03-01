@@ -16,6 +16,7 @@
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (void)addObject:(id)object;
+- (void)addObjects:(NSArray *)objects;
 - (void)removeLastObject;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 

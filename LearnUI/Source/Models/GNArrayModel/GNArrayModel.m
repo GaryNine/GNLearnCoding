@@ -71,6 +71,13 @@
     }
 }
 
+- (void)addObjects:(NSArray *)objects {
+    NSMutableArray *mutableObjects = self.mutableObjects;
+    @synchronized(mutableObjects) {
+        [mutableObjects addObjectsFromArray:objects];
+    }
+}
+
 - (void)removeLastObject {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
