@@ -27,8 +27,8 @@
 #pragma mark Public
 
 - (void)fillWithModel:(GNUser *)user {
-    self.fullNameLabel.text = user.fullName;
-    self.userImageView.image = user.image;
+    self.label.text = user.fullName;
+    self.contentImageView.image = user.image;
 }
 
 @end
