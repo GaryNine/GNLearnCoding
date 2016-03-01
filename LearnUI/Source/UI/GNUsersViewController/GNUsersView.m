@@ -8,18 +8,25 @@
 
 #import "GNUsersView.h"
 
+static NSString * const kGNTitleEdit = @"Edit";
+static NSString * const kGNTitleDone = @"Done";
+
 @implementation GNUsersView
+
+@dynamic editing;
 
 #pragma mark -
 #pragma mark Accessors
 
+- (BOOL)isEditing {
+    return self.tableView.editing;
+}
+
 - (void)setEditing:(BOOL)editing {
-    if (_editing != editing) {
-        _editing = editing;
-        
-        UIButton *editButton = self.editButton;
-        UITableView *tableView = self.tableView;
-        [editButton setTitle:!editing ? @"Edit" : @"Done" forState:UIControlStateNormal];
+    UITableView *tableView = self.tableView;
+    if (tableView.editing != editing) {
+
+        [self.editButton setTitle:!editing ? kGNTitleEdit : kGNTitleDone forState:UIControlStateNormal];
         [tableView setEditing:editing animated:YES];
     }
 }
