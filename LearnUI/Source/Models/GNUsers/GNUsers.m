@@ -9,12 +9,13 @@
 #import "GNUsers.h"
 #import "GNUser.h"
 
+#import "NSObject+GNExtensions.h"
+
 static const NSUInteger kGNInitialUsersCount = 7;
 
 @interface GNUsers ()
 
 - (void)fillWithUsers:(NSArray *)users;
-- (NSMutableArray *)createUsersWithCount:(NSUInteger)count;
 
 @end
 
@@ -27,7 +28,7 @@ static const NSUInteger kGNInitialUsersCount = 7;
     self = [super init];
     
     if (self) {
-        [self fillWithUsers:[self createUsersWithCount:kGNInitialUsersCount]];
+        [self fillWithUsers:[NSObject objectsWithCount:kGNInitialUsersCount]];
     }
     
     return self;
@@ -40,15 +41,6 @@ static const NSUInteger kGNInitialUsersCount = 7;
     for (id user in users) {
         [self addObject:user];
     }
-}
-
-- (NSMutableArray *)createUsersWithCount:(NSUInteger)count {
-    NSMutableArray *mutableArray = [NSMutableArray new];
-    for (NSUInteger index = 0; index < count; index++) {
-        [mutableArray addObject:[GNUser new]];
-    }
-    
-    return mutableArray;
 }
 
 @end
