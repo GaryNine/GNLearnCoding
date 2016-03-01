@@ -6,8 +6,6 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNViewControllerMacro.h"
-
 #import "GNUsersViewController.h"
 
 #import "GNUser.h"
@@ -17,16 +15,39 @@
 
 #import "UITableView+GNExtensions.h"
 
+#import "GNViewControllerMacro.h"
+
 GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
 @implementation GNUsersViewController
+
+#pragma mark -
+#pragma mark Initializations & Deallocation
+
+- (void)dealloc {    
+    self.users = nil;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUsers:(GNUsers *)users {
+    if (_users != users) {
+        [_users removeObserver:self];
+        _users = users;
+        [_users addObserver:self];
+    }
+    
+    [self.usersView.tableView reloadData];
+}
 
 #pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    // перенести в tableView:commitEditingStyle:
     [self.usersView.tableView reloadData];
 }
 
@@ -36,18 +57,22 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Interface Handling
 
 - (IBAction)onEdit:(id)sender {
-    [self.usersView editTableView];
+    GNUsersView *view = self.usersView;
+    view.editing = !view.editing;
 }
 
 - (IBAction)onAddUser:(id)sender {
-    [self.users addObject:[GNUser new]];
+    GNUsers *users = self.users;
+    [users addObject:[GNUser new]];
+    
+    // перенести логику
     NSArray *objects = self.users.objects;
     NSUInteger lastRow = [objects indexOfObject:[objects lastObject]];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.usersView.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [self.usersView.tableView insertRowsAtIndexPaths:@[indexPath]
                                     withRowAnimation:UITableViewRowAnimationTop];
 }
 
@@ -58,9 +83,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
     return self.users.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     GNUserCell *cell = [tableView cellWithClass:[GNUserCell class]];
-    cell.user = [self.users objectAtIndex:indexPath.row];
+    cell.user = self.users[indexPath.row];
     
     return cell;
 }
@@ -69,10 +96,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.users removeObjectAtIndex:[indexPath row]];
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        [self.users removeObjectAtIndex:indexPath.row];
     }
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    // перенести логику
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -80,7 +108,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [self.users moveObjectAtIndex:[sourceIndexPath row] toIndex:[destinationIndexPath row]];
+    [self.users moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 @end
