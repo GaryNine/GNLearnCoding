@@ -28,10 +28,10 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="fullNameLabel" destination="Ykp-KC-xzy" id="NNG-tp-xpX"/>
-                <outlet property="userImageView" destination="gVm-nl-X4G" id="t5Z-xD-QZd"/>
+                <outlet property="contentImageView" destination="gVm-nl-X4G" id="oii-Jf-fjv"/>
+                <outlet property="label" destination="Ykp-KC-xzy" id="hw2-eF-kxi"/>
             </connections>
-            <point key="canvasLocation" x="256" y="275"/>
+            <point key="canvasLocation" x="151" y="246"/>
         </tableViewCell>
     </objects>
 </document>
