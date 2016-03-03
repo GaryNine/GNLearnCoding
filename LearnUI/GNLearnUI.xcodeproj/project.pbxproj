@@ -73,6 +73,7 @@
 		A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservableObject.m; sourceTree = "<group>"; };
 		A892591F1C85CFAB00F8CF90 /* NSObject+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GNExtensions.h"; sourceTree = "<group>"; };
 		A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GNExtensions.m"; sourceTree = "<group>"; };
+		A89259221C8864DC00F8CF90 /* GNCollectionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNCollectionObserver.h; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
@@ -366,6 +367,7 @@
 			children = (
 				A85DB3AE1C7BC71F00AE0743 /* GNObservableObject */,
 				A85DB3941C760A4400AE0743 /* GNTableViewCell */,
+				A89259221C8864DC00F8CF90 /* GNCollectionObserver.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
