@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GNCollectionObserver.h"
+
 @class GNUsers;
 
-@interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GNCollectionObserver>
 
 @property (nonatomic, strong)   GNUsers  *users;
 

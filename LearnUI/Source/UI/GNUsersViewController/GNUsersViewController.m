@@ -36,9 +36,9 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
         [_users removeObserver:self];
         _users = users;
         [_users addObserver:self];
+        
+        [self.usersView.tableView reloadData];
     }
-    
-    [self.usersView.tableView reloadData];
 }
 
 #pragma mark -
@@ -67,13 +67,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (IBAction)onAddUser:(id)sender {
     GNUsers *users = self.users;
     [users addObject:[GNUser new]];
-    
-    // перенести логику
-    NSArray *objects = self.users.objects;
-    NSUInteger lastRow = [objects indexOfObject:[objects lastObject]];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.usersView.tableView insertRowsAtIndexPaths:@[indexPath]
-                                    withRowAnimation:UITableViewRowAnimationTop];
+    users.state = kGNObjectAdded;
 }
 
 #pragma mark -
@@ -109,6 +103,22 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [self.users moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+#pragma mark -
+#pragma mark GNCollectionObserver
+
+- (void)collectionDidObjectAdd {
+    NSArray *objects = self.users.objects;
+    NSUInteger lastRow = [objects indexOfObject:[objects lastObject]];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [self.usersView.tableView insertRowsAtIndexPaths:@[indexPath]
+                                    withRowAnimation:UITableViewRowAnimationTop];
+    self.users.state = kGNObjectInitialChangeType;
+}
+
+- (void)collectionDidObjectRemove {
+    
 }
 
 @end
