@@ -16,10 +16,10 @@
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (void)addObject:(id)object;
-- (void)addObjects:(NSArray *)objects;
+- (void)addObjectsInArray:(NSArray *)objects;
 - (void)removeLastObject;
 - (void)removeObjectAtIndex:(NSUInteger)index;
-- (void)removeObjects:(NSArray *)objects;
+- (void)removeObjectsFromArray:(NSArray *)objects;
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;

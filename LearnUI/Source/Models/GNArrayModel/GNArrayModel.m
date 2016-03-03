@@ -71,7 +71,7 @@
     }
 }
 
-- (void)addObjects:(NSArray *)objects {
+- (void)addObjectsInArray:(NSArray *)objects {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects addObjectsFromArray:objects];
@@ -92,7 +92,7 @@
     }
 }
 
-- (void)removeObjects:(NSArray *)objects {
+- (void)removeObjectsFromArray:(NSArray *)objects {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects removeObjectsInArray:objects];
