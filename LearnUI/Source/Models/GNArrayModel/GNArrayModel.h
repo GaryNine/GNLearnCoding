@@ -19,6 +19,7 @@
 - (void)addObjects:(NSArray *)objects;
 - (void)removeLastObject;
 - (void)removeObjectAtIndex:(NSUInteger)index;
+- (void)removeObjects:(NSArray *)objects;
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;

@@ -92,6 +92,13 @@
     }
 }
 
+- (void)removeObjects:(NSArray *)objects {
+    NSMutableArray *mutableObjects = self.mutableObjects;
+    @synchronized(mutableObjects) {
+        [mutableObjects removeObjectsInArray:objects];
+    }
+}
+
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     if (object) {
         NSMutableArray *mutableObjects = self.mutableObjects;
