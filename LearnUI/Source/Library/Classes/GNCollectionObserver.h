@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class GNArrayModel;
+@class GNCollectionChangeModel;
+
 @protocol GNCollectionObserver <NSObject>
 
 @optional
-- (void)collectionDidObjectAdd;
-- (void)collectionDidObjectRemove;
-- (void)collectiondidObjectInsert;
-- (void)collectionDidObjectReplace;
-- (void)collectionDidObjectExchange;
-- (void)collectionDidObjectMove;
+- (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel;
 
 @end
