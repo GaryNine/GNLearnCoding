@@ -27,6 +27,7 @@
 		A85DB3B11C7BC71F00AE0743 /* GNObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */; };
 		A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */; };
 		A892592B1C88C46500F8CF90 /* GNCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */; };
+		A89259341C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */; };
 		A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
@@ -77,6 +78,8 @@
 		A89259221C8864DC00F8CF90 /* GNCollectionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNCollectionObserver.h; sourceTree = "<group>"; };
 		A89259291C88C46500F8CF90 /* GNCollectionChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCollectionChangeModel.h; sourceTree = "<group>"; };
 		A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionChangeModel.m; sourceTree = "<group>"; };
+		A89259321C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCollectionSingleIndexChangeModel.h; sourceTree = "<group>"; };
+		A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionSingleIndexChangeModel.m; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
@@ -313,9 +316,35 @@
 			path = GNCollectionChangeModel;
 			sourceTree = "<group>";
 		};
+		A892592F1C8D59CF00F8CF90 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				A89259311C8D5A8800F8CF90 /* GNCollectionSingleIndexChangeModel */,
+				A89259301C8D5A8000F8CF90 /* GNCollectionDoubleIndexChangeModel */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		A89259301C8D5A8000F8CF90 /* GNCollectionDoubleIndexChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GNCollectionDoubleIndexChangeModel;
+			sourceTree = "<group>";
+		};
+		A89259311C8D5A8800F8CF90 /* GNCollectionSingleIndexChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+				A89259321C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.h */,
+				A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */,
+			);
+			path = GNCollectionSingleIndexChangeModel;
+			sourceTree = "<group>";
+		};
 		A8BEC3FD1C7F0932001B16AA /* GNArrayModel */ = {
 			isa = PBXGroup;
 			children = (
+				A892592F1C8D59CF00F8CF90 /* Private */,
 				A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */,
 				A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */,
 			);
@@ -471,6 +500,7 @@
 				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
+				A89259341C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m in Sources */,
 				A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */,
 				A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */,
 				A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */,
