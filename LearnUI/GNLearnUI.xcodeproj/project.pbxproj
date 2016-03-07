@@ -28,6 +28,7 @@
 		A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */; };
 		A892592B1C88C46500F8CF90 /* GNCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */; };
 		A89259341C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */; };
+		A89259371C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259361C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m */; };
 		A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
@@ -80,6 +81,8 @@
 		A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionChangeModel.m; sourceTree = "<group>"; };
 		A89259321C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCollectionSingleIndexChangeModel.h; sourceTree = "<group>"; };
 		A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionSingleIndexChangeModel.m; sourceTree = "<group>"; };
+		A89259351C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCollectionDoubleIndexChangeModel.h; sourceTree = "<group>"; };
+		A89259361C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionDoubleIndexChangeModel.m; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 		A89259301C8D5A8000F8CF90 /* GNCollectionDoubleIndexChangeModel */ = {
 			isa = PBXGroup;
 			children = (
+				A89259351C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.h */,
+				A89259361C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m */,
 			);
 			path = GNCollectionDoubleIndexChangeModel;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */,
 				A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */,
+				A89259371C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m in Sources */,
 				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
