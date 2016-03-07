@@ -29,6 +29,7 @@
 		A892592B1C88C46500F8CF90 /* GNCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */; };
 		A89259341C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */; };
 		A89259371C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259361C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m */; };
+		A892593B1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892593A1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m */; };
 		A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
@@ -83,6 +84,8 @@
 		A89259331C8D5AC800F8CF90 /* GNCollectionSingleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionSingleIndexChangeModel.m; sourceTree = "<group>"; };
 		A89259351C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCollectionDoubleIndexChangeModel.h; sourceTree = "<group>"; };
 		A89259361C8D5DFD00F8CF90 /* GNCollectionDoubleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCollectionDoubleIndexChangeModel.m; sourceTree = "<group>"; };
+		A89259391C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GNCollectionChangeModel+GNArrayModel.h"; sourceTree = "<group>"; };
+		A892593A1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GNCollectionChangeModel+GNArrayModel.m"; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A89259381C8D66D400F8CF90 /* GNCollectionChangeModel */,
 				A892591E1C85CFAB00F8CF90 /* NSObject */,
 				A85DB3A71C7A2F2600AE0743 /* UITableView */,
 				A85DB3A31C79CF8700AE0743 /* UINib */,
@@ -346,6 +350,15 @@
 			path = GNCollectionSingleIndexChangeModel;
 			sourceTree = "<group>";
 		};
+		A89259381C8D66D400F8CF90 /* GNCollectionChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+				A89259391C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.h */,
+				A892593A1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m */,
+			);
+			path = GNCollectionChangeModel;
+			sourceTree = "<group>";
+		};
 		A8BEC3FD1C7F0932001B16AA /* GNArrayModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80CBADE1C6773BD003CE7D7 /* GNSquareViewController.m in Sources */,
+				A892593B1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m in Sources */,
 				A80CBAF41C67BA68003CE7D7 /* UIWindow+GNExtensions.m in Sources */,
 				A8FB844E1C73741100116424 /* NSString+GNRandomName.m in Sources */,
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
