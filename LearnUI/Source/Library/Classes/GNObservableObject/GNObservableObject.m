@@ -109,4 +109,12 @@
     }
 }
 
+- (void)performBlockWithNotifications:(void (^)(void))block {
+    
+}
+
+- (void)performBlockWithoutNotifications:(void (^)(void))block {
+    
+}
+
 @end
