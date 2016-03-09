@@ -31,7 +31,6 @@ static const NSUInteger kGNInitialUsersCount = 7;
     
     if (self) {
         [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
-        self.state = kGNObjectInitialChangeType;
     }
     
     return self;
@@ -43,34 +42,6 @@ static const NSUInteger kGNInitialUsersCount = 7;
 - (void)fillWithUsers:(NSArray *)users {
     for (id user in users) {
         [self addObject:user];
-    }
-}
-
-#pragma mark -
-#pragma mark GNObservableObject
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kGNObjectAdded:
-            return @selector(collectionDidObjectAdd);
-            
-        case kGNObjectRemoved:
-            return @selector(collectionDidObjectRemove);
-            
-        case kGNObjectInserted:
-            return @selector(collectiondidObjectInsert);
-            
-        case kGNObjectReplaced:
-            return @selector(collectionDidObjectReplace);
-            
-        case kGNObjectExchanged:
-            return @selector(collectionDidObjectExchange);
-            
-        case kGNObjectMoved:
-            return @selector(collectionDidObjectMove);
-            
-        default:
-            return [super selectorForState:state];
     }
 }
 

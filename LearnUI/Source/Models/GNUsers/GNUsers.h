@@ -10,16 +10,6 @@
 
 #import "GNArrayModel.h"
 
-typedef NS_ENUM(NSUInteger, GNCollectionChangeType) {
-    kGNObjectInitialChangeType,
-    kGNObjectAdded,
-    kGNObjectRemoved,
-    kGNObjectInserted,
-    kGNObjectReplaced,
-    kGNObjectExchanged,
-    kGNObjectMoved
-};
-
 @class GNUser;
 
 @interface GNUsers : GNArrayModel
