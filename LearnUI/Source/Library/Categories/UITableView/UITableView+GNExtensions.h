@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class GNCollectionChangeModel;
+
 @interface UITableView (GNExtensions)
 
 - (id)cellWithClass:(Class)cls;
+
+- (void)updateTableViewWithBlock:(void(^)(UITableView *))block;
 
 @end

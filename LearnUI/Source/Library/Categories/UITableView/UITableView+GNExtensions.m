@@ -7,8 +7,10 @@
 //
 
 #import "UITableView+GNExtensions.h"
-
 #import "UINib+GNExtensions.h"
+
+#import "GNCollectionChangeModel.h"
+#import "GNStatementMacro.h"
 
 @implementation UITableView (GNExtensions)
 
@@ -22,6 +24,14 @@
     }
     
     return cell;
+}
+
+- (void)updateTableViewWithBlock:(void (^)(UITableView *))block {
+    GNReturnIfNil(block)
+    
+    [self beginUpdates];
+    block(self);
+    [self endUpdates];
 }
 
 @end
