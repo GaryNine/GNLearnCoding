@@ -10,11 +10,11 @@
 
 @interface GNCollectionChangeModel (GNArrayModel)
 
-+ (instancetype)addedModelWithChangeIndex:(NSUInteger)index;
-+ (instancetype)removedModelWithChangeIndex:(NSUInteger)index;
-+ (instancetype)insertedModelWithChangeIndex:(NSUInteger)index;
-+ (instancetype)replacedModelWithChangeIndex:(NSUInteger)index;
-+ (instancetype)movedModelWithChangeIndex:(NSUInteger)index;
-+ (instancetype)exchangedModelWithChangeIndex:(NSUInteger)index;
++ (instancetype)addModelWithChangeIndex:(NSUInteger)index;
++ (instancetype)removeModelWithChangeIndex:(NSUInteger)index;
++ (instancetype)insertModelWithChangeIndex:(NSUInteger)index;
++ (instancetype)replaceModelWithChangeIndex:(NSUInteger)index;
++ (instancetype)moveModelWithChangeIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
++ (instancetype)exchangeModelWithChangeIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
 
 @end
