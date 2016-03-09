@@ -10,7 +10,7 @@
 
 #import "NSString+GNExtensions.h"
 
-static const NSUInteger GNRandomNameLength = 10;
+static const NSUInteger GNRandomNameLength = 8;
 
 @implementation NSString (GNRandomName)
 
