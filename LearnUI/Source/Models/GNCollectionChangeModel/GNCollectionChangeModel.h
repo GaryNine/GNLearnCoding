@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GNCollectionChangeModel : NSObject
-@property (nonatomic, assign)   NSUInteger  changeType;
+@property (nonatomic, readonly)   NSUInteger  changeType;
 
 + (instancetype)changeModelWithChangeType:(NSUInteger)changeType;
 - (instancetype)initWithChangeType:(NSUInteger)changeType;

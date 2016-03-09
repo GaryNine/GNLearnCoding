@@ -8,6 +8,11 @@
 
 #import "GNCollectionChangeModel.h"
 
+@interface GNCollectionChangeModel ()
+@property (nonatomic, assign)   NSUInteger  changeType;
+
+@end
+
 @implementation GNCollectionChangeModel
 
 #pragma mark -
