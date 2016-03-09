@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, GNCollectionChangeType) {
 };
 
 @interface GNCollectionSingleIndexChangeModel : GNCollectionChangeModel
-@property (nonatomic, assign)   NSUInteger  index;
+@property (nonatomic, readonly)   NSUInteger  index;
 
 + (instancetype)modelWithChangeType:(NSUInteger)changeType
                           withIndex:(NSUInteger)index;

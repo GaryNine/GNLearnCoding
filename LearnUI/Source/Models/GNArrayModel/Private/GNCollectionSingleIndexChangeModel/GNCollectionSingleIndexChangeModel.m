@@ -8,6 +8,11 @@
 
 #import "GNCollectionSingleIndexChangeModel.h"
 
+@interface GNCollectionSingleIndexChangeModel ()
+@property (nonatomic, assign)   NSUInteger  index;
+
+@end
+
 @implementation GNCollectionSingleIndexChangeModel
 
 #pragma mark -
