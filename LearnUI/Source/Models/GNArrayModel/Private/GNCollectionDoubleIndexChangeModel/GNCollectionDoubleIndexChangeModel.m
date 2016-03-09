@@ -8,6 +8,11 @@
 
 #import "GNCollectionDoubleIndexChangeModel.h"
 
+@interface GNCollectionDoubleIndexChangeModel ()
+@property (nonatomic, assign)   NSUInteger  toIndex;
+
+@end
+
 @implementation GNCollectionDoubleIndexChangeModel
 
 #pragma mark -
@@ -15,11 +20,11 @@
 
 + (instancetype)modelWithChangeType:(NSUInteger)changeType
                           fromIndex:(NSUInteger)index
-                            toIndex:(NSUInteger)secondIndex
+                            toIndex:(NSUInteger)toIndex
 {
     GNCollectionDoubleIndexChangeModel * model = [super modelWithChangeType:changeType
                                                                   withIndex:index];
-    model.secondIndex = secondIndex;
+    model.toIndex = toIndex;
     
     return model;
 }

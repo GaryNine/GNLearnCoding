@@ -14,10 +14,10 @@ typedef NS_ENUM(NSUInteger, kGNDoubleIndexChangeType) {
 };
 
 @interface GNCollectionDoubleIndexChangeModel : GNCollectionSingleIndexChangeModel
-@property (nonatomic, assign)   NSUInteger  secondIndex;
+@property (nonatomic, readonly)   NSUInteger  toIndex;
 
 + (instancetype)modelWithChangeType:(NSUInteger)changeType
                           fromIndex:(NSUInteger)index
-                            toIndex:(NSUInteger)secondIndex;
+                            toIndex:(NSUInteger)toIndex;
 
 @end
