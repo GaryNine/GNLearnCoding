@@ -8,8 +8,16 @@
 
 #import "GNArrayModel.h"
 
+#import "GNCollectionSingleIndexChangeModel.h"
+#import "GNCollectionDoubleIndexChangeModel.h"
+#import "GNCollectionChangeModel+GNArrayModel.h"
+
+#import "GNCollectionObserver.h"
+
 @interface GNArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableObjects;
+
+- (void)notifyObserversWithChangeModel:(GNCollectionChangeModel *)model;
 
 @end
 
@@ -58,6 +66,13 @@
     }
 }
 
+- (NSUInteger)indexOfObject:(id)object {
+    NSMutableArray *mutableObjects = self.mutableObjects;
+    @synchronized(mutableObjects) {
+        return [mutableObjects indexOfObject:object];
+    }
+}
+
 - (id)objectAtIndexedSubscript:(NSUInteger)idx {
     return [self objectAtIndex:idx];
 }
@@ -67,11 +82,14 @@
         NSMutableArray *mutableObjects = self.mutableObjects;
         @synchronized(mutableObjects) {
             [mutableObjects addObject:object];
+            NSUInteger changeIndex = [mutableObjects indexOfObject:object];
+            
+            [self notifyObserversWithChangeModel:[GNCollectionChangeModel addModelWithChangeIndex:changeIndex]];
         }
     }
 }
 
-- (void)addObjectsInArray:(NSArray *)objects {
+- (void)addObjectsFromArray:(NSArray *)objects {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects addObjectsFromArray:objects];
@@ -82,6 +100,8 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects removeLastObject];
+        
+        [self notifyObserversWithChangeModel:[GNCollectionChangeModel removeModelWithChangeIndex:self.count - 1]];
     }
 }
 
@@ -89,6 +109,8 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects removeObjectAtIndex:index];
+        
+        [self notifyObserversWithChangeModel:[GNCollectionChangeModel removeModelWithChangeIndex:index]];
     }
 }
 
@@ -104,6 +126,8 @@
         NSMutableArray *mutableObjects = self.mutableObjects;
         @synchronized(mutableObjects) {
             [mutableObjects insertObject:object atIndex:index];
+            
+            [self notifyObserversWithChangeModel:[GNCollectionChangeModel insertModelWithChangeIndex:index]];
         }
     }
 }
@@ -113,6 +137,8 @@
         NSMutableArray *mutableObjects = self.mutableObjects;
         @synchronized(mutableObjects) {
             [mutableObjects replaceObjectAtIndex:index withObject:object];
+            
+            [self notifyObserversWithChangeModel:[GNCollectionChangeModel replaceModelWithChangeIndex:index]];
         }
     }
 }
@@ -126,6 +152,9 @@
         id object = [mutableObjects objectAtIndex:firstIndex];
         [mutableObjects removeObjectAtIndex:firstIndex];
         [mutableObjects insertObject:object atIndex:secondIndex];
+        
+        [self notifyObserversWithChangeModel:[GNCollectionChangeModel moveModelWithChangeIndex:firstIndex
+                                                                                       toIndex:secondIndex]];
     }
 }
 
@@ -133,7 +162,17 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+        
+        [self notifyObserversWithChangeModel:[GNCollectionChangeModel exchangeModelWithChangeIndex:firstIndex
+                                                                                           toIndex:secondIndex]];
     }
+}
+
+#pragma mark - 
+#pragma mark Private
+
+- (void)notifyObserversWithChangeModel:(GNCollectionChangeModel *)model {
+    [self notifyWithSelector:@selector(collection:didChangeWithModel:) withObject:model];
 }
 
 @end

@@ -13,10 +13,11 @@
 @property (nonatomic, readonly)   NSUInteger  count;
 
 - (id)objectAtIndex:(NSUInteger)index;
+- (NSUInteger)indexOfObject:(id)object;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (void)addObject:(id)object;
-- (void)addObjectsInArray:(NSArray *)objects;
+- (void)addObjectsFromArray:(NSArray *)objects;
 - (void)removeLastObject;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeObjectsFromArray:(NSArray *)objects;
