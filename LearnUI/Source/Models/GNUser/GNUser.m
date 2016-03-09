@@ -10,7 +10,7 @@
 
 #import "NSString+GNRandomName.h"
 
-static NSString * const kGNImageName = @"metal";
+static NSString * const kGNImageName = @"user";
 static NSString * const kGNImageType = @"jpg";
 
 @implementation GNUser
