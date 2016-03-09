@@ -15,6 +15,10 @@ static NSString * const kGNTitleDone = @"Done";
 
 @dynamic editing;
 
+- (void)awakeFromNib {
+    self.tableView.layer.cornerRadius = 10;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
