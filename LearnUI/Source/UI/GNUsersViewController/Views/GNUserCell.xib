@@ -14,24 +14,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gVm-nl-X4G">
+                        <rect key="frame" x="0.0" y="-1" width="55" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ykp-KC-xzy">
-                        <rect key="frame" x="80" y="-2" width="216" height="43.5"/>
+                        <rect key="frame" x="85" y="-2" width="216" height="43.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gVm-nl-X4G">
-                        <rect key="frame" x="8" y="-3" width="64" height="46.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.45422609060000002" green="0.81501677849999998" blue="0.9641621225" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="contentImageView" destination="gVm-nl-X4G" id="oii-Jf-fjv"/>
                 <outlet property="label" destination="Ykp-KC-xzy" id="hw2-eF-kxi"/>
             </connections>
-            <point key="canvasLocation" x="151" y="246"/>
+            <point key="canvasLocation" x="27" y="208"/>
         </tableViewCell>
     </objects>
 </document>

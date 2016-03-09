@@ -16,9 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="svI-gG-Imk">
-                    <rect key="frame" x="0.0" y="82" width="320" height="427"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="8" y="82" width="304" height="427"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.45422609060000002" green="0.81501677849999998" blue="0.9641621225" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="iw4-69-3wJ"/>
                         <outlet property="delegate" destination="-1" id="LZR-pg-zin"/>
@@ -44,17 +45,17 @@
                     <rect key="frame" x="8" y="523" width="304" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.81176470590000005" green="1" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="addUserButton" destination="LnT-dn-FRm" id="3Ur-Iw-6v9"/>
                 <outlet property="editButton" destination="C5X-V9-ld4" id="Hxc-SD-4Br"/>
                 <outlet property="tableView" destination="svI-gG-Imk" id="RgA-Yl-Phn"/>
             </connections>
-            <point key="canvasLocation" x="44" y="279"/>
+            <point key="canvasLocation" x="-43" y="282"/>
         </view>
     </objects>
 </document>

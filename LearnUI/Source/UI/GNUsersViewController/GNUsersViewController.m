@@ -14,6 +14,7 @@
 #import "GNUserCell.h"
 
 #import "UITableView+GNExtensions.h"
+#import "UITableView+GNCollectionChangeModel.h"
 
 #import "GNViewControllerMacro.h"
 
@@ -67,12 +68,12 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (IBAction)onAddUser:(id)sender {
     GNUsers *users = self.users;
     [users addObject:[GNUser new]];
-    users.state = kGNObjectAdded;
 }
 
 #pragma mark -
 #pragma mark UITabelViewDataSource
 
+// @required
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.users.count;
 }
@@ -86,6 +87,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
     return cell;
 }
 
+// @optional
 - (void) tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,9 +95,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
     }
-    // перенести логику
-    [tableView deleteRowsAtIndexPaths:@[indexPath]
-                     withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void) tableView:(UITableView *)tableView
@@ -108,17 +107,9 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 #pragma mark -
 #pragma mark GNCollectionObserver
 
-- (void)collectionDidObjectAdd {
-    NSArray *objects = self.users.objects;
-    NSUInteger lastRow = [objects indexOfObject:[objects lastObject]];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.usersView.tableView insertRowsAtIndexPaths:@[indexPath]
-                                    withRowAnimation:UITableViewRowAnimationTop];
-    self.users.state = kGNObjectInitialChangeType;
-}
-
-- (void)collectionDidObjectRemove {
-    
+- (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel {
+    UITableView *tableView = self.usersView.tableView;
+    [tableView updateWithCollectionChangeModel:changeModel];
 }
 
 @end
