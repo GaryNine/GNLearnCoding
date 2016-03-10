@@ -8,8 +8,8 @@
 
 #import "GNArrayModel.h"
 
-#import "GNCollectionSingleIndexChangeModel.h"
-#import "GNCollectionDoubleIndexChangeModel.h"
+#import "GNSingleIndexCollectionChangeModel.h"
+#import "GNDoubleIndexCollectionChangeModel.h"
 #import "GNCollectionChangeModel+GNArrayModel.h"
 
 #import "GNCollectionObserver.h"
@@ -81,8 +81,8 @@
     if (object) {
         NSMutableArray *mutableObjects = self.mutableObjects;
         @synchronized(mutableObjects) {
+            NSUInteger changeIndex = mutableObjects.count;
             [mutableObjects addObject:object];
-            NSUInteger changeIndex = [mutableObjects indexOfObject:object];
             
             [self notifyObserversWithChangeModel:[GNCollectionChangeModel addModelWithChangeIndex:changeIndex]];
         }
