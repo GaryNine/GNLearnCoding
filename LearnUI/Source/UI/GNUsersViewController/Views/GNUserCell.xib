@@ -20,7 +20,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ykp-KC-xzy">
                         <rect key="frame" x="85" y="-2" width="216" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                 <outlet property="contentImageView" destination="gVm-nl-X4G" id="oii-Jf-fjv"/>
                 <outlet property="label" destination="Ykp-KC-xzy" id="hw2-eF-kxi"/>
             </connections>
-            <point key="canvasLocation" x="27" y="208"/>
+            <point key="canvasLocation" x="-140" y="180"/>
         </tableViewCell>
     </objects>
 </document>

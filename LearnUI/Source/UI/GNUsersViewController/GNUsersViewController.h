@@ -13,7 +13,6 @@
 @class GNUsers;
 
 @interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GNCollectionObserver>
-
 @property (nonatomic, strong)   GNUsers  *users;
 
 - (IBAction)onEdit:(id)sender;
