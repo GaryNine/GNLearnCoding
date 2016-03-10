@@ -6,14 +6,14 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNCollectionSingleIndexChangeModel.h"
+#import "GNSingleIndexCollectionChangeModel.h"
 
 typedef NS_ENUM(NSUInteger, kGNDoubleIndexChangeType) {
     kGNChangeTypeObjectExchanged,
     kGNChangeTypeObjectMoved
 };
 
-@interface GNCollectionDoubleIndexChangeModel : GNCollectionSingleIndexChangeModel
+@interface GNDoubleIndexCollectionChangeModel : GNSingleIndexCollectionChangeModel
 @property (nonatomic, readonly)   NSUInteger  toIndex;
 
 + (instancetype)modelWithChangeType:(NSUInteger)changeType

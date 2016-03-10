@@ -6,14 +6,14 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNCollectionDoubleIndexChangeModel.h"
+#import "GNDoubleIndexCollectionChangeModel.h"
 
-@interface GNCollectionDoubleIndexChangeModel ()
+@interface GNDoubleIndexCollectionChangeModel ()
 @property (nonatomic, assign)   NSUInteger  toIndex;
 
 @end
 
-@implementation GNCollectionDoubleIndexChangeModel
+@implementation GNDoubleIndexCollectionChangeModel
 
 #pragma mark -
 #pragma mark Class Methods
@@ -22,7 +22,7 @@
                           fromIndex:(NSUInteger)index
                             toIndex:(NSUInteger)toIndex
 {
-    GNCollectionDoubleIndexChangeModel * model = [super modelWithChangeType:changeType
+    GNDoubleIndexCollectionChangeModel * model = [super modelWithChangeType:changeType
                                                                   withIndex:index];
     model.toIndex = toIndex;
     

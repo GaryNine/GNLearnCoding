@@ -6,9 +6,9 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNCollectionDoubleIndexChangeModel.h"
+#import "GNDoubleIndexCollectionChangeModel.h"
 
-@interface GNCollectionDoubleIndexChangeModel (UITableView)
+@interface GNDoubleIndexCollectionChangeModel (UITableView)
 @property (nonatomic, readonly) NSIndexPath *toIndexPath;
 
 @end
