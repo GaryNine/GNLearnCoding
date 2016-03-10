@@ -8,12 +8,12 @@
 
 #import "UIKit/UIKit.h"
 
-#import "GNCollectionSingleIndexChangeModel+UITableView.h"
+#import "GNSingleIndexCollectionChangeModel+UITableView.h"
 
 #import "UITableView+GNExtensions.h"
 #import "NSIndexPath+GNExtensions.h"
 
-@implementation GNCollectionSingleIndexChangeModel (UITableView)
+@implementation GNSingleIndexCollectionChangeModel (UITableView)
 
 @dynamic indexPath;
 

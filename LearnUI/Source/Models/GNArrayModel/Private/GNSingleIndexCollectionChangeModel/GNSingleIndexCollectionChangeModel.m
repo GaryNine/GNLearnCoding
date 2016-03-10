@@ -6,14 +6,14 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNCollectionSingleIndexChangeModel.h"
+#import "GNSingleIndexCollectionChangeModel.h"
 
-@interface GNCollectionSingleIndexChangeModel ()
+@interface GNSingleIndexCollectionChangeModel ()
 @property (nonatomic, assign)   NSUInteger  index;
 
 @end
 
-@implementation GNCollectionSingleIndexChangeModel
+@implementation GNSingleIndexCollectionChangeModel
 
 #pragma mark -
 #pragma mark Class Methods
@@ -21,7 +21,7 @@
 + (instancetype)modelWithChangeType:(NSUInteger)changeType
                           withIndex:(NSUInteger)index
 {
-    GNCollectionSingleIndexChangeModel *model = [super changeModelWithChangeType:changeType];
+    GNSingleIndexCollectionChangeModel *model = [super changeModelWithChangeType:changeType];
     model.index = index;
     
     return model;

@@ -6,9 +6,9 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNCollectionSingleIndexChangeModel.h"
+#import "GNSingleIndexCollectionChangeModel.h"
 
-@interface GNCollectionSingleIndexChangeModel (UITableView)
+@interface GNSingleIndexCollectionChangeModel (UITableView)
 @property (nonatomic, readonly) NSIndexPath *indexPath;
 
 @end
