@@ -90,7 +90,10 @@
 }
 
 - (BOOL)containsObserver:(id)observer {
-    return [self.observersHashTable containsObject:observer];
+    NSHashTable *observers = self.observersHashTable;
+    @synchronized(observers) {
+        return [self.observersHashTable containsObject:observer];
+    }
 }
 
 - (void)notifyWithSelector:(SEL)selector {
