@@ -11,7 +11,11 @@
 #import "GNClangMacro.h"
 
 @interface GNObservableObject ()
-@property (nonatomic, retain)    NSHashTable *observersHashTable;
+@property (nonatomic, retain)   NSHashTable *observersHashTable;
+
+@property (nonatomic, assign, getter=isNotificationEnabled) BOOL    notificationEnabled;
+
+- (void)notify:(BOOL)notificationState whenPerformingBlock:(void(^)(void))block;
 
 @end
 
@@ -30,6 +34,7 @@
     self = [super init];
     if (self) {
         self.observersHashTable = [NSHashTable weakObjectsHashTable];
+        self.notificationEnabled = YES;
     }
     
     return self;
@@ -39,9 +44,12 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    @synchronized(self) {
-        return [self.observersHashTable copy];
+    NSHashTable *observersHashTable = self.observersHashTable;
+    @synchronized(observersHashTable) {
+        return [observersHashTable allObjects];
     }
+    
+    return nil;
 }
 
 - (void)setState:(NSUInteger)state {
@@ -49,10 +57,12 @@
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
-    if (state != _state) {
-        _state = state;
-        
-        [self notifyWithSelector:[self selectorForState:state] withObject:object];
+    @synchronized(self) {
+        if (state != _state) {
+            _state = state;
+            
+            [self notifyWithSelector:[self selectorForState:state] withObject:object];
+        }
     }
 }
 
@@ -64,16 +74,18 @@
 }
 
 - (void)addObserver:(id)observer {
-    @synchronized(self) {
-        if (![self containsObserver:observer]) {
-            [self.observersHashTable addObject:observer];
+    NSHashTable *observersHashTable = self.observersHashTable;
+    @synchronized(observersHashTable) {
+        if (![observersHashTable containsObject:observer]) {
+            [observersHashTable addObject:observer];
         }
     }
 }
 
 - (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.observersHashTable removeObject:observer];
+    NSHashTable *observersHashTable = self.observersHashTable;
+    @synchronized(observersHashTable) {
+        [observersHashTable removeObject:observer];
     }
 }
 
@@ -90,9 +102,9 @@
 }
 
 - (BOOL)containsObserver:(id)observer {
-    NSHashTable *observers = self.observersHashTable;
-    @synchronized(observers) {
-        return [self.observersHashTable containsObject:observer];
+    NSHashTable *observersHashTable = self.observersHashTable;
+    @synchronized(observersHashTable) {
+        return [observersHashTable containsObject:observer];
     }
 }
 
@@ -101,23 +113,44 @@
 }
 
 - (void)notifyWithSelector:(SEL)selector withObject:(id)object {
-    NSArray *observers = self.observers;
-    
-    for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
-            GNClangDiagnosticPushOptionPerformSelectorLeakWarning
-            [observer performSelector:selector withObject:self withObject:object];
-            GNClangDiagnosticPopOption
+    @synchronized(self) {
+        if (!self.notificationEnabled) {
+            return;
+        }
+        
+        NSArray *observers = self.observers;
+        
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                GNClangDiagnosticPushOptionPerformSelectorLeakWarning
+                [observer performSelector:selector withObject:self withObject:object];
+                GNClangDiagnosticPopOption
+            }
         }
     }
 }
 
 - (void)performBlockWithNotifications:(void (^)(void))block {
-    
+    [self notify:YES whenPerformingBlock:block];
 }
 
 - (void)performBlockWithoutNotifications:(void (^)(void))block {
-    
+    [self notify:NO whenPerformingBlock:block];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)notify:(BOOL)shouldNotify whenPerformingBlock:(void (^)(void))block {
+    @synchronized(self) {
+        BOOL notificationEnabled = self.notificationEnabled;
+        self.notificationEnabled = shouldNotify;
+        if (block) {
+            block();
+        }
+        
+        self.notificationEnabled = notificationEnabled;
+    }
 }
 
 @end
