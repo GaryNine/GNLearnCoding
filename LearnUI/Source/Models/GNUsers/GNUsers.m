@@ -11,7 +11,7 @@
 
 #import "NSObject+GNExtensions.h"
 
-#import "GNCollectionObserver.h"
+#import "GNOwnershipMacro.h"
 
 static const NSUInteger kGNInitialUsersCount = 7;
 
@@ -40,9 +40,13 @@ static const NSUInteger kGNInitialUsersCount = 7;
 #pragma mark Private
 
 - (void)fillWithUsers:(NSArray *)users {
-    for (id user in users) {
-        [self addObject:user];
-    }
+    GNWeakify(self);
+    [self performBlockWithoutNotifications:^{
+        GNStrongify(self);
+        for (id user in users) {
+            [self addObject:user];
+        }
+    }];
 }
 
 @end
