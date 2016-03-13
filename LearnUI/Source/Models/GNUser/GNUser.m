@@ -13,6 +13,9 @@
 static NSString * const kGNImageName = @"user";
 static NSString * const kGNImageType = @"jpg";
 
+static NSString * const kGNName = @"name";
+static NSString * const kGNSurname = @"surname";
+
 @implementation GNUser
 
 @dynamic fullName;
@@ -47,6 +50,25 @@ static NSString * const kGNImageType = @"jpg";
         _image = [UIImage imageWithContentsOfFile:path];
     });
     return _image;
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:kGNName];
+    [aCoder encodeObject:self.surname forKey:kGNSurname];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        self.name = [aDecoder decodeObjectForKey:kGNName];
+        self.surname = [aDecoder decodeObjectForKey:kGNSurname];
+    }
+    
+    return self;
 }
 
 @end

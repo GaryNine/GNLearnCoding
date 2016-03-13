@@ -11,7 +11,7 @@
 
 #import "GNObservableObject.h"
 
-@interface GNUser : GNObservableObject
+@interface GNUser : GNObservableObject <NSCoding>
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;
 @property (nonatomic, readonly) NSString    *fullName;

@@ -12,6 +12,6 @@
 
 @class GNUser;
 
-@interface GNUsers : GNArrayModel
+@interface GNUsers : GNArrayModel <NSCoding>
 
 @end
