@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class GNUsers;
+//@class GNUsers;
 
 @interface GNUsersView : UIView
 @property (nonatomic, strong)   IBOutlet UITableView    *tableView;
@@ -17,6 +17,6 @@
 
 @property (nonatomic, assign, getter=isEditing) BOOL    editing;
 
-@property (nonatomic, strong)   GNUsers *users;
+//@property (nonatomic, strong)   GNUsers *users;
 
 @end

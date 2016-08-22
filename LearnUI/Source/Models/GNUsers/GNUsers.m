@@ -16,6 +16,7 @@
 static const NSUInteger kGNInitialUsersCount = 7;
 
 static NSString * const kGNObjectsKey = @"objects";
+static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
 
@@ -24,6 +25,8 @@ static NSString * const kGNObjectsKey = @"objects";
 @end
 
 @implementation GNUsers
+
+@dynamic archivePath;
 
 #pragma mark -
 #pragma mark Initializations & Deallocation
@@ -36,6 +39,33 @@ static NSString * const kGNObjectsKey = @"objects";
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)archivePath {
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                       NSUserDomainMask,
+                                                                       YES);
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathComponent:kGNArchiveFileName];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)saveObjects {
+    [NSKeyedArchiver archiveRootObject:self.objects toFile:self.archivePath];
+}
+
+- (void)loadObjects {
+    NSArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
+    
+    if(!users) {
+        [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
+    }
 }
 
 #pragma mark -

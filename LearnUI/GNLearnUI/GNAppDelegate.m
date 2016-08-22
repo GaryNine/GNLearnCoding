@@ -17,6 +17,7 @@
 #import "GNUsersViewController.h"
 
 @interface GNAppDelegate ()
+@property (nonatomic, strong)   GNUsers *users;
 
 @end
 
@@ -27,23 +28,25 @@
 {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    
 //    GNSquareViewController *controller = [GNSquareViewController new];
     GNUsersViewController *controller = [GNUsersViewController new];
-    controller.users = [GNUsers new];
-    
     window.rootViewController = controller;
+    
+    GNUsers *users = [GNUsers new];
+    controller.users = users;
+    self.users = users;
+    
     [window makeKeyAndVisible];
     
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
- 
+    [self.users saveObjects];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-  
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

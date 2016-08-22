@@ -13,5 +13,9 @@
 @class GNUser;
 
 @interface GNUsers : GNArrayModel <NSCoding>
+@property (nonatomic, readonly) NSString    *archivePath;
+
+- (void)saveObjects;
+- (void)loadObjects;
 
 @end

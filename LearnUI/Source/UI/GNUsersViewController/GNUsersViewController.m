@@ -47,9 +47,10 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // перенести в tableView:commitEditingStyle:
+    
+    [self.users loadObjects];
     [self.usersView.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +95,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
+        
+        [self.usersView.tableView reloadData];
     }
 }
 
