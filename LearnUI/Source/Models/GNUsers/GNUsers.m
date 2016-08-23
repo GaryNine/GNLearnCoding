@@ -29,19 +29,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 @dynamic archivePath;
 
 #pragma mark -
-#pragma mark Initializations & Deallocation
-
-- (instancetype)init {
-    self = [super init];
-    
-    if (self) {
-        [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (NSString *)archivePath {
