@@ -48,7 +48,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.users loadObjects];
+    [self.users load];
     [self.usersView.tableView reloadData];
 
 }

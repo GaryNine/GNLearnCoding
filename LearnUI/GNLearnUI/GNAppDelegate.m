@@ -42,7 +42,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [self.users saveObjects];
+    [self.users save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

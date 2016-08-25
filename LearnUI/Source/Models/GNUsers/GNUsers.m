@@ -43,11 +43,11 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark -
 #pragma mark Public
 
-- (void)saveObjects {
+- (void)save {
     [NSKeyedArchiver archiveRootObject:self.objects toFile:self.archivePath];
 }
 
-- (void)loadObjects {
+- (void)load {
     NSArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
     
     if(!users) {
