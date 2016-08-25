@@ -10,6 +10,7 @@
 #import "GNUser.h"
 
 #import "NSObject+GNExtensions.h"
+#import "NSFileManager+GNExtensions.h"
 
 #import "GNOwnershipMacro.h"
 
@@ -32,12 +33,8 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Accessors
 
 - (NSString *)archivePath {
-    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                       NSUserDomainMask,
-                                                                       YES);
-    NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingPathComponent:kGNArchiveFileName];
+    return [[NSFileManager documentPath] stringByAppendingPathComponent:kGNArchiveFileName];
 }
 
 #pragma mark -
