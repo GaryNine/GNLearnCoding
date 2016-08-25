@@ -36,6 +36,7 @@
 		A89259671C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259641C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m */; };
 		A89259681C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259661C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m */; };
 		A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */; };
+		A8C36CBA1D6EE428007975EB /* NSFileManager+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C36CB91D6EE428007975EB /* NSFileManager+GNExtensions.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
 		A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84491C73634100116424 /* NSString+GNExtensions.m */; };
@@ -103,6 +104,8 @@
 		A89259661C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNDoubleIndexCollectionChangeModel.m; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
+		A8C36CB81D6EE428007975EB /* NSFileManager+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GNExtensions.h"; sourceTree = "<group>"; };
+		A8C36CB91D6EE428007975EB /* NSFileManager+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+GNExtensions.m"; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A8C36CB71D6EE3B2007975EB /* NSFileManager */,
 				A89259531C9050B000F8CF90 /* NSIndexPath */,
 				A89259381C8D66D400F8CF90 /* GNCollectionChangeModel */,
 				A892591E1C85CFAB00F8CF90 /* NSObject */,
@@ -434,6 +438,15 @@
 			path = GNArrayModel;
 			sourceTree = "<group>";
 		};
+		A8C36CB71D6EE3B2007975EB /* NSFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				A8C36CB81D6EE428007975EB /* NSFileManager+GNExtensions.h */,
+				A8C36CB91D6EE428007975EB /* NSFileManager+GNExtensions.m */,
+			);
+			path = NSFileManager;
+			sourceTree = "<group>";
+		};
 		A8FB843E1C728A3700116424 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +600,7 @@
 				A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */,
 				A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */,
 				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
+				A8C36CBA1D6EE428007975EB /* NSFileManager+GNExtensions.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
 				A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */,
