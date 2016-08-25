@@ -7,31 +7,32 @@
 //
 
 #import "NSFileManager+GNExtensions.h"
+#import "NSPathUtilities+GNExtensions.h"
 
 @implementation NSFileManager (GNExtensions)
 
 + (NSString *)documentPath {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSDocumentDirectory);
 }
 
 + (NSString *)libraryPath {
-    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSLibraryDirectory);
 }
 
 + (NSString *)userPath {
-    return [NSSearchPathForDirectoriesInDomains(NSUserDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSUserDirectory);
 }
 
 + (NSString *)aplicationPath {
-    return [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSApplicationDirectory);
 }
 
 + (NSString *)cahesPath {
-    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSCachesDirectory);
 }
 
 + (NSString *)downloadsPath {
-    return [NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES) firstObject];
+    return NSSearchPathForDirectory(NSDownloadsDirectory);
 }
 
 @end

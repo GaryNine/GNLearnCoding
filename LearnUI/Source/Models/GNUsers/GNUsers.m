@@ -33,7 +33,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Accessors
 
 - (NSString *)archivePath {
-    
     return [[NSFileManager documentPath] stringByAppendingPathComponent:kGNArchiveFileName];
 }
 
