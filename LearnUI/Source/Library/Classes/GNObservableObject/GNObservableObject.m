@@ -142,14 +142,16 @@
 #pragma mark Private
 
 - (void)notify:(BOOL)shouldNotify whenPerformingBlock:(void (^)(void))block {
+    if (!block) {
+        return;
+    }
+    
     @synchronized(self) {
-        if (block) {
             BOOL notificationEnabled = self.notificationEnabled;
             self.notificationEnabled = shouldNotify;
             block();
             
             self.notificationEnabled = notificationEnabled;
-        }
     }
 }
 
