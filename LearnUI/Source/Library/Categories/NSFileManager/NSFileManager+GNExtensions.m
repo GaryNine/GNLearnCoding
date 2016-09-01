@@ -38,7 +38,13 @@ static NSString * const kGNLoadedStatePathName = @"loadedStatePath";
 }
 
 + (NSString *)loadedStatePath {
-    return [[self documentPath] stringByAppendingPathComponent:kGNLoadedStatePathName];
+    static NSString *path = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        path = [[self documentPath] stringByAppendingPathComponent:kGNLoadedStatePathName];
+    });
+    
+    return path;
 }
 
 @end

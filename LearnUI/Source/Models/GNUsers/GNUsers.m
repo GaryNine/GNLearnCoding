@@ -16,7 +16,6 @@
 
 static const NSUInteger kGNInitialUsersCount = 7;
 
-static NSString * const kGNObjectsKey = @"objects";
 static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
@@ -40,6 +39,11 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Public
 
 - (void)save {
+    [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager loadedStatePath]
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:nil];
+    
     [NSKeyedArchiver archiveRootObject:self.objects toFile:self.archivePath];
 }
 
