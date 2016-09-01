@@ -9,6 +9,8 @@
 #import "NSFileManager+GNExtensions.h"
 #import "NSPathUtilities+GNExtensions.h"
 
+static NSString * const kGNLoadedStatePathName = @"loadedStatePath";
+
 @implementation NSFileManager (GNExtensions)
 
 + (NSString *)documentPath {
@@ -33,6 +35,10 @@
 
 + (NSString *)downloadsPath {
     return NSSearchPathForDirectory(NSDownloadsDirectory);
+}
+
++ (NSString *)loadedStatePath {
+    return [[self documentPath] stringByAppendingPathComponent:kGNLoadedStatePathName];
 }
 
 @end

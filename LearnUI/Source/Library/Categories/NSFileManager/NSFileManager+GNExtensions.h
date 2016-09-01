@@ -22,4 +22,6 @@
 
 + (NSString *)downloadsPath;
 
++ (NSString *)loadedStatePath;
+
 @end
