@@ -22,6 +22,10 @@
 
 + (NSString *)downloadsPath;
 
-+ (NSString *)loadedStatePath;
++ (NSString *)appStatePath;
+
++ (NSString *)imagePath;
+
++ (NSString *)dataPathWithFileName:(NSString *)fileName;
 
 @end

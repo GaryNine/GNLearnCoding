@@ -9,7 +9,10 @@
 #import "NSFileManager+GNExtensions.h"
 #import "NSPathUtilities+GNExtensions.h"
 
-static NSString * const kGNLoadedStatePathName = @"loadedStatePath";
+#import "GNDispatchOnce.h"
+
+static NSString * const kGNAppStatePathName = @"loadedStatePath";
+static NSString * const kGNImagePathName    = @"imagePath";
 
 @implementation NSFileManager (GNExtensions)
 
@@ -37,14 +40,18 @@ static NSString * const kGNLoadedStatePathName = @"loadedStatePath";
     return NSSearchPathForDirectory(NSDownloadsDirectory);
 }
 
-+ (NSString *)loadedStatePath {
-    static NSString *path = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        path = [[self documentPath] stringByAppendingPathComponent:kGNLoadedStatePathName];
-    });
-    
-    return path;
++ (NSString *)appStatePath {
+    GNDispatchOnce(NSString, libraryPath,
+                   ^ { return [self dataPathWithFileName:kGNAppStatePathName]; });
+}
+
++ (NSString *)imagePath {
+    GNDispatchOnce(NSString, libraryPath,
+                   ^{ return [self dataPathWithFileName:kGNImagePathName]; })
+}
+
++ (NSString *)dataPathWithFileName:(NSString *)filemane {
+    return [[self libraryPath] stringByAppendingPathComponent:filemane];
 }
 
 @end

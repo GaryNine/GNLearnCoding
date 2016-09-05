@@ -32,14 +32,14 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Accessors
 
 - (NSString *)archivePath {
-    return [[NSFileManager loadedStatePath] stringByAppendingPathComponent:kGNArchiveFileName];
+    return [[NSFileManager appStatePath] stringByAppendingPathComponent:kGNArchiveFileName];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)save {
-    [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager loadedStatePath]
+    [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager appStatePath]
                               withIntermediateDirectories:YES
                                                attributes:nil
                                                     error:nil];
