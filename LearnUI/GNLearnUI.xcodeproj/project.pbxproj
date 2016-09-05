@@ -24,6 +24,8 @@
 		A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3A51C79CF9E00AE0743 /* UINib+GNExtensions.m */; };
 		A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3A91C7A2F5D00AE0743 /* UITableView+GNExtensions.m */; };
 		A85DB3B11C7BC71F00AE0743 /* GNObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */; };
+		A88763941D7B0D16007B0870 /* GNLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A88763931D7B0D16007B0870 /* GNLoadingView.m */; };
+		A88763981D7D839A007B0870 /* GNLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88763971D7D839A007B0870 /* GNLoadingView.xib */; };
 		A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */; };
 		A892592B1C88C46500F8CF90 /* GNCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892592A1C88C46500F8CF90 /* GNCollectionChangeModel.m */; };
 		A892593B1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A892593A1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m */; };
@@ -81,6 +83,10 @@
 		A85DB3A91C7A2F5D00AE0743 /* UITableView+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+GNExtensions.m"; sourceTree = "<group>"; };
 		A85DB3AF1C7BC71F00AE0743 /* GNObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObservableObject.h; sourceTree = "<group>"; };
 		A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservableObject.m; sourceTree = "<group>"; };
+		A88763901D7AEA5E007B0870 /* GNDispatchOnce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNDispatchOnce.h; sourceTree = "<group>"; };
+		A88763921D7B0D16007B0870 /* GNLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNLoadingView.h; sourceTree = "<group>"; };
+		A88763931D7B0D16007B0870 /* GNLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNLoadingView.m; sourceTree = "<group>"; };
+		A88763971D7D839A007B0870 /* GNLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNLoadingView.xib; sourceTree = "<group>"; };
 		A892591F1C85CFAB00F8CF90 /* NSObject+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GNExtensions.h"; sourceTree = "<group>"; };
 		A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GNExtensions.m"; sourceTree = "<group>"; };
 		A89259221C8864DC00F8CF90 /* GNCollectionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNCollectionObserver.h; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 				A80CBAF61C67C8BF003CE7D7 /* GNViewControllerMacro.h */,
 				A85DB3A11C7673EB00AE0743 /* GNBlockCallMacro.h */,
 				A85DB3A21C76762000AE0743 /* GNStatementMacro.h */,
+				A88763901D7AEA5E007B0870 /* GNDispatchOnce.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -327,6 +334,16 @@
 				A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */,
 			);
 			path = GNObservableObject;
+			sourceTree = "<group>";
+		};
+		A88763911D7B0C98007B0870 /* GNLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				A88763921D7B0D16007B0870 /* GNLoadingView.h */,
+				A88763931D7B0D16007B0870 /* GNLoadingView.m */,
+				A88763971D7D839A007B0870 /* GNLoadingView.xib */,
+			);
+			path = GNLoadingView;
 			sourceTree = "<group>";
 		};
 		A892591E1C85CFAB00F8CF90 /* NSObject */ = {
@@ -516,6 +533,7 @@
 		A8FB84841C74BFB500116424 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A88763911D7B0C98007B0870 /* GNLoadingView */,
 				A85DB3AE1C7BC71F00AE0743 /* GNObservableObject */,
 				A85DB3941C760A4400AE0743 /* GNTableViewCell */,
 				A89259221C8864DC00F8CF90 /* GNCollectionObserver.h */,
@@ -581,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88763981D7D839A007B0870 /* GNLoadingView.xib in Resources */,
 				A80CBAFF1C67D015003CE7D7 /* LaunchScreen.storyboard in Resources */,
 				A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */,
 				A85DB3A01C760F2C00AE0743 /* GNUserCell.xib in Resources */,
@@ -622,6 +641,7 @@
 				A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */,
 				A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */,
 				A89259561C9050D500F8CF90 /* NSIndexPath+GNExtensions.m in Sources */,
+				A88763941D7B0D16007B0870 /* GNLoadingView.m in Sources */,
 				A85DB3B11C7BC71F00AE0743 /* GNObservableObject.m in Sources */,
 				A89259671C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m in Sources */,
 				A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */,
