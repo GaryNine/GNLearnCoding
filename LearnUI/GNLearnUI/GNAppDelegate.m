@@ -16,6 +16,8 @@
 #import "GNUsers.h"
 #import "GNUsersViewController.h"
 
+#import "GNPrintMethodMacro.h"
+
 @interface GNAppDelegate ()
 @property (nonatomic, strong)   GNUsers *users;
 
@@ -42,22 +44,24 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    
+    GNPrintMethod;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    GNPrintMethod;
     [self.users save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-  
+    GNPrintMethod;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-   
+    GNPrintMethod;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    GNPrintMethod;
     [self.users save];
 }
 
