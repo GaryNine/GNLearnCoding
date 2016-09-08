@@ -10,9 +10,19 @@
 
 #import "GNArrayModel.h"
 
+#import "GNModelObserverProtocol.h"
+
 @class GNUser;
 
-@interface GNUsers : GNArrayModel
+typedef NS_ENUM (NSUInteger, GNModelState) {
+    kGNModelStateUnload,
+    kGNModelStateLoading,
+    kGNModelStateDidLoad,
+    kGNModelStateFailWithLoading,
+    kGNModelState
+};
+
+@interface GNUsers : GNArrayModel <GNModelObserverProtocol>
 @property (nonatomic, readonly) NSString    *archivePath;
 
 - (void)save;

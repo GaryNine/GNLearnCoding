@@ -7,6 +7,7 @@
 //
 
 #define GNDispatchOnce(type, result, block) \
+{ \
 static type *result = nil; \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
@@ -14,4 +15,5 @@ dispatch_once(&onceToken, ^{ \
         result = block(); \
     } \
 }); \
-return result;
+return result; \
+}

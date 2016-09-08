@@ -68,4 +68,26 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     }];
 }
 
+#pragma mark -
+#pragma mark GNObservableObject
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kGNModelStateUnload:
+            return @selector(modelUnload:);
+            
+        case kGNModelStateLoading:
+            return @selector(modelIsLoading:);
+            
+        case kGNModelStateDidLoad:
+            return @selector(modelDidLoad:);
+            
+        case kGNModelStateFailWithLoading:
+            return @selector(modelDidFailWithLoading:);
+            
+        default:
+            return [super selectorForState:state];
+    }
+}
+
 @end

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "GNCollectionObserver.h"
+#import "GNModelObserverProtocol.h"
 
 @class GNUsers;
 
-@interface GNUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GNCollectionObserver>
+@interface GNUsersViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,
+                                                    GNCollectionObserver, GNModelObserverProtocol>
 @property (nonatomic, strong)   GNUsers  *users;
 
 - (IBAction)onEdit:(id)sender;

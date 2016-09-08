@@ -12,6 +12,7 @@
 #import "GNUsers.h"
 #import "GNUsersView.h"
 #import "GNUserCell.h"
+#import "GNLoadingView.h"
 
 #import "UITableView+GNExtensions.h"
 #import "UITableView+GNCollectionChangeModel.h"
@@ -48,9 +49,10 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    GNLoadingView *view = [GNLoadingView viewLoadingInSuperview:self.usersView.tableView];
+    [view setVisible:YES animated:YES completionHandler:nil];
     [self.users load];
     [self.usersView.tableView reloadData];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +115,25 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel {
     UITableView *tableView = self.usersView.tableView;
     [tableView updateWithCollectionChangeModel:changeModel];
+}
+
+#pragma mark -
+#pragma mark GNModelObserverProtocol
+
+- (void)modelUnload:(id)model {
+    
+}
+
+- (void)modelIsLoading:(id)model {
+    
+}
+
+- (void)modelDidLoad:(id)model {
+
+}
+
+- (void)modelDidFailWithLoading:(id)model {
+    
 }
 
 @end

@@ -109,6 +109,8 @@
 		A89259641C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GNDoubleIndexCollectionChangeModel+UITableView.m"; sourceTree = "<group>"; };
 		A89259651C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNDoubleIndexCollectionChangeModel.h; sourceTree = "<group>"; };
 		A89259661C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNDoubleIndexCollectionChangeModel.m; sourceTree = "<group>"; };
+		A8AB85A51D7DFE5900787F64 /* GNPrintMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNPrintMethodMacro.h; sourceTree = "<group>"; };
+		A8AB85A61D8196D400787F64 /* GNModelObserverProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNModelObserverProtocol.h; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8C36CB81D6EE428007975EB /* NSFileManager+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GNExtensions.h"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				A85DB3A11C7673EB00AE0743 /* GNBlockCallMacro.h */,
 				A85DB3A21C76762000AE0743 /* GNStatementMacro.h */,
 				A88763901D7AEA5E007B0870 /* GNDispatchOnce.h */,
+				A8AB85A51D7DFE5900787F64 /* GNPrintMethodMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				A8FB84811C74A0B500116424 /* GNUsersView.h */,
 				A8FB84821C74A0B500116424 /* GNUsersView.m */,
 				A8FB847E1C74A01000116424 /* GNUsersView.xib */,
+				A8AB85A61D8196D400787F64 /* GNModelObserverProtocol.h */,
 			);
 			path = GNUsersViewController;
 			sourceTree = "<group>";
