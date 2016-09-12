@@ -11,16 +11,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="Bko-lp-F7E">
-                    <rect key="frame" x="150" y="274" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="Bko-lp-F7E">
+                    <rect key="frame" x="142" y="265" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.49507004310344827" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.7490301724137931" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="spinner" destination="Bko-lp-F7E" id="M2c-WS-Oom"/>
             </connections>
-            <point key="canvasLocation" x="114" y="174"/>
+            <point key="canvasLocation" x="-64" y="186"/>
         </view>
     </objects>
 </document>

@@ -13,7 +13,7 @@
 
 static const NSTimeInterval kGNAnimationDuration = 0.4;
 
-static const CGFloat    kGNVisibleAlpha = 0.5;
+static const CGFloat    kGNVisibleAlpha = 1.0;
 static const CGFloat    kGNHiddenAlpha = 0;
 
 @implementation GNLoadingView
@@ -21,8 +21,9 @@ static const CGFloat    kGNHiddenAlpha = 0;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)viewLoadingInSuperview:(UIView *)superView {
++ (id)loadingViewInSuperview:(UIView *)superView {
     GNLoadingView *loadingView = [UINib objectWithClass:[self class]];
+    loadingView.alpha = kGNHiddenAlpha;
     loadingView.frame = superView.bounds;
     loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [superView addSubview:loadingView];
@@ -37,16 +38,13 @@ static const CGFloat    kGNHiddenAlpha = 0;
     [self setVisible:visible animated:NO];
 }
 
-#pragma mark -
-#pragma mark Public
-
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated {
     [self setVisible:visible animated:animated completionHandler:nil];
 }
 
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated completionHandler:(GNVoidBlock)handler {
     if (_visible != visible) {
-        [UIView animateWithDuration:kGNAnimationDuration
+        [UIView animateWithDuration:animated ? kGNAnimationDuration : 0
                          animations:^{
                              self.alpha = visible ? kGNVisibleAlpha : kGNHiddenAlpha;
                          }

@@ -14,7 +14,7 @@ typedef void(^GNVoidBlock)(void);
 @property (nonatomic, assign)   BOOL                                visible;
 @property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *spinner;
 
-+ (id)viewLoadingInSuperview:(UIView *)superView;
++ (id)loadingViewInSuperview:(UIView *)superView;
 
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated completionHandler:(GNVoidBlock)handler;

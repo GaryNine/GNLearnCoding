@@ -12,7 +12,7 @@
 #import "GNDoubleIndexCollectionChangeModel.h"
 #import "GNCollectionChangeModel+GNArrayModel.h"
 
-#import "GNCollectionObserver.h"
+#import "GNArrayModelObserver.h"
 
 @interface GNArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableObjects;
