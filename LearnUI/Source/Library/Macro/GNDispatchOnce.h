@@ -7,13 +7,13 @@
 //
 
 #define GNDispatchOnce(type, result, block) \
-{ \
-static type *result = nil; \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-    if (block) { \
+do { \
+    static type *result = nil; \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        if (block) { \
         result = block(); \
-    } \
-}); \
-return result; \
-}
+        } \
+    }); \
+    return result; \
+} while(0)
