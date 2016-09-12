@@ -14,16 +14,9 @@
 
 @class GNUser;
 
-typedef NS_ENUM (NSUInteger, GNModelState) {
-    kGNModelStateUnload,
-    kGNModelStateLoading,
-    kGNModelStateDidLoad,
-    kGNModelStateFailWithLoading,
-    kGNModelState
-};
-
-@interface GNUsers : GNArrayModel <GNModelObserverProtocol>
+@interface GNUsers : GNArrayModel
 @property (nonatomic, readonly) NSString    *archivePath;
+@property (nonatomic, readonly) BOOL        cached;
 
 - (void)save;
 - (void)load;

@@ -13,6 +13,7 @@
 #import "NSFileManager+GNExtensions.h"
 
 #import "GNOwnershipMacro.h"
+#import "GNModelObserverProtocol.h"
 
 static const NSUInteger kGNInitialUsersCount = 7;
 
@@ -27,12 +28,18 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 @implementation GNUsers
 
 @dynamic archivePath;
+@dynamic cached;
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)archivePath {
     return [[NSFileManager appStatePath] stringByAppendingPathComponent:kGNArchiveFileName];
+}
+
+- (BOOL)cached {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager fileExistsAtPath:[NSFileManager appStatePath]];
 }
 
 #pragma mark -
@@ -48,7 +55,10 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 }
 
 - (void)load {
-    NSArray *users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
+    NSArray *users = nil;
+    if (self.cached) {
+        users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
+    }
     
     if(!users) {
         [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
@@ -73,16 +83,16 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case kGNModelStateUnload:
-            return @selector(modelUnload:);
+        case kGNModelStateDidUnload:
+            return @selector(modelDidUnload:);
             
-        case kGNModelStateLoading:
-            return @selector(modelIsLoading:);
+        case kGNModelStateWillLoad:
+            return @selector(modelWillLoad:);
             
         case kGNModelStateDidLoad:
             return @selector(modelDidLoad:);
             
-        case kGNModelStateFailWithLoading:
+        case kGNModelStateDidFailWithLoading:
             return @selector(modelDidFailWithLoading:);
             
         default:
