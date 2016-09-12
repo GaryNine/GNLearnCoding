@@ -6,11 +6,21 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-@protocol GNModelObserverProtocol <NSObject>
+#import "GNArrayModelObserver.h"
+
+typedef NS_ENUM(NSUInteger, GNModelState) {
+    kGNModelStateDidUnload = kGNCollectionStateCount,
+    kGNModelStateWillLoad,
+    kGNModelStateDidLoad,
+    kGNModelStateDidFailWithLoading,
+    kGNModelStateCount
+};
+
+@protocol GNModelObserverProtocol <NSObject, GNArrayModelObserver>
 
 @optional
-- (void)modelUnload:(id)model;
-- (void)modelIsLoading:(id)model;
+- (void)modelDidUnload:(id)model;
+- (void)modelWillLoad:(id)model;
 - (void)modelDidLoad:(id)model;
 - (void)modelDidFailWithLoading:(id)model;
 
