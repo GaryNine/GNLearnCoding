@@ -21,6 +21,12 @@
 
 GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 
+@interface GNUsersViewController ()
+
+- (void)updateView;
+
+@end
+
 @implementation GNUsersViewController
 
 #pragma mark -
@@ -38,8 +44,8 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
         [_users removeObserver:self];
         _users = users;
         [_users addObserver:self];
-        
-        [self.usersView.tableView reloadData];
+      
+        [self updateView];
     }
 }
 
@@ -47,12 +53,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    GNLoadingView *view = [GNLoadingView viewLoadingInSuperview:self.usersView.tableView];
-    [view setVisible:YES animated:YES completionHandler:nil];
+    [super viewDidLoad];    
+//    GNLoadingView *view = [GNLoadingView loadingViewInSuperview:self.usersView];
+//    [view setVisible:YES animated:YES completionHandler:nil];
     [self.users load];
-    [self.usersView.tableView reloadData];
+    [self updateView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,7 +103,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
         
-        [self.usersView.tableView reloadData];
+        [self updateView];
     }
 }
 
@@ -120,12 +125,12 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 #pragma mark -
 #pragma mark GNModelObserverProtocol
 
-- (void)modelUnload:(id)model {
+- (void)modelDidUnload:(id)model {
     
 }
 
-- (void)modelIsLoading:(id)model {
-    
+- (void)modelWillLoad:(id)model {
+
 }
 
 - (void)modelDidLoad:(id)model {
@@ -133,7 +138,14 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    
+
+}
+
+#pragma mark - 
+#pragma mark Private 
+
+- (void)updateView {
+    [self.usersView.tableView reloadData];
 }
 
 @end
