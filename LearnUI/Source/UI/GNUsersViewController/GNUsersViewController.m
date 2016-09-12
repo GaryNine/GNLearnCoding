@@ -126,19 +126,20 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 #pragma mark GNModelObserverProtocol
 
 - (void)modelDidUnload:(id)model {
-    
+    [self.usersView setLoadingViewVisible:NO animated:NO];
 }
 
 - (void)modelWillLoad:(id)model {
-
+    [self.usersView setLoadingViewVisible:YES animated:YES];
 }
 
 - (void)modelDidLoad:(id)model {
-
+    [self updateView];
+    [self.usersView setLoadingViewVisible:NO animated:NO];
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-
+    [self.usersView setLoadingViewVisible:NO animated:NO];
 }
 
 #pragma mark - 
