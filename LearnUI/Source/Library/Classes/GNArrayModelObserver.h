@@ -11,7 +11,12 @@
 @class GNArrayModel;
 @class GNCollectionChangeModel;
 
-@protocol GNCollectionObserver <NSObject>
+typedef NS_ENUM(NSUInteger, GNCollectionState) {
+    kGNCollectionStateDidChange,
+    kGNCollectionStateCount
+};
+
+@protocol GNArrayModelObserver <NSObject>
 
 @optional
 - (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel;
