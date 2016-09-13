@@ -10,8 +10,6 @@
 
 #import "GNArrayModel.h"
 
-#import "GNModelObserverProtocol.h"
-
 @class GNUser;
 
 @interface GNUsers : GNArrayModel

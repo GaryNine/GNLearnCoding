@@ -8,15 +8,7 @@
 
 #import "GNArrayModelObserver.h"
 
-typedef NS_ENUM(NSUInteger, GNModelState) {
-    kGNModelStateDidUnload = kGNCollectionStateCount,
-    kGNModelStateWillLoad,
-    kGNModelStateDidLoad,
-    kGNModelStateDidFailWithLoading,
-    kGNModelStateCount
-};
-
-@protocol GNModelObserverProtocol <NSObject, GNArrayModelObserver>
+@protocol GNModelObserver <NSObject>
 
 @optional
 - (void)modelDidUnload:(id)model;

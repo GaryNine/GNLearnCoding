@@ -13,7 +13,6 @@
 #import "NSFileManager+GNExtensions.h"
 
 #import "GNOwnershipMacro.h"
-#import "GNModelObserverProtocol.h"
 
 static const NSUInteger kGNInitialUsersCount = 7;
 
@@ -30,19 +29,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @dynamic archivePath;
 @dynamic cached;
-
-#pragma mark -
-#pragma mark Initializations & Deallocations
-
-- (instancetype)init {
-    self = [super init];
-    
-    if (self) {
-        self.state = kGNModelStateDidUnload;
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -75,15 +61,15 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     }
     
     if(!users) {
-        self.state = kGNModelStateWillLoad;
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+//        self.state = kGNModelStateWillLoad;
+//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
             [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
-            
-            dispatch_sync(dispatch_get_main_queue(), ^ {
-                [self cleanAfterProcessing];
-            });
-
-        });
+//            
+//            dispatch_sync(dispatch_get_main_queue(), ^ {
+//                [self cleanAfterProcessing];
+//            });
+//
+//        });
     }
 }
 
@@ -99,33 +85,33 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
         }
     }];
 }
-
-- (void)cleanAfterProcessing {
-    @synchronized (self) {
-        self.state = kGNModelStateDidLoad;
-    }
-}
-
-#pragma mark -
-#pragma mark GNObservableObject
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kGNModelStateDidUnload:
-            return @selector(modelDidUnload:);
-            
-        case kGNModelStateWillLoad:
-            return @selector(modelWillLoad:);
-            
-        case kGNModelStateDidLoad:
-            return @selector(modelDidLoad:);
-            
-        case kGNModelStateDidFailWithLoading:
-            return @selector(modelDidFailWithLoading:);
-            
-        default:
-            return [super selectorForState:state];
-    }
-}
+//
+//- (void)cleanAfterProcessing {
+//    @synchronized (self) {
+//        self.state = kGNModelStateDidLoad;
+//    }
+//}
+//
+//#pragma mark -
+//#pragma mark GNObservableObject
+//
+//- (SEL)selectorForState:(NSUInteger)state {
+//    switch (state) {
+//        case kGNModelStateDidUnload:
+//            return @selector(modelDidUnload:);
+//            
+//        case kGNModelStateWillLoad:
+//            return @selector(modelWillLoad:);
+//            
+//        case kGNModelStateDidLoad:
+//            return @selector(modelDidLoad:);
+//            
+//        case kGNModelStateDidFailWithLoading:
+//            return @selector(modelDidFailWithLoading:);
+//            
+//        default:
+//            return [super selectorForState:state];
+//    }
+//}
 
 @end
