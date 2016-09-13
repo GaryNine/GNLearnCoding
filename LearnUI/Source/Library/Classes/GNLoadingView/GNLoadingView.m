@@ -18,6 +18,8 @@ static const CGFloat    kGNHiddenAlpha = 0;
 
 @implementation GNLoadingView
 
+@synthesize visible = _visible;
+
 #pragma mark -
 #pragma mark Class Methods
 

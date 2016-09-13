@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GNSpinnerView.h"
+
 typedef void(^GNVoidBlock)(void);
 
-@interface GNLoadingView : UIView
-@property (nonatomic, assign)   BOOL                                visible;
+@interface GNLoadingView : UIView<GNSpinnerView>
 @property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *spinner;
 
 + (id)loadingViewInSuperview:(UIView *)superView;
-
-- (void)setVisible:(BOOL)visible animated:(BOOL)animated;
-- (void)setVisible:(BOOL)visible animated:(BOOL)animated completionHandler:(GNVoidBlock)handler;
 
 @end

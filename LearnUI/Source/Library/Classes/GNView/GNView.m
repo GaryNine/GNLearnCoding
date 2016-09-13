@@ -8,6 +8,16 @@
 
 #import "GNView.h"
 
+#import "GNLoadingView.h"
+
+//задача, чтобы в детях я мог создавать другой лоадинг вью с тем же интерфейсом или модифицировать изначальный.
+
+@interface GNView()
+
+- (id)spinnerView;
+
+@end
+
 @implementation GNView
 
 #pragma mark - 
@@ -17,7 +27,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        self.loadingView = [GNLoadingView loadingViewInSuperview:self];
+        self.loadingView = [self spinnerView];
     }
     
     return self;
@@ -26,7 +36,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setLoadingView:(GNLoadingView *)loadingView {
+- (void)setLoadingView:(UIView<GNSpinnerView> *)loadingView {
     if (_loadingView != loadingView) {
         [loadingView removeFromSuperview];
         _loadingView = loadingView;
@@ -52,4 +62,12 @@
         [self.loadingView setVisible:loadingViewVisible animated:animated completionHandler:handler];
     }
 }
+
+#pragma mark -
+#pragma mark Private
+
+- (id)spinnerView {
+    return [GNLoadingView loadingViewInSuperview:self];
+}
+
 @end

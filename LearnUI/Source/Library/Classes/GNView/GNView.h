@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GNLoadingView.h"
+#import "GNSpinnerView.h"
 
 typedef void(^GNVoidBlock)(void);
 
 @interface GNView : UIView
-@property (nonatomic, strong)   IBOutlet    GNLoadingView   *loadingView;
-
-@property (nonatomic, assign)   BOOL    loadingViewVisible;
-
+@property (nonatomic, strong)   IBOutlet    UIView<GNSpinnerView>  *loadingView;
+@property (nonatomic, assign)               BOOL                    loadingViewVisible;
 
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated;
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated
