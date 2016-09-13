@@ -20,6 +20,7 @@ static const NSUInteger kGNInitialUsersCount = 7;
 static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
+@property (nonatomic, assign)   BOOL    cached;
 
 - (void)fillWithUsers:(NSArray *)users;
 
@@ -29,6 +30,19 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @dynamic archivePath;
 @dynamic cached;
+
+#pragma mark -
+#pragma mark Initializations & Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.state = kGNModelStateDidUnload;
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -61,7 +75,15 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     }
     
     if(!users) {
-        [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
+        self.state = kGNModelStateWillLoad;
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+            [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^ {
+                [self cleanAfterProcessing];
+            });
+
+        });
     }
 }
 
@@ -76,6 +98,12 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
             [self addObject:user];
         }
     }];
+}
+
+- (void)cleanAfterProcessing {
+    @synchronized (self) {
+        self.state = kGNModelStateDidLoad;
+    }
 }
 
 #pragma mark -

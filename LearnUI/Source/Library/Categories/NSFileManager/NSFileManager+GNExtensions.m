@@ -47,7 +47,7 @@ static NSString * const kGNImagePathName    = @"imagePath";
 
 + (NSString *)imagePath {
     GNDispatchOnce(NSString, libraryPath,
-                   ^{ return [self dataPathWithFileName:kGNImagePathName]; })
+                   ^{ return [self dataPathWithFileName:kGNImagePathName]; });
 }
 
 + (NSString *)dataPathWithFileName:(NSString *)filemane {

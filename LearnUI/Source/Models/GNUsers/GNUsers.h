@@ -16,7 +16,6 @@
 
 @interface GNUsers : GNArrayModel
 @property (nonatomic, readonly) NSString    *archivePath;
-@property (nonatomic, readonly) BOOL        cached;
 
 - (void)save;
 - (void)load;

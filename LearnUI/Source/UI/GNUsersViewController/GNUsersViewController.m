@@ -45,6 +45,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
         _users = users;
         [_users addObserver:self];
       
+//        [self.users load];
         [self updateView];
     }
 }
@@ -62,6 +63,13 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)updateView {
+    [self.usersView.tableView reloadData];
 }
 
 #pragma mark -
@@ -125,23 +133,16 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 #pragma mark GNModelObserverProtocol
 
 - (void)modelWillLoad:(id)model {
-    [self.usersView setLoadingViewVisible:YES animated:YES];
+    self.usersView.loadingViewVisible = YES;
 }
 
 - (void)modelDidLoad:(id)model {
     [self updateView];
-    [self.usersView setLoadingViewVisible:NO animated:NO];
+    self.usersView.loadingViewVisible = NO;
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    [self.usersView setLoadingViewVisible:NO animated:NO];
-}
-
-#pragma mark - 
-#pragma mark Private 
-
-- (void)updateView {
-    [self.usersView.tableView reloadData];
+    self.usersView.loadingViewVisible = NO;
 }
 
 @end

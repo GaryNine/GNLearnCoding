@@ -114,6 +114,7 @@
 		A8AB85A61D8196D400787F64 /* GNModelObserverProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GNModelObserverProtocol.h; path = ../UI/GNUsersViewController/GNModelObserverProtocol.h; sourceTree = "<group>"; };
 		A8AB85A91D86E3D700787F64 /* GNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNView.h; sourceTree = "<group>"; };
 		A8AB85AA1D86E3D700787F64 /* GNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNView.m; sourceTree = "<group>"; };
+		A8AB85EE1D881BE100787F64 /* GNSpinnerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNSpinnerView.h; sourceTree = "<group>"; };
 		A8BEC3FE1C7F0A07001B16AA /* GNArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNArrayModel.h; sourceTree = "<group>"; };
 		A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNArrayModel.m; sourceTree = "<group>"; };
 		A8C36CB81D6EE428007975EB /* NSFileManager+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GNExtensions.h"; sourceTree = "<group>"; };
@@ -458,6 +459,7 @@
 		A8AB85A81D86E33E00787F64 /* GNView */ = {
 			isa = PBXGroup;
 			children = (
+				A8AB85EE1D881BE100787F64 /* GNSpinnerView.h */,
 				A8AB85A91D86E3D700787F64 /* GNView.h */,
 				A8AB85AA1D86E3D700787F64 /* GNView.m */,
 			);
