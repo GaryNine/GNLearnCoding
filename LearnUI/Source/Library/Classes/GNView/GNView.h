@@ -13,9 +13,13 @@
 typedef void(^GNVoidBlock)(void);
 
 @interface GNView : UIView
-@property (nonatomic, strong)   GNLoadingView   *loadingView;
+@property (nonatomic, strong)   IBOutlet    GNLoadingView   *loadingView;
 
-- (void)setLoadingViewVisible:(BOOL)visible animated:(BOOL)animated;
-- (void)setLoadingViewVisible:(BOOL)visible animated:(BOOL)animated completionHandler:(GNVoidBlock)handler;
+@property (nonatomic, assign)   BOOL    loadingViewVisible;
+
+
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated;
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated
+            completionHandler:(GNVoidBlock)handler;
 
 @end

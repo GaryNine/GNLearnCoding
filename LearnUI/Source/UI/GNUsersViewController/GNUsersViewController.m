@@ -53,9 +53,8 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
-//    GNLoadingView *view = [GNLoadingView loadingViewInSuperview:self.usersView];
-//    [view setVisible:YES animated:YES completionHandler:nil];
+    [super viewDidLoad];
+    
     [self.users load];
     [self updateView];
 }
@@ -124,10 +123,6 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 #pragma mark -
 #pragma mark GNModelObserverProtocol
-
-- (void)modelDidUnload:(id)model {
-    [self.usersView setLoadingViewVisible:NO animated:NO];
-}
 
 - (void)modelWillLoad:(id)model {
     [self.usersView setLoadingViewVisible:YES animated:YES];

@@ -10,34 +10,46 @@
 
 @implementation GNView
 
+#pragma mark - 
+#pragma mark Initializations & Deallocations
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        self.loadingView = [GNLoadingView loadingViewInSuperview:self];
+    }
+    
+    return self;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setLoadingView:(GNLoadingView *)loadingView {
     if (_loadingView != loadingView) {
         [loadingView removeFromSuperview];
-        
         _loadingView = loadingView;
-        
-        loadingView.frame = self.bounds;
-        loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
         [self addSubview:loadingView];
     }
 }
 
-- (void)setLoadingViewVisible:(BOOL)visible  {
-    [self.loadingView setVisible:visible animated:YES];
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible  {
+    [self setLoadingViewVisible:loadingViewVisible animated:YES];
 }
 
-- (void)setLoadingViewVisible:(BOOL)visible animated:(BOOL)animated {
-    [self.loadingView setVisible:visible animated:animated completionHandler:nil];
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated {
+    [self setLoadingViewVisible:loadingViewVisible animated:animated completionHandler:nil];
 }
 
-- (void)setLoadingViewVisible:(BOOL)visible
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible
                      animated:(BOOL)animated
             completionHandler:(GNVoidBlock)handler {
-
+    if (_loadingViewVisible != loadingViewVisible) {
+        _loadingViewVisible = loadingViewVisible;
+        [self bringSubviewToFront:self.loadingView];
+        
+        [self.loadingView setVisible:loadingViewVisible animated:animated completionHandler:handler];
+    }
 }
-
 @end
