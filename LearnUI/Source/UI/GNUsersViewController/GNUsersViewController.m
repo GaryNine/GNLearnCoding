@@ -45,8 +45,7 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
         _users = users;
         [_users addObserver:self];
       
-//        [self.users load];
-        [self updateView];
+        [_users load];
     }
 }
 
@@ -57,19 +56,11 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
     [super viewDidLoad];
     
     [self.users load];
-    [self updateView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)updateView {
-    [self.usersView.tableView reloadData];
 }
 
 #pragma mark -
@@ -83,6 +74,13 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
 - (IBAction)onAddUser:(id)sender {
     GNUsers *users = self.users;
     [users addObject:[GNUser new]];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)updateView {
+    [self.usersView.tableView reloadData];
 }
 
 #pragma mark -

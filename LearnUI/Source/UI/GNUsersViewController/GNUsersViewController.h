@@ -11,12 +11,12 @@
 #import "GNLoadingView.h"
 
 #import "GNArrayModelObserver.h"
-#import "GNModelObserverProtocol.h"
+#import "GNModelObserver.h"
 
 @class GNUsers;
 
 @interface GNUsersViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,
-                                                    GNArrayModelObserver, GNModelObserverProtocol>
+                                                    GNArrayModelObserver, GNModelObserver>
 @property (nonatomic, strong)   GNUsers *users;
 
 - (IBAction)onEdit:(id)sender;
