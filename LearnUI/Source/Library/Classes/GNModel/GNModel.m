@@ -33,15 +33,19 @@
 #pragma mark Public
 
 - (void)load {
-    NSUInteger state = self.state;
-    if(state == kGNModelStateWillLoad | state == kGNModelStateDidLoad) {
-        [self notifyWithSelector:[self selectorForState:state]];
+    @synchronized (self) {
+        NSUInteger state = self.state;
+        if(kGNModelStateWillLoad == state | kGNModelStateDidLoad == state) {
+            [self notifyWithSelector:[self selectorForState:state]];
+            
+            return;
+        }
         
-        return;
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+            self.state = kGNModelStateWillLoad;
+            [self performBackgroundLoading];
+        });
     }
-    
-    state = kGNModelStateWillLoad;
-    [self performBackgroundLoading];
 }
 
 - (void)performBackgroundLoading {
