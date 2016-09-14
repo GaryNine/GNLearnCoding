@@ -49,7 +49,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Public
 
 - (void)save {
-        // нужно проверять есть ли уже папка
     if (!self.cached) {
         [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager appStatePath]
                                   withIntermediateDirectories:YES

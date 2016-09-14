@@ -41,6 +41,7 @@
             return;
         }
         
+        self.state = kGNModelStateWillLoad;
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
             [self performBackgroundLoading];
         });
