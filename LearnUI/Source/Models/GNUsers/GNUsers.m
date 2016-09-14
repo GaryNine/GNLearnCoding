@@ -19,9 +19,12 @@ static const NSUInteger kGNInitialUsersCount = 7;
 static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
-@property (nonatomic, assign)   BOOL    cached;
+@property (nonatomic, readonly) NSString    *archivePath;
+@property (nonatomic, assign)   BOOL        cached;
 
+- (NSArray *)loadUsers;
 - (void)fillWithUsers:(NSArray *)users;
+- (void)cleanupAfterProcessing;
 
 @end
 
@@ -46,35 +49,39 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 #pragma mark Public
 
 - (void)save {
-    [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager appStatePath]
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:nil];
+        // нужно проверять есть ли уже папка
+    if (!self.cached) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:[NSFileManager appStatePath]
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:nil];
+    }
     
     [NSKeyedArchiver archiveRootObject:self.objects toFile:self.archivePath];
 }
 
-- (void)load {
+- (void)performBackgroundLoading {
+    @synchronized (self) {
+        [self fillWithUsers:[self loadUsers]];
+        [self cleanupAfterProcessing];
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (NSArray *)loadUsers {
     NSArray *users = nil;
     if (self.cached) {
         users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
     }
     
     if(!users) {
-//        self.state = kGNModelStateWillLoad;
-//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-            [self fillWithUsers:[GNUser objectsWithCount:kGNInitialUsersCount]];
-//            
-//            dispatch_sync(dispatch_get_main_queue(), ^ {
-//                [self cleanAfterProcessing];
-//            });
-//
-//        });
+        users = [GNUser objectsWithCount:kGNInitialUsersCount];
     }
+    
+    return users;
 }
-
-#pragma mark -
-#pragma mark Private
 
 - (void)fillWithUsers:(NSArray *)users {
     GNWeakify(self);
@@ -85,33 +92,11 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
         }
     }];
 }
-//
-//- (void)cleanAfterProcessing {
-//    @synchronized (self) {
-//        self.state = kGNModelStateDidLoad;
-//    }
-//}
-//
-//#pragma mark -
-//#pragma mark GNObservableObject
-//
-//- (SEL)selectorForState:(NSUInteger)state {
-//    switch (state) {
-//        case kGNModelStateDidUnload:
-//            return @selector(modelDidUnload:);
-//            
-//        case kGNModelStateWillLoad:
-//            return @selector(modelWillLoad:);
-//            
-//        case kGNModelStateDidLoad:
-//            return @selector(modelDidLoad:);
-//            
-//        case kGNModelStateDidFailWithLoading:
-//            return @selector(modelDidFailWithLoading:);
-//            
-//        default:
-//            return [super selectorForState:state];
-//    }
-//}
+
+- (void)cleanupAfterProcessing {
+    @synchronized (self) {
+        self.state = kGNModelStateDidLoad;
+    }
+}
 
 @end
