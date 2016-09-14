@@ -10,13 +10,9 @@
 
 #import "GNLoadingView.h"
 
-@interface GNView()
-
-- (id)spinnerView;
-
-@end
-
 @implementation GNView
+
+@dynamic loadingViewVisible;
 
 #pragma mark - 
 #pragma mark Initializations & Deallocations
@@ -29,6 +25,14 @@
     }
     
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    if (!self.loadingView) {
+        self.loadingView = [self spinnerView];
+    }
 }
 
 #pragma mark -
@@ -52,19 +56,20 @@
 
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible
                      animated:(BOOL)animated
-            completionHandler:(GNVoidBlock)handler {
-    if (_loadingViewVisible != loadingViewVisible) {
-        _loadingViewVisible = loadingViewVisible;
-        [self bringSubviewToFront:self.loadingView];
-        
-        [self.loadingView setVisible:loadingViewVisible animated:animated completionHandler:handler];
-    }
+            completionHandler:(GNVoidBlock)handler
+{
+    [self bringSubviewToFront:self.loadingView];
+    [self.loadingView setVisible:loadingViewVisible animated:animated completionHandler:handler];
+}
+
+- (BOOL)loadingViewVisible {
+    return self.loadingView.visible;
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
-- (id)spinnerView {
+- (UIView<GNSpinnerView> *)spinnerView {
     return [GNLoadingView loadingViewInSuperview:self];
 }
 
