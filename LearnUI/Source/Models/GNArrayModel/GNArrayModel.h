@@ -6,9 +6,9 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNObservableObject.h"
+#import "GNModel.h"
 
-@interface GNArrayModel : GNObservableObject
+@interface GNArrayModel : GNModel
 @property (nonatomic, readonly)   NSArray     *objects;
 @property (nonatomic, readonly)   NSUInteger  count;
 
