@@ -131,12 +131,16 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 #pragma mark GNModelObserverProtocol
 
 - (void)modelWillLoad:(id)model {
-    self.usersView.loadingViewVisible = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.usersView.loadingViewVisible = YES;
+    });
 }
 
 - (void)modelDidLoad:(id)model {
-    [self updateView];
-    self.usersView.loadingViewVisible = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateView];
+        self.usersView.loadingViewVisible = NO;
+    });
 }
 
 - (void)modelDidFailWithLoading:(id)model {
