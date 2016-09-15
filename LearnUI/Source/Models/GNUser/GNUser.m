@@ -16,6 +16,12 @@ static NSString * const kGNImageType = @"jpg";
 static NSString * const kGNName = @"name";
 static NSString * const kGNSurname = @"surname";
 
+@interface GNUser ()
+
+- (void)cleanupAfterProcessing;
+
+@end
+
 @implementation GNUser
 
 @dynamic fullName;
@@ -50,6 +56,25 @@ static NSString * const kGNSurname = @"surname";
         _image = [UIImage imageWithContentsOfFile:path];
     });
     return _image;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)performBackgroundLoading {
+    [self fullName];
+    [self image];
+    [self cleanupAfterProcessing];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)cleanupAfterProcessing {
+    @synchronized (self) {
+//        self.state = kGNModelStateDidLoad;
+        [self setState:kGNModelStateDidLoad withObject:self];
+    }
 }
 
 #pragma mark -

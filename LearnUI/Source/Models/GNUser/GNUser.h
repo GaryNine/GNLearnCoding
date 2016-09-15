@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "GNObservableObject.h"
+#import "GNModel.h"
 
-@interface GNUser : GNObservableObject <NSCoding>
+@interface GNUser : GNModel <NSCoding>
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;
 @property (nonatomic, readonly) NSString    *fullName;
