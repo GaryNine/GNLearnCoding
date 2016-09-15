@@ -60,10 +60,8 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 }
 
 - (void)performBackgroundLoading {
-    @synchronized (self) {
-        [self fillWithUsers:[self loadUsers]];
-        [self cleanupAfterProcessing];
-    }
+    [self fillWithUsers:[self loadUsers]];
+    [self cleanupAfterProcessing];
 }
 
 #pragma mark -

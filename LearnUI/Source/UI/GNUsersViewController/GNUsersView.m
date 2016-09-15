@@ -16,6 +16,7 @@ static NSString * const kGNTitleDone = @"Done";
 @dynamic editing;
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.tableView.layer.cornerRadius = 10;
 }
 
