@@ -9,14 +9,14 @@
 #import "GNTableViewCell.h"
 
 @class GNUser;
-@class GNLoadingView;
+@class GNView;
 
 @interface GNUserCell : GNTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel        *label;
 @property (nonatomic, strong)   IBOutlet UIImageView    *contentImageView;
 
-@property (nonatomic, strong)   GNUser          *user;
-@property (nonatomic, strong)   GNLoadingView   *loadingView;
+@property (nonatomic, strong)   GNUser  *user;
+@property (nonatomic, strong)   GNView  *view;
 
 - (void)fillWithModel:(GNUser *)user;
 

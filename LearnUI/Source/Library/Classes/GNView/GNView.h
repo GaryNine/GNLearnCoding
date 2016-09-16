@@ -16,8 +16,6 @@ typedef void(^GNVoidBlock)(void);
 @property (nonatomic, strong)   IBOutlet    UIView<GNSpinnerView>  *loadingView;
 @property (nonatomic, assign)               BOOL                    loadingViewVisible;
 
-- (UIView<GNSpinnerView> *)spinnerView;
-
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated;
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated
             completionHandler:(GNVoidBlock)handler;

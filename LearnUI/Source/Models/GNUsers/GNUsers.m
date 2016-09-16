@@ -20,11 +20,10 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
 @property (nonatomic, readonly) NSString    *archivePath;
-@property (nonatomic, assign)   BOOL        cached;
+@property (nonatomic, readonly) BOOL        cached;
 
 - (NSArray *)loadUsers;
 - (void)fillWithUsers:(NSArray *)users;
-- (void)cleanupAfterProcessing;
 
 @end
 
@@ -42,7 +41,7 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 - (BOOL)cached {
     NSFileManager *manager = [NSFileManager defaultManager];
-    return [manager fileExistsAtPath:[NSFileManager appStatePath]];
+    return [manager fileExistsAtPath:self.archivePath];
 }
 
 #pragma mark -
@@ -60,8 +59,14 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 }
 
 - (void)performBackgroundLoading {
-    [self fillWithUsers:[self loadUsers]];
-    [self cleanupAfterProcessing];
+    id users = [self loadUsers];
+    [self performBlockWithoutNotifications:^{
+        for (id user in users) {
+            [self addObject:user];
+        }
+    }];
+
+    self.state = kGNModelStateDidLoad;
 }
 
 #pragma mark -
@@ -78,22 +83,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     }
     
     return users;
-}
-
-- (void)fillWithUsers:(NSArray *)users {
-    GNWeakify(self);
-    [self performBlockWithoutNotifications:^{
-        GNStrongify(self);
-        for (id user in users) {
-            [self addObject:user];
-        }
-    }];
-}
-
-- (void)cleanupAfterProcessing {
-    @synchronized (self) {
-        self.state = kGNModelStateDidLoad;
-    }
 }
 
 @end

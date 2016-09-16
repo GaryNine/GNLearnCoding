@@ -10,6 +10,12 @@
 
 #import "GNLoadingView.h"
 
+@interface GNView ()
+
+- (UIView<GNSpinnerView> *)spinnerView;
+
+@end
+
 @implementation GNView
 
 @dynamic loadingViewVisible;
@@ -67,7 +73,7 @@
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Private
 
 - (UIView<GNSpinnerView> *)spinnerView {
     return [GNLoadingView loadingViewInSuperview:self];

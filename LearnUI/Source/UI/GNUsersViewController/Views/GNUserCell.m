@@ -9,23 +9,9 @@
 #import "GNUserCell.h"
 
 #import "GNUser.h"
-
-#import "GNLoadingView.h"
+#import "GNView.h"
 
 @implementation GNUserCell
-
-#pragma mark -
-#pragma mark Initializations & Deallocations
-
-- (instancetype)init {
-    self = [super init];
-    
-    if (self) {
-        self.loadingView = [GNLoadingView loadingViewInSuperview:self];
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -53,20 +39,20 @@
 
 - (void)modelWillLoad:(id)model {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.loadingView setVisible:YES animated:YES];
+        [self.view setLoadingViewVisible:YES animated:YES];
     });
 }
 
 - (void)modelDidLoad:(id)model {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self fillWithModel:model];
-        [self.loadingView setVisible:NO animated:NO];
+        [self.view setLoadingViewVisible:NO animated:NO];
     });
 
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    [self.loadingView setVisible:NO animated:NO];
+    [self.view setLoadingViewVisible:NO animated:NO];
 }
 
 @end
