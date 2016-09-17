@@ -56,6 +56,7 @@ static NSString * const kGNSurname = @"surname";
 #pragma mark Public
 
 - (void)performBackgroundLoading {
+    sleep(1);
     [self image];
     self.state = kGNModelStateDidLoad;
 }

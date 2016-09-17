@@ -14,9 +14,9 @@
 @interface GNUserCell : GNTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel        *label;
 @property (nonatomic, strong)   IBOutlet UIImageView    *contentImageView;
+@property (nonatomic, strong)   IBOutlet GNView         *view;
 
 @property (nonatomic, strong)   GNUser  *user;
-@property (nonatomic, strong)   GNView  *view;
 
 - (void)fillWithModel:(GNUser *)user;
 

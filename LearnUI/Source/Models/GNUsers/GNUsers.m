@@ -23,7 +23,6 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 @property (nonatomic, readonly) BOOL        cached;
 
 - (NSArray *)loadUsers;
-- (void)fillWithUsers:(NSArray *)users;
 
 @end
 
@@ -59,6 +58,7 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 }
 
 - (void)performBackgroundLoading {
+    sleep(2);
     id users = [self loadUsers];
     [self performBlockWithoutNotifications:^{
         for (id user in users) {
