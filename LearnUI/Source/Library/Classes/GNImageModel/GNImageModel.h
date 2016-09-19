@@ -7,7 +7,6 @@
 //
 
 //1. Создать модель изображения, которая бы удовлетворяла следующим требованиям:
-//- должна получать при создании URL картинки;
 //- имя закешированного файла должно генерировацца из URL;
 //- путь файла должен генерировацца в отдельном методе;
 //- при вызове метода load, должна проверить, закешировано ли изображение и:
@@ -27,13 +26,17 @@
 
 #import "GNModel.h"
 
+static NSString * const kGNURL = @"https://pixabay.com/en/autobots-logo-logo-design-1625828/";
+static NSString * const kGNImage = @"image";
+
 @interface GNImageModel : GNModel
 @property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, strong)   NSURL   *url;
-@property (nonatomic, readonly) BOOL    cached;
+@property (nonatomic, readonly) NSURL   *url;
 
 + (instancetype)imageWithURL:(NSURL *)url;
-- (instancetype)initWithURL:(NSURL *)url;
 
+- (instancetype)initWithURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
+
+- (void)load;
 
 @end

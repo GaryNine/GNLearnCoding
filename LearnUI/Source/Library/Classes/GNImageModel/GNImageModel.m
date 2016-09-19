@@ -10,11 +10,19 @@
 #import "NSFileManager+GNExtensions.h"
 
 @interface GNImageModel ()
-@property (nonatomic, readonly) NSString    *filePath;
+@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   NSURL       *url;
+@property (nonatomic, strong)   NSString    *name;  //?
+
+- (NSString *)imagePath;
+- (void)loadFromFileSystem;
+- (void)loadFromWeb;
+- (NSOperationQueue *)queue;
 
 @end
 
 @implementation GNImageModel
+@dynamic path;
 
 #pragma mark -
 #pragma makr Class Methods
@@ -24,48 +32,75 @@
 }
 
 #pragma mark -
-#pragma mark Initializations & Deallocations 
+#pragma mark Initializations & Deallocations
 
 - (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
     
     if (self) {
-        
+        self.url = url;
     }
     
     return self;
 }
 
-- (BOOL)cached {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    return [manager fileExistsAtPath:self.filePath];
+- (instancetype)init {
+    return [self initWithURL:nil];
 }
 
-- (void)load {
-    if (!self.cached) {
-        //- должна асинхронно загрузить из интернета картинку;
-        //- в бекграунде сохранить ее на жесткий диск;
-        //- создать из данных, загруженных из интернета картинку;
-        //- сообщить наблюдателям о том, что загрузилась;
-    } else {
-        //- загрузить картинку из файла, закешированного в файловой системе;
-        //- сообщить наблюдателям о том, что загрузилась;
-        //- при неконсистентности закешированного изображения должна удалить его и начать процесс загрузки из интернета
-        //- при ошибке во время загрузки из интернета, должна нотифицировать наблюдателей об ошибке загрузки;
-        //- должна иметь возможность отменить загрузку, что приводит к обнулению закачанных данных или изображения по факту загрузки;
-    }
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)path {
+    return [self imagePath];
 }
+
+- (NSURL *)url {
+    return [NSURL URLWithString:kGNURL];
+}
+
+#pragma mark -
+#pragma mark Public
 
 - (void)performBackgroundLoading {
     
 }
 
-- (NSString *)cachedFileName {
-    //- имя закешированного файла должно генерировацца из URL;
+- (void)load {
+    if (!self.cached) {
+        [self loadFromWeb];
+    } else {
+        [self loadFromFileSystem];
+    }
 }
 
-- (NSString *)filePath {
+#pragma mark -
+#pragma mark Private
+
+- (NSString *)imagePath {
+    return  [[NSFileManager imagePath] stringByAppendingPathComponent:kGNImage];
+}
+
+- (void)loadFromFileSystem {
+    self.image = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+    self.state = kGNModelStateDidLoad;
+    if () {
+        
+    }
+}
+
+- (void)loadFromWeb {
     
+    
+}
+
+- (NSOperationQueue *)queue {
+    static NSOperationQueue *queue = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        queue = [NSOperationQueue new];
+        queue.maxConcurrentOperationCount = 2;
+    });
 }
 
 @end
