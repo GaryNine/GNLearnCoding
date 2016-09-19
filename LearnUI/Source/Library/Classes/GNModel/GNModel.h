@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger, GNModelState) {
 };
 
 @interface GNModel : GNObservableObject
+@property (nonatomic, readonly) BOOL        cached;
+@property (nonatomic, readonly) NSString    *path;
 
 - (void)load;
 

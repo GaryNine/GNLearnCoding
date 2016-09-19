@@ -12,6 +12,9 @@
 
 @implementation GNModel
 
+@dynamic cached;
+@dynamic path;
+
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
@@ -27,6 +30,19 @@
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)cached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+}
+
+
+// This method should be overriden in subclasses
+- (NSString *)path {
+    return nil;
 }
 
 #pragma mark -

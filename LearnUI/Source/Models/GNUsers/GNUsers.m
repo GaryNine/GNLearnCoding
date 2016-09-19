@@ -19,8 +19,6 @@ static const NSUInteger kGNInitialUsersCount = 7;
 static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
-@property (nonatomic, readonly) NSString    *archivePath;
-@property (nonatomic, readonly) BOOL        cached;
 
 - (NSArray *)loadUsers;
 
@@ -28,19 +26,13 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @implementation GNUsers
 
-@dynamic archivePath;
-@dynamic cached;
+@dynamic path;
 
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)archivePath {
+- (NSString *)path {
     return [[NSFileManager appStatePath] stringByAppendingPathComponent:kGNArchiveFileName];
-}
-
-- (BOOL)cached {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    return [manager fileExistsAtPath:self.archivePath];
 }
 
 #pragma mark -
@@ -54,7 +46,7 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
                                                         error:nil];
     }
     
-    [NSKeyedArchiver archiveRootObject:self.objects toFile:self.archivePath];
+    [NSKeyedArchiver archiveRootObject:self.objects toFile:self.path];
 }
 
 - (void)performBackgroundLoading {
@@ -75,7 +67,7 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
 - (NSArray *)loadUsers {
     NSArray *users = nil;
     if (self.cached) {
-        users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.archivePath];
+        users = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
     }
     
     if(!users) {
