@@ -27,7 +27,6 @@
 #import "GNModel.h"
 
 static NSString * const kGNURL = @"https://pixabay.com/en/autobots-logo-logo-design-1625828/";
-static NSString * const kGNImage = @"image";
 
 @interface GNImageModel : GNModel
 @property (nonatomic, readonly) UIImage *image;

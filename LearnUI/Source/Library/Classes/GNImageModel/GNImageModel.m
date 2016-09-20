@@ -12,12 +12,9 @@
 @interface GNImageModel ()
 @property (nonatomic, strong)   UIImage     *image;
 @property (nonatomic, strong)   NSURL       *url;
-@property (nonatomic, strong)   NSString    *name;  //?
+@property (nonatomic, strong)   NSString    *name;
 
 - (NSString *)imagePath;
-- (void)loadFromFileSystem;
-- (void)loadFromWeb;
-- (NSOperationQueue *)queue;
 
 @end
 
@@ -59,6 +56,10 @@
     return [NSURL URLWithString:kGNURL];
 }
 
+- (NSString *)name {
+    return [self.url.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
+}
+
 #pragma mark -
 #pragma mark Public
 
@@ -68,9 +69,9 @@
 
 - (void)load {
     if (!self.cached) {
-        [self loadFromWeb];
+
     } else {
-        [self loadFromFileSystem];
+
     }
 }
 
@@ -78,29 +79,7 @@
 #pragma mark Private
 
 - (NSString *)imagePath {
-    return  [[NSFileManager imagePath] stringByAppendingPathComponent:kGNImage];
-}
-
-- (void)loadFromFileSystem {
-    self.image = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-    self.state = kGNModelStateDidLoad;
-    if () {
-        
-    }
-}
-
-- (void)loadFromWeb {
-    
-    
-}
-
-- (NSOperationQueue *)queue {
-    static NSOperationQueue *queue = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        queue = [NSOperationQueue new];
-        queue.maxConcurrentOperationCount = 2;
-    });
+    return  [[NSFileManager imagePath] stringByAppendingPathComponent:self.name];
 }
 
 @end
