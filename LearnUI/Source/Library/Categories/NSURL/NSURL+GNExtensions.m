@@ -10,11 +10,11 @@
 
 @implementation NSURL (GNExtensions)
 
-- (NSString *)nameFromURL:(NSURL *)url {
++ (NSString *)nameFromURL:(NSURL *)url {
     return [url.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
 }
 
-- (NSString *)nameFromURL:(NSURL *)url withCharacters:(NSCharacterSet *)characterSet {
++ (NSString *)nameFromURL:(NSURL *)url withCharacters:(NSCharacterSet *)characterSet {
     return [url.path stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
 }
 
