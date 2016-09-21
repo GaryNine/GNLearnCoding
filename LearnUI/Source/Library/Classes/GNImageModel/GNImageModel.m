@@ -11,9 +11,11 @@
 #import "NSURL+GNExtensions.h"
 
 @interface GNImageModel ()
-@property (nonatomic, strong)   UIImage     *image;
-@property (nonatomic, strong)   NSURL       *url;
-@property (nonatomic, strong)   NSString    *name;
+@property (nonatomic, strong)   UIImage         *image;
+@property (nonatomic, strong)   NSURL           *url;
+@property (nonatomic, strong)   NSString        *name;
+@property (nonatomic, strong)   NSURLSession    *session;  // 
+
 
 - (NSString *)imagePath;
 
@@ -50,7 +52,7 @@
 #pragma mark Accessors
 
 - (NSString *)path {
-    return [self imagePath];
+    return [[self imagePath] stringByAppendingPathComponent:kGNImagePath];
 }
 
 - (NSURL *)url {
@@ -71,7 +73,10 @@
 - (void)load {
     if (!self.cached) {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-            
+            //- должна асинхронно загрузить из интернета картинку;
+            //- в бекграунде сохранить ее на жесткий диск;
+            //- создать из данных, загруженных из интернета картинку;
+            //- сообщить наблюдателям о том, что загрузилась;
         });
     } else {
 
