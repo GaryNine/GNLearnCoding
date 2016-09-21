@@ -16,6 +16,7 @@
 		A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB031C67D2D4003CE7D7 /* GNSquareView.m */; };
 		A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */; };
 		A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */; };
+		A81048251D92BDAD00CBF182 /* NSURL+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A81048241D92BDAD00CBF182 /* NSURL+GNExtensions.m */; };
 		A839900E1D8AC1B6006D9672 /* GNImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A839900D1D8AC1B6006D9672 /* GNImageModel.m */; };
 		A84391E11D8DE1DB00F7F00D /* GNImageModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A84391E01D8DE1DB00F7F00D /* GNImageModelCache.m */; };
 		A84391E51D8DE36100F7F00D /* GNImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A84391E41D8DE36100F7F00D /* GNImageView.m */; };
@@ -72,6 +73,8 @@
 		A80CBB041C67D2D4003CE7D7 /* GNSquareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNSquareView.xib; sourceTree = "<group>"; };
 		A80CBB081C68E1FB003CE7D7 /* CGGeometry+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+GNExtensions.h"; sourceTree = "<group>"; };
 		A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+GNExtensions.m"; sourceTree = "<group>"; };
+		A81048231D92BDAD00CBF182 /* NSURL+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GNExtensions.h"; sourceTree = "<group>"; };
+		A81048241D92BDAD00CBF182 /* NSURL+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GNExtensions.m"; sourceTree = "<group>"; };
 		A839900C1D8AC1B6006D9672 /* GNImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNImageModel.h; sourceTree = "<group>"; };
 		A839900D1D8AC1B6006D9672 /* GNImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNImageModel.m; sourceTree = "<group>"; };
 		A84391DF1D8DE1DB00F7F00D /* GNImageModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNImageModelCache.h; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A81048211D92BD3D00CBF182 /* NSURL */,
 				A8C36CBD1D6F0AF9007975EB /* NSPathUtilities */,
 				A8C36CB71D6EE3B2007975EB /* NSFileManager */,
 				A89259531C9050B000F8CF90 /* NSIndexPath */,
@@ -280,6 +284,15 @@
 				A80CBB091C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m */,
 			);
 			path = CGGeometry;
+			sourceTree = "<group>";
+		};
+		A81048211D92BD3D00CBF182 /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				A81048231D92BDAD00CBF182 /* NSURL+GNExtensions.h */,
+				A81048241D92BDAD00CBF182 /* NSURL+GNExtensions.m */,
+			);
+			path = NSURL;
 			sourceTree = "<group>";
 		};
 		A839900B1D8ABEFA006D9672 /* GNImageModel */ = {
@@ -701,6 +714,7 @@
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A89259461C8F739500F8CF90 /* GNCollectionChangeModel+UITableView.m in Sources */,
 				A89259681C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m in Sources */,
+				A81048251D92BDAD00CBF182 /* NSURL+GNExtensions.m in Sources */,
 				A892595F1C917F6700F8CF90 /* GNSingleIndexCollectionChangeModel+UITableView.m in Sources */,
 				A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */,
 				A84391E11D8DE1DB00F7F00D /* GNImageModelCache.m in Sources */,

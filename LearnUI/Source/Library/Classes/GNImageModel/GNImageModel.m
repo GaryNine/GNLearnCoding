@@ -8,6 +8,7 @@
 
 #import "GNImageModel.h"
 #import "NSFileManager+GNExtensions.h"
+#import "NSURL+GNExtensions.h"
 
 @interface GNImageModel ()
 @property (nonatomic, strong)   UIImage     *image;
@@ -57,19 +58,21 @@
 }
 
 - (NSString *)name {
-    return [self.url.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
+    return [NSURL nameFromURL:self.url];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)performBackgroundLoading {
-    
+    // сохранить на жесткий диск
 }
 
 - (void)load {
     if (!self.cached) {
-
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+            
+        });
     } else {
 
     }
