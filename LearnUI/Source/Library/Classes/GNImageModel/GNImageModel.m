@@ -19,6 +19,7 @@
 @property (nonatomic, strong)   NSURLSessionTask    *task;
 
 - (NSString *)imagePath;
+- (void)loadFromWeb;
 
 @end
 
@@ -95,38 +96,15 @@
 
 - (void)load {
     if (!self.cached) {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-            NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
-                                                                 completionHandler:
-                                              ^(NSURL *location, NSURLResponse *response, NSError *error)
-                                              {
-                                                  UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
-                                                  if (image) {
-                                                      [[NSFileManager defaultManager] moveItemAtURL:location
-                                                                                              toURL:[NSURL fileURLWithPath:self.path]
-                                                                                              error:nil];
-                                                      self.state = kGNModelStateDidLoad;
-                                                  }
-                                              }];
-            [task resume];
-            
-            //- должна асинхронно загрузить из интернета картинку;
-            //- в бекграунде сохранить ее на жесткий диск;
-            //- создать из данных, загруженных из интернета картинку;
-            //- сообщить наблюдателям о том, что загрузилась;
-        });
+        [self loadFromWeb];
     } else {
         UIImage *image = [UIImage imageWithContentsOfFile:self.path];
         if (image) {
             self.state = kGNModelStateDidLoad;
         } else {
             [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
+            [self loadFromWeb];
         }
-        //- загрузить картинку из файла, закешированного в файловой системе;
-        //- сообщить наблюдателям о том, что загрузилась;
-        //- при неконсистентности закешированного изображения должна удалить его и начать процесс загрузки из интернета
-        //- при ошибке во время загрузки из интернета, должна нотифицировать наблюдателей об ошибке загрузки;
-        //- должна иметь возможность отменить загрузку, что приводит к обнулению закачанных данных или изображения по факту загрузки;
     }
 }
 
@@ -135,6 +113,29 @@
 
 - (NSString *)imagePath {
     return  [[NSFileManager imagePath] stringByAppendingPathComponent:self.name];
+}
+
+- (void)loadFromWeb {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
+                                                             completionHandler:
+                                          ^(NSURL *location, NSURLResponse *response, NSError *error)
+                                          {
+                                              if (error) {
+                                                  self.state = kGNModelStateDidFailWithLoading;
+                                                  
+                                                  return;
+                                              }
+                                              UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+                                              if (image) {
+                                                  [[NSFileManager defaultManager] moveItemAtURL:location
+                                                                                          toURL:[NSURL fileURLWithPath:self.path]
+                                                                                          error:nil];
+                                                  self.state = kGNModelStateDidLoad;
+                                              }
+                                          }];
+        [task resume];
+    });
 }
 
 @end
