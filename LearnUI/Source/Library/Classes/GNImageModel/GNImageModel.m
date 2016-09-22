@@ -91,7 +91,6 @@
 #pragma mark Public
 
 - (void)performBackgroundLoading {
-    // сохранить на жесткий диск
 }
 
 - (void)load {
