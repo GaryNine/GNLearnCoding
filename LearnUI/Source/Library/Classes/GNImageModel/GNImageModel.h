@@ -23,6 +23,8 @@
 
 #import "GNModel.h"
 
+@class GNImageModelCache;
+
 static NSString * const kGNURL = @"https://pixabay.com/en/autobots-logo-logo-design-1625828/";
 static NSString * const kGNImagePath = @"image";
 
@@ -35,5 +37,7 @@ static NSString * const kGNImagePath = @"image";
 - (instancetype)initWithURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
 
 - (void)load;
+
++ (GNImageModelCache *)imageModelCache;
 
 @end
