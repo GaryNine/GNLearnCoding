@@ -116,26 +116,24 @@
 }
 
 - (void)loadFromWeb {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-        NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
-                                                             completionHandler:
-                                          ^(NSURL *location, NSURLResponse *response, NSError *error)
-                                          {
-                                              if (error) {
-                                                  self.state = kGNModelStateDidFailWithLoading;
-                                                  
-                                                  return;
-                                              }
-                                              UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
-                                              if (image) {
-                                                  [[NSFileManager defaultManager] moveItemAtURL:location
-                                                                                          toURL:[NSURL fileURLWithPath:self.path]
-                                                                                          error:nil];
-                                                  self.state = kGNModelStateDidLoad;
-                                              }
-                                          }];
-        [task resume];
-    });
+    NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
+                                                         completionHandler:
+                                      ^(NSURL *location, NSURLResponse *response, NSError *error)
+                                      {
+                                          if (error) {
+                                              self.state = kGNModelStateDidFailWithLoading;
+                                              
+                                              return;
+                                          }
+                                          UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+                                          if (image) {
+                                              [[NSFileManager defaultManager] moveItemAtURL:location
+                                                                                      toURL:[NSURL fileURLWithPath:self.path]
+                                                                                      error:nil];
+                                              self.state = kGNModelStateDidLoad;
+                                          }
+                                      }];
+    [task resume];
 }
 
 @end
