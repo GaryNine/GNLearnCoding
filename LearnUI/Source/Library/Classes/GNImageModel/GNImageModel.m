@@ -9,17 +9,15 @@
 #import "GNImageModel.h"
 #import "NSFileManager+GNExtensions.h"
 #import "NSURL+GNExtensions.h"
-#import "GNCacheModel.h"
 
 @interface GNImageModel ()
 @property (nonatomic, strong)   UIImage             *image;
-@property (nonatomic, strong)   NSString            *name;
-@property (nonatomic, strong)   NSURL               *url;
+@property (nonatomic, copy)     NSString            *name;
+@property (nonatomic, copy)     NSURL               *url;
 @property (nonatomic, readonly) NSURLRequest        *request;
 @property (nonatomic, readonly) NSURLSession        *session;
 @property (nonatomic, strong)   NSURLSessionTask    *task;
 
-- (NSString *)imagePath;
 - (void)loadFromWeb;
 
 @end
@@ -28,6 +26,8 @@
 @dynamic path;
 @dynamic session;
 @dynamic request;
+@dynamic name;
+@dynamic url;
 
 #pragma mark -
 #pragma makr Class Methods
@@ -45,10 +45,7 @@
 
 - (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
-    
-    if (self) {
-        self.url = url;
-    }
+    self.url = url;
     
     return self;
 }
@@ -61,7 +58,7 @@
 #pragma mark Accessors
 
 - (NSString *)path {
-    return [[self imagePath] stringByAppendingPathComponent:kGNImagePath];
+    return [[NSFileManager imagePath] stringByAppendingPathComponent:self.name];
 }
 
 - (NSURL *)url {
@@ -110,10 +107,6 @@
 
 #pragma mark -
 #pragma mark Private
-
-- (NSString *)imagePath {
-    return  [[NSFileManager imagePath] stringByAppendingPathComponent:self.name];
-}
 
 - (void)loadFromWeb {
     NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
