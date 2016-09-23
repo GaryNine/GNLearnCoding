@@ -66,16 +66,15 @@
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
+    GNCacheModel *cache = [GNCacheModel cache];
+    id object = [cache objectForKey:url];
+    if (object) {
+        return object;
+    }
+    
     self = [super init];
     self.url = url;
-    
-    GNCacheModel *cache = [GNCacheModel new];
-    id object = [cache objectForKey:url];
-    if (!object) {
-        [cache setObject:self forKey:url];
-    } else {
-        self = object;
-    }
+    [cache setObject:self forKey:url];
     
     return self;
 }
