@@ -6,9 +6,30 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
+//1. Создать модель изображения, которая бы удовлетворяла следующим требованиям:
+//- при вызове метода load, должна проверить, закешировано ли изображение и:
+//а. если не закешировано, то должна:
+//- должна асинхронно загрузить из интернета картинку;
+//- в бекграунде сохранить ее на жесткий диск;
+//- создать из данных, загруженных из интернета картинку;
+//- сообщить наблюдателям о том, что загрузилась;
+//б. если закешировано, то должна:
+//- загрузить картинку из файла, закешированного в файловой системе;
+//- сообщить наблюдателям о том, что загрузилась;
+//- при неконсистентности закешированного изображения должна удалить его и начать процесс загрузки из интернета
+//- при ошибке во время загрузки из интернета, должна нотифицировать наблюдателей об ошибке загрузки;
+//- должна иметь возможность отменить загрузку, что приводит к обнулению закачанных данных или изображения по факту загрузки;
+
+
+//3. Интегрировать кеш изображений в модели изображений для того, чтобы гарантировать, что если у нас либо еще нет моделей, управляющих картинкой по данному урлу, либо она только одна и уникальна. При интеграции должно быть соблюдено следующее поведение:
+//- создается модель с определенным урлом и по этому урлу добавляется в кеш
+//- создается еще одна модель по тому же урлу, от нее надо избавится в ините и взамен вернуть модель из кеша;
+//- при деаллокации модель надо убрать из кеша;
+
 #import "GNImageModel.h"
 #import "NSFileManager+GNExtensions.h"
 #import "NSURL+GNExtensions.h"
+#import "GNCacheModel.h"
 
 @interface GNImageModel ()
 @property (nonatomic, strong)   UIImage             *image;
@@ -19,6 +40,7 @@
 @property (nonatomic, strong)   NSURLSessionTask    *task;
 
 - (void)loadFromWeb;
+- (void)loadFromDisk;
 
 @end
 
@@ -46,6 +68,14 @@
 - (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
     self.url = url;
+    
+    GNCacheModel *cache = [GNCacheModel new];
+    id object = [cache objectForKey:url];
+    if (!object) {
+        [cache setObject:self forKey:url];
+    } else {
+        self = object;
+    }
     
     return self;
 }
@@ -89,19 +119,14 @@
 #pragma mark Public
 
 - (void)performBackgroundLoading {
+
 }
 
 - (void)load {
     if (!self.cached) {
         [self loadFromWeb];
     } else {
-        UIImage *image = [UIImage imageWithContentsOfFile:self.path];
-        if (image) {
-            self.state = kGNModelStateDidLoad;
-        } else {
-            [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
-            [self loadFromWeb];
-        }
+        [self loadFromDisk];
     }
 }
 
@@ -128,5 +153,17 @@
                                       }];
     [task resume];
 }
+
+- (void)loadFromDisk {
+    UIImage *image = [UIImage imageWithContentsOfFile:self.path];
+    if (!image) {
+        self.state = kGNModelStateDidFailWithLoading;
+        [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
+        [self loadFromWeb];
+    }
+    self.state = kGNModelStateDidLoad;
+}
+
+
 
 @end
