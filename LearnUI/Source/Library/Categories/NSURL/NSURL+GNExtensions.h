@@ -13,4 +13,6 @@
 + (NSString *)nameFromURL:(NSURL *)url;
 + (NSString *)nameFromURL:(NSURL *)url withCharacters:(NSCharacterSet *)characterSet;
 
+- (NSString *)fileName;
+
 @end

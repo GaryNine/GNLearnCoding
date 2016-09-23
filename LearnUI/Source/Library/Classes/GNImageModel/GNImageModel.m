@@ -66,7 +66,7 @@
 }
 
 - (NSString *)name {
-    return [NSURL nameFromURL:self.url];
+    return [self.url fileName];
 }
 
 - (NSURLSession *)session {
