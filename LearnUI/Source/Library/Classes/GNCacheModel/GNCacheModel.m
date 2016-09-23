@@ -6,9 +6,28 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNImageModelCache.h"
+#import "GNCacheModel.h"
 
-@implementation GNImageModelCache
+@interface GNCacheModel ()
+@property (nonatomic, strong)   NSMapTable  *models;
+
+@end
+
+@implementation GNCacheModel
+@dynamic keys;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (GNCacheModel *)cache {
+    static id cache = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cache = [GNCacheModel new];
+    });
+    
+    return cache;
+}
 
 #pragma mark -
 #pragma mark Initializations & Deallocations

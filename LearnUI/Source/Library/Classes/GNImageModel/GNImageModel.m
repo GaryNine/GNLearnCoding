@@ -9,7 +9,7 @@
 #import "GNImageModel.h"
 #import "NSFileManager+GNExtensions.h"
 #import "NSURL+GNExtensions.h"
-#import "GNImageModelCache.h"
+#import "GNCacheModel.h"
 
 @interface GNImageModel ()
 @property (nonatomic, strong)   UIImage             *image;
@@ -34,16 +34,6 @@
 
 + (instancetype)imageWithURL:(NSURL *)url {
     return [[self alloc] initWithURL:url];
-}
-
-+ (GNImageModelCache *)imageModelCache {
-    static id imageModelCache = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        imageModelCache = [GNImageModelCache new];
-    });
-    
-    return imageModelCache;
 }
 
 #pragma mark -

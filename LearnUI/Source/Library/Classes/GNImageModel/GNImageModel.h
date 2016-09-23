@@ -38,6 +38,4 @@ static NSString * const kGNImagePath = @"image";
 
 - (void)load;
 
-+ (GNImageModelCache *)imageModelCache;
-
 @end
