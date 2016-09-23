@@ -20,6 +20,4 @@ static NSString * const kGNURL = @"https://pixabay.com/en/autobots-logo-logo-des
 
 - (instancetype)initWithURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
 
-- (void)load;
-
 @end
