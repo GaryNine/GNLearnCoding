@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GNInternetModel : UIImageView
+#import "GNLocalModel.h"
+
+@interface GNInternetModel : GNLocalModel
 
 
 @end
