@@ -8,31 +8,32 @@
 
 #import "GNUser.h"
 
+#import "GNImageModel.h"
+
 #import "NSString+GNRandomName.h"
 
-static NSString * const kGNImageName = @"user";
-static NSString * const kGNImageType = @"jpg";
+static NSString * const kGNName     = @"name";
+static NSString * const kGNSurname  = @"surname";
+static NSString * const kGNURL      = @"url";
 
-static NSString * const kGNName = @"name";
-static NSString * const kGNSurname = @"surname";
+static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-logo-design-1625828/";
 
 @implementation GNUser
 
 @dynamic fullName;
 @dynamic image;
 
-#pragma mark - 
-#pragma mark Initializations
+#pragma mark -
+#pragma mark Class Methods
 
-- (instancetype)init {
-    self = [super init];
++ (instancetype)user {
+    GNUser *user = [GNUser new];
     
-    if (self) {
-        self.name = [NSString randomName];
-        self.surname = [NSString randomName];
-    }
+    user.name = [NSString randomName];
+    user.surname = [NSString randomName];
+    user.imageURL = [NSURL URLWithString:kGNImageURL];
     
-    return self;
+    return user;
 }
 
 #pragma mark - 
@@ -42,14 +43,8 @@ static NSString * const kGNSurname = @"surname";
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
-- (UIImage *)image {
-    static UIImage * _image = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:kGNImageName ofType:kGNImageType];
-        _image = [UIImage imageWithContentsOfFile:path];
-    });
-    return _image;
+- (GNImageModel *)image {
+    return [GNImageModel imageWithURL:self.imageURL];
 }
 
 #pragma mark -
@@ -57,8 +52,7 @@ static NSString * const kGNSurname = @"surname";
 
 - (void)performBackgroundLoading {
     sleep(1);
-    [self image];
-    self.state = kGNModelStateDidLoad;
+    [self.image load];
 }
 
 #pragma mark -
@@ -67,6 +61,7 @@ static NSString * const kGNSurname = @"surname";
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.name forKey:kGNName];
     [aCoder encodeObject:self.surname forKey:kGNSurname];
+    [aCoder encodeObject:self.imageURL forKey:kGNURL];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -75,6 +70,7 @@ static NSString * const kGNSurname = @"surname";
     if (self) {
         self.name = [aDecoder decodeObjectForKey:kGNName];
         self.surname = [aDecoder decodeObjectForKey:kGNSurname];
+        self.imageURL = [aDecoder decodeObjectForKey:kGNURL];
     }
     
     return self;
