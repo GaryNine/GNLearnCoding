@@ -60,6 +60,18 @@
 #pragma mark -
 #pragma mark Public
 
+- (void)performBackgroundLoading {
+    UIImage *image = [self imageWithURL:self.fileUrl];
+    if (image) {
+        self.image = image;
+        self.state = kGNModelStateDidLoad;
+    } else {
+        self.state = kGNModelStateDidFailWithLoading;
+        [[NSFileManager defaultManager] removeItemAtURL:self.fileUrl error:nil];
+        [self loadFromWeb];
+    }
+}
+
 - (void)loadFromWeb {
     self.task = [[self session] downloadTaskWithURL:self.url
                                   completionHandler:
@@ -84,7 +96,6 @@
                          self.image = image;
                          self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
                      }
-
                  }];
 }
 
