@@ -21,5 +21,7 @@
 
 - (void)removeObjectForKey:(id)key;
 
+- (BOOL)containsObjectForKey:(id)key;
+
 
 @end

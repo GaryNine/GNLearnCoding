@@ -8,59 +8,91 @@
 
 #import "GNInternetModel.h"
 #import "NSURL+GNExtensions.h"
+#import "NSFileManager+GNExtensions.h"
 
 @interface GNInternetModel ()
-@property (nonatomic, readonly) NSURLRequest        *request;
-@property (nonatomic, readonly) NSURLSession        *session;
 @property (nonatomic, strong)   NSURLSessionTask    *task;
-@property (nonatomic, copy)     NSString            *name;
+@property (nonatomic, readonly) NSString            *name;
+@property (nonatomic, readonly) NSString            *path;
+@property (nonatomic, readonly) NSURL               *fileUrl;
+
+- (NSURLSession *)session;
 
 @end
 
 @implementation GNInternetModel
+
+@dynamic name;
 @dynamic path;
-@dynamic session;
-@dynamic request;
+@dynamic fileUrl;
 
-- (NSString *)name {
-    return [NSURL nameFromURL:self.url];
+#pragma mark - 
+#pragma mark Initializations & Dealocations
+
+- (void)dealloc {
+    self.task = nil;
 }
 
-- (NSURLSession *)session {
-    return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-}
-
-- (NSURLRequest *)request {
-    return [NSURLRequest requestWithURL:self.url];
-}
+#pragma mark -
+#pragma mark Accessors
 
 - (void)setTask:(NSURLSessionTask *)task {
     if (_task != task) {
         [_task cancel];
         
         _task = task;
+        [_task resume];
     }
 }
 
+- (NSString *)name {
+    return [self.url fileName];
+}
+
+- (NSString *)path {
+    return [[NSFileManager imagePath] stringByAppendingPathComponent:self.name];
+}
+
+- (NSURL *)fileUrl {
+    return [NSURL fileURLWithPath:self.path];
+}
+
+#pragma mark -
+#pragma mark Public
+
 - (void)loadFromWeb {
-    NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:self.request
-                                                         completionHandler:
-                                      ^(NSURL *location, NSURLResponse *response, NSError *error)
-                                      {
-                                          if (error) {
-                                              self.state = kGNModelStateDidFailWithLoading;
-                                              
-                                              return;
-                                          }
-                                          UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
-                                          if (image) {
-                                              [[NSFileManager defaultManager] moveItemAtURL:location
-                                                                                      toURL:[NSURL fileURLWithPath:self.path]
-                                                                                      error:nil];
-                                              self.state = kGNModelStateDidLoad;
-                                          }
-                                      }];
-    [task resume];
+    self.task = [[self session] downloadTaskWithURL:self.url
+                                  completionHandler:
+                 ^(NSURL *location, NSURLResponse *response, NSError *error)
+                 {
+                     if (error) {
+                         self.state = kGNModelStateDidFailWithLoading;
+                         
+                         return;
+                     }
+                     
+                     [[NSFileManager defaultManager] moveItemAtURL:location
+                                                             toURL:self.fileUrl
+                                                             error:nil];
+                     
+                     if (!self.cached) {
+                         UIImage *image = [self imageWithURL:location];
+                         self.image = image;
+                         self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
+                     } else {
+                         UIImage *image = [self imageWithURL:self.fileUrl];
+                         self.image = image;
+                         self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
+                     }
+
+                 }];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (NSURLSession *)session {
+    return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
 }
 
 @end

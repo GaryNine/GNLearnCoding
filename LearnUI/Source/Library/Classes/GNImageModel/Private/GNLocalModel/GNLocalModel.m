@@ -12,7 +12,7 @@
 @implementation GNLocalModel
 
 - (UIImage *)imageWithURL:(NSURL *)url {
-    return [UIImage imageWithContentsOfFile:[url absoluteString]];
+    return [UIImage imageWithContentsOfFile:url.path];
 }
 
 @end

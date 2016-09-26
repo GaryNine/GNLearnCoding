@@ -10,17 +10,10 @@
 
 @implementation NSURL (GNExtensions)
 
-+ (NSString *)nameFromURL:(NSURL *)url {
-    NSCharacterSet *characterSet = [NSCharacterSet URLUserAllowedCharacterSet];
-    return [[url absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
-}
-
-+ (NSString *)nameFromURL:(NSURL *)url withCharacters:(NSCharacterSet *)characterSet {
-    return [[url absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
-}
-
 - (NSString *)fileName {
-    return [self.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
+    NSString *absoluteString = [self absoluteString];
+    NSCharacterSet *characterSet = [NSCharacterSet URLUserAllowedCharacterSet];
+    return [absoluteString stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
 }
 
 @end

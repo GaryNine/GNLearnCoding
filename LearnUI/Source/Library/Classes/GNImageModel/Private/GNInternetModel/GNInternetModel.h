@@ -12,5 +12,6 @@
 
 @interface GNInternetModel : GNLocalModel
 
+- (void)loadFromWeb;
 
 @end

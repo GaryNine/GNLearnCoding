@@ -46,7 +46,9 @@
 #pragma mark Accessors
 
 - (NSArray *)keys {
-    return [[self.models keyEnumerator] allObjects];
+    @synchronized (self) {
+        return [[self.models keyEnumerator] allObjects];
+    }
 }
 
 #pragma mark -
@@ -77,7 +79,20 @@
 }
 
 - (void)removeObjectForKey:(id)key {
-    [self.models removeObjectForKey:key];
+    @synchronized (self) {
+        [self.models removeObjectForKey:key];
+    }
+}
+
+- (BOOL)containsObjectForKey:(id)key {
+    BOOL result = NO;
+    for (id key in self.keys) {
+        if ([key isEqual:key]) {
+            return YES;
+        }
+    }
+    
+    return result;
 }
 
 @end
