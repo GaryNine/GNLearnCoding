@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) NSURL               *fileUrl;
 
 - (NSURLSession *)session;
+- (void)finishLoadingWithImage:(UIImage *)image;
 
 @end
 
@@ -63,8 +64,7 @@
 - (void)performBackgroundLoading {
     UIImage *image = [self imageWithURL:self.fileUrl];
     if (image) {
-        self.image = image;
-        self.state = kGNModelStateDidLoad;
+        [self finishLoadingWithImage:image];
     } else {
         self.state = kGNModelStateDidFailWithLoading;
         [[NSFileManager defaultManager] removeItemAtURL:self.fileUrl error:nil];
@@ -89,12 +89,10 @@
                      
                      if (!self.cached) {
                          UIImage *image = [self imageWithURL:location];
-                         self.image = image;
-                         self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
+                         [self finishLoadingWithImage:image];
                      } else {
                          UIImage *image = [self imageWithURL:self.fileUrl];
-                         self.image = image;
-                         self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
+                         [self finishLoadingWithImage:image];
                      }
                  }];
 }
@@ -104,6 +102,11 @@
 
 - (NSURLSession *)session {
     return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+}
+
+- (void)finishLoadingWithImage:(UIImage *)image {
+    self.image = image;
+    self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
 }
 
 @end
