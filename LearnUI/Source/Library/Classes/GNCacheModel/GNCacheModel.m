@@ -8,6 +8,8 @@
 
 #import "GNCacheModel.h"
 
+#import "GNDispatchOnce.h"
+
 @interface GNCacheModel ()
 @property (nonatomic, strong)   NSMapTable  *models;
 
@@ -20,13 +22,7 @@
 #pragma mark Class Methods
 
 + (GNCacheModel *)cache {
-    static id cache = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cache = [GNCacheModel new];
-    });
-    
-    return cache;
+    GNDispatchOnce(GNCacheModel, cache, ^{ return [GNCacheModel new]; });
 }
 
 #pragma mark -
