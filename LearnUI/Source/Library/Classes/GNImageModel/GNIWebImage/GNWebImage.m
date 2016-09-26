@@ -6,22 +6,21 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNInternetModel.h"
+#import "GNWebImage.h"
 #import "NSURL+GNExtensions.h"
 #import "NSFileManager+GNExtensions.h"
 
-@interface GNInternetModel ()
+@interface GNWebImage ()
 @property (nonatomic, strong)   NSURLSessionTask    *task;
 @property (nonatomic, readonly) NSString            *name;
 @property (nonatomic, readonly) NSString            *path;
 @property (nonatomic, readonly) NSURL               *fileUrl;
 
 - (NSURLSession *)session;
-- (void)finishLoadingWithImage:(UIImage *)image;
 
 @end
 
-@implementation GNInternetModel
+@implementation GNWebImage
 
 @dynamic name;
 @dynamic path;
@@ -83,17 +82,13 @@
                          return;
                      }
                      
+                     NSURL *fileUrl = self.fileUrl;
                      [[NSFileManager defaultManager] moveItemAtURL:location
-                                                             toURL:self.fileUrl
+                                                             toURL:fileUrl
                                                              error:nil];
-                     
-                     if (!self.cached) {
-                         UIImage *image = [self imageWithURL:location];
-                         [self finishLoadingWithImage:image];
-                     } else {
-                         UIImage *image = [self imageWithURL:self.fileUrl];
-                         [self finishLoadingWithImage:image];
-                     }
+
+                     UIImage *image = [self imageWithURL:self.cached ? fileUrl : location];
+                     [self finishLoadingWithImage:image];
                  }];
 }
 
@@ -102,11 +97,6 @@
 
 - (NSURLSession *)session {
     return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-}
-
-- (void)finishLoadingWithImage:(UIImage *)image {
-    self.image = image;
-    self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
 }
 
 @end

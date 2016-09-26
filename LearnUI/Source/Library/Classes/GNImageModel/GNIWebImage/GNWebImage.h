@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GNLocalModel.h"
+#import "GNFileImage.h"
 
-@interface GNInternetModel : GNLocalModel
+@interface GNWebImage : GNFileImage
 
 - (void)loadFromWeb;
 

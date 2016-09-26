@@ -53,8 +53,8 @@
 		A8FB84801C74A01000116424 /* GNUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FB847E1C74A01000116424 /* GNUsersView.xib */; };
 		A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84821C74A0B500116424 /* GNUsersView.m */; };
 		A8FE5CD81D9529D200B504DB /* GNCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FE5CD71D9529D200B504DB /* GNCacheModel.m */; };
-		A8FE5CDF1D95691B00B504DB /* GNLocalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FE5CDE1D95691B00B504DB /* GNLocalModel.m */; };
-		A8FE5CE21D95692E00B504DB /* GNInternetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FE5CE11D95692E00B504DB /* GNInternetModel.m */; };
+		A8FE5CE61D99B48D00B504DB /* GNFileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FE5CE51D99B48D00B504DB /* GNFileImage.m */; };
+		A8FE5CEA1D99B49E00B504DB /* GNWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FE5CE91D99B49E00B504DB /* GNWebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,10 +153,10 @@
 		A8FB84821C74A0B500116424 /* GNUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUsersView.m; sourceTree = "<group>"; };
 		A8FE5CD61D9529D200B504DB /* GNCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNCacheModel.h; sourceTree = "<group>"; };
 		A8FE5CD71D9529D200B504DB /* GNCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNCacheModel.m; sourceTree = "<group>"; };
-		A8FE5CDD1D95691B00B504DB /* GNLocalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNLocalModel.h; sourceTree = "<group>"; };
-		A8FE5CDE1D95691B00B504DB /* GNLocalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNLocalModel.m; sourceTree = "<group>"; };
-		A8FE5CE01D95692E00B504DB /* GNInternetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNInternetModel.h; sourceTree = "<group>"; };
-		A8FE5CE11D95692E00B504DB /* GNInternetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNInternetModel.m; sourceTree = "<group>"; };
+		A8FE5CE41D99B48D00B504DB /* GNFileImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFileImage.h; sourceTree = "<group>"; };
+		A8FE5CE51D99B48D00B504DB /* GNFileImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFileImage.m; sourceTree = "<group>"; };
+		A8FE5CE81D99B49E00B504DB /* GNWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWebImage.h; sourceTree = "<group>"; };
+		A8FE5CE91D99B49E00B504DB /* GNWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWebImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +304,8 @@
 		A839900B1D8ABEFA006D9672 /* GNImageModel */ = {
 			isa = PBXGroup;
 			children = (
-				A8FE5CD91D95689800B504DB /* Private */,
+				A8FE5CE31D99B48D00B504DB /* GNFileImage */,
+				A8FE5CE71D99B49E00B504DB /* GNIWebImage */,
 				A839900C1D8AC1B6006D9672 /* GNImageModel.h */,
 				A839900D1D8AC1B6006D9672 /* GNImageModel.m */,
 			);
@@ -632,31 +633,22 @@
 			path = GNCacheModel;
 			sourceTree = "<group>";
 		};
-		A8FE5CD91D95689800B504DB /* Private */ = {
+		A8FE5CE31D99B48D00B504DB /* GNFileImage */ = {
 			isa = PBXGroup;
 			children = (
-				A8FE5CDA1D9568C800B504DB /* GNLocalModel */,
-				A8FE5CDB1D9568E400B504DB /* GNInternetModel */,
+				A8FE5CE41D99B48D00B504DB /* GNFileImage.h */,
+				A8FE5CE51D99B48D00B504DB /* GNFileImage.m */,
 			);
-			path = Private;
+			path = GNFileImage;
 			sourceTree = "<group>";
 		};
-		A8FE5CDA1D9568C800B504DB /* GNLocalModel */ = {
+		A8FE5CE71D99B49E00B504DB /* GNIWebImage */ = {
 			isa = PBXGroup;
 			children = (
-				A8FE5CDD1D95691B00B504DB /* GNLocalModel.h */,
-				A8FE5CDE1D95691B00B504DB /* GNLocalModel.m */,
+				A8FE5CE81D99B49E00B504DB /* GNWebImage.h */,
+				A8FE5CE91D99B49E00B504DB /* GNWebImage.m */,
 			);
-			path = GNLocalModel;
-			sourceTree = "<group>";
-		};
-		A8FE5CDB1D9568E400B504DB /* GNInternetModel */ = {
-			isa = PBXGroup;
-			children = (
-				A8FE5CE01D95692E00B504DB /* GNInternetModel.h */,
-				A8FE5CE11D95692E00B504DB /* GNInternetModel.m */,
-			);
-			path = GNInternetModel;
+			path = GNIWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -740,13 +732,14 @@
 				A892593B1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m in Sources */,
 				A80CBAF41C67BA68003CE7D7 /* UIWindow+GNExtensions.m in Sources */,
 				A8FB844E1C73741100116424 /* NSString+GNRandomName.m in Sources */,
+				A8FE5CEA1D99B49E00B504DB /* GNWebImage.m in Sources */,
 				A8AB85AB1D86E3D700787F64 /* GNView.m in Sources */,
 				A89259601C917F6700F8CF90 /* GNSingleIndexCollectionChangeModel.m in Sources */,
+				A8FE5CE61D99B48D00B504DB /* GNFileImage.m in Sources */,
 				A89259421C8F728C00F8CF90 /* UITableView+GNCollectionChangeModel.m in Sources */,
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
 				A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */,
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
-				A8FE5CE21D95692E00B504DB /* GNInternetModel.m in Sources */,
 				A89259461C8F739500F8CF90 /* GNCollectionChangeModel+UITableView.m in Sources */,
 				A89259681C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m in Sources */,
 				A81048251D92BDAD00CBF182 /* NSURL+GNExtensions.m in Sources */,
@@ -762,7 +755,6 @@
 				A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */,
 				A84391E51D8DE36100F7F00D /* GNImageView.m in Sources */,
 				A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */,
-				A8FE5CDF1D95691B00B504DB /* GNLocalModel.m in Sources */,
 				A89259561C9050D500F8CF90 /* NSIndexPath+GNExtensions.m in Sources */,
 				A88763941D7B0D16007B0870 /* GNLoadingView.m in Sources */,
 				A8AB85F21D88370700787F64 /* GNModel.m in Sources */,

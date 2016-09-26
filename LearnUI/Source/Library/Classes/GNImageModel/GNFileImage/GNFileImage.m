@@ -6,13 +6,17 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNLocalModel.h"
+#import "GNFileImage.h"
 #import "NSFileManager+GNExtensions.h"
 
-@implementation GNLocalModel
+@implementation GNFileImage
 
 - (UIImage *)imageWithURL:(NSURL *)url {
     return [UIImage imageWithContentsOfFile:url.path];
+}
+
+- (void)performBackgroundLoading {
+    [self finishLoadingWithImage:[self imageWithURL:self.url]];
 }
 
 @end

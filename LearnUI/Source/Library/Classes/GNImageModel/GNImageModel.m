@@ -10,8 +10,8 @@
 
 #import "GNCacheModel.h"
 
-#import "GNLocalModel.h"
-#import "GNInternetModel.h"
+#import "GNFileImage.h"
+#import "GNWebImage.h"
 
 @implementation GNImageModel
 
@@ -20,11 +20,12 @@
 
 + (instancetype)imageWithURL:(NSURL *)url {
     GNCacheModel *cache = [GNCacheModel cache];
-    if ([cache containsObjectForKey:url]) {
-        return [cache objectForKey:url];
+    id object = [cache objectForKey:url];
+    if (object) {
+        return object;
     }
     
-    Class class = [url isFileURL] ? [GNLocalModel class] : [GNInternetModel class];
+    Class class = [url isFileURL] ? [GNFileImage class] : [GNWebImage class];
     
     return [[class alloc] initWithURL:url];
 }
@@ -46,6 +47,14 @@
 
 - (instancetype)init {
     return [self initWithURL:nil];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)finishLoadingWithImage:(UIImage *)image {
+    self.image = image;
+    self.state = image ? kGNModelStateDidLoad : kGNModelStateDidFailWithLoading;
 }
 
 @end

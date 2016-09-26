@@ -10,7 +10,7 @@
 
 #import "GNImageModel.h"
 
-@interface GNLocalModel : GNImageModel
+@interface GNFileImage : GNImageModel
 
 - (UIImage *)imageWithURL:(NSURL *)url;
 

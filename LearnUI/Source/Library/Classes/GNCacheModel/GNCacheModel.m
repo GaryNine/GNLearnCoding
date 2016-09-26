@@ -13,10 +13,11 @@
 @interface GNCacheModel ()
 @property (nonatomic, strong)   NSMapTable  *models;
 
+- (NSArray *)allKeys;
+
 @end
 
 @implementation GNCacheModel
-@dynamic keys;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -36,15 +37,6 @@
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)keys {
-    @synchronized (self) {
-        return [[self.models keyEnumerator] allObjects];
-    }
 }
 
 #pragma mark -
@@ -80,15 +72,13 @@
     }
 }
 
-- (BOOL)containsObjectForKey:(id)key {
-    BOOL result = NO;
-    for (id key in self.keys) {
-        if ([key isEqual:key]) {
-            return YES;
-        }
+#pragma mark -
+#pragma mark Private
+
+- (NSArray *)allKeys {
+    @synchronized (self) {
+        return [[self.models keyEnumerator] allObjects];
     }
-    
-    return result;
 }
 
 @end

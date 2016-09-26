@@ -102,7 +102,9 @@
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    [self setLoadingViewVisible:NO animated:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setLoadingViewVisible:NO animated:NO];
+    });
 }
 
 @end

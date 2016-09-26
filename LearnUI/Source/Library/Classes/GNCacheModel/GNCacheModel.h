@@ -9,7 +9,6 @@
 #import "GNObservableObject.h"
 
 @interface GNCacheModel : NSObject
-@property (nonatomic, readonly) NSArray     *keys;
 
 + (GNCacheModel *)cache;
 
@@ -20,8 +19,5 @@
 - (void)setObject:(id)object forKeydSubscript:(id)key;
 
 - (void)removeObjectForKey:(id)key;
-
-- (BOOL)containsObjectForKey:(id)key;
-
 
 @end

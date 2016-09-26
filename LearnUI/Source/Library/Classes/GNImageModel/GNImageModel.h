@@ -18,4 +18,6 @@
 
 - (instancetype)initWithURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
 
+- (void)finishLoadingWithImage:(UIImage *)image;
+
 @end
