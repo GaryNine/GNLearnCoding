@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "GNModelObserver.h"
+#import "GNView.h"
 
 @class GNImageModel;
 
-@interface GNImageView : UIView <GNModelObserver>
+@interface GNImageView : GNView <GNModelObserver>
 @property (nonatomic, strong)   IBOutlet    UIImageView *contentImageView;
 
 @property (nonatomic, strong)   GNImageModel    *imageModel;

@@ -13,6 +13,7 @@
 @interface GNImageView ()
 
 - (void)initSubviews;
+- (void)fillWithModel:(GNImageModel *)model;
 
 @end
 
@@ -43,18 +44,6 @@
     }
 }
 
-- (void)initSubviews {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin
-                                | UIViewAutoresizingFlexibleWidth
-                                | UIViewAutoresizingFlexibleRightMargin
-                                | UIViewAutoresizingFlexibleTopMargin
-                                | UIViewAutoresizingFlexibleHeight
-                                | UIViewAutoresizingFlexibleBottomMargin;
-    
-    self.contentImageView = imageView;
-}
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -68,6 +57,7 @@
 
 - (void)setImageModel:(GNImageModel *)imageModel {
     if (_imageModel != imageModel) {
+        [self fillWithModel:imageModel];
         [_imageModel removeObserver:self];
         _imageModel = imageModel;
         [_imageModel addObserver:self];
@@ -79,23 +69,40 @@
 #pragma mark -
 #pragma mark Private
 
+- (void)initSubviews {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin
+    | UIViewAutoresizingFlexibleWidth
+    | UIViewAutoresizingFlexibleRightMargin
+    | UIViewAutoresizingFlexibleTopMargin
+    | UIViewAutoresizingFlexibleHeight
+    | UIViewAutoresizingFlexibleBottomMargin;
+    
+    self.contentImageView = imageView;
+}
+
+- (void)fillWithModel:(GNImageModel *)model {
+    self.contentImageView.image = model.image;
+}
+
 #pragma mark -
 #pragma mark ModelObserver
 
-- (void)modelDidUnload:(id)model {
-
-}
-
 - (void)modelWillLoad:(id)model {
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setLoadingViewVisible:YES animated:YES];
+    });
 }
 
 - (void)modelDidLoad:(id)model {
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self fillWithModel:model];
+        [self setLoadingViewVisible:NO animated:NO];
+    });
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    
+    [self setLoadingViewVisible:NO animated:NO];
 }
 
 @end
