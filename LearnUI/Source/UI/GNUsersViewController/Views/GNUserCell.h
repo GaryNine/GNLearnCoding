@@ -8,15 +8,13 @@
 
 #import "GNTableViewCell.h"
 
-#import "GNModelObserver.h"
-
 @class GNUser;
 @class GNView;
+@class GNImageView;
 
-@interface GNUserCell : GNTableViewCell <GNModelObserver>
-@property (nonatomic, strong)   IBOutlet UILabel        *label;
-@property (nonatomic, strong)   IBOutlet UIImageView    *contentImageView;
-@property (nonatomic, strong)   IBOutlet GNView         *view;
+@interface GNUserCell : GNTableViewCell
+@property (nonatomic, strong)   IBOutlet    UILabel     *label;
+@property (nonatomic, strong)   IBOutlet    GNImageView *userImageView;
 
 @property (nonatomic, strong)   GNUser  *user;
 

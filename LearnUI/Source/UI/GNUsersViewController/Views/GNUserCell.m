@@ -9,7 +9,7 @@
 #import "GNUserCell.h"
 
 #import "GNUser.h"
-#import "GNView.h"
+#import "GNImageView.h"
 
 @implementation GNUserCell
 
@@ -22,7 +22,7 @@
         _user = user;
         [_user addObserver:self];
         
-        [_user load];
+        [self fillWithModel:user];
     }
 }
 
@@ -31,28 +31,7 @@
 
 - (void)fillWithModel:(GNUser *)user {
     self.label.text = user.fullName;
-    self.contentImageView.image = user.image;
-}
-
-#pragma mark -
-#pragma mark GNModelObserver
-
-- (void)modelWillLoad:(id)model {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.view setLoadingViewVisible:YES animated:YES];
-    });
-}
-
-- (void)modelDidLoad:(id)model {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self fillWithModel:model];
-        [self.view setLoadingViewVisible:NO animated:NO];
-    });
-
-}
-
-- (void)modelDidFailWithLoading:(id)model {
-    [self.view setLoadingViewVisible:NO animated:NO];
+    self.userImageView.imageModel = user.image;
 }
 
 @end
