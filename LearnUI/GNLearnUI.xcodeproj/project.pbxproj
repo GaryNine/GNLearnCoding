@@ -45,6 +45,21 @@
 		A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BEC3FF1C7F0A07001B16AA /* GNArrayModel.m */; };
 		A8C36CBA1D6EE428007975EB /* NSFileManager+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C36CB91D6EE428007975EB /* NSFileManager+GNExtensions.m */; };
 		A8C36CC01D6F0B36007975EB /* NSPathUtilities+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C36CBF1D6F0B36007975EB /* NSPathUtilities+GNExtensions.m */; };
+		A8F95FFB1DA2856D000AE8A3 /* GNContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F95FFA1DA2856D000AE8A3 /* GNContext.m */; };
+		A8F95FFF1DA29127000AE8A3 /* GNFacebookLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F95FFE1DA29127000AE8A3 /* GNFacebookLogin.m */; };
+		A8F960031DA291CB000AE8A3 /* GNFacebookFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960021DA291CB000AE8A3 /* GNFacebookFriends.m */; };
+		A8F960081DA292AA000AE8A3 /* GNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960061DA292AA000AE8A3 /* GNLoginViewController.m */; };
+		A8F9600C1DA29366000AE8A3 /* GNLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F9600B1DA29366000AE8A3 /* GNLoginView.m */; };
+		A8F9600E1DA29374000AE8A3 /* GNLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F9600D1DA29374000AE8A3 /* GNLoginView.xib */; };
+		A8F960121DA294B1000AE8A3 /* GNFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960111DA294B1000AE8A3 /* GNFriendsViewController.m */; };
+		A8F960151DA294E5000AE8A3 /* GNFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960141DA294E5000AE8A3 /* GNFriendsView.m */; };
+		A8F960171DA294FC000AE8A3 /* GNFriendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F960161DA294FC000AE8A3 /* GNFriendsView.xib */; };
+		A8F9601B1DA29B16000AE8A3 /* GNFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F9601A1DA29B16000AE8A3 /* GNFriendDetailViewController.m */; };
+		A8F9601E1DA29B5B000AE8A3 /* GNFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F9601D1DA29B5B000AE8A3 /* GNFriendDetailView.m */; };
+		A8F960201DA29B72000AE8A3 /* GNFriendDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F9601F1DA29B72000AE8A3 /* GNFriendDetailView.xib */; };
+		A8F960291DA2A568000AE8A3 /* GNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960281DA2A568000AE8A3 /* GNViewController.m */; };
+		A8F9602D1DA2A5C7000AE8A3 /* GNFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F9602C1DA2A5C7000AE8A3 /* GNFriend.m */; };
+		A8F960311DA2A608000AE8A3 /* GNFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960301DA2A608000AE8A3 /* GNFriends.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
 		A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84491C73634100116424 /* NSString+GNExtensions.m */; };
@@ -142,6 +157,33 @@
 		A8C36CBF1D6F0B36007975EB /* NSPathUtilities+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPathUtilities+GNExtensions.m"; sourceTree = "<group>"; };
 		A8DA330B1C6C05B100309017 /* GNClangMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNClangMacro.h; sourceTree = "<group>"; };
 		A8DA330C1C6C0A8700309017 /* GNOwnershipMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNOwnershipMacro.h; sourceTree = "<group>"; };
+		A8F95FF91DA2856D000AE8A3 /* GNContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNContext.h; sourceTree = "<group>"; };
+		A8F95FFA1DA2856D000AE8A3 /* GNContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNContext.m; sourceTree = "<group>"; };
+		A8F95FFD1DA29127000AE8A3 /* GNFacebookLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFacebookLogin.h; sourceTree = "<group>"; };
+		A8F95FFE1DA29127000AE8A3 /* GNFacebookLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFacebookLogin.m; sourceTree = "<group>"; };
+		A8F960011DA291CB000AE8A3 /* GNFacebookFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFacebookFriends.h; sourceTree = "<group>"; };
+		A8F960021DA291CB000AE8A3 /* GNFacebookFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFacebookFriends.m; sourceTree = "<group>"; };
+		A8F960051DA292AA000AE8A3 /* GNLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNLoginViewController.h; sourceTree = "<group>"; };
+		A8F960061DA292AA000AE8A3 /* GNLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNLoginViewController.m; sourceTree = "<group>"; };
+		A8F9600A1DA29366000AE8A3 /* GNLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNLoginView.h; sourceTree = "<group>"; };
+		A8F9600B1DA29366000AE8A3 /* GNLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNLoginView.m; sourceTree = "<group>"; };
+		A8F9600D1DA29374000AE8A3 /* GNLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNLoginView.xib; sourceTree = "<group>"; };
+		A8F960101DA294B1000AE8A3 /* GNFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriendsViewController.h; sourceTree = "<group>"; };
+		A8F960111DA294B1000AE8A3 /* GNFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriendsViewController.m; sourceTree = "<group>"; };
+		A8F960131DA294E5000AE8A3 /* GNFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriendsView.h; sourceTree = "<group>"; };
+		A8F960141DA294E5000AE8A3 /* GNFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriendsView.m; sourceTree = "<group>"; };
+		A8F960161DA294FC000AE8A3 /* GNFriendsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNFriendsView.xib; sourceTree = "<group>"; };
+		A8F960191DA29B16000AE8A3 /* GNFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriendDetailViewController.h; sourceTree = "<group>"; };
+		A8F9601A1DA29B16000AE8A3 /* GNFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriendDetailViewController.m; sourceTree = "<group>"; };
+		A8F9601C1DA29B5B000AE8A3 /* GNFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriendDetailView.h; sourceTree = "<group>"; };
+		A8F9601D1DA29B5B000AE8A3 /* GNFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriendDetailView.m; sourceTree = "<group>"; };
+		A8F9601F1DA29B72000AE8A3 /* GNFriendDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNFriendDetailView.xib; sourceTree = "<group>"; };
+		A8F960271DA2A568000AE8A3 /* GNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNViewController.h; sourceTree = "<group>"; };
+		A8F960281DA2A568000AE8A3 /* GNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNViewController.m; sourceTree = "<group>"; };
+		A8F9602B1DA2A5C7000AE8A3 /* GNFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriend.h; sourceTree = "<group>"; };
+		A8F9602C1DA2A5C7000AE8A3 /* GNFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriend.m; sourceTree = "<group>"; };
+		A8F9602F1DA2A608000AE8A3 /* GNFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriends.h; sourceTree = "<group>"; };
+		A8F960301DA2A608000AE8A3 /* GNFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriends.m; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
 		A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GNExtensions.m"; sourceTree = "<group>"; };
 		A8FB84431C73625600116424 /* GNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUser.h; sourceTree = "<group>"; };
@@ -237,6 +279,10 @@
 		A80CBAE81C67AE3C003CE7D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A8F960261DA2A524000AE8A3 /* GNViewController */,
+				A8F960181DA29AB2000AE8A3 /* GNFriendDetailViewController */,
+				A8F9600F1DA29442000AE8A3 /* GNFriendsViewController */,
+				A8F960041DA29249000AE8A3 /* GNLoginViewController */,
 				A8FB847B1C749FB700116424 /* GNUsersViewController */,
 				A80CBAE91C67AE44003CE7D7 /* GNSquareViewController */,
 			);
@@ -348,6 +394,7 @@
 		A84CAD551C6AA11400E8BC92 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A8F95FF71DA28489000AE8A3 /* Contexts */,
 				A8FB84841C74BFB500116424 /* Classes */,
 				A80CBAEA1C67B67E003CE7D7 /* Categories */,
 				A80CBAF51C67C86E003CE7D7 /* Macro */,
@@ -580,6 +627,107 @@
 			path = NSPathUtilities;
 			sourceTree = "<group>";
 		};
+		A8F95FF71DA28489000AE8A3 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960001DA29177000AE8A3 /* GNFacebookFriends */,
+				A8F95FFC1DA290F6000AE8A3 /* GNFacebookLogin */,
+				A8F95FF81DA28501000AE8A3 /* GNContext */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		A8F95FF81DA28501000AE8A3 /* GNContext */ = {
+			isa = PBXGroup;
+			children = (
+				A8F95FF91DA2856D000AE8A3 /* GNContext.h */,
+				A8F95FFA1DA2856D000AE8A3 /* GNContext.m */,
+			);
+			path = GNContext;
+			sourceTree = "<group>";
+		};
+		A8F95FFC1DA290F6000AE8A3 /* GNFacebookLogin */ = {
+			isa = PBXGroup;
+			children = (
+				A8F95FFD1DA29127000AE8A3 /* GNFacebookLogin.h */,
+				A8F95FFE1DA29127000AE8A3 /* GNFacebookLogin.m */,
+			);
+			path = GNFacebookLogin;
+			sourceTree = "<group>";
+		};
+		A8F960001DA29177000AE8A3 /* GNFacebookFriends */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960011DA291CB000AE8A3 /* GNFacebookFriends.h */,
+				A8F960021DA291CB000AE8A3 /* GNFacebookFriends.m */,
+			);
+			path = GNFacebookFriends;
+			sourceTree = "<group>";
+		};
+		A8F960041DA29249000AE8A3 /* GNLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960051DA292AA000AE8A3 /* GNLoginViewController.h */,
+				A8F960061DA292AA000AE8A3 /* GNLoginViewController.m */,
+				A8F9600A1DA29366000AE8A3 /* GNLoginView.h */,
+				A8F9600B1DA29366000AE8A3 /* GNLoginView.m */,
+				A8F9600D1DA29374000AE8A3 /* GNLoginView.xib */,
+			);
+			path = GNLoginViewController;
+			sourceTree = "<group>";
+		};
+		A8F9600F1DA29442000AE8A3 /* GNFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960101DA294B1000AE8A3 /* GNFriendsViewController.h */,
+				A8F960111DA294B1000AE8A3 /* GNFriendsViewController.m */,
+				A8F960131DA294E5000AE8A3 /* GNFriendsView.h */,
+				A8F960141DA294E5000AE8A3 /* GNFriendsView.m */,
+				A8F960161DA294FC000AE8A3 /* GNFriendsView.xib */,
+			);
+			name = GNFriendsViewController;
+			path = GNFriendsViewCotroller;
+			sourceTree = "<group>";
+		};
+		A8F960181DA29AB2000AE8A3 /* GNFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960191DA29B16000AE8A3 /* GNFriendDetailViewController.h */,
+				A8F9601A1DA29B16000AE8A3 /* GNFriendDetailViewController.m */,
+				A8F9601C1DA29B5B000AE8A3 /* GNFriendDetailView.h */,
+				A8F9601D1DA29B5B000AE8A3 /* GNFriendDetailView.m */,
+				A8F9601F1DA29B72000AE8A3 /* GNFriendDetailView.xib */,
+			);
+			path = GNFriendDetailViewController;
+			sourceTree = "<group>";
+		};
+		A8F960261DA2A524000AE8A3 /* GNViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960271DA2A568000AE8A3 /* GNViewController.h */,
+				A8F960281DA2A568000AE8A3 /* GNViewController.m */,
+			);
+			path = GNViewController;
+			sourceTree = "<group>";
+		};
+		A8F9602A1DA2A599000AE8A3 /* GNFriend */ = {
+			isa = PBXGroup;
+			children = (
+				A8F9602B1DA2A5C7000AE8A3 /* GNFriend.h */,
+				A8F9602C1DA2A5C7000AE8A3 /* GNFriend.m */,
+			);
+			path = GNFriend;
+			sourceTree = "<group>";
+		};
+		A8F9602E1DA2A5D7000AE8A3 /* GNFriends */ = {
+			isa = PBXGroup;
+			children = (
+				A8F9602F1DA2A608000AE8A3 /* GNFriends.h */,
+				A8F960301DA2A608000AE8A3 /* GNFriends.m */,
+			);
+			path = GNFriends;
+			sourceTree = "<group>";
+		};
 		A8FB843E1C728A3700116424 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +760,8 @@
 		A8FB84511C73EDC200116424 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A8F9602E1DA2A5D7000AE8A3 /* GNFriends */,
+				A8F9602A1DA2A599000AE8A3 /* GNFriend */,
 				A89259281C88C41900F8CF90 /* GNCollectionChangeModel */,
 				A8BEC3FD1C7F0932001B16AA /* GNArrayModel */,
 				A8FB84421C73620800116424 /* GNUser */,
@@ -739,10 +889,13 @@
 				A88763981D7D839A007B0870 /* GNLoadingView.xib in Resources */,
 				A80CBAFF1C67D015003CE7D7 /* LaunchScreen.storyboard in Resources */,
 				A84CAD541C6A125F00E8BC92 /* UI study plan.rtf in Resources */,
+				A8F9600E1DA29374000AE8A3 /* GNLoginView.xib in Resources */,
 				A85DB3A01C760F2C00AE0743 /* GNUserCell.xib in Resources */,
+				A8F960171DA294FC000AE8A3 /* GNFriendsView.xib in Resources */,
 				A80CBB061C67D2D4003CE7D7 /* GNSquareView.xib in Resources */,
 				A8FB84801C74A01000116424 /* GNUsersView.xib in Resources */,
 				A89259581C906FEE00F8CF90 /* user.jpg in Resources */,
+				A8F960201DA29B72000AE8A3 /* GNFriendDetailView.xib in Resources */,
 				A80CBAFE1C67D015003CE7D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,14 +958,18 @@
 				A80CBADE1C6773BD003CE7D7 /* GNSquareViewController.m in Sources */,
 				A8C36CC01D6F0B36007975EB /* NSPathUtilities+GNExtensions.m in Sources */,
 				A892593B1C8D66F000F8CF90 /* GNCollectionChangeModel+GNArrayModel.m in Sources */,
+				A8F960081DA292AA000AE8A3 /* GNLoginViewController.m in Sources */,
 				A80CBAF41C67BA68003CE7D7 /* UIWindow+GNExtensions.m in Sources */,
 				A8FB844E1C73741100116424 /* NSString+GNRandomName.m in Sources */,
 				A8FE5CEA1D99B49E00B504DB /* GNWebImage.m in Sources */,
+				A8F960291DA2A568000AE8A3 /* GNViewController.m in Sources */,
 				A8AB85AB1D86E3D700787F64 /* GNView.m in Sources */,
+				A8F95FFB1DA2856D000AE8A3 /* GNContext.m in Sources */,
 				A89259601C917F6700F8CF90 /* GNSingleIndexCollectionChangeModel.m in Sources */,
 				A8FE5CE61D99B48D00B504DB /* GNFileImage.m in Sources */,
 				A89259421C8F728C00F8CF90 /* UITableView+GNCollectionChangeModel.m in Sources */,
 				A80CBB0A1C68E1FB003CE7D7 /* CGGeometry+GNExtensions.m in Sources */,
+				A8F95FFF1DA29127000AE8A3 /* GNFacebookLogin.m in Sources */,
 				A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */,
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A89259461C8F739500F8CF90 /* GNCollectionChangeModel+UITableView.m in Sources */,
@@ -820,9 +977,11 @@
 				A81048251D92BDAD00CBF182 /* NSURL+GNExtensions.m in Sources */,
 				A892595F1C917F6700F8CF90 /* GNSingleIndexCollectionChangeModel+UITableView.m in Sources */,
 				A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */,
+				A8F9602D1DA2A5C7000AE8A3 /* GNFriend.m in Sources */,
 				A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */,
 				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
 				A8C36CBA1D6EE428007975EB /* NSFileManager+GNExtensions.m in Sources */,
+				A8F9601B1DA29B16000AE8A3 /* GNFriendDetailViewController.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
 				A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */,
@@ -830,18 +989,24 @@
 				A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */,
 				A84391E51D8DE36100F7F00D /* GNImageView.m in Sources */,
 				A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */,
+				A8F960121DA294B1000AE8A3 /* GNFriendsViewController.m in Sources */,
+				A8F960031DA291CB000AE8A3 /* GNFacebookFriends.m in Sources */,
 				A89259561C9050D500F8CF90 /* NSIndexPath+GNExtensions.m in Sources */,
 				A88763941D7B0D16007B0870 /* GNLoadingView.m in Sources */,
 				A8AB85F21D88370700787F64 /* GNModel.m in Sources */,
 				A8FE5CD81D9529D200B504DB /* GNCacheModel.m in Sources */,
 				A85DB3B11C7BC71F00AE0743 /* GNObservableObject.m in Sources */,
 				A89259671C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m in Sources */,
+				A8F9600C1DA29366000AE8A3 /* GNLoginView.m in Sources */,
 				A839900E1D8AC1B6006D9672 /* GNImageModel.m in Sources */,
 				A8BEC4001C7F0A07001B16AA /* GNArrayModel.m in Sources */,
 				A892592B1C88C46500F8CF90 /* GNCollectionChangeModel.m in Sources */,
 				A8FB847F1C74A01000116424 /* GNUsersViewController.m in Sources */,
+				A8F9601E1DA29B5B000AE8A3 /* GNFriendDetailView.m in Sources */,
 				A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */,
 				A8FB84451C73625600116424 /* GNUser.m in Sources */,
+				A8F960311DA2A608000AE8A3 /* GNFriends.m in Sources */,
+				A8F960151DA294E5000AE8A3 /* GNFriendsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
