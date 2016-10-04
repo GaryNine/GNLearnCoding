@@ -41,12 +41,21 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 
 - (IBAction)onLogin:(id)sender {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc ] init];
-    [login logInWithReadPermissions:<#(NSArray *)#>
+    [login logInWithReadPermissions:@[@"public_profile"]
                  fromViewController:self
-                            handler:nil];
+                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                if (error) {
+                                    NSLog(@"Process error");
+                                } else if (result.isCancelled) {
+                                    NSLog(@"Cancelled");
+                                } else {
+                                    NSLog(@"Logged in");
+                                }
+                                
+                                GNFriendsViewController *controller = [GNFriendsViewController new];
+                                [self.navigationController pushViewController:controller animated:YES];
+                            }];
     
-    GNFriendsViewController *controller = [GNFriendsViewController new];
-    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
