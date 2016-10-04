@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GNLoginView : UIView
+#import "GNView.h"
+
+@interface GNLoginView : GNView
 @property (nonatomic, strong)   IBOutlet    UIButton    *loginToFacebook;
 
 @end

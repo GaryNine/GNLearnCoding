@@ -8,12 +8,14 @@
 
 #import "GNLoginViewController.h"
 #import "GNLoginView.h"
-
 #import "GNFacebookLogin.h"
 
-#import "GNModel.h"
-
 #import "GNFriendsViewController.h"
+
+#import "GNModel.h"
+#import "GNView.h"
+
+#import "GNDispatch.h"
 
 #import "GNViewControllerMacro.h"
 
@@ -68,10 +70,25 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 #pragma mark -
 #pragma mark GNModelObserverProtocol
 
+- (void)modelWillLoad:(id)model {
+//    GNDispatchAsyncOnMainQueu(^ {
+        [self.loginView setLoadingViewVisible:YES animated:YES];
+//    });
+}
+
 - (void)modelDidLoad:(id)model {
-    [self.facebookLogin cancel];
-    GNFriendsViewController *controller = [GNFriendsViewController new];
-    [self.navigationController pushViewController:controller animated:YES];
+//    GNDispatchAsyncOnMainQueu(^ {
+        [self.loginView setLoadingViewVisible:NO animated:NO];
+        [self.facebookLogin cancel];
+        GNFriendsViewController *controller = [GNFriendsViewController new];
+        [self.navigationController pushViewController:controller animated:YES];
+//    });
+}
+
+- (void)modelDidFailWithLoading:(id)model {
+//    GNDispatchAsyncOnMainQueu(^ {
+        [self.loginView setLoadingViewVisible:NO animated:NO];
+//    });
 }
 
 @end
