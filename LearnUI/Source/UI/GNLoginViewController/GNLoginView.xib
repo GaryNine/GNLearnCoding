@@ -15,6 +15,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mih-wY-2jo">
                     <frame key="frameInset" minX="69" minY="571" width="236" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.77695050340000005" green="1" blue="0.67808829699999995" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Login To Facebook"/>
                     <connections>
                         <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="jFa-fL-rr1"/>

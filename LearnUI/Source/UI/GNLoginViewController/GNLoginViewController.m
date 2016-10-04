@@ -9,19 +9,41 @@
 #import "GNLoginViewController.h"
 #import "GNLoginView.h"
 
-#import "GNFriendsViewController.h"
+#import "GNFacebookLogin.h"
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "GNModel.h"
+
+#import "GNFriendsViewController.h"
 
 #import "GNViewControllerMacro.h"
 
 GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 
 @interface GNLoginViewController ()
+@property (nonatomic, strong)   GNFacebookLogin *facebookLogin;
 
 @end
 
 @implementation GNLoginViewController
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setModel:(GNModel *)model {
+    if (_model != model) {
+        [_model removeObserver:self];
+        _model = model;
+        [_model addObserver:self];
+    }
+}
+
+- (void)setFacebookLogin:(GNFacebookLogin *)facebookLogin {
+    if (_facebookLogin != facebookLogin) {
+        [_facebookLogin cancel];
+        _facebookLogin = facebookLogin;
+        [_facebookLogin execute];
+    }
+}
 
 #pragma mark -
 #pragma mark View Lifecycle
@@ -40,22 +62,16 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 #pragma mark Interface Handling 
 
 - (IBAction)onLogin:(id)sender {
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc ] init];
-    [login logInWithReadPermissions:@[@"public_profile"]
-                 fromViewController:self
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                if (error) {
-                                    NSLog(@"Process error");
-                                } else if (result.isCancelled) {
-                                    NSLog(@"Cancelled");
-                                } else {
-                                    NSLog(@"Logged in");
-                                }
-                                
-                                GNFriendsViewController *controller = [GNFriendsViewController new];
-                                [self.navigationController pushViewController:controller animated:YES];
-                            }];
-    
+    self.facebookLogin = [GNFacebookLogin contextWithModel:self.model];
+}
+
+#pragma mark -
+#pragma mark GNModelObserverProtocol
+
+- (void)modelDidLoad:(id)model {
+    [self.facebookLogin cancel];
+    GNFriendsViewController *controller = [GNFriendsViewController new];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

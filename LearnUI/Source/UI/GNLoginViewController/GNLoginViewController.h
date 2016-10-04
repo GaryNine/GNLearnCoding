@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GNModelObserver.h"
 
-@interface GNLoginViewController : UIViewController
+@class GNModel;
+@class GNFacebookLogin;
+
+@interface GNLoginViewController : UIViewController <GNModelObserver>
+@property (nonatomic, strong)   GNModel         *model;
+
 - (IBAction)onLogin:(id)sender;
 
 @end

@@ -20,6 +20,8 @@
 - (void)execute;
 - (void)cancel;
 
+- (void)load;
+
 - (BOOL)shouldLoadState:(NSUInteger)state;
 
 @end

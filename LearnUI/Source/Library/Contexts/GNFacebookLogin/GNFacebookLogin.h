@@ -8,6 +8,9 @@
 
 #import "GNContext.h"
 
+@class GNLoginViewController;
+
 @interface GNFacebookLogin : GNContext
+@property (nonatomic, weak) GNLoginViewController   *controller;
 
 @end

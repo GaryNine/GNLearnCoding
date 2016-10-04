@@ -58,6 +58,7 @@
 		A8F9601E1DA29B5B000AE8A3 /* GNFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F9601D1DA29B5B000AE8A3 /* GNFriendDetailView.m */; };
 		A8F960201DA29B72000AE8A3 /* GNFriendDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F9601F1DA29B72000AE8A3 /* GNFriendDetailView.xib */; };
 		A8F960291DA2A568000AE8A3 /* GNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960281DA2A568000AE8A3 /* GNViewController.m */; };
+		A8F960351DA3CCDB000AE8A3 /* GNDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F960341DA3CCDB000AE8A3 /* GNDispatch.m */; };
 		A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */; };
 		A8FB84451C73625600116424 /* GNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84441C73625600116424 /* GNUser.m */; };
 		A8FB844A1C73634100116424 /* NSString+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FB84491C73634100116424 /* NSString+GNExtensions.m */; };
@@ -178,6 +179,8 @@
 		A8F9601F1DA29B72000AE8A3 /* GNFriendDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNFriendDetailView.xib; sourceTree = "<group>"; };
 		A8F960271DA2A568000AE8A3 /* GNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNViewController.h; sourceTree = "<group>"; };
 		A8F960281DA2A568000AE8A3 /* GNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNViewController.m; sourceTree = "<group>"; };
+		A8F960331DA3CCDB000AE8A3 /* GNDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNDispatch.h; sourceTree = "<group>"; };
+		A8F960341DA3CCDB000AE8A3 /* GNDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNDispatch.m; sourceTree = "<group>"; };
 		A8FB843F1C728A8600116424 /* UIColor+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GNExtensions.h"; sourceTree = "<group>"; };
 		A8FB84401C728A8600116424 /* UIColor+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GNExtensions.m"; sourceTree = "<group>"; };
 		A8FB84431C73625600116424 /* GNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNUser.h; sourceTree = "<group>"; };
@@ -704,6 +707,15 @@
 			path = GNViewController;
 			sourceTree = "<group>";
 		};
+		A8F960321DA3CCDB000AE8A3 /* GNDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				A8F960331DA3CCDB000AE8A3 /* GNDispatch.h */,
+				A8F960341DA3CCDB000AE8A3 /* GNDispatch.m */,
+			);
+			path = GNDispatch;
+			sourceTree = "<group>";
+		};
 		A8FB843E1C728A3700116424 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,6 +772,7 @@
 		A8FB84841C74BFB500116424 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8F960321DA3CCDB000AE8A3 /* GNDispatch */,
 				A84391E21D8DE32500F7F00D /* GNImageView */,
 				A8FE5CD51D9529D200B504DB /* GNCacheModel */,
 				A839900B1D8ABEFA006D9672 /* GNImageModel */,
@@ -954,6 +967,7 @@
 				A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */,
 				A85DB39E1C760F0000AE0743 /* GNUserCell.m in Sources */,
 				A8C36CBA1D6EE428007975EB /* NSFileManager+GNExtensions.m in Sources */,
+				A8F960351DA3CCDB000AE8A3 /* GNDispatch.m in Sources */,
 				A8F9601B1DA29B16000AE8A3 /* GNFriendDetailViewController.m in Sources */,
 				A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */,
 				A80CBACE1C6773AA003CE7D7 /* main.m in Sources */,
