@@ -43,6 +43,7 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
     if (_facebookLogin != facebookLogin) {
         [_facebookLogin cancel];
         _facebookLogin = facebookLogin;
+        _facebookLogin.controller = self;
         [_facebookLogin execute];
     }
 }
@@ -71,24 +72,24 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 #pragma mark GNModelObserverProtocol
 
 - (void)modelWillLoad:(id)model {
-//    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueu(^ {
         [self.loginView setLoadingViewVisible:YES animated:YES];
-//    });
+    });
 }
 
 - (void)modelDidLoad:(id)model {
-//    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueu(^ {
         [self.loginView setLoadingViewVisible:NO animated:NO];
         [self.facebookLogin cancel];
         GNFriendsViewController *controller = [GNFriendsViewController new];
         [self.navigationController pushViewController:controller animated:YES];
-//    });
+    });
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-//    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueu(^ {
         [self.loginView setLoadingViewVisible:NO animated:NO];
-//    });
+    });
 }
 
 @end
