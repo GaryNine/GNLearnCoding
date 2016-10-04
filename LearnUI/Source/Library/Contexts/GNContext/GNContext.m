@@ -13,37 +13,49 @@
 @implementation GNContext
 
 #pragma mark -
+#pragma mark Class methods
+
++ (instancetype)contextWithModel:(id)model {
+    return [[self alloc] initWithModel:model];
+}
+
+#pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (instancetype)initWithModel:(id)model {
     self = [super init];
-    
-    if (self) {
-        self.model = model;
-    }
+    self.model = model;
     
     return self;
 }
 
+#pragma mark -
+#pragma mark Public
+
 - (void)execute {
-    @synchronized (self) {
-        NSUInteger state = self.model.state;
-        if(kGNModelStateWillLoad == state | kGNModelStateDidLoad == state) {
-            [self.model notifyWithSelector:[self.model selectorForState:state]];
-            
+    GNModel *model = self.model;
+    @synchronized (model) {
+        NSUInteger state = model.state;
+        
+        if ([self shouldLoadState:state]) {
+            [model notifyWithSelector:[model selectorForState:state]];
             return;
         }
         
-        self.model.state = kGNModelStateWillLoad;
+        state = kGNModelStateWillLoad;
+
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
             [self.model performBackgroundLoading];
         });
     }
-    
 }
 
 - (void)cancel {
     
+}
+
+- (BOOL)shouldLoadState:(NSUInteger)state {
+    return 0;
 }
 
 @end

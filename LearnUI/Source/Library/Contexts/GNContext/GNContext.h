@@ -11,12 +11,16 @@
 @class GNModel;
 
 @interface GNContext : NSObject
-@property (nonatomic, strong)   GNModel  *model;
+@property (nonatomic, strong)   GNModel *model;
+
++ (instancetype)contextWithModel:(id)model;
 
 - (instancetype)initWithModel:(id)model;
 
 - (void)execute;
 - (void)cancel;
+
+- (BOOL)shouldLoadState:(NSUInteger)state;
 
 @end
  
