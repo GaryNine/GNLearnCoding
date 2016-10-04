@@ -16,6 +16,8 @@
 @property (nonatomic, assign, getter=isNotificationEnabled) BOOL    notificationEnabled;
 
 - (void)notify:(BOOL)notificationState whenPerformingBlock:(void(^)(void))block;
+- (void)notifyWithSelector:(SEL)selector;
+- (void)notifyWithSelector:(SEL)selector withObject:(id)object;
 
 @end
 
@@ -108,26 +110,12 @@
     }
 }
 
-- (void)notifyWithSelector:(SEL)selector {
-    [self notifyWithSelector:selector withObject:nil];
+- (void)notifyOfState:(NSUInteger)state {
+    [self notifyWithSelector:[self selectorForState:state]];
 }
 
-- (void)notifyWithSelector:(SEL)selector withObject:(id)object {
-    @synchronized(self) {
-        if (!self.notificationEnabled) {
-            return;
-        }
-        
-        NSArray *observers = self.observers;
-        
-        for (id observer in observers) {
-            if ([observer respondsToSelector:selector]) {
-                GNClangDiagnosticPushOptionPerformSelectorLeakWarning
-                [observer performSelector:selector withObject:self withObject:object];
-                GNClangDiagnosticPopOption
-            }
-        }
-    }
+- (void)notifyOfState:(NSUInteger)state withObject:(id)object {
+    [self notifyWithSelector:[self selectorForState:state] withObject:object];
 }
 
 - (void)performBlockWithNotifications:(void (^)(void))block {
@@ -152,6 +140,28 @@
             block();
             
             self.notificationEnabled = notificationEnabled;
+    }
+}
+
+- (void)notifyWithSelector:(SEL)selector {
+    [self notifyWithSelector:selector withObject:nil];
+}
+
+- (void)notifyWithSelector:(SEL)selector withObject:(id)object {
+    @synchronized(self) {
+        if (!self.notificationEnabled) {
+            return;
+        }
+        
+        NSArray *observers = self.observers;
+        
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                GNClangDiagnosticPushOptionPerformSelectorLeakWarning
+                [observer performSelector:selector withObject:self withObject:object];
+                GNClangDiagnosticPopOption
+            }
+        }
     }
 }
 

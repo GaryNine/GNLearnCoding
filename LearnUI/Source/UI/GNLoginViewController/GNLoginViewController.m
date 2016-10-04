@@ -29,6 +29,14 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 @implementation GNLoginViewController
 
 #pragma mark -
+#pragma mark Initializations & Deallocations
+
+- (void)dealloc {
+    self.model = nil;
+    self.facebookLogin = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setModel:(GNModel *)model {
@@ -72,22 +80,22 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 #pragma mark GNModelObserverProtocol
 
 - (void)modelWillLoad:(id)model {
-    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueue(^ {
         [self.loginView setLoadingViewVisible:YES animated:YES];
     });
 }
 
 - (void)modelDidLoad:(id)model {
-    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueue(^ {
         [self.loginView setLoadingViewVisible:NO animated:NO];
-        [self.facebookLogin cancel];
+        self.facebookLogin = nil;
         GNFriendsViewController *controller = [GNFriendsViewController new];
         [self.navigationController pushViewController:controller animated:YES];
     });
 }
 
 - (void)modelDidFailWithLoading:(id)model {
-    GNDispatchAsyncOnMainQueu(^ {
+    GNDispatchAsyncOnMainQueue(^ {
         [self.loginView setLoadingViewVisible:NO animated:NO];
     });
 }

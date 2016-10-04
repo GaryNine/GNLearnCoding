@@ -10,6 +10,8 @@
 
 #import "GNModel.h"
 
+#import "GNDispatch.h"
+
 @implementation GNContext
 
 #pragma mark -
@@ -38,13 +40,12 @@
         NSUInteger state = model.state;
         
         if ([self shouldLoadState:state]) {
-            [model notifyWithSelector:[model selectorForState:state]];
+            [model notifyOfState:state];
             return;
         }
         
-        state = kGNModelStateWillLoad;
-
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        model.state = kGNModelStateWillLoad;
+        GNDispatchAsyncOnBackgroundQueue(^ {
             [self load];
         });
     }

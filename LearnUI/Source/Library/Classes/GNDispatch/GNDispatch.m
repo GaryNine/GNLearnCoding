@@ -8,7 +8,7 @@
 
 #import "GNDispatch.h"
 
-dispatch_queue_t GNGetDispatchQeue(GNDispatchQueueType queueType) {
+dispatch_queue_t GNGetDispatchQueue(GNDispatchQueueType queueType) {
     switch (queueType) {
         case GNDispatchQueueMain:
         return dispatch_get_main_queue();
@@ -21,9 +21,9 @@ dispatch_queue_t GNGetDispatchQeue(GNDispatchQueueType queueType) {
 void GNDispatchSyncOnMainQueue(dispatch_block_t block) {
     if ([NSThread isMainThread]) {
         block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
     }
-    
-    dispatch_sync(dispatch_get_main_queue(), block);
 }
 
 void GNDispatchAsyncOnMainQueue(dispatch_block_t block) {
@@ -39,9 +39,9 @@ void GNDispatchAsyncOnBackgroundQueue(dispatch_block_t block) {
 }
 
 void GNDispatchSyncOnQueue(GNDispatchQueueType queueType, dispatch_block_t block) {
-    dispatch_sync(GNGetDispatchQeue(queueType), block);
+    dispatch_sync(GNGetDispatchQueue(queueType), block);
 }
 
 void GNDispatchAsyncOnQueue(GNDispatchQueueType queueType, dispatch_block_t block) {
-    dispatch_async(GNGetDispatchQeue(queueType), block);
+    dispatch_async(GNGetDispatchQueue(queueType), block);
 }

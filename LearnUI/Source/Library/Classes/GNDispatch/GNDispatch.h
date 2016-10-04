@@ -18,13 +18,13 @@ typedef NS_ENUM(NSUInteger, GNDispatchQueueType) {
 };
 
 extern
-dispatch_queue_t GNGetDispatchQeue(GNDispatchQueueType queueType);
+dispatch_queue_t GNGetDispatchQueue(GNDispatchQueueType queueType);
 
 extern
 void GNDispatchSyncOnMainQueue(dispatch_block_t block);
 
 extern
-void GNDispatchAsyncOnMainQueu(dispatch_block_t block);
+void GNDispatchAsyncOnMainQueue(dispatch_block_t block);
 
 extern
 void GNDispatchSyncOnBackgroundQueue(dispatch_block_t block);
