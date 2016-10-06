@@ -11,7 +11,7 @@
 @class GNModel;
 
 @interface GNContext : NSObject
-@property (nonatomic, strong)   GNModel *model;
+@property (nonatomic, strong)   id  model;
 
 + (instancetype)contextWithModel:(id)model;
 

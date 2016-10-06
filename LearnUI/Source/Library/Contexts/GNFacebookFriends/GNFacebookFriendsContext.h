@@ -1,13 +1,13 @@
 //
-//  GNFacebookFriends.m
+//  GNFacebookFriends.h
 //  GNLearnUI
 //
 //  Created by Igor Devyatko on 10/3/16.
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNFacebookFriends.h"
+#import "GNContext.h"
 
-@implementation GNFacebookFriends
+@interface GNFacebookFriendsContext : GNContext
 
 @end

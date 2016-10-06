@@ -7,7 +7,12 @@
 //
 
 #import "GNView.h"
+#import "GNImageView.h"
+#import "GNUser.h"
 
 @interface GNFriendsView : GNView
+@property (nonatomic, strong)   IBOutlet UITableView    *tableView;
+
+@property (nonatomic, strong)   GNUser *user;
 
 @end

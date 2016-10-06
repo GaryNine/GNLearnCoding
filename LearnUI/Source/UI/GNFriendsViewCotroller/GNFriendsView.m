@@ -10,4 +10,21 @@
 
 @implementation GNFriendsView
 
+#pragma mark -
+#pragma mark Initializations & Deallocations 
+
+- (void)dealloc {
+    self.user = nil;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(GNUser *)user {
+    if (_user != user) {
+        _user = user;
+    }
+}
+
+
 @end

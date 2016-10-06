@@ -8,12 +8,12 @@
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-#import "GNFacebookLogin.h"
+#import "GNFacebookLoginContext.h"
 #import "GNLoginViewController.h"
 
 #import "GNModel.h"
 
-@implementation GNFacebookLogin
+@implementation GNFacebookLoginContext
 
 #pragma mark -
 #pragma mark Public
@@ -21,7 +21,7 @@
 - (void)load {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc ] init];
     GNModel *model = self.model;
-    [login logInWithReadPermissions:@[@"public_profile"]
+    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                  fromViewController:self.controller
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error || result.isCancelled) {

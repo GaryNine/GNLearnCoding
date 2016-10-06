@@ -34,16 +34,11 @@
 {
     UIWindow *window = [UIWindow window];
     self.window = window;
-//    GNSquareViewController *controller = [GNSquareViewController new];
-//    GNUsersViewController *controller = [GNUsersViewController new];
+    
     GNLoginViewController *controller = [GNLoginViewController new];
     
     UINavigationController *navigationController = [[UINavigationController alloc ] initWithRootViewController:controller];
     window.rootViewController = navigationController;
-    
-//    GNUsers *users = [GNUsers new];
-//    controller.users = users;
-//    self.users = users;
     
     [window makeKeyAndVisible];
     

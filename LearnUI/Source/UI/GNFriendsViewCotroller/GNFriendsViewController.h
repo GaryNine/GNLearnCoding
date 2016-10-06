@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GNFriendsViewController : UIViewController
+#import "GNFacebookFriendsContext.h"
+#import "GNArrayModelObserver.h"
+
+@class GNUsers;
+
+@interface GNFriendsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,
+                                                        GNArrayModelObserver>
+@property (nonatomic, strong)   id      model;
+@property (nonatomic, strong)   GNUsers *users;
+
+@property (nonatomic, strong)   GNFacebookFriendsContext    *friendsContext;
 
 @end

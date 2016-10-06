@@ -9,7 +9,6 @@
 #import "GNTableViewCell.h"
 
 @class GNUser;
-@class GNView;
 @class GNImageView;
 
 @interface GNUserCell : GNTableViewCell

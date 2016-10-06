@@ -10,7 +10,7 @@
 
 @class GNLoginViewController;
 
-@interface GNFacebookLogin : GNContext
+@interface GNFacebookLoginContext : GNContext
 @property (nonatomic, weak) GNLoginViewController   *controller;
 
 @end

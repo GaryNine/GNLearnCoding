@@ -8,8 +8,6 @@
 
 #import "GNUsersViewController.h"
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import "GNUser.h"
 #import "GNUsers.h"
 #import "GNUsersView.h"
@@ -58,10 +56,6 @@ GNViewControllerBaseViewProperty(GNUsersViewController, GNUsersView, usersView)
     [super viewDidLoad];
     
     [self.users load];
-    
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,7 +120,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 }
 
 #pragma mark -
-#pragma mark GNCollectionObserver
+#pragma mark GNArrayModelObserver
 
 - (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel {
     UITableView *tableView = self.usersView.tableView;

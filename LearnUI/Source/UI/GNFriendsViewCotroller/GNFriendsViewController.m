@@ -9,10 +9,15 @@
 #import "GNFriendsViewController.h"
 
 #import "GNFriendsView.h"
+#import "GNUsers.h"
+#import "GNUserCell.h"
+
+#import "UITableView+GNExtensions.h"
+#import "UITableView+GNCollectionChangeModel.h"
 
 #import "GNViewControllerMacro.h"
 
-GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsViewController, friendsView)
+GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friendsView)
 
 @interface GNFriendsViewController ()
 
@@ -33,4 +38,25 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsViewControlle
 
 }
 
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.users.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    GNUserCell *cell = [tableView cellWithClass:[GNUserCell class]];
+    cell.user = self.users[indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark -
+#pragma mark GNArrayModelObserver
+
+- (void)collection:(NSArray *)arrayModel didChangeWithModel:(GNCollectionChangeModel *)changeModel {
+    UITableView *tableView = self.friendsView.tableView;
+    [tableView updateWithCollectionChangeModel:changeModel];
+}
 @end

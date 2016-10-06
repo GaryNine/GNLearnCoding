@@ -10,11 +10,8 @@
 
 #import "GNModelObserver.h"
 
-@class GNModel;
-@class GNFacebookLogin;
-
 @interface GNLoginViewController : UIViewController <GNModelObserver>
-@property (nonatomic, strong)   GNModel *model;
+@property (nonatomic, strong)   id  model;
 
 - (IBAction)onLogin:(id)sender;
 

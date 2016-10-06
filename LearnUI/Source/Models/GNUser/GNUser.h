@@ -14,6 +14,7 @@
 @class GNImageModel;
 
 @interface GNUser : GNModel <NSCoding>
+@property (nonatomic, copy)     NSString    *userID;
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;
 @property (nonatomic, readonly) NSString    *fullName;

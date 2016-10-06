@@ -52,7 +52,7 @@
     @synchronized (self) {
         NSUInteger state = self.state;
         if(kGNModelStateWillLoad == state | kGNModelStateDidLoad == state) {
-            [self notifyWithSelector:[self selectorForState:state]];
+            [self notifyOfState:state];
             
             return;
         }

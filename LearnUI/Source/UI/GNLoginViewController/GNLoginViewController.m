@@ -7,22 +7,26 @@
 //
 
 #import "GNLoginViewController.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 #import "GNLoginView.h"
-#import "GNFacebookLogin.h"
-
+#import "GNFacebookLoginContext.h"
 #import "GNFriendsViewController.h"
-
 #import "GNModel.h"
 #import "GNView.h"
-
 #import "GNDispatch.h"
+#import "GNUser.h"
 
 #import "GNViewControllerMacro.h"
 
 GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 
 @interface GNLoginViewController ()
-@property (nonatomic, strong)   GNFacebookLogin *facebookLogin;
+@property (nonatomic, strong)   GNFacebookLoginContext  *facebookLoginContext;
+
+- (void)finishLogin;
 
 @end
 
@@ -33,7 +37,7 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 
 - (void)dealloc {
     self.model = nil;
-    self.facebookLogin = nil;
+    self.facebookLoginContext = nil;
 }
 
 #pragma mark -
@@ -47,12 +51,12 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
     }
 }
 
-- (void)setFacebookLogin:(GNFacebookLogin *)facebookLogin {
-    if (_facebookLogin != facebookLogin) {
-        [_facebookLogin cancel];
-        _facebookLogin = facebookLogin;
-        _facebookLogin.controller = self;
-        [_facebookLogin execute];
+- (void)setFacebookLoginContext:(GNFacebookLoginContext *)facebookLoginContext {
+    if (_facebookLoginContext != facebookLoginContext) {
+        [_facebookLoginContext cancel];
+        _facebookLoginContext = facebookLoginContext;
+        _facebookLoginContext.controller = self;
+        [_facebookLoginContext execute];
     }
 }
 
@@ -62,6 +66,7 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self finishLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +78,22 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 #pragma mark Interface Handling 
 
 - (IBAction)onLogin:(id)sender {
-    self.facebookLogin = [GNFacebookLogin contextWithModel:self.model];
+    self.model = [GNModel new];
+    self.facebookLoginContext = [GNFacebookLoginContext contextWithModel:self.model];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)finishLogin {
+    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+    if (accessToken) {
+        GNUser *user = [GNUser new];
+        user.userID = accessToken.userID;
+        GNFriendsViewController *controller = [GNFriendsViewController new];
+        controller.model = user;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma mark -
@@ -88,9 +108,8 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
 - (void)modelDidLoad:(id)model {
     GNDispatchAsyncOnMainQueue(^ {
         [self.loginView setLoadingViewVisible:NO animated:NO];
-        self.facebookLogin = nil;
-        GNFriendsViewController *controller = [GNFriendsViewController new];
-        [self.navigationController pushViewController:controller animated:YES];
+        self.facebookLoginContext = nil;
+        [self finishLogin];
     });
 }
 
