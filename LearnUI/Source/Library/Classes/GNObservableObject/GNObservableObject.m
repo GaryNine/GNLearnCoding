@@ -16,6 +16,8 @@
 @property (nonatomic, assign, getter=isNotificationEnabled) BOOL    notificationEnabled;
 
 - (void)notify:(BOOL)notificationState whenPerformingBlock:(void(^)(void))block;
+- (void)notifyWithSelector:(SEL)selector;
+- (void)notifyWithSelector:(SEL)selector withObject:(id)object;
 
 @end
 
@@ -116,28 +118,6 @@
     [self notifyWithSelector:[self selectorForState:state] withObject:object];
 }
 
-- (void)notifyWithSelector:(SEL)selector {
-    [self notifyWithSelector:selector withObject:nil];
-}
-
-- (void)notifyWithSelector:(SEL)selector withObject:(id)object {
-    @synchronized(self) {
-        if (!self.notificationEnabled) {
-            return;
-        }
-        
-        NSArray *observers = self.observers;
-        
-        for (id observer in observers) {
-            if ([observer respondsToSelector:selector]) {
-                GNClangDiagnosticPushOptionPerformSelectorLeakWarning
-                [observer performSelector:selector withObject:self withObject:object];
-                GNClangDiagnosticPopOption
-            }
-        }
-    }
-}
-
 - (void)performBlockWithNotifications:(void (^)(void))block {
     [self notify:YES whenPerformingBlock:block];
 }
@@ -160,6 +140,29 @@
             block();
             
             self.notificationEnabled = notificationEnabled;
+    }
+}
+
+
+- (void)notifyWithSelector:(SEL)selector {
+    [self notifyWithSelector:selector withObject:nil];
+}
+
+- (void)notifyWithSelector:(SEL)selector withObject:(id)object {
+    @synchronized(self) {
+        if (!self.notificationEnabled) {
+            return;
+        }
+        
+        NSArray *observers = self.observers;
+        
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                GNClangDiagnosticPushOptionPerformSelectorLeakWarning
+                [observer performSelector:selector withObject:self withObject:object];
+                GNClangDiagnosticPopOption
+            }
+        }
     }
 }
 

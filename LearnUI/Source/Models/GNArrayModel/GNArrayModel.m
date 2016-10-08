@@ -172,7 +172,20 @@
 #pragma mark Private
 
 - (void)notifyObserversWithChangeModel:(GNCollectionChangeModel *)model {
-    [self notifyWithSelector:@selector(collection:didChangeWithModel:) withObject:model];
+    [self notifyOfState:kGNCollectionStateDidChange withObject:model];
+}
+
+#pragma mark -
+#pragma mark GNArrayModelObserver
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kGNCollectionStateDidChange:
+            return @selector(collection:didChangeWithModel:);
+            
+            default:
+            return [super selectorForState:state];
+    }
 }
 
 @end
