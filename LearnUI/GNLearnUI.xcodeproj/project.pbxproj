@@ -27,6 +27,7 @@
 		A85DB3A61C79CF9E00AE0743 /* UINib+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3A51C79CF9E00AE0743 /* UINib+GNExtensions.m */; };
 		A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3A91C7A2F5D00AE0743 /* UITableView+GNExtensions.m */; };
 		A85DB3B11C7BC71F00AE0743 /* GNObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */; };
+		A885BAB71DA943B000052675 /* GNFriendDetailContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A885BAB61DA943B000052675 /* GNFriendDetailContext.m */; };
 		A88763941D7B0D16007B0870 /* GNLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A88763931D7B0D16007B0870 /* GNLoadingView.m */; };
 		A88763981D7D839A007B0870 /* GNLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88763971D7D839A007B0870 /* GNLoadingView.xib */; };
 		A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A89259201C85CFAB00F8CF90 /* NSObject+GNExtensions.m */; };
@@ -115,6 +116,8 @@
 		A85DB3A91C7A2F5D00AE0743 /* UITableView+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+GNExtensions.m"; sourceTree = "<group>"; };
 		A85DB3AF1C7BC71F00AE0743 /* GNObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNObservableObject.h; sourceTree = "<group>"; };
 		A85DB3B01C7BC71F00AE0743 /* GNObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNObservableObject.m; sourceTree = "<group>"; };
+		A885BAB51DA943B000052675 /* GNFriendDetailContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFriendDetailContext.h; sourceTree = "<group>"; };
+		A885BAB61DA943B000052675 /* GNFriendDetailContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFriendDetailContext.m; sourceTree = "<group>"; };
 		A88763901D7AEA5E007B0870 /* GNDispatchOnce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNDispatchOnce.h; sourceTree = "<group>"; };
 		A88763921D7B0D16007B0870 /* GNLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNLoadingView.h; sourceTree = "<group>"; };
 		A88763931D7B0D16007B0870 /* GNLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNLoadingView.m; sourceTree = "<group>"; };
@@ -462,6 +465,15 @@
 			path = GNObservableObject;
 			sourceTree = "<group>";
 		};
+		A885BAB41DA9431400052675 /* GNFriendDetailContext */ = {
+			isa = PBXGroup;
+			children = (
+				A885BAB51DA943B000052675 /* GNFriendDetailContext.h */,
+				A885BAB61DA943B000052675 /* GNFriendDetailContext.m */,
+			);
+			path = GNFriendDetailContext;
+			sourceTree = "<group>";
+		};
 		A88763911D7B0C98007B0870 /* GNLoadingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +639,7 @@
 		A8F95FF71DA28489000AE8A3 /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				A885BAB41DA9431400052675 /* GNFriendDetailContext */,
 				A8F960001DA29177000AE8A3 /* GNFacebookFriendsContext */,
 				A8F95FFC1DA290F6000AE8A3 /* GNFacebookLoginContext */,
 				A8F95FF81DA28501000AE8A3 /* GNContext */,
@@ -963,6 +976,7 @@
 				A8FB84411C728A8600116424 /* UIColor+GNExtensions.m in Sources */,
 				A89259461C8F739500F8CF90 /* GNCollectionChangeModel+UITableView.m in Sources */,
 				A89259681C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m in Sources */,
+				A885BAB71DA943B000052675 /* GNFriendDetailContext.m in Sources */,
 				A81048251D92BDAD00CBF182 /* NSURL+GNExtensions.m in Sources */,
 				A892595F1C917F6700F8CF90 /* GNSingleIndexCollectionChangeModel+UITableView.m in Sources */,
 				A89259211C85CFAB00F8CF90 /* NSObject+GNExtensions.m in Sources */,
@@ -1050,10 +1064,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos10.0;
 			};
 			name = Debug;
 		};
@@ -1089,9 +1103,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos10.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -11,13 +11,11 @@
 #import "GNFacebookFriendsContext.h"
 #import "GNArrayModelObserver.h"
 
-@class GNUsers;
+@class GNUser;
 
 @interface GNFriendsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,
                                                         GNArrayModelObserver>
-@property (nonatomic, strong)   id      model;
-@property (nonatomic, strong)   GNUsers *users;
-
+@property (nonatomic, strong)   GNUser                      *user;
 @property (nonatomic, strong)   GNFacebookFriendsContext    *friendsContext;
 
 @end

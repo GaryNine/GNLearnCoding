@@ -8,6 +8,26 @@
 
 #import "GNFacebookFriendsContext.h"
 
+#import "GNUser.h"
+
+@interface GNFacebookFriendsContext ()
+
+@end
+
 @implementation GNFacebookFriendsContext
+
+#pragma mark -
+#pragma mark Public
+
+- (void)load {
+    GNUser *user = self.model;
+    
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:user.userID
+                                                                   parameters:nil];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                          id result,
+                                          NSError *error) {
+    }];
+}
 
 @end

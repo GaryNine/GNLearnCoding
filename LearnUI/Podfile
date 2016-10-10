@@ -3,4 +3,5 @@ platform :ios, '10.0'
 target 'GNLearnUI' do
   pod 'FBSDKCoreKit', '~> 4.9'
   pod 'FBSDKLoginKit', '~> 4.9'
+  pod 'FBSDKShareKit', '~> 4.9'
 end

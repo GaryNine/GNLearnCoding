@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GNFriendDetailViewController : UIViewController
+@property (nonatomic, strong)   id  model;
 
 @end

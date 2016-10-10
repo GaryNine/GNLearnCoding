@@ -8,6 +8,11 @@
 
 #import "GNContext.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+@class GNFriendsViewController;
+
 @interface GNFacebookFriendsContext : GNContext
+@property (nonatomic, weak) GNFriendsViewController *controller;
 
 @end

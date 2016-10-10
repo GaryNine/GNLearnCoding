@@ -91,7 +91,7 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
         GNUser *user = [GNUser new];
         user.userID = accessToken.userID;
         GNFriendsViewController *controller = [GNFriendsViewController new];
-        controller.model = user;
+        controller.user = user;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

@@ -12,6 +12,7 @@
 #import "GNModel.h"
 
 @class GNImageModel;
+@class GNUsers;
 
 @interface GNUser : GNModel <NSCoding>
 @property (nonatomic, copy)     NSString    *userID;
@@ -21,5 +22,7 @@
 
 @property (nonatomic, copy)     NSURL           *imageURL;
 @property (nonatomic, readonly) GNImageModel    *image;
+
+@property (nonatomic, strong)   GNUsers *users;
 
 @end

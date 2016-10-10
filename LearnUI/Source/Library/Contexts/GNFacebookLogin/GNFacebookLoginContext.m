@@ -13,6 +13,10 @@
 
 #import "GNModel.h"
 
+static NSString * const kGNPublicProfilePermission = @"public_profile";
+static NSString * const kGNEmailPermission = @"email";
+static NSString * const kGNUserFriendsPermission = @"user_friends";
+
 @implementation GNFacebookLoginContext
 
 #pragma mark -
@@ -21,7 +25,7 @@
 - (void)load {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc ] init];
     GNModel *model = self.model;
-    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
+    [login logInWithReadPermissions:@[kGNPublicProfilePermission, kGNEmailPermission, kGNUserFriendsPermission]
                  fromViewController:self.controller
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error || result.isCancelled) {
