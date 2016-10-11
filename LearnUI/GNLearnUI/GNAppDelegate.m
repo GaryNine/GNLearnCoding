@@ -49,7 +49,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     GNPrintMethod;
-    [self.users save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -62,7 +61,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     GNPrintMethod;
-    [self.users save];
 }
 
 @end

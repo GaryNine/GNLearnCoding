@@ -19,14 +19,32 @@ static const NSUInteger kGNInitialUsersCount = 7;
 static NSString * const kGNArchiveFileName = @"objects.plist";
 
 @interface GNUsers ()
+@property (nonatomic, strong)   id  changeObserver;
 
 - (NSArray *)loadUsers;
+
+- (void)beginObservation;
+- (void)finishObservation;
 
 @end
 
 @implementation GNUsers
 
 @dynamic path;
+
+#pragma mark -
+#pragma mark Initializations & Deallocations
+
+- (void)dealloc {
+    [self finishObservation];
+}
+
+- (instancetype)init {
+    self = [super init];
+    [self beginObservation];
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -75,6 +93,23 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     }
     
     return users;
+}
+
+- (void)beginObservation {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    GNWeakify(self);
+    self.changeObserver = [center addObserverForName:(UIApplicationDidEnterBackgroundNotification)
+                        object:nil
+                         queue:[NSOperationQueue mainQueue]
+                    usingBlock:^(NSNotification * note) {
+                        GNStrongify(self);
+                        [self save];
+                    }];
+}
+
+- (void)finishObservation {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self.changeObserver name:(UIApplicationDidEnterBackgroundNotification) object:nil];
 }
 
 @end
