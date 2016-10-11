@@ -99,17 +99,19 @@ static NSString * const kGNArchiveFileName = @"objects.plist";
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     GNWeakify(self);
     self.changeObserver = [center addObserverForName:(UIApplicationDidEnterBackgroundNotification)
-                        object:nil
-                         queue:[NSOperationQueue mainQueue]
-                    usingBlock:^(NSNotification * note) {
-                        GNStrongify(self);
-                        [self save];
-                    }];
+                                              object:nil
+                                               queue:[NSOperationQueue mainQueue]
+                                          usingBlock:^(NSNotification * note) {
+                                              GNStrongify(self);
+                                              [self save];
+                                          }];
 }
 
 - (void)finishObservation {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center removeObserver:self.changeObserver name:(UIApplicationDidEnterBackgroundNotification) object:nil];
+    [center removeObserver:self.changeObserver
+                      name:(UIApplicationDidEnterBackgroundNotification)
+                    object:nil];
 }
 
 @end
