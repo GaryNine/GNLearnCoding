@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class GNModel;
-
 @interface GNContext : NSObject
 @property (nonatomic, strong)   id  model;
 

@@ -9,10 +9,11 @@
 #import "GNFriendsViewController.h"
 
 #import "GNFriendsView.h"
-#import "GNUser.h"
 #import "GNUsers.h"
+#import "GNFacebookFriendsContext.h"
 #import "GNUserCell.h"
 #import "GNFriendDetailViewController.h"
+#import "GNModel.h"
 
 #import "UITableView+GNExtensions.h"
 #import "UITableView+GNCollectionChangeModel.h"
@@ -23,6 +24,7 @@
 GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friendsView)
 
 @interface GNFriendsViewController ()
+@property (nonatomic, strong)   GNFacebookFriendsContext    *friendsContext;
 
 @end
 
@@ -32,18 +34,28 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.user = nil;
+    self.model = nil;
     self.friendsContext = nil;
 }
 
 #pragma mark -
 #pragma mark Accessros
 
-- (void)setUser:(GNUser *)user {
-    if (_user != user) {
-        [_user removeObserver:self];
-        _user = user;
-        [_user addObserver:self];
+- (void)setUsers:(GNUsers *)users {
+    if (_users != users) {
+        [_users removeObserver:self];
+        _users = users;
+        [_users addObserver:self];
+    }
+}
+
+- (void)setModel:(GNModel *)model {
+    if (_model != model) {
+        [_model removeObserver:self];
+        _model = model;
+        [_model addObserver:self];
+        
+        self.friendsContext = [GNFacebookFriendsContext contextWithUser:self.model];
     }
 }
 
@@ -51,7 +63,6 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
     if (_friendsContext != friendsContext) {
         [_friendsContext cancel];
         _friendsContext = friendsContext;
-        _friendsContext.controller = self;
         [_friendsContext execute];
     }
 }
@@ -62,7 +73,7 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.friendsContext = [GNFacebookFriendsContext contextWithUser:self.user];
+    self.friendsContext = [GNFacebookFriendsContext contextWithUser:self.model];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,12 +85,12 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.user.users.count;
+    return self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GNUserCell *cell = [tableView cellWithClass:[GNUserCell class]];
-    cell.user = self.user.users[indexPath.row];
+    cell.user = self.users[indexPath.row];
     
     return cell;
 }
@@ -88,7 +99,7 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GNUser *friend = self.user.users[indexPath.row];
+    GNUser *friend = self.users[indexPath.row];
     
     GNFriendDetailViewController *controller = [GNFriendDetailViewController new];
     controller.model = friend;

@@ -8,6 +8,14 @@
 
 #import "GNView.h"
 
+@class GNImageView;
+@class GNUser;
+
 @interface GNFriendDetailView : GNView
+@property (nonatomic, strong)   IBOutlet GNImageView    *imageView;
+@property (nonatomic, strong)   IBOutlet UILabel        *firstName;
+@property (nonatomic, strong)   IBOutlet UILabel        *lastName;
+
+@property (nonatomic, strong)   GNUser  *user;
 
 @end

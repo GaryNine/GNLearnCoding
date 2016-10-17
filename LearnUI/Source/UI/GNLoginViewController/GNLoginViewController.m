@@ -8,8 +8,7 @@
 
 #import "GNLoginViewController.h"
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKAccessToken.h>
 
 #import "GNLoginView.h"
 #import "GNFacebookLoginContext.h"
@@ -91,7 +90,7 @@ GNViewControllerBaseViewProperty(GNLoginViewController, GNLoginView, loginView)
         GNUser *user = [GNUser new];
         user.userID = accessToken.userID;
         GNFriendsViewController *controller = [GNFriendsViewController new];
-        controller.user = user;
+        controller.model = user;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

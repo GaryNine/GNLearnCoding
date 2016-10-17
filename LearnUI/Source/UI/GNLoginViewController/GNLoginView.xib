@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GNLoginViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GNLoginViewController">
+            <connections>
+                <outlet property="view" destination="DCD-8c-dbt" id="Acn-s1-Zw2"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Lgl-EQ-xf3" customClass="GNLoginView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+        <view contentMode="scaleToFill" id="DCD-8c-dbt" customClass="GNLoginView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mih-wY-2jo">
-                    <frame key="frameInset" minX="69" minY="310" width="236" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.81237834692001343" green="0.98962587118148804" blue="0.73271292448043823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-j0-GRL">
+                    <rect key="frame" x="56" y="261" width="208" height="47"/>
+                    <color key="backgroundColor" red="0.77695050340000005" green="1" blue="0.67808829699999995" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Login To Facebook"/>
                     <connections>
-                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="jFa-fL-rr1"/>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="eas-Nr-dDi"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="loginToFacebook" destination="mih-wY-2jo" id="our-jh-0af"/>
+                <outlet property="loginToFacebook" destination="uNl-j0-GRL" id="Yul-Vv-dkg"/>
             </connections>
-            <point key="canvasLocation" x="-824" y="65"/>
+            <point key="canvasLocation" x="-242" y="62"/>
         </view>
     </objects>
 </document>
