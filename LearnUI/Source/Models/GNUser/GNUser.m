@@ -12,6 +12,7 @@
 #import "GNImageModel.h"
 
 #import "NSString+GNRandomName.h"
+#import "NSCoder+GNExtensions.h"
 
 static NSString * const kGNFirstName  = @"firstName";
 static NSString * const kGNLastName  = @"lastName";
@@ -67,10 +68,11 @@ static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-log
 #pragma mark -
 #pragma mark NSCoding
 
+
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.firstName forKey:kGNFirstName];
-    [aCoder encodeObject:self.lastName forKey:kGNLastName];
-    [aCoder encodeObject:self.imageURL forKey:kGNURL];
+    [aCoder encodeObjects:@{kGNFirstName : self.firstName,
+                            kGNLastName : self.lastName,
+                            kGNURL : self.imageURL}];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
