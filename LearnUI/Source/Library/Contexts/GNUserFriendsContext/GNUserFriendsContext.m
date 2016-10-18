@@ -14,13 +14,7 @@
 #import "GNUsers.h"
 #import "GNFriendsViewController.h"
 
-static NSString * const kGNFriendsKey = @"friends";
-static NSString * const kGNDataKey = @"data";
-static NSString * const kGNFirstNameKey = @"first_name";
-static NSString * const kGNLastNameKey = @"last_name";
-static NSString * const kGNPictureKey = @"picture";
-static NSString * const kGNUrlKey = @"url";
-static NSString * const kGNFieldsKey = @"fields";
+#import "GNConstants.h"
 
 @interface GNUserFriendsContext ()
 @property (nonatomic, weak) GNFriendsViewController *controller;
@@ -55,33 +49,34 @@ static NSString * const kGNFieldsKey = @"fields";
 #pragma mark Public
 
 - (void)load {
-    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.user.userID
-                                                                   parameters:self.parameters];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                          NSDictionary *result,
-                                          NSError *error) {
-        GNUsers *userFriends = self.model;
-        NSArray *friends = result[kGNFriendsKey][kGNDataKey];
-        
-        [userFriends performBlockWithoutNotifications:^ {
-            for (id friend in friends) {
-                GNUser *user = [GNUser new];
-                user.firstName = friend[kGNFirstNameKey];
-                user.lastName = friend[kGNLastNameKey];
-                
-                NSString *urlString = friend[kGNPictureKey][kGNDataKey][kGNUrlKey];
-                user.imageURL = [NSURL URLWithString:urlString];
-                [userFriends addObject:user];
-            }
-        }];
-        
-        self.controller.users = userFriends;
-        userFriends.state = kGNModelStateDidLoad;
-    }];
+//    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.user.userID
+//                                                                   parameters:self.parameters];
+//    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+//                                          NSDictionary *result,
+//                                          NSError *error) {
+//        GNUsers *userFriends = self.model;
+//        NSArray *friends = result[kGNFriendsKey][kGNDataKey];
+//        
+//        [userFriends performBlockWithoutNotifications:^ {
+//            for (id friend in friends) {
+//                GNUser *user = [GNUser new];
+//                user.firstName = friend[kGNFirstNameKey];
+//                user.lastName = friend[kGNLastNameKey];
+//                
+//                NSString *urlString = friend[kGNPictureKey][kGNDataKey][kGNUrlKey];
+//                user.imageURL = [NSURL URLWithString:urlString];
+//                [userFriends addObject:user];
+//            }
+//        }];
+//        
+//        self.controller.users = userFriends;
+//        userFriends.state = kGNModelStateDidLoad;
+//    }];
 }
 
-#pragma mark -
-#pragma mark Private
+- (NSString *)graphPath {
+    return self.user.userID;
+}
 
 - (NSDictionary *)parameters {
     NSString *fields = [NSString stringWithFormat:@"%@{%@,%@,%@{%@}}",

@@ -13,9 +13,7 @@
 
 #import "GNModel.h"
 
-static NSString * const kGNPublicProfilePermission = @"public_profile";
-static NSString * const kGNEmailPermission = @"email";
-static NSString * const kGNUserFriendsPermission = @"user_friends";
+#import "GNConstants.h"
 
 @implementation GNFacebookLoginContext
 
