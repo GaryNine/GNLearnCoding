@@ -6,7 +6,7 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNFacebookFriendsContext.h"
+#import "GNUserFriendsContext.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -22,7 +22,7 @@ static NSString * const kGNPictureKey = @"picture";
 static NSString * const kGNUrlKey = @"url";
 static NSString * const kGNFieldsKey = @"fields";
 
-@interface GNFacebookFriendsContext ()
+@interface GNUserFriendsContext ()
 @property (nonatomic, weak) GNFriendsViewController *controller;
 
 - (instancetype)initWithUser:(GNUser *)user;
@@ -31,7 +31,7 @@ static NSString * const kGNFieldsKey = @"fields";
 
 @end
 
-@implementation GNFacebookFriendsContext
+@implementation GNUserFriendsContext
 
 #pragma mark - 
 #pragma mark Class Methods

@@ -10,7 +10,7 @@
 
 @class GNUser;
 
-@interface GNFacebookFriendsContext : GNContext
+@interface GNUserFriendsContext : GNContext
 @property (nonatomic, strong)   GNUser *user;
 
 + (instancetype)contextWithUser:(GNUser *)user;

@@ -10,7 +10,7 @@
 
 #import "GNFriendsView.h"
 #import "GNUsers.h"
-#import "GNFacebookFriendsContext.h"
+#import "GNUserFriendsContext.h"
 #import "GNUserCell.h"
 #import "GNFriendDetailViewController.h"
 #import "GNModel.h"
@@ -24,7 +24,7 @@
 GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friendsView)
 
 @interface GNFriendsViewController ()
-@property (nonatomic, strong)   GNFacebookFriendsContext    *friendsContext;
+@property (nonatomic, strong)   GNUserFriendsContext    *friendsContext;
 
 @end
 
@@ -55,11 +55,11 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
         _model = model;
         [_model addObserver:self];
         
-        self.friendsContext = [GNFacebookFriendsContext contextWithUser:self.model];
+        self.friendsContext = [GNUserFriendsContext contextWithUser:self.model];
     }
 }
 
--(void)setFriendsContext:(GNFacebookFriendsContext *)friendsContext {
+-(void)setFriendsContext:(GNUserFriendsContext *)friendsContext {
     if (_friendsContext != friendsContext) {
         [_friendsContext cancel];
         _friendsContext = friendsContext;
@@ -73,7 +73,7 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.friendsContext = [GNFacebookFriendsContext contextWithUser:self.model];
+    self.friendsContext = [GNUserFriendsContext contextWithUser:self.model];
 }
 
 - (void)didReceiveMemoryWarning {
