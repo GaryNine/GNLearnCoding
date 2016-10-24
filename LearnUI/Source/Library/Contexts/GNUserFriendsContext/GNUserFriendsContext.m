@@ -48,32 +48,6 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)load {
-//    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:self.user.userID
-//                                                                   parameters:self.parameters];
-//    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-//                                          NSDictionary *result,
-//                                          NSError *error) {
-//        GNUsers *userFriends = self.model;
-//        NSArray *friends = result[kGNFriendsKey][kGNDataKey];
-//        
-//        [userFriends performBlockWithoutNotifications:^ {
-//            for (id friend in friends) {
-//                GNUser *user = [GNUser new];
-//                user.firstName = friend[kGNFirstNameKey];
-//                user.lastName = friend[kGNLastNameKey];
-//                
-//                NSString *urlString = friend[kGNPictureKey][kGNDataKey][kGNUrlKey];
-//                user.imageURL = [NSURL URLWithString:urlString];
-//                [userFriends addObject:user];
-//            }
-//        }];
-//        
-//        self.controller.users = userFriends;
-//        userFriends.state = kGNModelStateDidLoad;
-//    }];
-}
-
 - (NSString *)graphPath {
     return self.user.userID;
 }
@@ -83,6 +57,25 @@
                         kGNFriendsKey, kGNFirstNameKey, kGNLastNameKey, kGNPictureKey, kGNUrlKey];
     
     return @{kGNFieldsKey : fields};
+}
+
+- (void)fillModelWithResult:(NSDictionary *)result {
+    GNUsers *userFriends = self.model;
+    NSArray *friends = result[kGNFriendsKey][kGNDataKey];
+    
+    [userFriends performBlockWithoutNotifications:^ {
+        for (id friend in friends) {
+            GNUser *user = [GNUser new];
+            user.firstName = friend[kGNFirstNameKey];
+            user.lastName = friend[kGNLastNameKey];
+            
+            NSString *urlString = friend[kGNPictureKey][kGNDataKey][kGNUrlKey];
+            user.imageURL = [NSURL URLWithString:urlString];
+            
+            [userFriends addObject:user];
+        }
+        
+    }];
 }
 
 @end
