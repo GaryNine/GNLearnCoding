@@ -7,10 +7,11 @@
 //
 
 #import "GNContext.h"
+#import "GNFacebookContext.h"
 
 @class GNUser;
 
-@interface GNUserFriendsContext : GNContext
+@interface GNUserFriendsContext : GNFacebookContext
 @property (nonatomic, strong)   GNUser *user;
 
 + (instancetype)contextWithUser:(GNUser *)user;

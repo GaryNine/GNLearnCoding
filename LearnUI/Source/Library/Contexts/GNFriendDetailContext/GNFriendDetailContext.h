@@ -6,8 +6,8 @@
 //  Copyright © 2016 IDAP College. All rights reserved.
 //
 
-#import "GNContext.h"
+#import "GNFacebookContext.h"
 
-@interface GNFriendDetailContext : GNContext
+@interface GNFriendDetailContext : GNFacebookContext
 
 @end
