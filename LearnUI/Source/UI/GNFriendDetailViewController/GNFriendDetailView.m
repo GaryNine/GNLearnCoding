@@ -37,6 +37,9 @@
     self.imageView.imageModel = user.image;
     self.firstName.text = user.firstName;
     self.lastName.text = user.lastName;
+    self.gender.text = user.gender;
+    self.email.text = user.email;
+    self.birtday.text = user.birthday;
 }
 
 @end

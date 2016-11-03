@@ -15,6 +15,9 @@
 @property (nonatomic, strong)   IBOutlet GNImageView    *imageView;
 @property (nonatomic, strong)   IBOutlet UILabel        *firstName;
 @property (nonatomic, strong)   IBOutlet UILabel        *lastName;
+@property (nonatomic, strong)   IBOutlet UILabel        *gender;
+@property (nonatomic, strong)   IBOutlet UILabel        *email;
+@property (nonatomic, strong)   IBOutlet UILabel        *birtday;
 
 @property (nonatomic, strong)   GNUser  *user;
 
