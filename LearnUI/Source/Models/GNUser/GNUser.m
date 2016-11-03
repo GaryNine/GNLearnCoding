@@ -14,11 +14,15 @@
 #import "NSString+GNRandomName.h"
 #import "NSCoder+GNExtensions.h"
 
-static NSString * const kGNFirstName  = @"firstName";
-static NSString * const kGNLastName  = @"lastName";
-static NSString * const kGNURL      = @"url";
+#import "GNConstantStringMacro.h"
 
-static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-logo-design-1625828/";
+GNConstant(kGNUserID, @"userID")
+GNConstant(kGNFirstName, @"firstName")
+GNConstant(kGNLastName, @"lastName")
+GNConstant(kGNURL, @"url")
+GNConstant(kGNGender, @"gender")
+GNConstant(kGNBirthday, @"birthday")
+GNConstant(kGNEmail, @"email")
 
 @implementation GNUser
 
@@ -26,16 +30,14 @@ static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-log
 @dynamic image;
 
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark initializations & Deallocations
 
-+ (instancetype)user {
-    GNUser *user = [GNUser new];
+- (instancetype)init {
+    self = [super init];
     
-    user.firstName = [NSString randomName];
-    user.lastName = [NSString randomName];
-    user.imageURL = [NSURL URLWithString:kGNImageURL];
+    self.friends = [GNUsers new];
     
-    return user;
+    return self;
 }
 
 #pragma mark - 
@@ -45,25 +47,17 @@ static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-log
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
 
-- (GNImageModel *)image {
-    return [GNImageModel imageWithURL:self.imageURL];
-}
-
-- (void)setFriends:(GNUsers *)friends {
-    if (_friends != friends) {
-        [_friends removeObserver:self];
-        _friends = friends;
-        [_friends addObject:self];
-    }
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)performBackgroundLoading {
-    sleep(1);
-    [self.image load];
-}
+//- (GNImageModel *)image {
+//    return [GNImageModel imageWithURL:self.imageURL];
+//}
+//
+//#pragma mark -
+//#pragma mark Public
+//
+//- (void)performBackgroundLoading {
+//    sleep(1);
+//    [self.image load];
+//}
 
 #pragma mark -
 #pragma mark NSCoding
@@ -72,7 +66,11 @@ static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-log
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObjects:@{kGNFirstName : self.firstName,
                             kGNLastName : self.lastName,
-                            kGNURL : self.imageURL}];
+                            kGNURL : self.imageURL,
+                            kGNGender : self.gender,
+                            kGNBirthday : self.birthday,
+                            kGNEmail : self.email,
+                            kGNUserID : self.userID}];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -82,6 +80,10 @@ static NSString * const kGNImageURL = @"https://pixabay.com/en/autobots-logo-log
         self.firstName = [aDecoder decodeObjectForKey:kGNFirstName];
         self.lastName = [aDecoder decodeObjectForKey:kGNLastName];
         self.imageURL = [aDecoder decodeObjectForKey:kGNURL];
+        self.gender = [aDecoder decodeObjectForKey:kGNGender];
+        self.birthday = [aDecoder decodeObjectForKey:kGNBirthday];
+        self.email = [aDecoder decodeObjectForKey:kGNEmail];
+        self.userID = [aDecoder decodeObjectForKey:kGNUserID];
     }
     
     return self;

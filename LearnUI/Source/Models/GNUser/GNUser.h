@@ -10,15 +10,19 @@
 #import <UIKit/UIKit.h>
 
 #import "GNModel.h"
+#import "GNModelObserver.h"
 
 @class GNImageModel;
 @class GNUsers;
 
-@interface GNUser : GNModel <NSCoding>
+@interface GNUser : GNModel <NSCoding, GNModelObserver>
 @property (nonatomic, copy)     NSString    *userID;
 @property (nonatomic, copy)     NSString    *firstName;
 @property (nonatomic, copy)     NSString    *lastName;
 @property (nonatomic, readonly) NSString    *fullName;
+@property (nonatomic, copy)     NSString    *gender;
+@property (nonatomic, copy)     NSString    *email;
+@property (nonatomic, copy)     NSString    *birthday;
 
 @property (nonatomic, copy)     NSURL           *imageURL;
 @property (nonatomic, readonly) GNImageModel    *image;
