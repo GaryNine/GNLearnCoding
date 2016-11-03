@@ -41,9 +41,17 @@
 #pragma mark -
 #pragma mark Public
 
+- (void)load {
+    GNWeakify(self);
+    GNDispatchAsyncOnMainQueue( ^{
+        GNStrongifyAndReturnIfNil(self);
+        self.connection = [[self request] startWithCompletionHandler:[self completionHandler]];
+    });
+}
+
 - (FBSDKGraphRequest *)request {
     return [[FBSDKGraphRequest alloc] initWithGraphPath:[self graphPath]
-                                             parameters:[self parameteres]];
+                                             parameters:[self parameters]];
 }
 
 - (FBSDKGraphRequestHandler)completionHandler {
@@ -51,6 +59,7 @@
     return ^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
         GNStrongifyAndReturnIfNil(self);
         [self fillModelWithResult:result];
+        
         GNModel *model = self.model;
         @synchronized (model) {
             model.state = kGNModelStateDidLoad;
@@ -62,20 +71,12 @@
     return nil;
 }
 
-- (NSDictionary *)parameteres {
+- (NSDictionary *)parameters {
     return nil;
 }
 
 - (void)fillModelWithResult:(NSDictionary *)result {
     
-}
-
-- (void)load {
-    GNWeakify(self);
-    GNDispatchAsyncOnMainQueue( ^{
-        GNStrongifyAndReturnIfNil(self);
-        self.connection = [[self request] startWithCompletionHandler:[self completionHandler]];
-    });
 }
 
 @end

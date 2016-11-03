@@ -46,6 +46,17 @@
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(GNUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        self.model = user.friends;
+    }
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (NSString *)graphPath {
@@ -60,12 +71,13 @@
 }
 
 - (void)fillModelWithResult:(NSDictionary *)result {
-    GNUsers *userFriends = self.model;
+    GNUser *user = self.user;
+
     NSArray *friends = result[kGNFriendsKey][kGNDataKey];
-    
+    GNUsers *userFriends = self.model;
     [userFriends performBlockWithoutNotifications:^ {
-        for (id friend in friends) {
-            GNUser *user = [GNUser new];
+        for (NSDictionary *friend in friends) {
+            user.userID = friend[kGNIDKey];
             user.firstName = friend[kGNFirstNameKey];
             user.lastName = friend[kGNLastNameKey];
             
@@ -74,8 +86,12 @@
             
             [userFriends addObject:user];
         }
-        
     }];
+}
+
+// need realize
+- (BOOL)shouldLoadState:(NSUInteger)state {
+    return state;
 }
 
 @end
