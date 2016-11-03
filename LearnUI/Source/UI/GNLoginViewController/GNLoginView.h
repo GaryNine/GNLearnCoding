@@ -11,6 +11,6 @@
 #import "GNView.h"
 
 @interface GNLoginView : GNView
-@property (nonatomic, strong)   IBOutlet    UIButton    *loginToFacebook;
+@property (nonatomic, strong)   IBOutlet UIButton   *loginToFacebook;
 
 @end

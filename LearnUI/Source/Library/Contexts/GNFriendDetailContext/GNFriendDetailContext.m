@@ -20,7 +20,7 @@
     return user.userID;
 }
 
-- (NSDictionary *)parameteres {
+- (NSDictionary *)parameters {
     NSString *fields = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@{%@}",
                         kGNFirstNameKey,
                         kGNLastNameKey,

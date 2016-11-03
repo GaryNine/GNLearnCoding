@@ -13,7 +13,7 @@
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
 
 - (NSString *)graphPath;
-- (NSDictionary *)parameteres;
+- (NSDictionary *)parameters;
 
 - (void)fillModelWithResult:(NSDictionary *)result;
 

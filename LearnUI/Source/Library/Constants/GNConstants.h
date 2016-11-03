@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define GNConstant(name, string) static NSString * const name = string;
+#import "GNConstantStringMacro.h"
 
 #pragma mark -
 #pragma mark Permissions
@@ -21,6 +21,7 @@ GNConstant(kGNPublicProfilePermission, @"public_profile")
 #pragma mark -
 #pragma mark Keys
 
+GNConstant(kGNIDKey, @"id")
 GNConstant(kGNUrlKey, @"url")
 GNConstant(kGNDataKey, @"data")
 GNConstant(kGNPictureKey, @"picture")
@@ -31,3 +32,4 @@ GNConstant(kGNFieldsKey, @"fields")
 GNConstant(kGNGenderKey, @"gender")
 GNConstant(kGNEmailKey, @"email")
 GNConstant(kGNBirthdayKey, @"birthday")
+

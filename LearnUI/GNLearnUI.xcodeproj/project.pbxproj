@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A80AC8911DB6309A00EF2F37 /* GNUserFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A80AC8901DB6309A00EF2F37 /* GNUserFriendsContext.m */; };
 		A80AC8951DB6315B00EF2F37 /* GNFacebookLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A80AC8941DB6315B00EF2F37 /* GNFacebookLoginContext.m */; };
+		A80AC8991DB6328E00EF2F37 /* GNFacebookContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A80AC8981DB6328E00EF2F37 /* GNFacebookContext.m */; };
+		A80AC89D1DB6445B00EF2F37 /* NSCoder+GNExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A80AC89C1DB6445B00EF2F37 /* NSCoder+GNExtensions.m */; };
 		A80CBACE1C6773AA003CE7D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBACC1C6773AA003CE7D7 /* main.m */; };
 		A80CBADD1C6773BD003CE7D7 /* GNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBADA1C6773BD003CE7D7 /* GNAppDelegate.m */; };
 		A80CBADE1C6773BD003CE7D7 /* GNSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80CBADC1C6773BD003CE7D7 /* GNSquareViewController.m */; };
@@ -81,6 +83,11 @@
 		A80AC8901DB6309A00EF2F37 /* GNUserFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNUserFriendsContext.m; sourceTree = "<group>"; };
 		A80AC8931DB6315B00EF2F37 /* GNFacebookLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFacebookLoginContext.h; sourceTree = "<group>"; };
 		A80AC8941DB6315B00EF2F37 /* GNFacebookLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFacebookLoginContext.m; sourceTree = "<group>"; };
+		A80AC8971DB6328E00EF2F37 /* GNFacebookContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFacebookContext.h; sourceTree = "<group>"; };
+		A80AC8981DB6328E00EF2F37 /* GNFacebookContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFacebookContext.m; sourceTree = "<group>"; };
+		A80AC89B1DB6445B00EF2F37 /* NSCoder+GNExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCoder+GNExtensions.h"; sourceTree = "<group>"; };
+		A80AC89C1DB6445B00EF2F37 /* NSCoder+GNExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCoder+GNExtensions.m"; sourceTree = "<group>"; };
+		A80AC89F1DB666CF00EF2F37 /* GNConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNConstants.h; sourceTree = "<group>"; };
 		A80CBAB01C67735C003CE7D7 /* GNLearnUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNLearnUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80CBACB1C6773AA003CE7D7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A80CBACC1C6773AA003CE7D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +157,7 @@
 		A89259641C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GNDoubleIndexCollectionChangeModel+UITableView.m"; sourceTree = "<group>"; };
 		A89259651C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNDoubleIndexCollectionChangeModel.h; sourceTree = "<group>"; };
 		A89259661C91808B00F8CF90 /* GNDoubleIndexCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNDoubleIndexCollectionChangeModel.m; sourceTree = "<group>"; };
+		A8A8750D1DBEBD470083513F /* GNConstantStringMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNConstantStringMacro.h; sourceTree = "<group>"; };
 		A8AB85A51D7DFE5900787F64 /* GNPrintMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GNPrintMethodMacro.h; sourceTree = "<group>"; };
 		A8AB85A61D8196D400787F64 /* GNModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GNModelObserver.h; path = ../../../UI/GNUsersViewController/GNModelObserver.h; sourceTree = "<group>"; };
 		A8AB85A91D86E3D700787F64 /* GNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNView.h; sourceTree = "<group>"; };
@@ -252,6 +260,32 @@
 			path = GNFacebookLoginContext;
 			sourceTree = "<group>";
 		};
+		A80AC8961DB6323800EF2F37 /* GNFacebookContext */ = {
+			isa = PBXGroup;
+			children = (
+				A80AC8971DB6328E00EF2F37 /* GNFacebookContext.h */,
+				A80AC8981DB6328E00EF2F37 /* GNFacebookContext.m */,
+			);
+			path = GNFacebookContext;
+			sourceTree = "<group>";
+		};
+		A80AC89A1DB6442400EF2F37 /* NSCoder */ = {
+			isa = PBXGroup;
+			children = (
+				A80AC89B1DB6445B00EF2F37 /* NSCoder+GNExtensions.h */,
+				A80AC89C1DB6445B00EF2F37 /* NSCoder+GNExtensions.m */,
+			);
+			path = NSCoder;
+			sourceTree = "<group>";
+		};
+		A80AC89E1DB6669500EF2F37 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A80AC89F1DB666CF00EF2F37 /* GNConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A80CBAA71C67735C003CE7D7 = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +356,7 @@
 		A80CBAEA1C67B67E003CE7D7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A80AC89A1DB6442400EF2F37 /* NSCoder */,
 				A81048211D92BD3D00CBF182 /* NSURL */,
 				A8C36CBD1D6F0AF9007975EB /* NSPathUtilities */,
 				A8C36CB71D6EE3B2007975EB /* NSFileManager */,
@@ -357,6 +392,7 @@
 				A85DB3A21C76762000AE0743 /* GNStatementMacro.h */,
 				A88763901D7AEA5E007B0870 /* GNDispatchOnce.h */,
 				A8AB85A51D7DFE5900787F64 /* GNPrintMethodMacro.h */,
+				A8A8750D1DBEBD470083513F /* GNConstantStringMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -412,6 +448,7 @@
 		A84CAD551C6AA11400E8BC92 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A80AC89E1DB6669500EF2F37 /* Constants */,
 				A8F95FF71DA28489000AE8A3 /* Contexts */,
 				A8FB84841C74BFB500116424 /* Classes */,
 				A80CBAEA1C67B67E003CE7D7 /* Categories */,
@@ -657,10 +694,11 @@
 		A8F95FF71DA28489000AE8A3 /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				A8F95FF81DA28501000AE8A3 /* GNContext */,
+				A80AC8961DB6323800EF2F37 /* GNFacebookContext */,
 				A80AC8921DB6315B00EF2F37 /* GNFacebookLoginContext */,
 				A80AC88E1DB6309A00EF2F37 /* GNUserFriendsContext */,
 				A885BAB41DA9431400052675 /* GNFriendDetailContext */,
-				A8F95FF81DA28501000AE8A3 /* GNContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -786,13 +824,13 @@
 			isa = PBXGroup;
 			children = (
 				A8F960321DA3CCDB000AE8A3 /* GNDispatch */,
-				A84391E21D8DE32500F7F00D /* GNImageView */,
 				A8FE5CD51D9529D200B504DB /* GNCacheModel */,
-				A839900B1D8ABEFA006D9672 /* GNImageModel */,
-				A8AB85EF1D8836DD00787F64 /* GNModel */,
-				A8AB85A81D86E33E00787F64 /* GNView */,
 				A88763911D7B0C98007B0870 /* GNLoadingView */,
+				A8AB85A81D86E33E00787F64 /* GNView */,
+				A84391E21D8DE32500F7F00D /* GNImageView */,
 				A85DB3AE1C7BC71F00AE0743 /* GNObservableObject */,
+				A8AB85EF1D8836DD00787F64 /* GNModel */,
+				A839900B1D8ABEFA006D9672 /* GNImageModel */,
 				A85DB3941C760A4400AE0743 /* GNTableViewCell */,
 			);
 			path = Classes;
@@ -988,6 +1026,7 @@
 				A85DB3931C7603BA00AE0743 /* GNUsers.m in Sources */,
 				A8FB84831C74A0B500116424 /* GNUsersView.m in Sources */,
 				A85DB3AA1C7A2F5D00AE0743 /* UITableView+GNExtensions.m in Sources */,
+				A80AC8991DB6328E00EF2F37 /* GNFacebookContext.m in Sources */,
 				A84391E51D8DE36100F7F00D /* GNImageView.m in Sources */,
 				A85DB3971C760B7F00AE0743 /* GNTableViewCell.m in Sources */,
 				A8F960121DA294B1000AE8A3 /* GNFriendsViewController.m in Sources */,
@@ -1007,6 +1046,7 @@
 				A80CBB051C67D2D4003CE7D7 /* GNSquareView.m in Sources */,
 				A8FB84451C73625600116424 /* GNUser.m in Sources */,
 				A8F960151DA294E5000AE8A3 /* GNFriendsView.m in Sources */,
+				A80AC89D1DB6445B00EF2F37 /* NSCoder+GNExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
