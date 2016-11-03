@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GNViewController : UIViewController
+@property (nonatomic, strong)   id  model;
+@property (nonatomic, strong)   id  context;
 
 @end

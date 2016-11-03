@@ -24,7 +24,9 @@
 GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friendsView)
 
 @interface GNFriendsViewController ()
-@property (nonatomic, strong)   GNUserFriendsContext    *friendsContext;
+@property (nonatomic, strong)   GNUserFriendsContext    *friendsContext; 
+
+- (GNUsers *)users;
 
 @end
 
@@ -36,17 +38,6 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 - (void)dealloc {
     self.model = nil;
     self.friendsContext = nil;
-}
-
-#pragma mark -
-#pragma mark Accessros
-
-- (void)setUsers:(GNUsers *)users {
-    if (_users != users) {
-        [_users removeObserver:self];
-        _users = users;
-        [_users addObserver:self];
-    }
 }
 
 - (void)setModel:(GNModel *)model {
@@ -64,6 +55,16 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
         [_friendsContext cancel];
         _friendsContext = friendsContext;
         [_friendsContext execute];
+    }
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (GNUsers *)users {
+    @synchronized (self.model) {
+        GNUser *user = self.model;
+        return user.friends;
     }
 }
 
@@ -100,7 +101,6 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GNUser *friend = self.users[indexPath.row];
-    
     GNFriendDetailViewController *controller = [GNFriendDetailViewController new];
     controller.model = friend;
     [self.navigationController pushViewController:controller animated:YES];
@@ -115,7 +115,7 @@ GNViewControllerBaseViewProperty(GNFriendsViewController, GNFriendsView, friends
 }
 
 #pragma mark -
-#pragma mark GNModelObserverProtocol
+#pragma mark GNModelObserver
 
 - (void)modelWillLoad:(id)model {
     GNDispatchAsyncOnMainQueue(^ {

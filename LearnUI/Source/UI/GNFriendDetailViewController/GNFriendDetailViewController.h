@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GNFriendDetailViewController : UIViewController
-@property (nonatomic, strong)   id  model;
+#import "GNModelObserver.h"
+
+@interface GNFriendDetailViewController : UIViewController <GNModelObserver>
+@property (nonatomic, strong)   id  model; // current tableView GNUser
 
 @end

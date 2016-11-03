@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "GNArrayModelObserver.h"
-
-@class GNUsers;
+#import "GNModelObserver.h"
 
 @interface GNFriendsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,
-                                                        GNArrayModelObserver>
-@property (nonatomic, strong)   id      model;
-@property (nonatomic, strong)   GNUsers *users;
+                                                        GNModelObserver, GNArrayModelObserver>
+@property (nonatomic, strong)   id  model; // GNUser
 
 @end

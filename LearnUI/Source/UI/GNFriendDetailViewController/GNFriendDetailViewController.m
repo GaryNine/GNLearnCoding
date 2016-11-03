@@ -11,6 +11,7 @@
 #import "GNFriendDetailView.h"
 #import "GNFriendDetailContext.h"
 #import "GNModel.h"
+#import "GNDispatch.h"
 
 #import "GNViewControllerMacro.h"
 
@@ -57,12 +58,35 @@ GNViewControllerBaseViewProperty(GNFriendDetailViewController, GNFriendDetailVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.context = [GNFriendDetailContext contextWithModel:self.model];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+
+#pragma mark -
+#pragma mark GNModelObserver
+
+- (void)modelWillLoad:(id)model {
+    GNDispatchAsyncOnMainQueue(^ {
+        [self.friendDetailView setLoadingViewVisible:YES animated:YES];
+    });
+}
+
+- (void)modelDidLoad:(id)model {
+    GNDispatchAsyncOnMainQueue(^{
+        [self.friendDetailView setLoadingViewVisible:NO animated:NO];
+         self.friendDetailView.user = model;
+    });
+}
+
+- (void)modelDidFailWithLoading:(id)model {
+    GNDispatchAsyncOnMainQueue(^ {
+        [self.friendDetailView setLoadingViewVisible:NO animated:NO];
+    });
 }
 
 @end
